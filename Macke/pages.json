@@ -60,27 +60,23 @@
 "tabBar": {
 	"list": [{
 			"pagePath": "pages/index/index",
-			"text": "首页",
-			"iconPath": "static/icon/home.png",
-			"selectedIconPath": "static/icon/home-active.png"
+			"text": "首页"
+
 		},
 		{
 			"pagePath": "pages/lanmin/index",
-			"text": "分类",
-			"iconPath": "static/icon/news.png",
-			"selectedIconPath": "static/icon/news-active.png"
+			"text": "分类"
+
 		},
 		{
-			"pagePath": "pages/zhaojing/index",
-			"text": "购物车",
-			"iconPath": "static/icon/cart.png",
-			"selectedIconPath": "static/icon/cart-active.png"
+			"pagePath": "pages/guowen/index",
+			"text": "购物车"
+
 		},
 		{
 			"pagePath": "pages/liuchenchen/index",
-			"text": "我的",
-			"iconPath": "static/icon/member.png",
-			"selectedIconPath": "static/icon/member-active.png"
+			"text": "我的"
+
 		}
 	]
 }

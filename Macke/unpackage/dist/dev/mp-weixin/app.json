@@ -1,18 +1,42 @@
 {
-    "pages": [
-        "pages/index/index"
-    ],
-    "window": {
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8"
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "获取位置"
-        }
-    },
-    "usingComponents": {},
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/chenrenjun/index",
+    "pages/guowen/index",
+    "pages/lanmin/index",
+    "pages/liuchenchen/index",
+    "pages/zhaojing/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "Mcake",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/lanmin/index",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/guowen/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/liuchenchen/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置"
+    }
+  },
+  "usingComponents": {}
 }

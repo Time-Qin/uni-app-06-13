@@ -21,7 +21,7 @@
 		methods: {
 			async GetData() {
 				let result = await GetRequest('/api/goods/load?cityId=110&bid=11&tid=0&fid=0&page=1&count=10'); //好好吃面包数据
-				console.log(result);
+				console.log(result,'111111111');
 			}
 		}
 	}

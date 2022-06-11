@@ -2,8 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
+require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
+  "./pages/chenrenjun/index.js";
+  "./pages/guowen/index.js";
+  "./pages/lanmin/index.js";
+  "./pages/liuchenchen/index.js";
+  "./pages/zhaojing/index.js";
 }
 const _sfc_main = {
   onLaunch: function() {
