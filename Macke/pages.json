@@ -60,23 +60,27 @@
 "tabBar": {
 	"list": [{
 			"pagePath": "pages/index/index",
-			"text": "首页"
-
+			"text": "首页",
+			"iconPath": "./static/icons/a2.png",
+			"selectedIconPath": "./static/icons/a1.png"
 		},
 		{
 			"pagePath": "pages/lanmin/index",
-			"text": "分类"
-
+			"text": "分类",
+			"iconPath": "./static/icons/b2.png",
+			"selectedIconPath": "./static/icons/b1.png"
 		},
 		{
 			"pagePath": "pages/guowen/index",
-			"text": "购物车"
-
+			"text": "购物车",
+			"iconPath": "./static/icons/j2.png",
+			"selectedIconPath": "./static/icons/j1.png"
 		},
 		{
 			"pagePath": "pages/liuchenchen/index",
-			"text": "我的"
-
+			"text": "我的",
+			"iconPath": "./static/icons/d2.png",
+			"selectedIconPath": "./static/icons/d1.png"
 		}
 	]
 }
