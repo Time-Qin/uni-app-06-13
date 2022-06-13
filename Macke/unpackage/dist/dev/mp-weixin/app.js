@@ -9,7 +9,8 @@ if (!Math) {
   "./pages/guowen/index.js";
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
-  "./pages/zhaojing/index.js";
+  "./pages/zhaojing/bread.js";
+  "./pages/zhaojing/shopCar.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -23,7 +24,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2022_03file/hx/Project/Macke/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/zhaojing/workspace/zj_homework/uni-app-06-13/Macke/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   return {
