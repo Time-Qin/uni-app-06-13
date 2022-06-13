@@ -5,10 +5,14 @@
     "pages/guowen/index",
     "pages/lanmin/index",
     "pages/liuchenchen/index",
-    "pages/zhaojing/index"
+    "pages/zhaojing/bread",
+    "pages/zhaojing/shopCar"
   ],
+  "usingComponents": {
+    "van-card": "/wxcomponents/vant/dist/card/index"
+  },
   "window": {
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Mcake",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
@@ -45,6 +49,5 @@
     "scope.userLocation": {
       "desc": "获取位置"
     }
-  },
-  "usingComponents": {}
+  }
 }

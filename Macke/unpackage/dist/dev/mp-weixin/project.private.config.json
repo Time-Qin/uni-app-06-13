@@ -8,13 +8,6 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/zhaojing/shopCar",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
                 }
             ]
         }
