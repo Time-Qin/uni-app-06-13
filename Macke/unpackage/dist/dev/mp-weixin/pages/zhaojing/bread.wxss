@@ -1,0 +1,20 @@
+.container.data-v-083f1a76 {
+  background-color: #cccccc;
+}
+.container .item.data-v-083f1a76 {
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+.container .item .list.data-v-083f1a76 {
+  display: flex;
+  justify-content: space-between;
+}
+.container .item .price.data-v-083f1a76 {
+  font-size: 18px;
+}
+.container .item .iconfont.data-v-083f1a76 {
+  font-size: 20px;
+  width: 15px;
+  height: 15px;
+  background-color: #cccccc;
+}
