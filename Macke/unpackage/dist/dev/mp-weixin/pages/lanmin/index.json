@@ -1,6 +1,9 @@
 {
-  "navigationBarTitleText": "lanmin",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
-  "usingComponents": {}
+  "navigationBarTitleText": "lanmin",
+  "navigationBarBackgroundColor": "#8fbcff",
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons"
+  }
 }

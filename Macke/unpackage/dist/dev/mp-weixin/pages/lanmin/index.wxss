@@ -1,0 +1,106 @@
+.container.data-v-768f9f56 {
+  background-color: white;
+}
+.container .large-pad.data-v-768f9f56 {
+  height: 82px;
+}
+.container .small-pad.data-v-768f9f56 {
+  height: 50px;
+}
+.container .tabBar.data-v-768f9f56 {
+  position: fixed;
+  width: 100%;
+}
+.container .tabBar .group.data-v-768f9f56 {
+  height: 80rpx;
+  background-color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.container .tabBar .group .item.data-v-768f9f56 {
+  flex: 1;
+  color: #888;
+  border-right: 1px solid #eee;
+}
+.container .tabBar .group .active.data-v-768f9f56 {
+  font-weight: 700;
+  color: cornflowerblue;
+}
+.container .tabBar .group.data-v-768f9f56:last-child {
+  border: none;
+}
+.container .tabBar .list.data-v-768f9f56 {
+  display: flex;
+  white-space: nowrap;
+  height: 64rpx;
+  background-color: white;
+  padding-bottom: 10px;
+}
+.container .tabBar .list .content.data-v-768f9f56 {
+  height: 40rpx;
+  margin: 10px 5px;
+  padding: 2rpx 10rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: lightcyan;
+}
+.container .tabBar .list .active.data-v-768f9f56 {
+  background-color: lightblue;
+}
+.container .goods.data-v-768f9f56 {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px 10px;
+}
+.container .goods .good.data-v-768f9f56 {
+  width: 50%;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+.container .goods .good image.data-v-768f9f56 {
+  width: 100%;
+}
+.container .goods .good .content.data-v-768f9f56 {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.container .goods .good .content .name.data-v-768f9f56 {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.container .goods .good .content .french.data-v-768f9f56 {
+  color: #999;
+  font-size: 12px;
+}
+.container .goods .good .content .buy.data-v-768f9f56 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.container .goods .good .content .buy .price.data-v-768f9f56 {
+  font-size: 12px;
+}
+.container .goods .good .content .buy uni-icons.data-v-768f9f56 {
+  text-align: right;
+  background-color: lightcyan;
+  border-radius: 2px;
+}
+.container .goods .good .content .buy uni-icons.data-v-768f9f56 .uni-icons {
+  color: #888 !important;
+  font-size: 24px !important;
+}
+.container .bottom.data-v-768f9f56 {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
