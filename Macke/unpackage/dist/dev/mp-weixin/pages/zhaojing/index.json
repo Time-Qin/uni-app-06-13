@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "zhaojing",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20,
+  "usingComponents": {}
+}

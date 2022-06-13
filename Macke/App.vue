@@ -14,8 +14,6 @@
 </script>
 
 <style lang="scss">
-	@import "/wxcomponents/vant/dist/common/index.wxss";
-
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* #ifndef APP-NVUE */
