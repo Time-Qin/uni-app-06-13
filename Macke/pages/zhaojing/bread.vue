@@ -23,7 +23,6 @@
 		data() {
 			return {
 				goodlist: [],
-				goodInfo: [],
 				page: 1,
 				canLoad: true,
 			}
@@ -51,12 +50,15 @@
 		},
 		//上拉加载
 		onReachBottom() {
-			if (this.canLoad) this.getGoodsPage1()
+			if (this.canLoad) {
+				this.getGoodsPage1()
+			}
 		},
+		//下拉刷新
 		onPullDownRefresh() {
 			console.log('refresh');
-			this.page=1;
-			this.canLoad=true;
+			this.page = 1;
+			this.canLoad = true;
 			this.getGoodsPage1()
 		}
 	}

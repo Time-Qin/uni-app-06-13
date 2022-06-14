@@ -45,13 +45,22 @@
 				"navigationBarTitleText": "好好吃面包",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50,
-				"navigationBarBackgroundColor": "#663300"
+				"navigationBarBackgroundColor": "#663300",
+				"usingComponents": {
+					"van-card": "/wxcomponents/vant/dist/card/index"
+				}
 			}
-		}, {
+		},
+		{
 			"path": "pages/zhaojing/shopCar",
 			"style": {
 				"navigationBarTitleText": "购物车",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50,
+				"usingComponents": {
+					"van-empty": "/wxcomponents/vant/dist/empty/index",
+					"van-button": "/wxcomponents/vant/dist/button/index"
+				}
 			}
 
 		}
@@ -63,14 +72,10 @@
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
-		},
-		"usingComponents": {
-			"van-card": "/wxcomponents/vant/dist/card/index"
 		}
 	},
 	"tabBar": {
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "./static/icons/a2.png",
