@@ -23,12 +23,11 @@
 	}, {
 		"path": "pages/lanmin/index",
 		"style": {
-			"enablePullDownRefresh": true,
+			"enablePullDownRefresh": false,
 			"onReachBottomDistance": 20,
 			"navigationBarTitleText": "lanmin",
 			"navigationBarBackgroundColor": "#8fbcff"
 		}
-		
 	}, {
 		"path": "pages/liuchenchen/index",
 		"style": {
@@ -43,7 +42,17 @@
 			"enablePullDownRefresh": true,
 			"onReachBottomDistance": 20
 		}
-	}],
+	}    ,{
+            "path" : "pages/lanmin_detail/lanmin_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		// "navigationBarTitleText": "Mcake",

@@ -10,6 +10,7 @@ if (!Math) {
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
+  "./pages/lanmin_detail/lanmin_detail.js";
 }
 const _sfc_main = {
   onLaunch: function() {

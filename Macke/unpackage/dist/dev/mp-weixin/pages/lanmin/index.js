@@ -1,6 +1,6 @@
 "use strict";
-var common_js_requestHttp = require("../../common/js/requestHttp.js");
 var common_vendor = require("../../common/vendor.js");
+var common_js_requestHttp = require("../../common/js/requestHttp.js");
 const _sfc_main = {
   data() {
     return {
@@ -49,6 +49,11 @@ const _sfc_main = {
         console.log(result, fid);
         result.code === 0 ? this.goods = result.data.data : "";
       }
+    },
+    goDetail(id) {
+      common_vendor.index.navigateTo({
+        url: "/pages/lanmin_detail/lanmin_detail?id=" + id
+      });
     }
   }
 };
@@ -94,12 +99,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.t(item.price),
         e: "768f9f56-0-" + i0,
         f: item.title,
-        g: common_vendor.o(($event) => _ctx.goDetail(item.id), item.title)
+        g: common_vendor.o(($event) => $options.goDetail(item.id), item.title)
       };
     }),
     f: common_vendor.p({
       type: "cart",
-      size: "30"
+      size: "24"
     })
   });
 }

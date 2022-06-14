@@ -72,19 +72,18 @@
   box-sizing: border-box;
 }
 .container .goods .good .content .name.data-v-768f9f56 {
-  font-size: 16px;
   letter-spacing: 2px;
 }
 .container .goods .good .content .french.data-v-768f9f56 {
   color: #999;
-  font-size: 12px;
+  font-size: 8px;
 }
 .container .goods .good .content .buy.data-v-768f9f56 {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 .container .goods .good .content .buy .price.data-v-768f9f56 {
   font-size: 12px;
@@ -96,7 +95,6 @@
 }
 .container .goods .good .content .buy uni-icons.data-v-768f9f56 .uni-icons {
   color: #888 !important;
-  font-size: 24px !important;
 }
 .container .bottom.data-v-768f9f56 {
   text-align: center;

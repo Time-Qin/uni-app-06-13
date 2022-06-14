@@ -5,7 +5,8 @@
     "pages/guowen/index",
     "pages/lanmin/index",
     "pages/liuchenchen/index",
-    "pages/zhaojing/index"
+    "pages/zhaojing/index",
+    "pages/lanmin_detail/lanmin_detail"
   ],
   "window": {
     "navigationBarTextStyle": "white",

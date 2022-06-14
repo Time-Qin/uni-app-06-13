@@ -20,7 +20,7 @@
 					<view class="french">{{item.french}}</view>
 					<view class="buy">
 						<view class="price">¥{{item.price}}</view>
-						<uni-icons type="cart" size="30"></uni-icons>
+						<uni-icons type="cart" size="24"></uni-icons>
 					</view>
 				</view>
 			</view>
@@ -80,6 +80,11 @@
 					console.log(result, fid);
 					result.code === 0 ? this.goods = result.data.data : ''
 				}
+			},
+			goDetail(id){
+				uni.navigateTo({
+					url:'/pages/lanmin_detail/lanmin_detail?id='+id
+				})
 			}
 		}
 	}
@@ -166,13 +171,12 @@
 					box-sizing: border-box;
 
 					.name {
-						font-size: 16px;
 						letter-spacing: 2px;
 					}
 
 					.french {
 						color: #999;
-						font-size: 12px;
+						font-size: 8px;
 					}
 
 					.buy {
@@ -180,7 +184,7 @@
 						align-items: center;
 						width: 100%;
 						justify-content: space-between;
-						margin-top: 10px;
+						margin-top: 6px;
 
 						.price {
 							font-size: 12px;
@@ -193,7 +197,6 @@
 
 							/deep/ .uni-icons {
 								color: #888 !important;
-								font-size: 24px !important;
 							}
 						}
 					}
