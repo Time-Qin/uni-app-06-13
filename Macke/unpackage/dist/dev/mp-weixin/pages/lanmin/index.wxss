@@ -98,7 +98,7 @@
 }
 .container .bottom.data-v-768f9f56 {
   text-align: center;
-  color: #888;
+  color: #999;
   font-size: 12px;
   padding-bottom: 20px;
 }

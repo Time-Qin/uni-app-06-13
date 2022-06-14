@@ -205,7 +205,7 @@
 		}
 		.bottom{
 			text-align: center;
-			color: #888;
+			color: #999;
 			font-size: 12px;
 			padding-bottom: 20px;
 		}

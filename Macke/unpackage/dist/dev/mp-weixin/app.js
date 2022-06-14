@@ -27,6 +27,14 @@ const _sfc_main = {
 var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
+  app.config.globalProperties.$filters = {
+    formatDate: function() {
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      const day = date.getDate() + 1;
+      return date.getFullYear() + "-" + month.toString().padStart(2, "0") + "-" + day.toString().padStart(2, "0");
+    }
+  };
   return {
     app
   };

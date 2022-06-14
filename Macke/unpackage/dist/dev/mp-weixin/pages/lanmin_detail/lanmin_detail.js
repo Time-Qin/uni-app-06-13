@@ -8,7 +8,10 @@ const _sfc_main = {
       banner: [],
       mater: [],
       basic: [],
+      list: [],
+      time: "",
       indicatorDots: true,
+      goTop: false,
       autoplay: true,
       interval: 2e3,
       duration: 500
@@ -21,6 +24,8 @@ const _sfc_main = {
       this.banner = this.goodsDetail.banner;
       this.mater = this.goodsDetail.mater;
       this.basic = this.goodsDetail.basic;
+      this.list = this.goodsDetail.list[0];
+      this.time = this.$filters.formatDate();
     },
     changeIndicatorDots(e) {
       this.indicatorDots = !this.indicatorDots;
@@ -40,14 +45,34 @@ const _sfc_main = {
         current,
         urls
       });
+    },
+    toTop() {
+      common_vendor.index.pageScrollTo({
+        scrollTop: 0,
+        duration: 300
+      });
     }
   },
   onLoad(options) {
     this.getDetail(options.id);
+    console.log(options.id);
+  },
+  onPageScroll(e) {
+    var that = this;
+    common_vendor.index.getSystemInfo({
+      success: function(res) {
+        if (e.scrollTop > res.windowHeight) {
+          that.goTop = true;
+        } else {
+          that.goTop = false;
+        }
+        return res.windowHeight;
+      }
+    });
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return {
+  return common_vendor.e({
     a: common_vendor.f($data.banner, (item, index, i0) => {
       return {
         a: common_vendor.o(($event) => $options.previewImg(item)),
@@ -73,13 +98,49 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         c: item.id
       };
     }),
-    n: common_vendor.f($data.basic, (item, k0, i0) => {
-      return {
+    n: common_vendor.f($data.basic, (item, index, i0) => {
+      return common_vendor.e({
         a: common_vendor.t(item.title),
-        b: common_vendor.t(item.value)
-      };
-    })
-  };
+        b: index === 3
+      }, index === 3 ? {
+        c: common_vendor.f(item.value, (num, k1, i1) => {
+          return {};
+        }),
+        d: index
+      } : {
+        e: common_vendor.t(item.value)
+      }, {
+        f: item.id
+      });
+    }),
+    o: common_vendor.t($data.list.spec),
+    p: common_vendor.t($data.list.weight),
+    q: $data.list.tableware
+  }, $data.list.tableware ? {
+    r: common_vendor.t($data.list.tableware)
+  } : {}, {
+    s: $data.list.candle
+  }, $data.list.candle ? {
+    t: common_vendor.t($data.list.candle)
+  } : {}, {
+    v: $data.list.edible
+  }, $data.list.edible ? {
+    w: common_vendor.t($data.list.edible)
+  } : {}, {
+    x: $data.list.size
+  }, $data.list.size ? {
+    y: common_vendor.t($data.list.size)
+  } : {}, {
+    z: common_vendor.t($data.time),
+    A: $data.goodsDetail.shopDesc
+  }, $data.goodsDetail.shopDesc ? {
+    B: $data.goodsDetail.shopDesc
+  } : {}, {
+    C: $data.goTop
+  }, $data.goTop ? {
+    D: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
+  } : {});
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-33747cf6"], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/pages/lanmin_detail/lanmin_detail.vue"]]);
+_sfc_main.__runtimeHooks = 1;
 wx.createPage(MiniProgramPage);

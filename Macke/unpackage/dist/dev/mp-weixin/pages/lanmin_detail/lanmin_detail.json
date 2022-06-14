@@ -2,5 +2,6 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
+  "onReachBottomDistance": 20,
   "usingComponents": {}
 }
