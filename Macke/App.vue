@@ -49,59 +49,68 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
+	.icon-daocha:before {
+	  content: "\e60b";
+	}
+	
+	.icon-line:before {
+	  content: "\e653";
+	}
+	
 	.icon-gouwuche:before {
-		content: "\e70b";
+	  content: "\e70b";
 	}
-
+	
 	.icon-daifukuan:before {
-		content: "\e601";
+	  content: "\e601";
 	}
-
+	
 	.icon-31daifahuo:before {
-		content: "\e602";
+	  content: "\e602";
 	}
-
+	
 	.icon-31daipingjia:before {
-		content: "\e603";
+	  content: "\e603";
 	}
-
+	
 	.icon-zhiyuandizhi1:before {
-		content: "\e60c";
+	  content: "\e60c";
 	}
-
+	
 	.icon-daishouhuofuben:before {
-		content: "\e6b1";
+	  content: "\e6b1";
 	}
-
+	
 	.icon-qiandao:before {
-		content: "\e60f";
+	  content: "\e60f";
 	}
-
+	
 	.icon-kefu:before {
-		content: "\e60a";
+	  content: "\e60a";
 	}
-
+	
 	.icon-jingxuan:before {
-		content: "\e62b";
+	  content: "\e62b";
 	}
-
+	
 	.icon-shouhou:before {
-		content: "\e63c";
+	  content: "\e63c";
 	}
-
+	
 	.icon-jinianrix:before {
-		content: "\e6be";
+	  content: "\e6be";
 	}
-
+	
 	.icon-31shezhi:before {
-		content: "\e600";
+	  content: "\e600";
 	}
-
+	
 	.icon-shouhuodizhi:before {
-		content: "\e64e";
+	  content: "\e64e";
+	}
+	
+	.icon-sousuoxiao:before {
+	  content: "\e8d6";
 	}
 
-	.icon-sousuoxiao:before {
-		content: "\e8d6";
-	}
 </style>
