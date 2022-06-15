@@ -1,0 +1,182 @@
+.container.data-v-6191eb62 {
+  background-color: white;
+}
+.container .swiper.data-v-6191eb62 {
+  height: 560rpx;
+  background-color: aliceblue;
+  position: relative;
+}
+.container .swiper .swiper-item image.data-v-6191eb62 {
+  width: 100%;
+  position: absolute;
+  top: -50px;
+}
+.container .title.data-v-6191eb62 {
+  position: relative;
+  text-align: center;
+  margin-top: 18px;
+}
+.container .title .left .c-title.data-v-6191eb62 {
+  font-size: 20px;
+}
+.container .title .left .c-french.data-v-6191eb62 {
+  font-size: 12px;
+  color: #888;
+}
+.container .title .right.data-v-6191eb62 {
+  position: absolute;
+  width: 40px;
+  top: 0;
+  right: 0;
+  color: green;
+  font-size: 14px;
+  padding: 0;
+}
+.container .title .priceGroup.data-v-6191eb62 {
+  margin: 30px 0;
+  font-size: 14px;
+  color: #888;
+}
+.container .detailbox.data-v-6191eb62 {
+  background-color: lightblue;
+  margin: 0 20px 10px 20px;
+  border-radius: 5px;
+}
+.container .detailbox .brief.data-v-6191eb62 {
+  padding: 12px 20px;
+  font-size: 13px;
+  text-align: center;
+}
+.container .detailbox .frenchBrief.data-v-6191eb62 {
+  padding: 0 16px 20px 16px;
+  font-size: 10px;
+  text-align: center;
+}
+.container .materBox.data-v-6191eb62 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 20px;
+}
+.container .materBox .mater.data-v-6191eb62 {
+  display: flex;
+  align-items: center;
+  padding: 4px 7px;
+  margin: 0 6px 10px 0;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+.container .materBox .mater .c-img.data-v-6191eb62 {
+  width: 20px;
+  height: 20px;
+}
+.container .materBox .mater .c-img image.data-v-6191eb62 {
+  width: 100%;
+}
+.container .materBox .mater .c-title.data-v-6191eb62 {
+  font-size: 10px;
+  margin-left: 5px;
+}
+.container .basicBox .basic.data-v-6191eb62 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px;
+  margin: 14px;
+}
+.container .basicBox .basic .basic-title.data-v-6191eb62 {
+  flex: 1;
+  text-align: right;
+  margin-right: 20px;
+}
+.container .basicBox .basic .basic-value.data-v-6191eb62 {
+  flex: 1;
+}
+.container .peisong.data-v-6191eb62 {
+  margin: 0 10px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.container .peisong .yixuan.data-v-6191eb62 {
+  display: flex;
+  margin-top: 10px;
+}
+.container .peisong .yixuan .c-title.data-v-6191eb62 {
+  width: 50px;
+  margin-left: 20px;
+}
+.container .peisong .yixuan .c-detail.data-v-6191eb62 {
+  width: 60vw;
+  border-bottom: 1px solid #ddd;
+}
+.container .peisong .yixuan .c-detail .content_wei.data-v-6191eb62 {
+  font-size: 16px;
+}
+.container .peisong .yixuan .c-detail .content_wei .content-title.data-v-6191eb62 {
+  font-size: 13px;
+}
+.container .peisong .yixuan .c-detail .yixuan-title.data-v-6191eb62 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+.container .peisong .yixuan .c-detail .yixuan-title .item.data-v-6191eb62 {
+  width: 50%;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.container .peisong .yixuan .c-detail .yixuan-title .item .item-title.data-v-6191eb62 {
+  font-size: 13px;
+}
+.container .peisong .songzhi.data-v-6191eb62 {
+  display: flex;
+  margin-top: 10px;
+}
+.container .peisong .songzhi .c-title.data-v-6191eb62 {
+  width: 50px;
+  margin-left: 20px;
+}
+.container .peisong .songzhi .addr-text.data-v-6191eb62 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60vw;
+  border-bottom: 1px solid #ddd;
+}
+.container .peisong .songzhi .addr-text .content_wei.data-v-6191eb62 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.container .peisong .fuwu.data-v-6191eb62 {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.container .peisong .fuwu .c-title.data-v-6191eb62 {
+  width: 50px;
+  margin-left: 20px;
+}
+.container .peisong .fuwu .fuwu-text.data-v-6191eb62 {
+  display: flex;
+  justify-content: center;
+}
+.container .peisong .fuwu .fuwu-text text.data-v-6191eb62 {
+  font-size: 16px;
+}
+.container .peisong .fuwu .fuwu-text .content_wei.data-v-6191eb62 {
+  text-align: center;
+}
+.container .peisong .dotsList.data-v-6191eb62 {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 26px;
+}
+.container .peisong .dotsList .dots.data-v-6191eb62 {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background-color: #000;
+  margin-right: 10rpx;
+}

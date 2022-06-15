@@ -1,0 +1,54 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "pathName": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "query": "id=17892",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "pathName": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "query": "id=17892",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "pathName": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "query": "id=17892",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "pathName": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "query": "id=17892",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "pathName": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "query": "id=17892",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "pathName": "pages/chenrenjun/mcakedetails/mcakedetails",
+                    "query": "id=17892",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

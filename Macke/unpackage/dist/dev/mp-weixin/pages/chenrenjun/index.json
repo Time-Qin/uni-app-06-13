@@ -2,5 +2,7 @@
   "navigationBarTitleText": "chenrenjun",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-list-item": "../../uni_modules/uni-list/components/uni-list-item/uni-list-item"
+  }
 }
