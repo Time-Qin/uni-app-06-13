@@ -56,6 +56,10 @@
 	  -moz-osx-font-smoothing: grayscale;
 	}
 	
+	.icon-fenxiang:before {
+	  content: "\e60d";
+	}
+	
 	.icon-bangbangtang:before {
 	  content: "\e656";
 	}

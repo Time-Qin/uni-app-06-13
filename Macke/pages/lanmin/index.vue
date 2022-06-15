@@ -13,14 +13,15 @@
 		</view>
 		<view :class="flag? 'large-pad':'small-pad'"></view>
 		<view class="goods">
-			<view class="good" v-for="item in goods" :key="item.title" @click="goDetail(item.id)">
-				<image :src="item.img" mode="widthFix"></image>
+			<view class="good" v-for="item in goods" :key="item.title" >
+				<image :src="item.img" mode="widthFix" @click="goDetail(item.id)"></image>
 				<view class="content">
 					<view class="name">{{item.name}}</view>
 					<view class="french">{{item.french}}</view>
 					<view class="buy">
 						<view class="price">¥{{item.price}}</view>
-						<uni-icons type="cart" size="24"></uni-icons>
+						<uni-icons type="cart" @click="addItem(item)"
+							size="24"></uni-icons>
 					</view>
 				</view>
 			</view>
@@ -32,6 +33,9 @@
 	import {
 		GetRequest
 	} from "@/common/js/requestHttp.js"
+	import {
+		mapMutations
+	} from "vuex"
 	export default {
 		data() {
 			return {
@@ -47,6 +51,7 @@
 			this.initGoods();
 		},
 		methods: {
+			...mapMutations(['addCarts']),
 			async initGoods() {
 				let result = await GetRequest("/api/goods/category");
 				result.code === 0 ? this.currentGoods = result.data : '';
@@ -81,9 +86,17 @@
 					result.code === 0 ? this.goods = result.data.data : ''
 				}
 			},
-			goDetail(id){
+			goDetail(id) {
 				uni.navigateTo({
-					url:'/pages/lanmin_detail/lanmin_detail?id='+id
+					url: '/pages/lanmin_detail/lanmin_detail?id=' + id
+				})
+			},
+			addItem(item){ 
+				var obj={id:item.id,price:item.price,buynum:1,name:item.name};
+				this.addCarts(obj);
+				uni.showToast({
+					title: `添加购物车成功`,
+					mask: true
 				})
 			}
 		}
@@ -92,12 +105,15 @@
 <style scoped lang="less">
 	.container {
 		background-color: white;
-		.large-pad{
+
+		.large-pad {
 			height: 82px;
 		}
-		.small-pad{
+
+		.small-pad {
 			height: 50px;
 		}
+
 		.tabBar {
 			position: fixed;
 			width: 100%;
@@ -131,6 +147,7 @@
 				height: 64rpx;
 				background-color: white;
 				padding-bottom: 10px;
+
 				.content {
 					height: 40rpx;
 					margin: 10px 5px;
@@ -153,7 +170,7 @@
 			flex-wrap: wrap;
 			box-sizing: border-box;
 			width: 100%;
-			padding:  0 10px 10px;
+			padding: 0 10px 10px;
 
 			.good {
 				width: 50%;
@@ -203,7 +220,8 @@
 				}
 			}
 		}
-		.bottom{
+
+		.bottom {
 			text-align: center;
 			color: #999;
 			font-size: 12px;
