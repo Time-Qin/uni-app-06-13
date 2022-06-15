@@ -5,6 +5,7 @@ var common_vendor = require("./common/vendor.js");
 require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
+  "./pages/index/good_details.js";
   "./pages/chenrenjun/index.js";
   "./pages/guowen/index.js";
   "./pages/lanmin/index.js";

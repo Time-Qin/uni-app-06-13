@@ -1,0 +1,96 @@
+.header_title.data-v-16389484 {
+  position: fixed;
+  z-index: 1;
+}
+.header_title .header_content.data-v-16389484 {
+  margin-top: 20rpx;
+  height: 10vh;
+  width: 100vw;
+}
+.header_title .header_content .content.data-v-16389484 {
+  width: 8vw;
+  height: 8vw;
+  margin: 4vh 36rpx;
+  border-radius: 50%;
+  display: flex;
+  background-color: #999;
+  justify-content: center;
+  align-items: center;
+}
+.header_title .header_content .content .dots.data-v-16389484 {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 10rpx;
+}
+.header_title .header_content .content .dots.data-v-16389484:first-child {
+  margin-left: 8rpx;
+}
+.header_title .header_content .topview.data-v-16389484 {
+  width: 100%;
+  background-color: rgba(85, 85, 85, 0.6);
+  border-radius: 0 0 2vh 2vh;
+  overflow: hidden;
+}
+.header_title .header_content .topview .view_mar.data-v-16389484 {
+  margin: 60rpx 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.header_title .header_content .topview .view_mar .mainpage.data-v-16389484 {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: #fff;
+  padding: 30rpx 0;
+  border-radius: 20rpx;
+  margin: 10rpx 10rpx;
+}
+.header_title .header_content .topview .view_mar .mainpage .iconfont.data-v-16389484 {
+  font-size: 50rpx;
+  font-weight: 300;
+  margin-bottom: 10rpx;
+}
+.header_title .header_content .topview .view_mar .mainpage .name.data-v-16389484 {
+  font-size: 26rpx;
+}
+.shareView.data-v-16389484 {
+  background-color: #fff;
+  padding: 40rpx;
+  text-align: center;
+  border-radius: 20rpx;
+}
+.shareView .title.data-v-16389484 {
+  text-align: center;
+}
+.shareView .shareMain.data-v-16389484 {
+  display: flex;
+  margin: 40rpx 0;
+}
+.shareView .shareMain .sharePeople.data-v-16389484,
+.shareView .shareMain .shareImg.data-v-16389484 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shareView .shareMain .sharePeople .shareP.data-v-16389484,
+.shareView .shareMain .shareImg .shareP.data-v-16389484,
+.shareView .shareMain .sharePeople .shareI.data-v-16389484,
+.shareView .shareMain .shareImg .shareI.data-v-16389484 {
+  height: 10vh;
+  line-height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  font-size: 60rpx;
+  color: #00cc00;
+  background-color: #ddd;
+}
+.shareView .shareMain .sharePeople .icon-tupian3.data-v-16389484,
+.shareView .shareMain .shareImg .icon-tupian3.data-v-16389484 {
+  color: #f60;
+}

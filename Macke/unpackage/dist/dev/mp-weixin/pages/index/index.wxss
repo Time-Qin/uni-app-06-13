@@ -108,59 +108,59 @@
   flex: 1;
   height: 26vh !important;
 }
-.container .recommendedScene.data-v-57280228 {
+.container .recommendedSeason .recommendedScene.data-v-57280228 {
   background-color: #ddd;
 }
-.container .recommendedScene .titleImg image.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .titleImg image.data-v-57280228 {
   width: 100%;
 }
-.container .recommendedScene .card_view.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view.data-v-57280228 {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
 }
-.container .recommendedScene .card_view .item.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item.data-v-57280228 {
   width: 45%;
   margin: 16rpx 18rpx;
   border-radius: 10rpx;
   overflow: hidden;
   box-sizing: border-box;
 }
-.container .recommendedScene .card_view .item .item_view.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_view.data-v-57280228 {
   overflow: hidden;
   margin-bottom: -10rpx;
 }
-.container .recommendedScene .card_view .item .item_view .item_img.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_view .item_img.data-v-57280228 {
   width: 100%;
 }
-.container .recommendedScene .card_view .item .item_title.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_title.data-v-57280228 {
   background-color: #fff;
   padding: 20rpx;
   display: flex;
   flex-direction: column;
   border-radius: 0 0 10rpx 10rpx;
 }
-.container .recommendedScene .card_view .item .item_title .textfrench.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_title .textfrench.data-v-57280228 {
   font-size: 20rpx;
   color: #999;
 }
-.container .recommendedScene .card_view .item .item_title .item_footer.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_title .item_footer.data-v-57280228 {
   display: flex;
   height: 40rpx;
   margin-top: 10rpx;
 }
-.container .recommendedScene .card_view .item .item_title .item_footer .price.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_title .item_footer .price.data-v-57280228 {
   font-size: 26rpx;
   font-weight: 300;
   line-height: 40rpx;
 }
-.container .recommendedScene .card_view .item .item_title .item_footer .gouwuche.data-v-57280228 {
+.container .recommendedSeason .recommendedScene .card_view .item .item_title .item_footer .gouwuche.data-v-57280228 {
   padding: 6rpx;
   border-radius: 6rpx;
   background-color: #f4fbfb;
   margin-left: auto;
 }
-.container .recommendedScene .card_view.data-v-57280228 .uni-card__cover image {
+.container .recommendedSeason .recommendedScene .card_view.data-v-57280228 .uni-card__cover image {
   width: 100% !important;
   margin: 0;
   padding: 0;

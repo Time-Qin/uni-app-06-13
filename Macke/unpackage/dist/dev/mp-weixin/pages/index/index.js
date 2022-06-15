@@ -29,7 +29,6 @@ const _sfc_main = {
       this.imgtextnav = this.datas.list[2].data.content.list;
       this.recommendedseason = this.datas.list[3].data.content;
       this.recommendedscene = this.datas.list.splice(4, 7);
-      console.log(result, this.recommendedscene);
     },
     change(e) {
       this.current = e.detail.current;

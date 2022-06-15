@@ -49,12 +49,72 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	.icon-daocha:before {
-	  content: "\e60b";
+	.icon-fenxiang1:before {
+	  content: "\e6d7";
+	}
+	
+	.icon-tupian3:before {
+	  content: "\e674";
+	}
+	
+	.icon-31wode:before {
+	  content: "\e604";
+	}
+	
+	.icon-fankui:before {
+	  content: "\e738";
+	}
+	
+	.icon-shouye:before {
+	  content: "\e751";
+	}
+	
+	.icon-fenxiang:before {
+	  content: "\eb24";
+	}
+	
+	.icon-canju1:before {
+	  content: "\e6c3";
+	}
+	
+	.icon-canju2:before {
+	  content: "\e60e";
+	}
+	
+	.icon-shijian:before {
+	  content: "\e64d";
+	}
+	
+	.icon-yunshupeisong:before {
+	  content: "\e652";
+	}
+	
+	.icon-duigouzhong:before {
+	  content: "\e8bf";
+	}
+	
+	.icon-shang:before {
+	  content: "\e62e";
+	}
+	
+	.icon-dangao:before {
+	  content: "\e60d";
+	}
+	
+	.icon-bangbangtang:before {
+	  content: "\e656";
+	}
+	
+	.icon-lazhu:before {
+	  content: "\e62a";
 	}
 	
 	.icon-line:before {
 	  content: "\e653";
+	}
+	
+	.icon-daocha:before {
+	  content: "\e60b";
 	}
 	
 	.icon-gouwuche:before {
@@ -112,5 +172,8 @@
 	.icon-sousuoxiao:before {
 	  content: "\e8d6";
 	}
+
+
+
 
 </style>

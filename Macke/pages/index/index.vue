@@ -1,5 +1,6 @@
 <template>
 	<view class="container" style="width: 100%;" >
+		<!-- 自定义导航条 -->
 		<view class="header_title" :style="{background: backgroundCr,opacity:toOpacity,color:clors}">
 			<view class="header_content">
 				<view class="content" :style="{background: backgroundCr1}">
@@ -8,6 +9,7 @@
 				</view>
 			</view>
 		</view>
+		<!-- 轮播图 -->
 		<view class="lunbo">
 			<uni-swiper-dot :info="fullAdvPlay" :current="current" field="content" mode="dot">
 				<swiper class="swiper-box" @change="change" circular autoplay="true">
@@ -19,6 +21,7 @@
 				</swiper>
 			</uni-swiper-dot>
 		</view>
+		<!-- 小表情栏 -->
 		<view class="brandKeys">
 			<view class="brandKeysView" v-for="item in brandkeys" :key="item.title">
 				<image class="iconImg" :src="item.img" mode="widthFix"></image>
@@ -27,6 +30,7 @@
 				</view>
 			</view>
 		</view>
+		<!-- 图文导航 -->
 		<view class="imgTextNav">
 			<view class="imgTextNavView" v-for="item in imgtextnav" :key="item.title">
 				<image class="iconImg" :src="item.img" mode="widthFix"></image>
@@ -35,6 +39,7 @@
 				</view>
 			</view>
 		</view>
+		<!-- 本季推荐 -->
 		<view class="recommendedSeason">
 			<view class="oneview">
 				<text class="iconfont icon-daocha"></text>
@@ -52,6 +57,7 @@
 					</template>
 				</scroll-view>
 			</view>
+			<!-- 本季推荐 -->
 			<view class="recommendedScene">
 				<view class="" v-for="item in recommendedscene" :key="item.data.content.more">
 					<view class="oneview">
@@ -119,7 +125,6 @@
 				this.imgtextnav = this.datas.list[2].data.content.list;
 				this.recommendedseason = this.datas.list[3].data.content;
 				this.recommendedscene = this.datas.list.splice(4, 7);
-				console.log(result, this.recommendedscene);
 			},
 			change(e) {
 				this.current = e.detail.current;
@@ -280,69 +285,68 @@
 					}
 				}
 			}
-		}
-
-		.recommendedScene {
-			background-color: #ddd;
-
-			.titleImg {
-				image {
-					width: 100%;
-				}
-			}
-
-			.card_view {
-				display: flex;
-				flex-wrap: wrap;
-				width: 100vw;
-				.item {
-					width: 45%;
-					box-sizing: border-box;
-					margin: 16rpx 18rpx;
-					border-radius: 10rpx;
-					overflow: hidden;
-					box-sizing: border-box;
-					.item_view{
-						overflow: hidden;
-						margin-bottom: -10rpx;
-						.item_img{
+			.recommendedScene {
+				background-color: #ddd;
+			
+				.titleImg {
+					image {
 						width: 100%;
 					}
-					}
-					.item_title{
-						background-color: #fff;
-						padding: 20rpx;
-						display: flex;
-						flex-direction: column;
-						border-radius: 0 0 10rpx 10rpx;
-						.textfrench {
-						font-size: 20rpx;
-						color: #999;
-					}
-						.item_footer{
+				}
+			
+				.card_view {
+					display: flex;
+					flex-wrap: wrap;
+					width: 100vw;
+					.item {
+						width: 45%;
+						box-sizing: border-box;
+						margin: 16rpx 18rpx;
+						border-radius: 10rpx;
+						overflow: hidden;
+						box-sizing: border-box;
+						.item_view{
+							overflow: hidden;
+							margin-bottom: -10rpx;
+							.item_img{
+							width: 100%;
+						}
+						}
+						.item_title{
+							background-color: #fff;
+							padding: 20rpx;
 							display: flex;
-							height: 40rpx;
-							margin-top: 10rpx;
-							.price{
-								font-size: 26rpx;
-								font-weight: 300;
-								line-height: 40rpx;
-							}
-							.gouwuche{
-								padding: 6rpx;
-								border-radius: 6rpx;
-								background-color: #f4fbfb;
-								margin-left: auto;
+							flex-direction: column;
+							border-radius: 0 0 10rpx 10rpx;
+							.textfrench {
+							font-size: 20rpx;
+							color: #999;
+						}
+							.item_footer{
+								display: flex;
+								height: 40rpx;
+								margin-top: 10rpx;
+								.price{
+									font-size: 26rpx;
+									font-weight: 300;
+									line-height: 40rpx;
+								}
+								.gouwuche{
+									padding: 6rpx;
+									border-radius: 6rpx;
+									background-color: #f4fbfb;
+									margin-left: auto;
+								}
 							}
 						}
 					}
-				}
-
-				/deep/.uni-card__cover {
-					image {
-						width: 100% !important;
-						margin: 0;
-						padding: 0;
+			
+					/deep/.uni-card__cover {
+						image {
+							width: 100% !important;
+							margin: 0;
+							padding: 0;
+						}
 					}
 				}
 			}
