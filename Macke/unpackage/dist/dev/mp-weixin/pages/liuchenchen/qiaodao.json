@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "签到有礼",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#f93",
+  "onReachBottomDistance": 20,
+  "usingComponents": {
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "uni-fav": "../../uni_modules/uni-fav/components/uni-fav/uni-fav"
+  }
+}

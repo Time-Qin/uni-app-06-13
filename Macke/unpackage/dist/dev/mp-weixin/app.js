@@ -10,6 +10,13 @@ if (!Math) {
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
+<<<<<<< HEAD
+=======
+  "./pages/liuchenchen/bread.js";
+  "./pages/liuchenchen/user.js";
+  "./pages/liuchenchen/qiaodao.js";
+  "./pages/liuchenchen/pintuan.js";
+>>>>>>> master
 }
 const _sfc_main = {
   onLaunch: function() {

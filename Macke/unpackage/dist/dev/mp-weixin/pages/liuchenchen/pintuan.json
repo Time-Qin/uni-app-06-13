@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "拼团",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#fff",
+  "onReachBottomDistance": 20,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "uni-fav": "../../uni_modules/uni-fav/components/uni-fav/uni-fav"
+  }
+}

@@ -34,9 +34,32 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.24.5",
+<<<<<<< HEAD
     "appid": "wx62cf55fdf2c141ef",
     "projectname": "Macke",
     "condition": {},
+=======
+    "appid": "wx71598b6837876e1b",
+    "projectname": "Macke",
+    "condition": {
+        "search": {
+            "current": -1,
+            "list": []
+        },
+        "conversation": {
+            "current": -1,
+            "list": []
+        },
+        "game": {
+            "current": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "current": -1,
+            "list": []
+        }
+    },
+>>>>>>> master
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4

@@ -34,9 +34,16 @@
 		{
 			"path": "pages/liuchenchen/index",
 			"style": {
+<<<<<<< HEAD
 				"navigationBarTitleText": "liuchenchen",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 20
+=======
+				"navigationBarTitleText": "饼干小食",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#ffd700"
+>>>>>>> master
 			}
 		},
 		{
@@ -46,6 +53,7 @@
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 20
 			}
+<<<<<<< HEAD
 		}
 	],
 "globalStyle": {
@@ -57,6 +65,60 @@
 		"background": "#efeff4"
 	}
 },
+=======
+		},
+		{
+			"path": "pages/liuchenchen/bread",
+			"style": {
+				"navigationBarTitleText": "好好吃面包",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#A0522D"
+			}
+		},
+		{
+			"path": "pages/liuchenchen/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#0000"
+			}
+		}
+	    ,{
+            "path" : "pages/liuchenchen/qiaodao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "签到有礼",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f93",
+				"onReachBottomDistance": 20
+            }
+            
+        },
+		{
+		    "path" : "pages/liuchenchen/pintuan",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "拼团",
+		        "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff",
+				"onReachBottomDistance": 20,
+				"navigationBarTextStyle": "black"
+		    }
+		    
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "Mcake",
+		"navigationBarBackgroundColor": "#303030",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+>>>>>>> master
 "tabBar": {
 	"list": [{
 			"pagePath": "pages/index/index",
