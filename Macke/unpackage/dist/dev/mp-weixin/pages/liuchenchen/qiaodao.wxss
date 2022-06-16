@@ -1,0 +1,135 @@
+.container {
+  background-color: #f96;
+  padding-bottom: 20px;
+}
+.container .user {
+  width: 355px;
+  height: 60px;
+  margin: 0 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.container .user .user-left {
+  display: flex;
+}
+.container .user .user-left .info {
+  padding-top: 8px;
+}
+.container .user .user-left .tel {
+  color: #fff;
+}
+.container .user .user-left .day {
+  color: #fff;
+  font-size: 12px;
+}
+.container .user .btn {
+  padding-top: 12px;
+  padding-right: 12px;
+}
+.container .getgifts {
+  width: 355px;
+  height: 210px;
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.container .getgifts .gift-title {
+  margin: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.container .getgifts .gift-bd {
+  width: 347px;
+  height: 192px;
+  margin: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.container .getgifts .gift-bd .gift-item {
+  width: 80px;
+  height: 80px;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .getgifts .gift-bd .gift-item .nthday {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+.container .getgifts .gift-bd .gift-item .gift-img {
+  width: 30px;
+  height: 30px;
+  margin: 5px auto;
+}
+.container .getgifts .gift-bd .gift-item .jifen {
+  font-size: 12px;
+  text-align: center;
+  color: #a9a9a9;
+}
+.container .getgifts .gift-bd .gift-item7 {
+  width: 170px;
+  height: 80px;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.container .getgifts .gift-bd .gift-item7 .item7-nthday {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+.container .getgifts .gift-bd .gift-item7 .item7-gift-img {
+  width: 60px;
+  height: 80px;
+  margin: 5px auto;
+  padding-top: 20px;
+}
+.container .getgifts .gift-bd .gift-item7 .item7-jifen {
+  font-size: 12px;
+  text-align: center;
+  color: #a9a9a9;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.container .dotask {
+  width: 355px;
+  height: 250px;
+  margin: 0 10px 20px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .dotask .task-hd {
+  margin: 8px;
+}
+.container .dotask .task-hd .task-txt {
+  font-size: 12px;
+  font-weight: 700;
+}
+.container .dotask .task {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 8px;
+}
+.container .dotask .task .task-left {
+  display: flex;
+}
+.container .dotask .task .task-left .task-info {
+  margin-left: 10px;
+}
+.container .dotask .task .task-left .task-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.container .dotask .task .task-left .task-desc {
+  font-size: 10px;
+  color: #a9a9a9;
+}
+.container .dotask .task .task-btn {
+  margin-right: 10px;
+}

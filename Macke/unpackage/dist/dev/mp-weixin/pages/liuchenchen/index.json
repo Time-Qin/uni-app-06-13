@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "饼干小食",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20,
+  "navigationBarBackgroundColor": "#ffd700",
+  "usingComponents": {}
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "lanmin",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20,
+  "usingComponents": {}
+}

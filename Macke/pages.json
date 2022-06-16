@@ -1,0 +1,129 @@
+{
+	"pages": [{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/chenrenjun/index",
+			"style": {
+				"navigationBarTitleText": "chenrenjun",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/guowen/index",
+			"style": {
+				"navigationBarTitleText": "guowen",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/lanmin/index",
+			"style": {
+				"navigationBarTitleText": "lanmin",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/liuchenchen/index",
+			"style": {
+				"navigationBarTitleText": "饼干小食",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#ffd700"
+			}
+		},
+		{
+			"path": "pages/zhaojing/index",
+			"style": {
+				"navigationBarTitleText": "zhaojing",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/liuchenchen/bread",
+			"style": {
+				"navigationBarTitleText": "好好吃面包",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#A0522D"
+			}
+		},
+		{
+			"path": "pages/liuchenchen/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#0000"
+			}
+		}
+	    ,{
+            "path" : "pages/liuchenchen/qiaodao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "签到有礼",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f93",
+				"onReachBottomDistance": 20
+            }
+            
+        },
+		{
+		    "path" : "pages/liuchenchen/pintuan",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "拼团",
+		        "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff",
+				"onReachBottomDistance": 20,
+				"navigationBarTextStyle": "black"
+		    }
+		    
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "Mcake",
+		"navigationBarBackgroundColor": "#303030",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+"tabBar": {
+	"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页",
+			"iconPath": "./static/icons/a2.png",
+			"selectedIconPath": "./static/icons/a1.png"
+		},
+		{
+			"pagePath": "pages/lanmin/index",
+			"text": "分类",
+			"iconPath": "./static/icons/b2.png",
+			"selectedIconPath": "./static/icons/b1.png"
+		},
+		{
+			"pagePath": "pages/guowen/index",
+			"text": "购物车",
+			"iconPath": "./static/icons/j2.png",
+			"selectedIconPath": "./static/icons/j1.png"
+		},
+		{
+			"pagePath": "pages/liuchenchen/index",
+			"text": "我的",
+			"iconPath": "./static/icons/d2.png",
+			"selectedIconPath": "./static/icons/d1.png"
+		}
+	]
+}
+}

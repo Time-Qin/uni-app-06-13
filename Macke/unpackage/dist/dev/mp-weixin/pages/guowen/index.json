@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "guowen",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20,
+  "usingComponents": {}
+}
