@@ -132,7 +132,7 @@
 
 		.header_content {
 			margin-top: 20rpx;
-			height: 10vh;
+			height: 6vh;
 			width: 100vw;
 
 			.content {

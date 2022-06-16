@@ -1,5 +1,6 @@
 .content.data-v-b72866d4 {
-  background-color: #fff;
+  background-color: rgba(240, 240, 240, 0.2);
+  margin-bottom: 12vh;
 }
 .content .lunbo .swiper-box.data-v-b72866d4 {
   height: 54vh;
@@ -136,7 +137,7 @@
 }
 .content .content_main .changeSel .changeSel_mid .mid_bottom .item.data-v-b72866d4 {
   margin-bottom: 10rpx;
-  width: 50%;
+  padding-right: 20rpx;
   font-size: 26rpx;
   font-weight: 300;
 }
@@ -212,7 +213,59 @@
   display: flex;
   flex-direction: column;
   border-bottom: 2rpx solid #ddd;
+  padding: 14rpx;
+  line-height: 60rpx;
+}
+.content .content_talke .talke_main_text .text_list .text_list_header.data-v-b72866d4 {
+  display: flex;
+}
+.content .content_talke .talke_main_text .text_list .text_list_header.data-v-b72866d4 .uniui-contact {
+  color: #999 !important;
+}
+.content .content_talke .talke_main_text .text_list .text_list_header .lphone.data-v-b72866d4 {
+  font-size: 26rpx;
+}
+.content .content_talke .talke_main_text .text_list .text_list_header .ltime.data-v-b72866d4 {
+  margin-left: auto;
+  color: #999;
+  font-size: 24rpx;
+}
+.content .content_talke .talke_main_text .text_list .text_list_main.data-v-b72866d4 {
+  background-color: rgba(200, 200, 200, 0.2);
+  padding: 10rpx 30rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+.content .content_talke .talke_main_text .text_list .text_list_footer.data-v-b72866d4 {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+.content .title_M.data-v-b72866d4 {
+  color: #999;
+  text-align: center;
+  font-size: 22rpx;
+  margin: 40rpx auto;
+}
+.content .foote_img.data-v-b72866d4 {
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding: -8rpx;
 }
 .content .foote_img .lang_img.data-v-b72866d4 {
   width: 100%;
+}
+.content .bottom_nav.data-v-b72866d4 {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.content .bottom_nav.data-v-b72866d4 .uni-tab__cart-box {
+  padding: 20rpx 0;
+}
+.content .bottom_nav.data-v-b72866d4 .uni-tab__cart-box .uni-tab__cart-button-right {
+  margin-right: 10rpx;
+  border-radius: 100px;
 }

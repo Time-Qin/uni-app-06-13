@@ -1,11 +1,11 @@
 <template>
 	<view class="content">
 		<!-- 导航栏组件 -->
-		<header-title :backgdata="backgdata"></header-title>
+		<header-title ref="heA" :backgdata="backgdata"></header-title>
 		<!-- 轮播图 -->
 		<view class="lunbo">
 			<uni-swiper-dot :info="contentDatas.banner" :current="current" field="content" mode="dot">
-				<swiper class="swiper-box" @change="change" circular autoplay="true">
+				<swiper class="swiper-box" @change="changeLunBo" circular autoplay="true">
 					<swiper-item v-for="item in contentDatas.banner" :key="item">
 						<view class="swiper-item">
 							<image class="lunboimg" :src="item" mode="widthFix"></image>
@@ -20,7 +20,7 @@
 				<text class="cName">{{contentDatas.name}}</text>
 				<text class="engNmae">{{contentDatas.french}}</text>
 			</view>
-			<text class="iconfont icon-fenxiang1 right_icon"></text>
+			<text class="iconfont icon-fenxiang1 right_icon" @click="shareO"></text>
 		</view>
 		<!-- 商品价格 -->
 		<view class="content_price">
@@ -66,12 +66,12 @@
 						({{contentDatas.weight}})</text>
 					<view class="mid_bottom">
 						<text class="iconfont icon-canju1 item">&nbsp; {{contentDatas.tableware}}</text>
-						<text class="iconfont icon-lazhu item">&nbsp; {{contentDatas.candle}}</text>
+						<text v-if="contentDatas.candle" class="iconfont icon-lazhu item">&nbsp; {{contentDatas.candle}}</text>
 						<text class="iconfont icon-canju2 item">&nbsp; {{contentDatas.edible}}</text>
 						<text class="iconfont icon-dangao item"> {{contentDatas.size}}</text>
 					</view>
 				</view>
-				<view class="dotsList dot">
+				<view class="dotsList dot" @click="shopContent">
 					<view class="dots"></view>
 					<view class="dots"></view>
 					<view class="dots"></view>
@@ -100,7 +100,7 @@
 			</view>
 		</view>
 		<!-- 评论 -->
-		<view class="content_talke">
+		<view   class="content_talke">
 			<view class="talke_header">
 				<text class="title">评价 </text>
 				<text class="num">({{talkeDatas.total}})</text>
@@ -115,30 +115,34 @@
 				<view class="text_list" v-for="item in talkeDatas.data" :key="item.cid">
 					<view class="text_list_header">
 						<uni-icons type="contact" size="30"></uni-icons>
-						<text>{{item.uname}}</text>--
-						<text>{{item.ctime}}</text>
+						<text class="lphone">{{item.uname}}</text>
+						<text class="ltime">{{item.ctime}}</text>
 					</view>
 					<view class="text_list_main">
-						<view class="">
 							{{item.content}}
-						</view>
 					</view>
 					<view class="text_list_footer">
-						<text>规格:{{item.spec}}</text>
+						规格:{{item.spec}}
 					</view>
 				</view>
 			</view>
 		</view>
 		<!-- 商品详情 -->
-		<view class="">
+		<view class="title_M">
 			------商品详情------
 		</view>
+		<!-- 底部图片 -->
 		<view class="foote_img">
-			<image class="lang_img" src="https://static.mcake.com/desc/lanmeiqingrunapolun/wap.jpg" mode="widthFix"></image>
+			<image class="lang_img" :src="contentDatas.wapDesc" mode="widthFix"></image>
 		</view>
-		<view class="">
+		<view class="title_M">
 			------已经到最底部了------
 		</view>
+		<!-- 底部悬浮功能栏 -->
+		<view class="bottom_nav">
+	       <uni-goods-nav :fill="true"  :options="options" :buttonGroup="buttonGroup"  @click="onClick" @buttonClick="buttonClick" />
+		</view>
+		<car-view ref="popup4" :contentDatas="contentDatas"></car-view>
 	</view>
 </template>
 
@@ -160,7 +164,25 @@
 				titleDatas:[],
 				sku: 'n0301',
 				current: 0,
-
+				changeIndex:0,
+				 options: [ {
+							icon: 'home',
+							text: '首页',
+						}, {
+							icon: 'cart',
+							text: '购物车',
+						}],
+					    buttonGroup: [{
+					      text: '加入购物车',
+					      backgroundColor: 'rgba(250,250,90,1)',
+					      color: '#333'
+					    },
+					    {
+					      text: '立即购买',
+					      backgroundColor: 'rgba(103,200,245,0.5)',
+					      color: '#333'
+					    }
+					    ]
 			}
 		},
 		computed: {
@@ -174,26 +196,62 @@
 				return obj;
 			}
 		},
-		created() {
-			this.getDatas();
+		// created() {
+		// 	this.getDatas();
+		// },
+		onLoad(options){
+			this.getDatas(options)
 		},
 		methods: {
-			async getDatas() {
-				let result = await GetRequest(`/api/goods/detail?id=&sku=n0301&cityId=110`);
+			async getDatas(id) {
+				let result = await GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku}`);
 				result.msg === "Success" ? this.contentDatas = result.data : '';
 				console.log(result, this.contentDatas);
-				let result2 = await GetRequest(`/api/goods/date?id=&sku=n0301&cityId=110&lng=31.23037&lat=121.4737`);
+				let twoId =this.contentDatas.twoId;
+				console.log(twoId,`/api/goods/detail?${id.sku}`);
+				let result2 = await GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.sku}&cityId=110&lng=31.23037&lat=121.4737`);
 				result2.msg === "Success" ? this.dateDatas = result2.data : '';
-				let result3 = await GetRequest(`/api/comment/load?twoId=10095&type=0&page=1&count=3`);
+				let result3 = await GetRequest(`/api/comment/load?twoId=${twoId}&type=0&page=1&count=3`);
 				result3.msg === "Success" ? this.talkeDatas = result3.data : '';
-				console.log(result3)
-				let result4 = await GetRequest(`/api/comment/total?twoId=10095`);
+				console.log(result3);
+				let result4 = await GetRequest(`/api/comment/total?twoId=${twoId}`);
 				result4.msg === "Success" ? this.titleDatas = result4.data : '';
 				console.log(this.titleDatas)
 			},
-			change(e) {
+			shopContent(){
+				console.log(this.$refs.popup4)
+				this.$refs.popup4.shopContent2();
+			},
+			changeLunBo(e) {
 				this.current = e.detail.current;
 			},
+			shareO(){
+				this.$refs.heA.shareOpen();
+			},
+				  onClick (e) {
+					  if(e.content.text=='首页'){
+						  uni.switchTab({
+						  	url:'./index'
+						  })
+					  }else{
+						   uni.showToast({
+				      title: `点击${e.content.text}`,
+				      icon: 'none'
+				    });
+					  }
+				   
+				  },
+				  buttonClick (e) {
+					if(e.index){
+						uni.showToast({
+						  title: `点击${e.content.text}`,
+						  icon: 'none'
+						});
+					}else{
+						this.shopContent();
+					}
+					
+				  }
 		},
 		onPageScroll(scrollTop) {
 			console.log('111')
@@ -217,7 +275,8 @@
 
 <style lang="less" scoped>
 	.content {
-		background-color: #fff;
+		background-color: rgba(240, 240, 240, 0.2);
+		margin-bottom: 12vh;
 
 		.lunbo {
 			.swiper-box {
@@ -379,7 +438,7 @@
 
 						.item {
 							margin-bottom: 10rpx;
-							width: 50%;
+							padding-right: 20rpx;
 							font-size: 26rpx;
 							font-weight: 300;
 						}
@@ -462,13 +521,65 @@
 					display: flex;
 					flex-direction: column;
 					border-bottom: 2rpx solid #ddd;
+					padding: 14rpx;
+					line-height: 60rpx;
+					.text_list_header{
+						display: flex;
+						/deep/.uniui-contact{
+							color: #999 !important;
+						}
+						.lphone{
+							font-size: 26rpx;
+						}
+						.ltime{
+							margin-left: auto;
+							color: #999;
+							font-size: 24rpx;
+						}
+					}
+					.text_list_main{
+						background-color: rgba(200, 200, 200, 0.2);
+						padding: 10rpx 30rpx;
+						border-radius: 20rpx;
+						font-size: 24rpx;
+					}
+					.text_list_footer{
+						margin-top: 8rpx;
+						font-size: 22rpx;
+						color: #999;
+					}
 				}
 			}
 		}
+		.title_M{
+			color: #999;
+			text-align: center;
+			font-size: 22rpx;
+			margin: 40rpx auto;
+		}
 		.foote_img{
+			margin: 0 20rpx;
+			border-radius: 10rpx;
+			overflow: hidden;
+			padding: -8rpx;
 			.lang_img{
 				width: 100%;
 			}
 		}
+		.bottom_nav{
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			/deep/.uni-tab__cart-box{
+				padding: 20rpx 0;
+				.uni-tab__cart-button-right{
+				margin-right: 10rpx;
+				border-radius: 100px;
+			}
+			}
+			
+		}
+		
 	}
 </style>

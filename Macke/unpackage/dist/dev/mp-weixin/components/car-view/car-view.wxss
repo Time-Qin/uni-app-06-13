@@ -1,0 +1,105 @@
+.payContent.data-v-5e87b078 {
+  background-color: #fff;
+  padding: 40rpx;
+  padding-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+.payContent .one.data-v-5e87b078 {
+  display: flex;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+.payContent .one .one_img.data-v-5e87b078 {
+  margin-right: 20rpx;
+}
+.payContent .one .one_img image.data-v-5e87b078 {
+  width: 30vw;
+}
+.payContent .one .one_title.data-v-5e87b078 {
+  display: flex;
+  flex-direction: column;
+}
+.payContent .one .one_title .nameC.data-v-5e87b078 {
+  font-weight: 600;
+}
+.payContent .one .one_title .nameF.data-v-5e87b078 {
+  font-size: 20rpx;
+  color: #999;
+}
+.payContent .one .one_title .price.data-v-5e87b078 {
+  font-size: 24rpx;
+  margin: 10rpx 0;
+}
+.payContent .one .one_title .price .price2.data-v-5e87b078 {
+  font-size: 32rpx;
+}
+.payContent .one .one_title .sale.data-v-5e87b078 {
+  color: #999;
+  font-size: 26rpx;
+}
+.payContent .two.data-v-5e87b078 {
+  padding: 12rpx 0;
+  display: flex;
+  flex-direction: column;
+}
+.payContent .two .text2.data-v-5e87b078 {
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+.payContent .two .two_content.data-v-5e87b078 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.payContent .two .two_content .two_title.data-v-5e87b078 {
+  padding: 12rpx 40rpx;
+  background-color: lightblue;
+  font-size: 26rpx;
+  font-weight: 300;
+  border-radius: 10rpx;
+  margin: 10rpx;
+}
+.payContent .two .two_content .content_view.data-v-5e87b078 {
+  background-color: #f0f0f0;
+  margin: 10rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10rpx;
+}
+.payContent .two .two_content .content_view .content_text .item.data-v-5e87b078 {
+  padding-right: 20rpx;
+  height: 20rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  margin: 18rpx;
+}
+.payContent .three.data-v-5e87b078 {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2rpx solid #ddd;
+}
+.payContent .three .three_title.data-v-5e87b078 {
+  margin-right: auto;
+  font-weight: 600;
+  margin-bottom: 40rpx;
+}
+.payContent .three.data-v-5e87b078 .uni-numbox__value {
+  background-color: lightblue !important;
+}
+.payContent .four.data-v-5e87b078 {
+  margin-top: 40rpx;
+  display: flex;
+}
+.payContent .four .left_button.data-v-5e87b078,
+.payContent .four .right_button.data-v-5e87b078 {
+  flex: 1;
+  background-color: #fafa5a;
+  padding: 26rpx 80rpx;
+  text-align: center;
+  border-radius: 100rpx;
+  font-size: 28rpx;
+}
+.payContent .four .right2.data-v-5e87b078 {
+  margin-left: 16rpx;
+  background-color: rgba(103, 200, 245, 0.5);
+}

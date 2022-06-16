@@ -1,6 +1,6 @@
 "use strict";
-var common_js_requestHttp = require("../../common/js/requestHttp.js");
 var common_vendor = require("../../common/vendor.js");
+var common_js_requestHttp = require("../../common/js/requestHttp.js");
 const _sfc_main = {
   data() {
     return {
@@ -13,7 +13,27 @@ const _sfc_main = {
       talkeDatas: [],
       titleDatas: [],
       sku: "n0301",
-      current: 0
+      current: 0,
+      changeIndex: 0,
+      options: [{
+        icon: "home",
+        text: "\u9996\u9875"
+      }, {
+        icon: "cart",
+        text: "\u8D2D\u7269\u8F66"
+      }],
+      buttonGroup: [
+        {
+          text: "\u52A0\u5165\u8D2D\u7269\u8F66",
+          backgroundColor: "rgba(250,250,90,1)",
+          color: "#333"
+        },
+        {
+          text: "\u7ACB\u5373\u8D2D\u4E70",
+          backgroundColor: "rgba(103,200,245,0.5)",
+          color: "#333"
+        }
+      ]
     };
   },
   computed: {
@@ -27,25 +47,56 @@ const _sfc_main = {
       return obj;
     }
   },
-  created() {
-    this.getDatas();
+  onLoad(options) {
+    this.getDatas(options);
   },
   methods: {
-    async getDatas() {
-      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?id=&sku=n0301&cityId=110`);
+    async getDatas(id) {
+      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku}`);
       result.msg === "Success" ? this.contentDatas = result.data : "";
       console.log(result, this.contentDatas);
-      let result2 = await common_js_requestHttp.GetRequest(`/api/goods/date?id=&sku=n0301&cityId=110&lng=31.23037&lat=121.4737`);
+      let twoId = this.contentDatas.twoId;
+      console.log(twoId, `/api/goods/detail?${id.sku}`);
+      let result2 = await common_js_requestHttp.GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.sku}&cityId=110&lng=31.23037&lat=121.4737`);
       result2.msg === "Success" ? this.dateDatas = result2.data : "";
-      let result3 = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=10095&type=0&page=1&count=3`);
+      let result3 = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${twoId}&type=0&page=1&count=3`);
       result3.msg === "Success" ? this.talkeDatas = result3.data : "";
       console.log(result3);
-      let result4 = await common_js_requestHttp.GetRequest(`/api/comment/total?twoId=10095`);
+      let result4 = await common_js_requestHttp.GetRequest(`/api/comment/total?twoId=${twoId}`);
       result4.msg === "Success" ? this.titleDatas = result4.data : "";
       console.log(this.titleDatas);
     },
-    change(e) {
+    shopContent() {
+      console.log(this.$refs.popup4);
+      this.$refs.popup4.shopContent2();
+    },
+    changeLunBo(e) {
       this.current = e.detail.current;
+    },
+    shareO() {
+      this.$refs.heA.shareOpen();
+    },
+    onClick(e) {
+      if (e.content.text == "\u9996\u9875") {
+        common_vendor.index.switchTab({
+          url: "./index"
+        });
+      } else {
+        common_vendor.index.showToast({
+          title: `\u70B9\u51FB${e.content.text}`,
+          icon: "none"
+        });
+      }
+    },
+    buttonClick(e) {
+      if (e.index) {
+        common_vendor.index.showToast({
+          title: `\u70B9\u51FB${e.content.text}`,
+          icon: "none"
+        });
+      } else {
+        this.shopContent();
+      }
     }
   },
   onPageScroll(scrollTop) {
@@ -70,47 +121,53 @@ if (!Array) {
   const _easycom_header_title2 = common_vendor.resolveComponent("header-title");
   const _easycom_uni_swiper_dot2 = common_vendor.resolveComponent("uni-swiper-dot");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  (_easycom_header_title2 + _easycom_uni_swiper_dot2 + _easycom_uni_icons2)();
+  const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
+  const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
+  (_easycom_header_title2 + _easycom_uni_swiper_dot2 + _easycom_uni_icons2 + _easycom_uni_goods_nav2 + _easycom_car_view2)();
 }
 const _easycom_header_title = () => "../../components/header-title/header-title.js";
 const _easycom_uni_swiper_dot = () => "../../uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.js";
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
+const _easycom_uni_goods_nav = () => "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
+const _easycom_car_view = () => "../../components/car-view/car-view.js";
 if (!Math) {
-  (_easycom_header_title + _easycom_uni_swiper_dot + _easycom_uni_icons)();
+  (_easycom_header_title + _easycom_uni_swiper_dot + _easycom_uni_icons + _easycom_uni_goods_nav + _easycom_car_view)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return {
-    a: common_vendor.p({
+  return common_vendor.e({
+    a: common_vendor.sr("heA", "b72866d4-0"),
+    b: common_vendor.p({
       backgdata: $options.backgdata
     }),
-    b: common_vendor.f($data.contentDatas.banner, (item, k0, i0) => {
+    c: common_vendor.f($data.contentDatas.banner, (item, k0, i0) => {
       return {
         a: item,
         b: item
       };
     }),
-    c: common_vendor.o((...args) => $options.change && $options.change(...args)),
-    d: common_vendor.p({
+    d: common_vendor.o((...args) => $options.changeLunBo && $options.changeLunBo(...args)),
+    e: common_vendor.p({
       info: $data.contentDatas.banner,
       current: $data.current,
       field: "content",
       mode: "dot"
     }),
-    e: common_vendor.t($data.contentDatas.name),
-    f: common_vendor.t($data.contentDatas.french),
-    g: common_vendor.t($data.contentDatas.price),
-    h: common_vendor.t($data.contentDatas.spec),
-    i: common_vendor.t($data.contentDatas.weight),
-    j: common_vendor.t($data.contentDatas.brief),
-    k: common_vendor.t($data.contentDatas.frenchBrief),
-    l: common_vendor.f($data.contentDatas.mater, (item, k0, i0) => {
+    f: common_vendor.t($data.contentDatas.name),
+    g: common_vendor.t($data.contentDatas.french),
+    h: common_vendor.o((...args) => $options.shareO && $options.shareO(...args)),
+    i: common_vendor.t($data.contentDatas.price),
+    j: common_vendor.t($data.contentDatas.spec),
+    k: common_vendor.t($data.contentDatas.weight),
+    l: common_vendor.t($data.contentDatas.brief),
+    m: common_vendor.t($data.contentDatas.frenchBrief),
+    n: common_vendor.f($data.contentDatas.mater, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.t(item.name),
         c: item.id
       };
     }),
-    m: common_vendor.f($data.contentDatas.basic, (item, k0, i0) => {
+    o: common_vendor.f($data.contentDatas.basic, (item, k0, i0) => {
       return common_vendor.e({
         a: common_vendor.t(item.title),
         b: item.value == "1" || item.value == "2"
@@ -126,27 +183,31 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         e: item.id
       });
     }),
-    n: common_vendor.t($data.contentDatas.spec),
-    o: common_vendor.t($data.contentDatas.weight),
-    p: common_vendor.t($data.contentDatas.tableware),
-    q: common_vendor.t($data.contentDatas.candle),
-    r: common_vendor.t($data.contentDatas.edible),
-    s: common_vendor.t($data.contentDatas.size),
-    t: common_vendor.t($data.dateDatas.date),
-    v: common_vendor.t($data.dateDatas.time),
-    w: common_vendor.t($data.talkeDatas.total),
-    x: common_vendor.p({
+    p: common_vendor.t($data.contentDatas.spec),
+    q: common_vendor.t($data.contentDatas.weight),
+    r: common_vendor.t($data.contentDatas.tableware),
+    s: $data.contentDatas.candle
+  }, $data.contentDatas.candle ? {
+    t: common_vendor.t($data.contentDatas.candle)
+  } : {}, {
+    v: common_vendor.t($data.contentDatas.edible),
+    w: common_vendor.t($data.contentDatas.size),
+    x: common_vendor.o((...args) => $options.shopContent && $options.shopContent(...args)),
+    y: common_vendor.t($data.dateDatas.date),
+    z: common_vendor.t($data.dateDatas.time),
+    A: common_vendor.t($data.talkeDatas.total),
+    B: common_vendor.p({
       type: "right",
       size: "16"
     }),
-    y: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
+    C: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.total),
         c: item.title
       };
     }),
-    z: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
+    D: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
       return {
         a: "b72866d4-3-" + i0,
         b: common_vendor.t(item.uname),
@@ -156,11 +217,23 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         f: item.cid
       };
     }),
-    A: common_vendor.p({
+    E: common_vendor.p({
       type: "contact",
       size: "30"
+    }),
+    F: $data.contentDatas.wapDesc,
+    G: common_vendor.o($options.onClick),
+    H: common_vendor.o($options.buttonClick),
+    I: common_vendor.p({
+      fill: true,
+      options: $data.options,
+      buttonGroup: $data.buttonGroup
+    }),
+    J: common_vendor.sr("popup4", "b72866d4-5"),
+    K: common_vendor.p({
+      contentDatas: $data.contentDatas
     })
-  };
+  });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-b72866d4"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/index/good_details.vue"]]);
 _sfc_main.__runtimeHooks = 1;

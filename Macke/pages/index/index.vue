@@ -15,7 +15,7 @@
 				<swiper class="swiper-box" @change="change" circular autoplay="true">
 					<swiper-item v-for="item in fullAdvPlay" :key="item.img">
 						<view class="swiper-item">
-							<image class="lunboimg" :src="item.img" mode="widthFix"></image>
+							<image class="lunboimg" :src="item.img" mode="widthFix" @click="gourl(item.url)" ></image>
 						</view>
 					</swiper-item>
 				</swiper>
@@ -51,9 +51,9 @@
 				<text class="more">{{recommendedseason.more}}</text>
 			</view>
 			<view class="twoview">
-				<scroll-view class="x_view" scroll-x="true">
+				<scroll-view class="x_view" scroll-x="true" >
 					<template v-for="item in recommendedseason.adv" :key="item.img">
-						<image class="item" :src="item.img" mode="heightFix"></image>
+						<image class="item" :src="item.img" mode="heightFix" @click="gourl(item.url)"></image>
 					</template>
 				</scroll-view>
 			</view>
@@ -70,19 +70,22 @@
 						<text class="more">{{item.data.content.more}}</text>
 					</view>
 					<view class="titleImg">
-						<image :src="item.data.content.adv[0].img" mode="widthFix"></image>
+						<image :src="item.data.content.adv[0].img" mode="widthFix" @click="gourl(item.data.content.adv[0].url)"></image>
 					</view>
 					<view class="card_view">
 						<view class="item" v-for="i in item.data.content.list" :key="i.img">
 							<view class="item_view">
-								<image class="item_img" :src="i.img" mode="widthFix"></image>
+								<image class="item_img" :src="i.img" mode="widthFix" @click="gosku(i.sku)"></image>
 							</view>							
 							<view class="item_title">
 								<text>{{i.name}}</text>
 								<text class="textfrench">{{i.french}}</text>
 								<view class="item_footer">
 									<text class="price">￥{{i.price}}</text>
-									<text class=" gouwuche iconfont icon-gouwuche"></text>
+									<text class=" gouwuche iconfont icon-gouwuche" @click="getDatasCar(i.sku)">
+										
+									</text>
+									<car-view ref="Car" :contentDatas="contentDatas" ></car-view>
 								</view>
 							</view>
 						</view>
@@ -90,6 +93,7 @@
 				</view>
 			</view>
 		</view>
+		
 	</view>
 </template>
 
@@ -111,6 +115,7 @@
 				imgtextnav: [],
 				recommendedseason: [],
 				recommendedscene: [],
+				contentDatas:[],
 			}
 		},
 		created() {
@@ -126,9 +131,29 @@
 				this.recommendedseason = this.datas.list[3].data.content;
 				this.recommendedscene = this.datas.list.splice(4, 7);
 			},
+			async getDatasCar(sku){
+				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
+				result.msg === "Success" ? this.contentDatas = result.data : '';
+				this.$refs.Car[0].shopContent2();
+			},
 			change(e) {
 				this.current = e.detail.current;
 			},
+			gosku(sku){
+				let sku1 = sku
+				uni.navigateTo({
+					url:`./good_details?sku=${sku1}`
+				});
+			},
+			gourl(url){
+				let res = '';
+				res = url.lastIndexOf('?');
+				res=url.slice(res+1);
+				console.log(res,'111111111111');
+				uni.navigateTo({
+					url:`./good_details?${res}`
+				});
+			}
 		},
 		onPageScroll(scrollTop){
 			let toOpacity = scrollTop.scrollTop*0.005;
@@ -146,8 +171,7 @@
 			else{
 				this.toOpacity = toOpacity;
 			}
-		}
-
+		},
 	}
 </script>
 
