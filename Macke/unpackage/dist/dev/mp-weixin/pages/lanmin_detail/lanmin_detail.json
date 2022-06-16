@@ -4,8 +4,9 @@
   "navigationStyle": "custom",
   "onReachBottomDistance": 20,
   "usingComponents": {
-    "uni-popup": "../../uni_modules/uni-popup/components/uni-popup/uni-popup",
-    "uni-number-box": "../../uni_modules/uni-number-box/components/uni-number-box/uni-number-box",
-    "uni-goods-nav": "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav"
+    "comments": "../../components/comments/comments",
+    "uni-goods-nav": "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",
+    "carts": "../../components/carts/carts",
+    "uni-popup": "../../uni_modules/uni-popup/components/uni-popup/uni-popup"
   }
 }

@@ -1,6 +1,6 @@
 <template>
-	<page-meta :page-style="'overflow:'+(show?'hidden':'visible')"></page-meta>
 	<view class="container">
+		<!-- 轮播图 -->
 		<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			:duration="duration">
 			<swiper-item v-for="(item ,index) in banner" :key="index">
@@ -9,42 +9,24 @@
 				</view>
 			</swiper-item>
 		</swiper>
+		<!-- 商品标题 -->
 		<view class="title">
 			<view class="left">
 				<view class="name">{{goodsDetail.name}}</view>
 				<view class="fr">{{goodsDetail.french}}</view>
 			</view>
 			<button @click="open" class="right"><text class="iconfont1">&#xe60d;</text></button>
-			<!-- 普通弹窗 -->
-			<uni-popup ref="popup" background-color="#fff" @change="change" animation="true"
-				@touchmove.stop.prevent="moveHandle">
-				<view class="share">
-					<view class="tit">分享</view>
-					<view class="shareBtn">
-						<button class="shareToWX" open-type="share">
-							<view class="icon">
-								<text class="iconfont1">&#xe60d;</text>
-							</view>
-							<view class="desc">分享给好友</view>
-						</button>
-						<button class="poster">
-							<view class="icon">
-								<image mode="widthFix" src="./static/icons/海报.png"></image>
-							</view>
-							<view class="desc">生成分享海报</view>
-						</button>
-					</view>
-				</view>
-			</uni-popup>
 			<view class="priceGroup">
 				<text class="price">¥{{goodsDetail.price}}/</text>
 				<text class="weight">{{goodsDetail.spec}}({{goodsDetail.weight}})</text>
 			</view>
 		</view>
+		<!-- 商品广告语 -->
 		<view class="ad">
 			<view class="ch">{{goodsDetail.brief}}</view>
 			<view class="fr">{{goodsDetail.frenchBrief}}</view>
 		</view>
+		<!-- 标签注释 -->
 		<view class="materBox">
 			<view class="mater" v-for="item in mater" :key="item.id">
 				<view class="_img">
@@ -55,12 +37,14 @@
 				</view>
 			</view>
 		</view>
+		<!-- 基本信息 -->
 		<view class="basic" v-for="(item,index) in basic" :key="item.id">
 			<view class="title">{{item.title}}</view>
 			<view v-if="index===3" class="value"><text v-for="num in item.value" :key="index"
 					class="iconfont1 icon-bangbangtang"></text></view>
 			<view v-else class="value">{{item.value}}</view>
 		</view>
+		<!-- 商品购买详情 -->
 		<view class="buyDetail">
 			<view class="one">
 				<view class="tit">已选</view>
@@ -68,50 +52,7 @@
 					<view class="icon"><text class="iconfont icon-gouwuche"></text></view>
 					<view class="text">{{list.spec}}({{list.weight}})</view>
 				</view>
-				<view class="btn" @click="toggle('bottom')">...</view>
-				<!-- 普通弹窗 -->
-				<uni-popup ref="popup1" background-color="#fff" @change="change" animation="true"
-					@touchmove.stop.prevent="moveHandle">
-					<view class="showDetail">
-						<view class="title">
-							<image class="left" :src="goodsDetail.img" mode="widthFix"></image>
-							<view class="right">
-								<view class="name">{{goodsDetail.name}}</view>
-								<view class="fr">{{goodsDetail.french}}</view>
-								<view class="price">¥{{goodsDetail.price}}</view>
-								<view class="sale">已售{{goodsDetail.saleTotal}}</view>
-							</view>
-						</view>
-						<view class="guige">规格</view>
-						<text class="weight">{{goodsDetail.spec}}({{goodsDetail.weight}})</text>
-						<view class="iconGroup">
-							<view class="item" v-if="list.tableware">
-								<view class="icon"><text class="iconfont icon-canju1"></text></view>
-								<view class="text">{{list.tableware}}</view>
-							</view>
-							<view class="item" v-if="list.candle">
-								<view class="icon"><text class="iconfont icon-lazhu"></text></view>
-								<view class="text">{{list.candle}}</view>
-							</view>
-							<view class="item" v-if="list.edible">
-								<view class="icon"><text class="iconfont icon-canju2"></text></view>
-								<view class="text">{{list.edible}}</view>
-							</view>
-							<view class="item" v-if="list.size">
-								<view class="icon"><text class="iconfont icon-dangao"></text></view>
-								<view class="text">{{list.size}}</view>
-							</view>
-						</view>
-						<view class="quantity">
-							<view class="num">购买数量</view>
-							<uni-number-box @change="changeValue" class="step" />
-						</view>
-						<view class="buttonGroup">
-							<view class="carts" @click="addMoreCarts">加入购物车</view>
-							<view class="buy">立即购买</view>
-						</view>
-					</view>
-				</uni-popup>
+				<view class="btn" @click="toggle()">...</view>
 			</view>
 			<view class="iconGroup">
 				<view class="item" v-if="list.tableware">
@@ -153,17 +94,56 @@
 				</view>
 			</view>
 		</view>
+		<!-- 评论 -->
+		<view class="comments" v-if="hascomments">
+			<view class="top">
+				<view class="left">
+					<text class="tit">评价</text>
+					<text class="total">{{comments.total}}</text>
+				</view>
+				<view class="right" @click="toAllComment(twoId)">查看全部 ></view>
+			</view>
+			<view class="content">
+				<comments :twoId='twoId' :comments='comments.data' @goType='goType'></comments>
+			</view>
+		</view>
 		<view class="divide">——商品详情——</view>
+		<!-- 长图介绍 -->
 		<view class="largeImg" v-if="goodsDetail.shopDesc">
 			<image :src="goodsDetail.shopDesc" mode="widthFix"></image>
 		</view>
+		<!-- 说明 -->
 		<view class="shuoming">退改说明：上海、苏州、杭州地区距配送时间12小时及以上的订单可修改、取消或退订，如不满足12小时的订单不再支持修改、取消或退订</view>
 		<view class="divide">——已经到最底了——</view>
+		<!-- 回到顶部 -->
 		<view v-if="goTop" class="goTop" @click="toTop">
 			<text class="iconfont icon-shang"></text>
 		</view>
+		<!-- 底部导航 -->
 		<uni-goods-nav :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onOptionsClick"
 			@buttonClick="onbuttonClick" />
+		<!-- 底部弹出购物车 -->
+		<carts :goodsDetail="goodsDetail" :list="list" ref="popup1"></carts>
+		<!-- 底部弹窗  分享-->
+		<uni-popup ref="popup" background-color="#fff" @change="change" @touchmove.stop.prevent="moveHandle">
+			<view class="share">
+				<view class="tit">分享</view>
+				<view class="shareBtn">
+					<button class="shareToWX" open-type="share">
+						<view class="icon">
+							<text class="iconfont1">&#xe60d;</text>
+						</view>
+						<view class="desc">分享给好友</view>
+					</button>
+					<button class="poster">
+						<view class="icon">
+							<image mode="widthFix" src="./static/icons/海报.png"></image>
+						</view>
+						<view class="desc">生成分享海报</view>
+					</button>
+				</view>
+			</view>
+		</uni-popup>
 	</view>
 </template>
 <script>
@@ -182,6 +162,8 @@
 				basic: [],
 				list: [],
 				carts: {},
+				comments: [],
+				hascomments:false,
 				options: [{
 					icon: 'home',
 					text: '首页',
@@ -199,6 +181,7 @@
 					color: '#333'
 				}],
 				time: '',
+				twoId: '',
 				indicatorDots: true,
 				showDetail: false,
 				goTop: false,
@@ -218,6 +201,14 @@
 				this.basic = this.goodsDetail.basic;
 				this.list = this.goodsDetail.list[0];
 				this.time = this.$filters.formatDate()
+			},
+			async getComments(twoId, type) {
+				let result = await GetRequest("/api/comment/load?twoId=" + twoId + '&type=' + type +
+				'&page=1&count=3');
+				result.code === 0 ? this.comments = result.data : '';
+				if(this.comments.data &&this.comments.data.length>0){
+					this.hascomments=true;
+				}
 			},
 			changeIndicatorDots(e) {
 				this.indicatorDots = !this.indicatorDots
@@ -263,52 +254,36 @@
 			},
 			onbuttonClick(e) {
 				if (e.index === 0) {
-					var obj = {
-						id: this.goodsDetail.id,
-						price: this.goodsDetail.price,
-						buynum: 1,
-						name: this.goodsDetail.name
-					}
-					this.addCarts(obj);
-					uni.showToast({
-						title: `添加购物车成功`,
-						mask: true
-					})
+					this.toggle();
 				} else {}
 			},
-			toggle(type) {
-				this.type = type
-				// open 方法传入参数 等同在 uni-popup 组件上绑定 type属性
-				this.$refs.popup1.open(type)
+			toggle() {
+				this.$refs.popup1.change()
 			},
-			change(e) {
-				this.show = e.show;
+			change() {
+				this.$refs.popup.open('bottom');
 			},
 			moveHandle() {
 				return false
-			},
-			changeValue(value) {
-				this.carts = {
-					id: this.goodsDetail.id,
-					price: this.goodsDetail.price,
-					buynum: value,
-					name: this.goodsDetail.name
-				}
-			},
-			addMoreCarts() {
-				this.addCarts(this.carts);
-				uni.showToast({
-					title: `添加购物车成功`,
-					mask: true
-				})
 			},
 			open() {
 				// 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
 				this.$refs.popup.open("bottom")
 			},
+			toAllComment(twoId) {
+				uni.navigateTo({
+					url: '/pages/comments/comments?twoId=' + this.twoId,
+				})
+			},
+			goType(data) {
+				this.comments.data=[];
+				this.getComments(this.twoId, data);
+			}
 		},
 		onLoad(options) {
+			this.twoId = options.twoId;
 			this.getDetail(options.id);
+			this.getComments(options.twoId);
 		},
 		onPageScroll(e) {
 			var that = this;
@@ -623,19 +598,46 @@
 			}
 		}
 
+		.comments {
+			width: 100%;
+			padding: 0 20rpx;
+			box-sizing: border-box;
+
+			.top {
+				display: flex;
+				justify-content: space-between;
+				font-size: 12px;
+				color: #999;
+				padding: 20rpx;
+				border-bottom: 1px solid #eee;
+
+				.left {
+					.tit {
+						font-weight: 700;
+						margin-right: 20rpx;
+						color: #333;
+						font-size: 16px;
+					}
+				}
+			}
+
+			.content {
+				padding: 20rpx;
+			}
+		}
+
 		.divide {
 			text-align: center;
 			color: #999;
 			font-size: 12px;
-			padding-bottom: 20px;
+			padding: 20rpx 0;
 		}
 
 		.shuoming {
 			width: 100%;
-			padding: 10px;
+			padding: 10px 10px 0;
 			box-sizing: border-box;
 			font-size: 12px;
-			padding-bottom: 20px;
 		}
 
 		.largeImg {
@@ -678,158 +680,6 @@
 
 			.uni-tab__text {
 				font-size: 12px;
-			}
-		}
-
-		.showDetail {
-			height: 700rpx;
-			padding: 0 20rpx;
-
-			.title {
-				display: flex;
-				width: 100%;
-				height: 240rpx;
-				border-bottom: 1px solid #eee;
-				box-sizing: border-box;
-				align-items: center;
-
-				.left {
-					width: 200rpx;
-					margin-right: 10px;
-					height: 200rpx;
-				}
-
-				.right {
-					width: 500rpx;
-					height: 200rpx;
-					padding-top: 20rpx;
-
-					.name {
-						font-weight: 700;
-						font-size: 12px;
-						height: 20px;
-						line-height: 20px;
-					}
-
-					.fr {
-						font-size: 10px;
-						color: #888;
-						height: 15px;
-						line-height: 15px;
-					}
-
-					.price {
-						font-size: 14px;
-						height: 25px;
-						line-height: 25px;
-					}
-
-					.sale {
-						font-size: 12px;
-						color: #888;
-						height: 20px;
-						line-height: 20px;
-					}
-				}
-			}
-
-			.guige {
-				font-weight: 700;
-				font-size: 14px;
-				margin: 20rpx 0;
-			}
-
-			.weight {
-				margin: 20rpx 0;
-				width: 240rpx;
-				padding: 10rpx 20rpx;
-				border-radius: 5px;
-				background-color: lightcyan;
-				font-size: 12px;
-			}
-
-			.iconGroup {
-				display: flex;
-				width: 100%;
-				flex-wrap: wrap;
-				margin: 20rpx 0;
-				padding: 20rpx;
-				box-sizing: border-box;
-				border-radius: 10rpx;
-				background-color: #eee;
-
-				.item {
-					width: 30%;
-					display: flex;
-					align-items: center;
-					font-size: 10px;
-					justify-content: flex-start;
-
-					.icon {
-						margin-right: 5px;
-					}
-				}
-			}
-
-			.quantity {
-				width: 100%;
-				display: flex;
-				margin: 20rpx 0;
-				padding: 20rpx;
-				color: #333;
-				box-sizing: border-box;
-				justify-content: space-between;
-				border-bottom: 1px solid #eee;
-
-				.num {
-					font-weight: 700;
-					font-size: 12px;
-					line-height: 26px;
-				}
-
-				.step {
-					/deep/ .uni-numbox {
-						.uni-numbox-btns {
-							background-color: honeydew;
-						}
-
-						.uni-numbox__value {
-							background-color: lightcyan !important;
-							width: 26px;
-							height: 26px;
-							text-align: center;
-							font-size: 12px;
-						}
-					}
-				}
-			}
-
-			.buttonGroup {
-				width: 100%;
-				display: flex;
-				margin: 20rpx 0;
-				color: #333;
-				box-sizing: border-box;
-				font-size: 12px;
-
-				.carts {
-					flex: 1;
-					background-color: #FFFFCC;
-					margin-right: 40rpx;
-					height: 60rpx;
-					line-height: 60rpx;
-					text-align: center;
-					border-radius: 40rpx;
-				}
-
-				.buy {
-					flex: 1;
-					background-color: lightcyan;
-					height: 60rpx;
-					line-height: 60rpx;
-					text-align: center;
-					border-radius: 40rpx;
-				}
 			}
 		}
 	}

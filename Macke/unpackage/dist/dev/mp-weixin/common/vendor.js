@@ -6354,6 +6354,31 @@ Store.prototype._withCommit = function _withCommit(fn) {
   this._committing = committing;
 };
 Object.defineProperties(Store.prototype, prototypeAccessors);
+var mapState = normalizeNamespace(function(namespace, states) {
+  var res = {};
+  if (!isValidMap(states)) {
+    console.error("[vuex] mapState: mapper parameter must be either an Array or an Object");
+  }
+  normalizeMap(states).forEach(function(ref2) {
+    var key = ref2.key;
+    var val = ref2.val;
+    res[key] = function mappedState() {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, "mapState", namespace);
+        if (!module) {
+          return;
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === "function" ? val.call(this, state, getters) : state[val];
+    };
+    res[key].vuex = true;
+  });
+  return res;
+});
 var mapMutations = normalizeNamespace(function(namespace, mutations) {
   var res = {};
   if (!isValidMap(mutations)) {
@@ -6699,6 +6724,7 @@ exports.f = f;
 exports.index = index;
 exports.initVueI18n = initVueI18n;
 exports.mapMutations = mapMutations;
+exports.mapState = mapState;
 exports.n = n;
 exports.o = o;
 exports.p = p;

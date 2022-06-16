@@ -29,6 +29,8 @@ const _sfc_main = {
       basic: [],
       list: [],
       carts: {},
+      comments: [],
+      hascomments: false,
       options: [{
         icon: "home",
         text: "\u9996\u9875"
@@ -46,6 +48,7 @@ const _sfc_main = {
         color: "#333"
       }],
       time: "",
+      twoId: "",
       indicatorDots: true,
       showDetail: false,
       goTop: false,
@@ -64,6 +67,13 @@ const _sfc_main = {
       this.basic = this.goodsDetail.basic;
       this.list = this.goodsDetail.list[0];
       this.time = this.$filters.formatDate();
+    },
+    async getComments(twoId, type) {
+      let result = await common_js_requestHttp.GetRequest("/api/comment/load?twoId=" + twoId + "&type=" + type + "&page=1&count=3");
+      result.code === 0 ? this.comments = result.data : "";
+      if (this.comments.data && this.comments.data.length > 0) {
+        this.hascomments = true;
+      }
     },
     changeIndicatorDots(e) {
       this.indicatorDots = !this.indicatorDots;
@@ -109,50 +119,35 @@ const _sfc_main = {
     },
     onbuttonClick(e) {
       if (e.index === 0) {
-        var obj = {
-          id: this.goodsDetail.id,
-          price: this.goodsDetail.price,
-          buynum: 1,
-          name: this.goodsDetail.name
-        };
-        this.addCarts(obj);
-        common_vendor.index.showToast({
-          title: `\u6DFB\u52A0\u8D2D\u7269\u8F66\u6210\u529F`,
-          mask: true
-        });
+        this.toggle();
       }
     },
-    toggle(type) {
-      this.type = type;
-      this.$refs.popup1.open(type);
+    toggle() {
+      this.$refs.popup1.change();
     },
-    change(e) {
-      this.show = e.show;
+    change() {
+      this.$refs.popup.open("bottom");
     },
     moveHandle() {
       return false;
     },
-    changeValue(value) {
-      this.carts = {
-        id: this.goodsDetail.id,
-        price: this.goodsDetail.price,
-        buynum: value,
-        name: this.goodsDetail.name
-      };
-    },
-    addMoreCarts() {
-      this.addCarts(this.carts);
-      common_vendor.index.showToast({
-        title: `\u6DFB\u52A0\u8D2D\u7269\u8F66\u6210\u529F`,
-        mask: true
-      });
-    },
     open() {
       this.$refs.popup.open("bottom");
+    },
+    toAllComment(twoId) {
+      common_vendor.index.navigateTo({
+        url: "/pages/comments/comments?twoId=" + this.twoId
+      });
+    },
+    goType(data) {
+      this.comments.data = [];
+      this.getComments(this.twoId, data);
     }
   }),
   onLoad(options) {
+    this.twoId = options.twoId;
     this.getDetail(options.id);
+    this.getComments(options.twoId);
   },
   onPageScroll(e) {
     var that = this;
@@ -175,54 +170,48 @@ const _sfc_main = {
   }
 };
 if (!Array) {
-  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
-  const _easycom_uni_number_box2 = common_vendor.resolveComponent("uni-number-box");
+  const _easycom_comments2 = common_vendor.resolveComponent("comments");
   const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
-  (_easycom_uni_popup2 + _easycom_uni_number_box2 + _easycom_uni_goods_nav2)();
+  const _easycom_carts2 = common_vendor.resolveComponent("carts");
+  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
+  (_easycom_comments2 + _easycom_uni_goods_nav2 + _easycom_carts2 + _easycom_uni_popup2)();
 }
-const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
-const _easycom_uni_number_box = () => "../../uni_modules/uni-number-box/components/uni-number-box/uni-number-box.js";
+const _easycom_comments = () => "../../components/comments/comments.js";
 const _easycom_uni_goods_nav = () => "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
+const _easycom_carts = () => "../../components/carts/carts.js";
+const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 if (!Math) {
-  (_easycom_uni_popup + _easycom_uni_number_box + _easycom_uni_goods_nav)();
+  (_easycom_comments + _easycom_uni_goods_nav + _easycom_carts + _easycom_uni_popup)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: "overflow:" + ($data.show ? "hidden" : "visible"),
-    b: common_vendor.f($data.banner, (item, index, i0) => {
+    a: common_vendor.f($data.banner, (item, index, i0) => {
       return {
         a: common_vendor.o(($event) => $options.previewImg(item)),
         b: item,
         c: index
       };
     }),
-    c: $data.indicatorDots,
-    d: $data.autoplay,
-    e: $data.interval,
-    f: $data.duration,
-    g: common_vendor.t($data.goodsDetail.name),
-    h: common_vendor.t($data.goodsDetail.french),
-    i: common_vendor.o((...args) => $options.open && $options.open(...args)),
-    j: common_vendor.sr("popup", "33747cf6-0"),
-    k: common_vendor.o($options.change),
-    l: common_vendor.o($options.moveHandle),
-    m: common_vendor.p({
-      ["background-color"]: "#fff",
-      animation: "true"
-    }),
-    n: common_vendor.t($data.goodsDetail.price),
-    o: common_vendor.t($data.goodsDetail.spec),
-    p: common_vendor.t($data.goodsDetail.weight),
-    q: common_vendor.t($data.goodsDetail.brief),
-    r: common_vendor.t($data.goodsDetail.frenchBrief),
-    s: common_vendor.f($data.mater, (item, k0, i0) => {
+    b: $data.indicatorDots,
+    c: $data.autoplay,
+    d: $data.interval,
+    e: $data.duration,
+    f: common_vendor.t($data.goodsDetail.name),
+    g: common_vendor.t($data.goodsDetail.french),
+    h: common_vendor.o((...args) => $options.open && $options.open(...args)),
+    i: common_vendor.t($data.goodsDetail.price),
+    j: common_vendor.t($data.goodsDetail.spec),
+    k: common_vendor.t($data.goodsDetail.weight),
+    l: common_vendor.t($data.goodsDetail.brief),
+    m: common_vendor.t($data.goodsDetail.frenchBrief),
+    n: common_vendor.f($data.mater, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.t(item.name),
         c: item.id
       };
     }),
-    t: common_vendor.f($data.basic, (item, index, i0) => {
+    o: common_vendor.f($data.basic, (item, index, i0) => {
       return common_vendor.e({
         a: common_vendor.t(item.title),
         b: index === 3
@@ -237,72 +226,61 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         f: item.id
       });
     }),
-    v: common_vendor.t($data.list.spec),
-    w: common_vendor.t($data.list.weight),
-    x: common_vendor.o(($event) => $options.toggle("bottom")),
-    y: $data.goodsDetail.img,
-    z: common_vendor.t($data.goodsDetail.name),
-    A: common_vendor.t($data.goodsDetail.french),
-    B: common_vendor.t($data.goodsDetail.price),
-    C: common_vendor.t($data.goodsDetail.saleTotal),
-    D: common_vendor.t($data.goodsDetail.spec),
-    E: common_vendor.t($data.goodsDetail.weight),
-    F: $data.list.tableware
+    p: common_vendor.t($data.list.spec),
+    q: common_vendor.t($data.list.weight),
+    r: common_vendor.o(($event) => $options.toggle()),
+    s: $data.list.tableware
   }, $data.list.tableware ? {
-    G: common_vendor.t($data.list.tableware)
+    t: common_vendor.t($data.list.tableware)
   } : {}, {
-    H: $data.list.candle
+    v: $data.list.candle
   }, $data.list.candle ? {
-    I: common_vendor.t($data.list.candle)
+    w: common_vendor.t($data.list.candle)
   } : {}, {
-    J: $data.list.edible
+    x: $data.list.edible
   }, $data.list.edible ? {
-    K: common_vendor.t($data.list.edible)
+    y: common_vendor.t($data.list.edible)
   } : {}, {
-    L: $data.list.size
+    z: $data.list.size
   }, $data.list.size ? {
-    M: common_vendor.t($data.list.size)
+    A: common_vendor.t($data.list.size)
   } : {}, {
-    N: common_vendor.o($options.changeValue),
-    O: common_vendor.o((...args) => $options.addMoreCarts && $options.addMoreCarts(...args)),
-    P: common_vendor.sr("popup1", "33747cf6-1"),
-    Q: common_vendor.o($options.change),
-    R: common_vendor.o($options.moveHandle),
-    S: common_vendor.p({
-      ["background-color"]: "#fff",
-      animation: "true"
-    }),
-    T: $data.list.tableware
-  }, $data.list.tableware ? {
-    U: common_vendor.t($data.list.tableware)
+    B: common_vendor.t($data.time),
+    C: $data.hascomments
+  }, $data.hascomments ? {
+    D: common_vendor.t($data.comments.total),
+    E: common_vendor.o(($event) => $options.toAllComment($data.twoId)),
+    F: common_vendor.o($options.goType),
+    G: common_vendor.p({
+      twoId: $data.twoId,
+      comments: $data.comments.data
+    })
   } : {}, {
-    V: $data.list.candle
-  }, $data.list.candle ? {
-    W: common_vendor.t($data.list.candle)
-  } : {}, {
-    X: $data.list.edible
-  }, $data.list.edible ? {
-    Y: common_vendor.t($data.list.edible)
-  } : {}, {
-    Z: $data.list.size
-  }, $data.list.size ? {
-    aa: common_vendor.t($data.list.size)
-  } : {}, {
-    ab: common_vendor.t($data.time),
-    ac: $data.goodsDetail.shopDesc
+    H: $data.goodsDetail.shopDesc
   }, $data.goodsDetail.shopDesc ? {
-    ad: $data.goodsDetail.shopDesc
+    I: $data.goodsDetail.shopDesc
   } : {}, {
-    ae: $data.goTop
+    J: $data.goTop
   }, $data.goTop ? {
-    af: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
+    K: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
   } : {}, {
-    ag: common_vendor.o($options.onOptionsClick),
-    ah: common_vendor.o($options.onbuttonClick),
-    ai: common_vendor.p({
+    L: common_vendor.o($options.onOptionsClick),
+    M: common_vendor.o($options.onbuttonClick),
+    N: common_vendor.p({
       fill: true,
       options: $data.options,
       buttonGroup: $data.buttonGroup
+    }),
+    O: common_vendor.sr("popup1", "33747cf6-2"),
+    P: common_vendor.p({
+      goodsDetail: $data.goodsDetail,
+      list: $data.list
+    }),
+    Q: common_vendor.sr("popup", "33747cf6-3"),
+    R: common_vendor.o($options.change),
+    S: common_vendor.o($options.moveHandle),
+    T: common_vendor.p({
+      ["background-color"]: "#fff"
     })
   });
 }

@@ -1,0 +1,31 @@
+.box {
+  background-color: white;
+}
+.box .materBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+.box .materBox .mater {
+  display: flex;
+  background-color: lightcyan;
+  height: 16px;
+  align-items: center;
+  margin: 0 8px 6px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+.box .materBox .mater.active {
+  background-color: cadetblue;
+  font-weight: 700;
+}
+.box .materBox .mater ._img .image {
+  width: 16px;
+}
+.box .materBox .mater .name {
+  font-size: 10px;
+  margin-left: 5px;
+}

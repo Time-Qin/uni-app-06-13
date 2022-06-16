@@ -2,14 +2,25 @@
   background-color: white;
 }
 .container .large-pad.data-v-768f9f56 {
-  height: 82px;
+  height: 142px;
 }
 .container .small-pad.data-v-768f9f56 {
-  height: 50px;
+  height: 110px;
 }
 .container .tabBar.data-v-768f9f56 {
   position: fixed;
   width: 100%;
+}
+.container .tabBar .search.data-v-768f9f56 {
+  width: 100%;
+  height: 120rpx;
+  background: #eee;
+  padding-top: 30rpx;
+}
+.container .tabBar .search.data-v-768f9f56 .uni-searchbar .uni-searchbar__box {
+  height: 32px !important;
+  flex: 0 0 500rpx !important;
+  border-radius: 20rpx !important;
 }
 .container .tabBar .group.data-v-768f9f56 {
   height: 80rpx;
@@ -49,52 +60,6 @@
 }
 .container .tabBar .list .active.data-v-768f9f56 {
   background-color: lightblue;
-}
-.container .goods.data-v-768f9f56 {
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0 10px 10px;
-}
-.container .goods .good.data-v-768f9f56 {
-  width: 50%;
-  background-color: white;
-  box-sizing: border-box;
-  padding: 10rpx;
-}
-.container .goods .good image.data-v-768f9f56 {
-  width: 100%;
-}
-.container .goods .good .content.data-v-768f9f56 {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-.container .goods .good .content .name.data-v-768f9f56 {
-  letter-spacing: 2px;
-}
-.container .goods .good .content .french.data-v-768f9f56 {
-  color: #999;
-  font-size: 8px;
-}
-.container .goods .good .content .buy.data-v-768f9f56 {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 6px;
-}
-.container .goods .good .content .buy .price.data-v-768f9f56 {
-  font-size: 12px;
-}
-.container .goods .good .content .buy uni-icons.data-v-768f9f56 {
-  text-align: right;
-  background-color: lightcyan;
-  border-radius: 2px;
-}
-.container .goods .good .content .buy uni-icons.data-v-768f9f56 .uni-icons {
-  color: #888 !important;
 }
 .container .bottom.data-v-768f9f56 {
   text-align: center;

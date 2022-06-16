@@ -6,7 +6,9 @@
     "pages/lanmin/index",
     "pages/liuchenchen/index",
     "pages/zhaojing/index",
-    "pages/lanmin_detail/lanmin_detail"
+    "pages/lanmin_detail/lanmin_detail",
+    "pages/comments/comments",
+    "pages/search/search"
   ],
   "window": {
     "navigationBarTextStyle": "white",

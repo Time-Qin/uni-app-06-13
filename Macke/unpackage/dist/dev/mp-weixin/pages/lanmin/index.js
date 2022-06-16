@@ -28,7 +28,8 @@ const _sfc_main = {
       list: [],
       active: 0,
       flag: true,
-      activeKey: 0
+      activeKey: 0,
+      isFocus: false
     };
   },
   created() {
@@ -69,32 +70,32 @@ const _sfc_main = {
         result.code === 0 ? this.goods = result.data.data : "";
       }
     },
-    goDetail(id) {
+    onClick() {
       common_vendor.index.navigateTo({
-        url: "/pages/lanmin_detail/lanmin_detail?id=" + id
-      });
-    },
-    addItem(item) {
-      var obj = { id: item.id, price: item.price, buynum: 1, name: item.name };
-      this.addCarts(obj);
-      common_vendor.index.showToast({
-        title: `\u6DFB\u52A0\u8D2D\u7269\u8F66\u6210\u529F`,
-        mask: true
+        url: "/pages/search/search"
       });
     }
   })
 };
 if (!Array) {
-  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  _easycom_uni_icons2();
+  const _easycom_uni_search_bar2 = common_vendor.resolveComponent("uni-search-bar");
+  const _easycom_goods2 = common_vendor.resolveComponent("goods");
+  (_easycom_uni_search_bar2 + _easycom_goods2)();
 }
-const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
+const _easycom_uni_search_bar = () => "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.js";
+const _easycom_goods = () => "../../components/goods/goods.js";
 if (!Math) {
-  _easycom_uni_icons();
+  (_easycom_uni_search_bar + _easycom_goods)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: common_vendor.f($data.currentGoods, (item, index, i0) => {
+    a: common_vendor.p({
+      focus: true,
+      placeholder: "\u8BF7\u8F93\u5165\u5546\u54C1\u540D\u79F0",
+      cancelButton: "none"
+    }),
+    b: common_vendor.o((...args) => $options.onClick && $options.onClick(...args)),
+    c: common_vendor.f($data.currentGoods, (item, index, i0) => {
       return {
         a: common_vendor.t(item.bname),
         b: common_vendor.n({
@@ -104,9 +105,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.o(($event) => $options.getGoods(index, item.bid))
       };
     }),
-    b: $data.flag
+    d: $data.flag
   }, $data.flag ? {
-    c: common_vendor.f($data.list, (item, index, i0) => {
+    e: common_vendor.f($data.list, (item, index, i0) => {
       return {
         a: common_vendor.t(item.tname),
         b: common_vendor.n({
@@ -117,22 +118,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       };
     })
   } : {}, {
-    d: common_vendor.n($data.flag ? "large-pad" : "small-pad"),
-    e: common_vendor.f($data.goods, (item, k0, i0) => {
-      return {
-        a: item.img,
-        b: common_vendor.o(($event) => $options.goDetail(item.id)),
-        c: common_vendor.t(item.name),
-        d: common_vendor.t(item.french),
-        e: common_vendor.t(item.price),
-        f: common_vendor.o(($event) => $options.addItem(item)),
-        g: "768f9f56-0-" + i0,
-        h: item.title
-      };
-    }),
-    f: common_vendor.p({
-      type: "cart",
-      size: "24"
+    f: common_vendor.n($data.flag ? "large-pad" : "small-pad"),
+    g: common_vendor.p({
+      goods: $data.goods
     })
   });
 }

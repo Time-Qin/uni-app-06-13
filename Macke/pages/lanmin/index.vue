@@ -1,6 +1,11 @@
 <template>
 	<view class="container">
+		<!-- 头部切换 -->
 		<view class="tabBar">
+			<view class="search" @click="onClick">
+				<uni-search-bar :focus="true" placeholder="请输入商品名称" cancelButton="none">
+				</uni-search-bar>
+			</view>
 			<view class="group">
 				<view :class="['item',{active:active===index}]" v-for="(item,index) in currentGoods" :key="index"
 					@click="getGoods(index,item.bid)">{{item.bname}}
@@ -12,20 +17,8 @@
 			</scroll-view>
 		</view>
 		<view :class="flag? 'large-pad':'small-pad'"></view>
-		<view class="goods">
-			<view class="good" v-for="item in goods" :key="item.title" >
-				<image :src="item.img" mode="widthFix" @click="goDetail(item.id)"></image>
-				<view class="content">
-					<view class="name">{{item.name}}</view>
-					<view class="french">{{item.french}}</view>
-					<view class="buy">
-						<view class="price">¥{{item.price}}</view>
-						<uni-icons type="cart" @click="addItem(item)"
-							size="24"></uni-icons>
-					</view>
-				</view>
-			</view>
-		</view>
+		<!-- 商品列表 -->
+		<goods :goods='goods'></goods>
 		<view class="bottom">——没有更多了——</view>
 	</view>
 </template>
@@ -44,7 +37,8 @@
 				list: [],
 				active: 0,
 				flag: true,
-				activeKey: 0
+				activeKey: 0,
+				isFocus: false
 			}
 		},
 		created() {
@@ -86,20 +80,12 @@
 					result.code === 0 ? this.goods = result.data.data : ''
 				}
 			},
-			goDetail(id) {
+			onClick() {
 				uni.navigateTo({
-					url: '/pages/lanmin_detail/lanmin_detail?id=' + id
-				})
-			},
-			addItem(item){ 
-				var obj={id:item.id,price:item.price,buynum:1,name:item.name};
-				this.addCarts(obj);
-				uni.showToast({
-					title: `添加购物车成功`,
-					mask: true
+					url: '/pages/search/search'
 				})
 			}
-		}
+		},
 	}
 </script>
 <style scoped lang="less">
@@ -107,16 +93,31 @@
 		background-color: white;
 
 		.large-pad {
-			height: 82px;
+			height: 142px;
 		}
 
 		.small-pad {
-			height: 50px;
+			height: 110px;
 		}
 
 		.tabBar {
 			position: fixed;
 			width: 100%;
+
+			.search {
+				width: 100%;
+				height: 120rpx;
+				background: #eee;
+				padding-top: 30rpx;
+
+				/deep/ .uni-searchbar {
+					.uni-searchbar__box {
+						height: 32px !important;
+						flex: 0 0 500rpx !important;
+						border-radius: 20rpx !important;
+					}
+				}
+			}
 
 			.group {
 				height: 80rpx;
@@ -165,62 +166,7 @@
 			}
 		}
 
-		.goods {
-			display: flex;
-			flex-wrap: wrap;
-			box-sizing: border-box;
-			width: 100%;
-			padding: 0 10px 10px;
-
-			.good {
-				width: 50%;
-				background-color: white;
-				box-sizing: border-box;
-				padding: 10rpx;
-
-				image {
-					width: 100%;
-				}
-
-				.content {
-					width: 100%;
-					padding: 10px;
-					box-sizing: border-box;
-
-					.name {
-						letter-spacing: 2px;
-					}
-
-					.french {
-						color: #999;
-						font-size: 8px;
-					}
-
-					.buy {
-						display: flex;
-						align-items: center;
-						width: 100%;
-						justify-content: space-between;
-						margin-top: 6px;
-
-						.price {
-							font-size: 12px;
-						}
-
-						uni-icons {
-							text-align: right;
-							background-color: lightcyan;
-							border-radius: 2px;
-
-							/deep/ .uni-icons {
-								color: #888 !important;
-							}
-						}
-					}
-				}
-			}
-		}
-
+	
 		.bottom {
 			text-align: center;
 			color: #999;

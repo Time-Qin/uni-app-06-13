@@ -1,5 +1,4 @@
 {
-    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -12,12 +11,6 @@
         },
         "miniprogram": {
             "list": [
-                {
-                    "name": "pages/lanmin_detail/lanmin_detail",
-                    "pathName": "pages/lanmin_detail/lanmin_detail",
-                    "query": "",
-                    "scene": null
-                },
                 {
                     "name": "pages/lanmin/index",
                     "pathName": "pages/lanmin/index",

@@ -11,6 +11,8 @@ if (!Math) {
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
   "./pages/lanmin_detail/lanmin_detail.js";
+  "./pages/comments/comments.js";
+  "./pages/search/search.js";
 }
 const _sfc_main = {
   onLaunch: function() {

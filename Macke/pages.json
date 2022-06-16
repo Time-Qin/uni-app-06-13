@@ -23,6 +23,7 @@
 	}, {
 		"path": "pages/lanmin/index",
 		"style": {
+			"navigationStyle": "custom",
 			"enablePullDownRefresh": false,
 			"onReachBottomDistance": 20,
 			"navigationBarTitleText": "lanmin",
@@ -50,6 +51,24 @@
                 "enablePullDownRefresh": false,
 				"navigationStyle": "custom",
 				"onReachBottomDistance": 20
+            }
+            
+        }
+        ,{
+            "path" : "pages/comments/comments",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": true
+            }
+            
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
             }
             
         }

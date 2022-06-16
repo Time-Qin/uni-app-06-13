@@ -40,31 +40,35 @@
 
 	// 兰敏的字体图标
 	@font-face {
-	  font-family: "iconfont1"; /* Project id 3464542 */
-	  /* Color fonts */
-	  src: 
-	       url('@/static/lanmin_icons/iconfont.woff2') format('woff2'),
-	       url('@/static/lanmin_icons/iconfont.woff') format('woff'),
-	       url('@/static/lanmin_icons/iconfont.ttf') format('truetype');
-	}
-	
-	.iconfont1 {
-	  font-family: "iconfont1" !important;
-	  font-size: 16px;
-	  font-style: normal;
-	  -webkit-font-smoothing: antialiased;
-	  -moz-osx-font-smoothing: grayscale;
-	}
-	
-	.icon-fenxiang:before {
-	  content: "\e60d";
-	}
-	
-	.icon-bangbangtang:before {
-	  content: "\e656";
+		font-family: "iconfont1";
+		/* Project id 3464542 */
+		/* Color fonts */
+		src:
+			url('@/static/lanmin_icons/iconfont.woff2') format('woff2'),
+			url('@/static/lanmin_icons/iconfont.woff') format('woff'),
+			url('@/static/lanmin_icons/iconfont.ttf') format('truetype');
 	}
 
-	
+	.iconfont1 {
+		font-family: "iconfont1" !important;
+		font-size: 16px;
+		font-style: normal;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.icon-fenxiang:before {
+		content: "\e60d";
+	}
+
+	.icon-bangbangtang:before {
+		content: "\e656";
+	}
+
+	.icon-lajixiang:before {
+		content: "\e666";
+	}
+
 	.iconfont {
 		font-family: "iconfont" !important;
 		font-size: 16px;
