@@ -45,10 +45,7 @@
 				"navigationBarTitleText": "好好吃面包",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50,
-				"navigationBarBackgroundColor": "#663300",
-				"usingComponents": {
-					"van-card": "/wxcomponents/vant/dist/card/index"
-				}
+				"navigationBarBackgroundColor": "#5c382c"
 			}
 		},
 		{
@@ -56,11 +53,27 @@
 			"style": {
 				"navigationBarTitleText": "购物车",
 				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
+
+			}
+
+		}, {
+			"path": "pages/zhaojing/my",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50,
-				"usingComponents": {
-					"van-empty": "/wxcomponents/vant/dist/empty/index",
-					"van-button": "/wxcomponents/vant/dist/button/index"
-				}
+				"navigationBarBackgroundColor": "#9bd1ff"
+			}
+
+		},
+		{
+			"path": "pages/zhaojing/question",
+			"style": {
+				"navigationBarTitleText": "问题反馈",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
+
 			}
 
 		}
@@ -88,13 +101,13 @@
 				"selectedIconPath": "./static/icons/b1.png"
 			},
 			{
-				"pagePath": "pages/guowen/index",
+				"pagePath": "pages/zhaojing/shopCar",
 				"text": "购物车",
 				"iconPath": "./static/icons/j2.png",
 				"selectedIconPath": "./static/icons/j1.png"
 			},
 			{
-				"pagePath": "pages/liuchenchen/index",
+				"pagePath": "pages/zhaojing/my",
 				"text": "我的",
 				"iconPath": "./static/icons/d2.png",
 				"selectedIconPath": "./static/icons/d1.png"

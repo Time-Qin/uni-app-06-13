@@ -1,8 +1,10 @@
 <template>
 	<view class="container">
-		<van-empty class="custom-image" image="/static/images/shop.png" description="购物车空空如也">
-			<van-button round type="info" class="bottom-button">去逛逛</van-button>
-		</van-empty>
+		<view class="empty">
+			<image src="/static/images/shop.png" mode="widthFix" style="width: 400rpx;"></image>
+			<view class="empty-text">空空如也的购物</view>
+			<view class="empty-button" @click="goshopping">去选购</view>
+		</view>
 		<view class="title-split">
 			<view class="line"></view>
 			<text>推荐商品</text>
@@ -18,13 +20,15 @@
 					<view class="french">{{item.french}}</view>
 					<view class="buy">
 						<view class="price">¥&nbsp;{{item.price}}</view>
-						<uni-icons type="cart" size="30"></uni-icons>
+						<uni-icons type="cart" size="30" @click=""></uni-icons>
 					</view>
 				</view>
 			</view>
 			<uni-load-more v-if="hasMore" status="loading"></uni-load-more>
 		</view>
-
+		<view class="back-top" @click="goTop" :style="{'display':(flag===true? 'block':'none')}">
+			<uni-icons type="arrow-up" size="30"></uni-icons>
+		</view>
 	</view>
 </template>
 
@@ -35,15 +39,51 @@
 	export default {
 		data() {
 			return {
+				flag: false,
+				scrollTop: 0,
 				goods: [],
 				pageIndex: 1,
-				hasMore: true
+				hasMore: true,
+				// carList: [{
+				// 		"number": 1,
+				// 		"state": 0,
+				// 		"id": "17892",
+				// 		"twoId": "17889",
+				// 		"name": "巴斯克，椰！",
+				// 		"french": "Basque, noix de coco!",
+				// 		"amount": "298.00",
+				// 		"price": "298.00",
+				// 		"tag": "",
+				// 		"tagName": "新品",
+				// 		"saleTotal": "11",
+				// 		"img": "https://static.mcake.com/new_goods/basikeye/C4002/list/1.jpg"
+				// 	},
+				// 	{
+				// 		"number": 1,
+				// 		"state": 1,
+				// 		"id": "17877",
+				// 		"twoId": "17874",
+				// 		"name": "契尔斯花园",
+				// 		"french": "Jardin de Cheers",
+				// 		"amount": "298.00",
+				// 		"price": "298.00",
+				// 		"tag": "",
+				// 		"tagName": "新品",
+				// 		"saleTotal": "270",
+				// 		"img": "https://static.mcake.com/new_goods/qieersihuayuan/C4001/list/1.jpg"
+				// 	}
+				// ]
 			}
 		},
 		created() {
 			this.getShopList()
 		},
 		methods: {
+			goshopping() {
+				uni.navigateTo({
+					url: "./bread"
+				})
+			},
 			async getShopList() {
 				let result = await GetRequest(
 					`/api/goods/load?cityId=110&bid=1&fid=0&page=${this.pageIndex}&count=20&search=&total=34`);
@@ -52,30 +92,67 @@
 				}
 				console.log(result, this.pageIndex)
 				result.code === 0 ? this.goods = [...this.goods, ...result.data.data] : ''
+			},
+			//回到顶部
+			goTop() {
+				uni.pageScrollTo({
+					scrollTop: 0,
+					duration: 300
+				});
 			}
+		},
+		onPageScroll(scroll) {
+			// console.log(scroll, '111111');
+			if (scroll.scrollTop > 400) { //当距离大于400时显示回到顶部按钮
+				this.flag = true
+			} else { //当距离小于400时隐藏回到顶部按钮
+				this.flag = false
+			}
+
 		},
 		//下拉加载
 		onReachBottom() {
-			// console.log('到底了')
 			if (this.hasMore) {
 				this.pageIndex += 1;
 				this.getShopList();
 			}
 		},
 		//下拉刷新
-		onPullDownRefresh(){
+		onPullDownRefresh() {
 			this.goods = [];
-			this.pageindex = 1;
+			this.pageIndex = 1;
 			this.hasMore = true;
-			this.getShopList().then(()=>{
+			this.getShopList().then(() => {
 				uni.stopPullDownRefresh();
 			});
-		}
+		},
 	}
 </script>
 
 <style lang="less" scoped>
 	.container {
+		.empty {
+			text-align: center;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+
+			&-text {
+				color: #808080;
+				margin-bottom: 50rpx;
+			}
+
+			&-button {
+				width: 300rpx;
+				height: 90rpx;
+				color: orange;
+				border: 1rpx solid orange;
+				text-align: center;
+				line-height: 90rpx;
+				border-radius: 48rpx;
+			}
+		}
+
 		/deep/.van-empty {
 			padding: 0;
 		}
@@ -169,6 +246,22 @@
 					}
 				}
 			}
+		}
+
+		.back-top {
+			height: 60rpx;
+			width: 60rpx;
+			background-color: lightcyan;
+			border-radius: 50%;
+			box-shadow: 0 0 30rpx 4rpx rgba(0, 0, 0, 0.4);
+			position: fixed;
+			bottom: 140rpx;
+			right: 45rpx;
+			text-align: center;
+			line-height: 60rpx;
+			z-index: 999;
+			display: none;
+			/* 先将元素隐藏 */
 		}
 	}
 </style>

@@ -1,17 +1,23 @@
 <template>
 	<view class="container">
-		<view class="item" v-for="item in goodlist" :key="item.id">
-			<van-card :desc="item.french" :title="item.name" :thumb="item.img">
-				<view class="list" slot='price'>
-					<view>
-						<text>¥&nbsp;</text>
-						<text class="price">{{item.price}}</text>
-					</view>
-					<view>
-						<text class="iconfont icon-gouwuche"></text>
+		<view class="header" />
+		<view style="margin-top: -200rpx;" class="goods">
+			<view class="item" v-for="item in goodlist" :key="item.id">
+				<view class="item-img">
+					<image style="width: 100px;height: 100px;" :mode="widthFix" :src="item.img"></image>
+				</view>
+				<view class="item-r">
+					<view class="item-title">{{item.name}}</view>
+					<view class="item-desc">{{item.french}}</view>
+					<view class="item-footer">
+						<view class="item-price">¥&nbsp;{{item.price}}</view>
+						<view class="item-shop">
+							<text class="iconfont icon-gouwuche"></text>
+						</view>
 					</view>
 				</view>
-			</van-card>
+			</view>
+
 		</view>
 	</view>
 </template>
@@ -69,23 +75,77 @@
 		background-color: #cccccc;
 
 		.item {
+			background-color: #fff;
+			display: flex;
+			width: 100%;
+			height: 120px;
 			margin-bottom: 10px;
-			padding: 0 10px;
+			border-radius: 5px;
 
-			.list {
-				display: flex;
-				justify-content: space-between;
+			.item-img {
+				margin: 10px;
+				width: 100px;
+				height: 100px;
 			}
 
-			.price {
-				font-size: 18px;
+			.item-r {
+				background-color: #fff;
+				width: 210px;
+				height: 120px;
+
+				.item-price {
+					color: black;
+					font-weight: 550;
+					font-size: 12px;
+				}
+
+				.item-desc {
+					color: #a9a9a9;
+					margin-top: 20rpx;
+					font-size: 12px;
+					width: 210px;
+					height: 30px;
+					margin-bottom: 10px;
+				}
+
+				.item-title {
+					margin-top: 16px;
+					font-size: 16px;
+					font-weight: 400;
+					font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+				}
+
+				.item-footer {
+					display: flex;
+					justify-content: space-between;
+
+					.item-shop {
+						background-color: aliceblue;
+					}
+				}
 			}
 
-			.iconfont {
-				font-size: 20px;
-				width: 15px;
-				height: 15px;
-				background-color: #cccccc;
+		}
+
+
+		.header {
+			height: 200rpx;
+			width: 100%;
+			background-color: #5c382c;
+			border-radius: 0 0 40% 40%;
+		}
+
+		.goods {
+			flex-wrap: wrap;
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 10px 10px;
+
+			.good {
+				width: 100%;
+				background-color: white;
+				box-sizing: border-box;
+				padding: 10rpx;
 			}
 		}
 	}
