@@ -54,7 +54,7 @@ const _sfc_main = {
   },
   methods: {
     async getDatas(id) {
-      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku}`);
+      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${id.sku || id.id}&id=${id.sku || id.id}`);
       result.msg === "Success" ? this.contentDatas = result.data : "";
       this.twoId = this.contentDatas.twoId;
       let result2 = await common_js_requestHttp.GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.sku}&cityId=110&lng=31.23037&lat=121.4737`);
@@ -128,19 +128,20 @@ const _sfc_main = {
   }
 };
 if (!Array) {
-  const _component_header_title = common_vendor.resolveComponent("header-title");
+  const _easycom_header_title2 = common_vendor.resolveComponent("header-title");
   const _easycom_uni_swiper_dot2 = common_vendor.resolveComponent("uni-swiper-dot");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
   const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
-  (_component_header_title + _easycom_uni_swiper_dot2 + _easycom_uni_icons2 + _easycom_uni_goods_nav2 + _easycom_car_view2)();
+  (_easycom_header_title2 + _easycom_uni_swiper_dot2 + _easycom_uni_icons2 + _easycom_uni_goods_nav2 + _easycom_car_view2)();
 }
+const _easycom_header_title = () => "../../components/header-title/header-title.js";
 const _easycom_uni_swiper_dot = () => "../../uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.js";
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_uni_goods_nav = () => "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
 const _easycom_car_view = () => "../../components/car-view/car-view.js";
 if (!Math) {
-  (_easycom_uni_swiper_dot + _easycom_uni_icons + _easycom_uni_goods_nav + _easycom_car_view)();
+  (_easycom_header_title + _easycom_uni_swiper_dot + _easycom_uni_icons + _easycom_uni_goods_nav + _easycom_car_view)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
@@ -194,33 +195,42 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     p: common_vendor.t($data.contentDatas.spec),
     q: common_vendor.t($data.contentDatas.weight),
-    r: common_vendor.t($data.contentDatas.tableware),
-    s: $data.contentDatas.candle
-  }, $data.contentDatas.candle ? {
-    t: common_vendor.t($data.contentDatas.candle)
+    r: $data.contentDatas.tableware
+  }, $data.contentDatas.tableware ? {
+    s: common_vendor.t($data.contentDatas.tableware)
   } : {}, {
-    v: common_vendor.t($data.contentDatas.edible),
-    w: common_vendor.t($data.contentDatas.size),
-    x: common_vendor.o((...args) => $options.shopContent && $options.shopContent(...args)),
-    y: common_vendor.t($data.dateDatas.date),
-    z: common_vendor.t($data.dateDatas.time),
-    A: common_vendor.o((...args) => $options.goAddress && $options.goAddress(...args)),
-    B: $data.hasMore == true
+    t: $data.contentDatas.candle
+  }, $data.contentDatas.candle ? {
+    v: common_vendor.t($data.contentDatas.candle)
+  } : {}, {
+    w: $data.contentDatas.edible
+  }, $data.contentDatas.edible ? {
+    x: common_vendor.t($data.contentDatas.edible)
+  } : {}, {
+    y: $data.contentDatas.size
+  }, $data.contentDatas.size ? {
+    z: common_vendor.t($data.contentDatas.size)
+  } : {}, {
+    A: common_vendor.o((...args) => $options.shopContent && $options.shopContent(...args)),
+    B: common_vendor.t($data.dateDatas.date),
+    C: common_vendor.t($data.dateDatas.time),
+    D: common_vendor.o((...args) => $options.goAddress && $options.goAddress(...args)),
+    E: $data.hasMore == true
   }, $data.hasMore == true ? {
-    C: common_vendor.t($data.talkeDatas.total),
-    D: common_vendor.o((...args) => $options.lookAll && $options.lookAll(...args)),
-    E: common_vendor.p({
+    F: common_vendor.t($data.talkeDatas.total),
+    G: common_vendor.o((...args) => $options.lookAll && $options.lookAll(...args)),
+    H: common_vendor.p({
       type: "right",
       size: "16"
     }),
-    F: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
+    I: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.total),
         c: item.title
       };
     }),
-    G: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
+    J: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
       return {
         a: "b72866d4-3-" + i0,
         b: common_vendor.t(item.uname),
@@ -230,21 +240,21 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         f: item.cid
       };
     }),
-    H: common_vendor.p({
+    K: common_vendor.p({
       type: "contact",
       size: "30"
     })
   } : {}, {
-    I: $data.contentDatas.wapDesc,
-    J: common_vendor.o($options.onClick),
-    K: common_vendor.o($options.buttonClick),
-    L: common_vendor.p({
+    L: $data.contentDatas.wapDesc,
+    M: common_vendor.o($options.onClick),
+    N: common_vendor.o($options.buttonClick),
+    O: common_vendor.p({
       fill: true,
       options: $data.options,
       buttonGroup: $data.buttonGroup
     }),
-    M: common_vendor.sr("popup4", "b72866d4-5"),
-    N: common_vendor.p({
+    P: common_vendor.sr("popup4", "b72866d4-5"),
+    Q: common_vendor.p({
       contentDatas: $data.contentDatas
     })
   });

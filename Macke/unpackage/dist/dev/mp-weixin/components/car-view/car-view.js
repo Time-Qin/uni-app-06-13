@@ -37,23 +37,34 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       return {
         a: common_vendor.t(item.spec),
         b: common_vendor.t(item.weight),
-        c: item.id,
-        d: common_vendor.o(($event) => ($data.changeIndex = idx, $data.nowPrice = item.price), item.id)
+        c: common_vendor.n({
+          active: $data.changeIndex === idx
+        }),
+        d: item.id,
+        e: common_vendor.o(($event) => ($data.changeIndex = idx, $data.nowPrice = item.price), item.id)
       };
     }),
     g: common_vendor.f($props.contentDatas.list, (item, idx, i0) => {
       return common_vendor.e({
         a: idx === $data.changeIndex
       }, idx === $data.changeIndex ? common_vendor.e({
-        b: common_vendor.t(item.tableware),
-        c: $props.contentDatas.candle
-      }, $props.contentDatas.candle ? {
-        d: common_vendor.t(item.candle)
+        b: $props.contentDatas.tableware
+      }, $props.contentDatas.tableware ? {
+        c: common_vendor.t(item.tableware)
       } : {}, {
-        e: common_vendor.t(item.edible),
-        f: common_vendor.t(item.size)
-      }) : {}, {
-        g: item.id
+        d: $props.contentDatas.candle
+      }, $props.contentDatas.candle ? {
+        e: common_vendor.t(item.candle)
+      } : {}, {
+        f: $props.contentDatas.edible
+      }, $props.contentDatas.edible ? {
+        g: common_vendor.t(item.edible)
+      } : {}, {
+        h: $props.contentDatas.size
+      }, $props.contentDatas.size ? {
+        i: common_vendor.t(item.size)
+      } : {}) : {}, {
+        j: item.id
       });
     }),
     h: common_vendor.p({

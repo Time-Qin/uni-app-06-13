@@ -11,7 +11,10 @@ if (!Math) {
   "./pages/guowen/index.js";
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
-  "./pages/zhaojing/index.js";
+  "./pages/zhaojing/bread.js";
+  "./pages/zhaojing/shopCar.js";
+  "./pages/zhaojing/my.js";
+  "./pages/zhaojing/question.js";
   "./pages/index/address.js";
 }
 const _sfc_main = {

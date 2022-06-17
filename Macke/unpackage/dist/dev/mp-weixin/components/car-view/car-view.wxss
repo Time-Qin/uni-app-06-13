@@ -58,6 +58,10 @@
   border-radius: 10rpx;
   margin: 10rpx;
 }
+.payContent .two .two_content .two_title.active.data-v-5e87b078 {
+  background-color: #ccf2fd;
+  color: #00d6f9;
+}
 .payContent .two .two_content .content_view.data-v-5e87b078 {
   background-color: #f0f0f0;
   margin: 10rpx;

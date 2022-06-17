@@ -99,8 +99,7 @@ const _sfc_main = {
     _onBlur(event) {
       this.$emit("blur", event);
       let value = event.detail.value;
-      if (isNaN(value)) {
-        this.inputValue = this.min;
+      if (!value) {
         return;
       }
       value = +value;
@@ -113,7 +112,6 @@ const _sfc_main = {
       this.inputValue = value.toFixed(String(scale).length - 1);
       this.$emit("change", +this.inputValue);
       this.$emit("input", +this.inputValue);
-      this.$emit("update:modelValue", +this.inputValue);
     },
     _onFocus(event) {
       this.$emit("focus", event);
@@ -139,5 +137,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     o: $props.background
   };
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/2022_03file/hx/Project/Macke/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-dd94a2a8"], ["__file", "D:/2022_03file/hx/Project/Macke/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue"]]);
 wx.createComponent(Component);

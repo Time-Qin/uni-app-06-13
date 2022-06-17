@@ -65,10 +65,10 @@
 					<text class="iconfont icon-gouwuche content_wei">{{contentDatas.spec}}
 						({{contentDatas.weight}})</text>
 					<view class="mid_bottom">
-						<text class="iconfont icon-canju1 item">&nbsp; {{contentDatas.tableware}}</text>
-						<text v-if="contentDatas.candle" class="iconfont icon-lazhu item">&nbsp; {{contentDatas.candle}}</text>
-						<text class="iconfont icon-canju2 item">&nbsp; {{contentDatas.edible}}</text>
-						<text class="iconfont icon-dangao item"> {{contentDatas.size}}</text>
+						<text v-if="contentDatas.tableware" class="iconfont icon-canju1 item">-{{contentDatas.tableware}}</text>
+						<text v-if="contentDatas.candle" class="iconfont icon-lazhu item">-{{contentDatas.candle}}</text>
+						<text v-if="contentDatas.edible" class="iconfont icon-canju2 item">-{{contentDatas.edible}}</text>
+						<text v-if="contentDatas.size" class="iconfont icon-dangao item">-{{contentDatas.size}}</text>
 					</view>
 				</view>
 				<view class="dotsList dot" @click="shopContent">
@@ -235,7 +235,12 @@
 		},
 		methods: {
 			async getDatas(id) {
-				let result = await GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku}`);
+				// if(id.id){
+				// 	let result = await GetRequest(`/api/goods/detail?sku=${id.sku||id.id}&id=${id.sku||id.id}`);
+				// }else if(id.sku){
+				// 	let result = await GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku||id.id}`);
+				// }
+				let result = await GetRequest(`/api/goods/detail?sku=${id.sku||id.id}&id=${id.sku||id.id}`);
 				result.msg === "Success" ? this.contentDatas = result.data : '';
 				// console.log(result, this.contentDatas);
 				this.twoId =this.contentDatas.twoId;
