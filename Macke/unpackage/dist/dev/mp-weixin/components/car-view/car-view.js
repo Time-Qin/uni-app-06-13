@@ -1,18 +1,43 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
+var common_js_requestHttp = require("../../common/js/requestHttp.js");
 const _sfc_main = {
   name: "car-view",
   props: ["contentDatas"],
   data() {
     return {
       nowPrice: 0,
-      changeIndex: 0
+      changeIndex: 0,
+      mynum: 1
     };
   },
   methods: {
     shopContent2() {
-      console.log("2222222", this.contentDatas);
       this.$refs.popup3.open();
+    },
+    async addCarts() {
+      this.contentDatas.id = parseInt(this.contentDatas.id) + this.changeIndex;
+      let obj = {
+        "cityId": "110",
+        "goods": [{
+          "id": `${this.contentDatas.id}`,
+          "num": `${this.mynum}`,
+          "blessing": ""
+        }]
+      };
+      let result = await common_js_requestHttp.PostRequest("/api/cart/add", obj);
+      console.log("3333333333", obj, this.contentDatas, result);
+      if (result.code === 0) {
+        common_vendor.index.showModal({
+          content: "\u52A0\u5165\u8D2D\u7269\u8F66\u6210\u529F"
+        });
+        this.$refs.popup3.close();
+      } else {
+        common_vendor.index.showModal({
+          content: `${this.contentDatas.name}\u5DF2\u4E0B\u67B6\u6216\u552E\u7F44\uFF0C\u65E0\u6CD5\u52A0\u5165\u8D2D\u7269\u8F66`
+        });
+        this.$refs.popup3.close();
+      }
     }
   }
 };
@@ -67,12 +92,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         j: item.id
       });
     }),
-    h: common_vendor.p({
+    h: common_vendor.o(($event) => $data.mynum = $event),
+    i: common_vendor.p({
       min: 0,
-      max: 99
+      max: 99,
+      modelValue: $data.mynum
     }),
-    i: common_vendor.sr("popup3", "5e87b078-0"),
-    j: common_vendor.p({
+    j: common_vendor.o(($event) => $options.addCarts()),
+    k: common_vendor.sr("popup3", "5e87b078-0"),
+    l: common_vendor.p({
       type: "bottom"
     })
   };

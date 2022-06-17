@@ -10,16 +10,18 @@
 						<text class="nameC">{{ contentDatas.name }}</text>
 						<text class="nameF">{{ contentDatas.french }}</text>
 						<text class="price">￥
-							<text class="price2">{{
-                nowPrice || contentDatas.price
-              }}</text></text>
+							<text class="price2">
+								{{nowPrice || contentDatas.price}}
+							</text>
+						</text>
 						<text class="sale">已售 {{ contentDatas.saleTotal }}</text>
 					</view>
 				</view>
 				<view class="two">
 					<text class="text2">规格</text>
 					<view class="two_content">
-						<view :class="['two_title',{active:changeIndex === idx}]" v-for="(item, idx) in contentDatas.list" :key="item.id"
+						<view :class="['two_title',{active:changeIndex === idx}]"
+							v-for="(item, idx) in contentDatas.list" :key="item.id"
 							@click="(changeIndex = idx), (nowPrice = item.price)">
 							{{ item.spec }}({{ item.weight }})
 						</view>
@@ -41,10 +43,10 @@
 				</view>
 				<view class="three">
 					<text class="three_title">购买数量</text>
-					<uni-number-box :min="0" :max="99"></uni-number-box>
+					<uni-number-box :min="0" :max="99" v-model="mynum"></uni-number-box>
 				</view>
 				<view class="four">
-					<view class="left_button">加入购物车</view>
+					<view class="left_button" @click="addCarts()">加入购物车</view>
 
 					<view class="right_button right2">立即购买</view>
 				</view>
@@ -54,6 +56,7 @@
 </template>
 
 <script>
+	import {PostRequest} from '@/common/js/requestHttp.js';
 	export default {
 		name: "car-view",
 		props: ["contentDatas"],
@@ -61,13 +64,38 @@
 			return {
 				nowPrice: 0,
 				changeIndex: 0,
+				mynum:1,
 			};
 		},
 		methods: {
 			shopContent2() {
-				console.log("2222222", this.contentDatas);
 				this.$refs.popup3.open();
 			},
+			async addCarts() {
+				this.contentDatas.id = parseInt(this.contentDatas.id)+this.changeIndex;
+				let obj = {
+					"cityId": "110",
+					"goods": [{
+						"id": `${this.contentDatas.id}`,
+						"num": `${this.mynum}`,
+						"blessing": "",
+					}, ]
+				};
+				let result = await PostRequest('/api/cart/add',obj);
+				console.log("3333333333",obj, this.contentDatas,result);
+				if(result.code===0){
+					uni.showModal({
+						content:"加入购物车成功"
+					});
+					this.$refs.popup3.close();
+				}else{
+					uni.showModal({
+						content:`${this.contentDatas.name}已下架或售罄，无法加入购物车`
+					});
+					this.$refs.popup3.close();
+				}
+				
+			}
 		},
 	};
 </script>
@@ -142,9 +170,10 @@
 					font-weight: 300;
 					border-radius: 10rpx;
 					margin: 10rpx;
+
 					&.active {
 						background-color: #ccf2fd;
-						color: #00d6f9 ;
+						color: #00d6f9;
 					}
 				}
 

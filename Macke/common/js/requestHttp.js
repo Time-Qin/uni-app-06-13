@@ -27,14 +27,15 @@ export function GetRequest(url, data) {
 }
 
 export function PostRequest(url, data) {
-	return new Promise((resovle, reject) => {
+	return new Promise((resolve, reject) => {
 		//#ifdef MP-WEIXIN
 		url = BaseUrl + url;
 		//#endif
 		uni.request({
 			url: url,
 			header: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'token':'425be1495b7ea54fc4c8622be19413a1',
 			},
 			method: 'POST',
 			data: data,
