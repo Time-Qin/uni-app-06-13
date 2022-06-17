@@ -3,8 +3,8 @@
 		<!-- tapbar切换 -->
 		<view class="c-tapbar">
 			<scroll-view class="tap-list" scroll-x="true" v-if=flag enable-flex="true">
-				<view :class="['content',{active:activeKey===index}]" v-for="(item,index) in mcakeScene" :key="item.id"
-					@click="getMcakeGroup(index,item.tid)">{{item.tname}}</view>
+				<view :class="['content',{active:activeKey === item.tid}]" v-for="(item,index) in mcakeScene" :key="item.tid"
+					@click="getMcakeGroup(item.tid)">{{item.tname}}</view>
 			</scroll-view>
 		</view>
 		<!-- 商品列表 -->
@@ -32,6 +32,8 @@
 			</view>
 
 		</view>
+		<uni-load-more v-if="hasMore" status="loading"></uni-load-more>
+		<uni-load-more v-else status="noMore"></uni-load-more>
 	</view>
 </template>
 
@@ -42,15 +44,21 @@
 	export default {
 		data() {
 			return {
-				datalist: {},
+				datalist: [],
 				mcakeScene: {},
-				goods:{},
+				goods: {},
 				list: {},
-				flag: true
+				flag: true,
+				activeKey: 0,
+				active: 0,
+				hasMore: true,
+				page:1,
+				fid:192
+
 			}
 		},
 		created() {
-			this.getMcakes()
+			// this.getMcakes()
 			this.initMcake()
 			this.getMcakeGroup()
 		},
@@ -65,27 +73,30 @@
 					"tid": "192",
 					"tname": "全部"
 				})
-				
-				this.getMcakes(0,1)
+
+				this.getMcakes(this.mcakeScene.bid,this.mcakeScene.tid)
+				// this.getMcakeGroup()
 				// console.log(this.mcakeScene,"1111111111111111111");
 			},
-			async getMcakes(index, bid) {
-				this.active = index;
-				let result = await GetRequest("/api/goods/load?bid=" + bid);
-				// console.log(result);
-				result.code == 0 ? this.datalist = result.data.data : '';
-				// console.log(this.datalist);
+			async getMcakes(bid,tid) {
+				let result = await GetRequest(`/api/goods/load?bid=${bid}&page=${this.page}&tid=${tid}&count=10`);
+				// console.log(result,tid,"22222222222");
+				if (result.data.data.length < 10) {
+					this.hasMore = false
+				}
+				result.code == 0 ? this.datalist = [...this.datalist,...result.data.data] : '';
+				console.log(this.datalist,this.page,tid,"333333333");
 			},
-			async getMcakeGroup(idx, fid) {
-				this.activeKey = idx;
+			async getMcakeGroup(fid) {
+				this.activeKey = fid;
 				if (fid == 192) {
-					this.getMcakes(0, 1);
+					this.getMcakes();
 				} else {
-					let result = await GetRequest("/api/goods/load?bid=1&fid=" + fid);
-					// console.log(result, fid);
+					let result = await GetRequest(`/api/goods/load?bid=1&fid=${fid}&page=${this.page}&count=10`);
+					console.log(result, this.page,fid,"4444444");
 					result.code === 0 ? this.datalist = result.data.data : ''
 					// console.log(this.datalist);
-					
+
 				}
 			},
 			goDetail(id) {
@@ -94,6 +105,22 @@
 				})
 				// console.log(id);
 			},
+		},
+		// 上拉加载
+		onReachBottom() {
+			if (this.hasMore) {
+				this.page++;
+				this.getMcakes()
+			}
+		},
+		// 下拉刷新
+		onPullDownRefresh() {
+			this.datalist = [];
+			this.page = 1;
+			this.hasMore = true;
+			this.getMcakes().then(() => {
+				uni.stopPullDownRefresh();
+			})
 		}
 	}
 </script>

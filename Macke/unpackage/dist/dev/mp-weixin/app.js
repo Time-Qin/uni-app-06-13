@@ -11,6 +11,7 @@ if (!Math) {
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
+  "./pages/chenrenjun/alltotal/alltotal.js";
 }
 const _sfc_main = {
   onLaunch: function() {

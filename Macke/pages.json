@@ -54,6 +54,14 @@
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 20
 			}
+		}, {
+			"path": "pages/chenrenjun/alltotal/alltotal",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+
 		}
 	],
 	"globalStyle": {

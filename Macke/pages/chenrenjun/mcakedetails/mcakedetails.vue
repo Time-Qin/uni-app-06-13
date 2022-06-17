@@ -94,11 +94,66 @@
 			<view class="fuwu">
 				<text class="c-title">服务</text>
 				<view class="fuwu-text">
-					<text class="iconfont icon-duigouzhong "></text>&nbsp;
+					<text class="iconfont icon-duigouzhong icon-text"></text>&nbsp;
 					<view class="content_wei"> 提供开票及售后服务</view>
 				</view>
 			</view>
 		</view>
+
+		<view class="c-comment" v-if="total.total != 0">
+			<view class="c-header">
+				<text class="c-title">评价</text>
+				<text class="c-total">{{total.total}}</text>
+				<text class="c-icon" @click="goAllTotal(datalist.twoId)">查看全部</text>&nbsp;
+				<uni-icons type="forward" size="16" color="#888"></uni-icons>
+			</view>
+
+			<view class="c-label">
+				<view class="[c-list" v-for="item in total.list" :key="item.type"
+					@click="goTotal(datalist.twoId,item.type)">
+					<view :class="['c-tit',{active:activeKey === item.type }]">{{item.title}}({{item.total}})</view>
+				</view>
+			</view>
+
+			<view class="commentinfo">
+				<view class="comment_list" v-for="item in comment.data" :key="item.cid">
+					<view class="comment_list_header">
+						<image :src="item.uhead" mode="widthFix"></image>
+						<text class="c-phone">{{item.uname}}</text>
+						<text class="c-time">{{item.ctime}}</text>
+					</view>
+					<view class="comment_list_main">
+						<view class="list-main">{{item.content}}</view>
+					</view>
+					<view class="comment_list_footer">
+						规格:<text class="list_footer">{{item.spec}}</text>
+					</view>
+					<view class="comment_img">
+						<view class="comment_list_img" v-for="i in item.img" :key="i">
+							<image :src="i.src" mode="widthFix"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="gooddetail">
+			<view class="c-good">——— 商品详情 ———</view>
+
+			<view class="goodimg">
+				<image :src="datalist.wapDesc" mode="widthFix"></image>
+			</view>
+			<view class="retroactive">
+				<view class="c-txt">退改说明：上海、苏州、杭州地区距配送时间12小时及以上的订单可修改、取消或退订，如不满足12小时的订单不再支持修改、取消或退订</view>
+			</view>
+			<view class="c-good">——— 已经到最底了 ———</view>
+		</view>
+
+		<view class="bottom_nav">
+			<uni-goods-nav :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onClick"
+				@buttonClick="buttonClick" />
+		</view>
+		<car-view ref="popup4" :contentDatas="contentDatas"></car-view>
 
 	</view>
 </template>
@@ -111,19 +166,74 @@
 		data() {
 			return {
 				datalist: {},
-				banner: {}
+				banner: {},
+				comment: {},
+				total: {},
+				activeKey: 0,
+				active: 0,
+				options: [{
+					icon: 'home',
+					text: '首页',
+				}, {
+					icon: 'cart',
+					text: '购物车',
+				}],
+				buttonGroup: [{
+						text: '加入购物车',
+						backgroundColor: '#fff566',
+						color: '#333'
+					},
+					{
+						text: '立即购买',
+						backgroundColor: '#bae7ff',
+						color: '#333'
+					}
+				]
 			}
 		},
+		created() {
+
+		},
 		onLoad(options) {
+			// console.log(options);
 			this.getDetails(options.id)
 		},
 		methods: {
 			async getDetails(id) {
 				let result = await GetRequest("/api/goods/detail?id=" + id);
-				console.log(result);
+				// console.log(result);
 				result.code == 0 ? this.datalist = result.data : '';
 				this.banner = this.datalist.banner
 				// console.log(this.banner);
+				// console.log(this.datalist);
+				this.getComment(this.datalist.twoId)
+				this.getTotal(this.datalist.twoId)
+				// this.goTotal(this.datalist.twoId)
+			},
+			async getTotal(twoId) {
+				let result = await GetRequest(`/api/comment/total?twoId=${twoId}`);
+				// console.log(result.data.list[0]);
+				result.code == 0 ? this.total = result.data : '';
+				// console.log(this.total);
+			},
+			async getComment(twoId) {
+				let result = await GetRequest(`/api/comment/load?twoId=${twoId}&type=0&page=1&count=3`);
+				// console.log(result);
+				result.code == 0 ? this.comment = result.data : '';
+				// console.log(this.comment);
+			},
+			async goTotal(twoId, type) {
+				// console.log(type);
+				this.activeKey = type;
+				let result = await GetRequest(`/api/comment/load?twoId=${twoId}&type=${type}&page=1&count=3`);
+				// console.log(result, type, twoId, "11111111");
+				result.code == 0 ? this.comment = result.data : '';
+			},
+			goAllTotal(twoId) {
+				uni.navigateTo({
+					url: `/pages/chenrenjun/alltotal/alltotal?twoId=${twoId}`
+				})
+				// console.log(id);
 			},
 		}
 	}
@@ -181,7 +291,7 @@
 		}
 
 		.detailbox {
-			background-color: lightblue;
+			background-color: #f0f6fa;
 			margin: 0 20px 10px 20px;
 			border-radius: 5px;
 
@@ -209,7 +319,7 @@
 				align-items: center;
 				padding: 4px 7px;
 				margin: 0 6px 10px 0;
-				background-color: lightblue;
+				background-color: #f0f6fa;
 				border-radius: 10px;
 
 				.c-img {
@@ -251,7 +361,6 @@
 
 		.peisong {
 			margin: 0 10px;
-			background-color: aliceblue;
 			border-radius: 5px;
 			display: flex;
 			flex-direction: column;
@@ -318,21 +427,25 @@
 				}
 			}
 
-			.fuwu{
+			.fuwu {
 				display: flex;
 				margin-top: 10px;
 				margin-bottom: 10px;
-				.c-title{
+
+				.c-title {
 					width: 50px;
 					margin-left: 20px;
 				}
-				.fuwu-text{
+
+				.fuwu-text {
 					display: flex;
 					justify-content: center;
-					text{
-						font-size: 16px;
+
+					.icon-text {
+						font-size: 20px;
 					}
-					.content_wei{
+
+					.content_wei {
 						text-align: center;
 					}
 				}
@@ -351,6 +464,171 @@
 					margin-right: 10rpx;
 				}
 			}
+		}
+
+		.c-comment {
+			margin: 14px 10px;
+
+			.c-header {
+				padding: 15px 0 15px 20px;
+				border-bottom: 1px solid #e8e8e8;
+				text-align: center;
+
+				.c-title {
+					margin-right: 14px;
+					font-size: 16px;
+				}
+
+				.c-total {
+					font-size: 14px;
+					color: #999999;
+				}
+
+				.c-icon {
+					margin-left: 158px;
+					color: #999999;
+				}
+			}
+
+			.c-label {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 15px 0 0 20px;
+
+				.c-list {
+					margin: 0 15px 10px 0;
+
+					.c-tit {
+						border-radius: 8px;
+						padding: 7px 12px;
+						background-color: #f0f6fa;
+						font-size: 12px;
+
+						&.active {
+							background-color: #d3eafa;
+						}
+					}
+				}
+			}
+
+			.commentinfo {
+				.comment_list {
+					margin: 20px 0;
+					padding-bottom: 16px;
+					border-bottom: 1px solid #e8e8e8;
+
+					.comment_list_header {
+						display: flex;
+						padding-left: 20px;
+
+						image {
+							width: 38px;
+							height: 38px;
+							border-radius: 50%;
+						}
+
+						.c-phone {
+							font-size: 12px;
+							margin-left: 10px;
+						}
+
+						.c-time {
+							font-size: 12px;
+							margin-top: 5px;
+							margin-left: 80px;
+							color: #888;
+						}
+					}
+
+					.comment_list_main {
+						margin: 10px 0;
+						padding: 0 20px;
+
+						.list-main {
+							font-size: 14px;
+							border-radius: 10px;
+							background-color: #f5f5f6;
+							padding: 8px 10px;
+						}
+					}
+
+					.comment_list_footer {
+						padding: 0 20px;
+						font-size: 12px;
+						color: #999999;
+						margin: 10px 0 6px 0;
+
+						.list_footer {
+							margin-left: 6px;
+						}
+					}
+
+					.comment_img {
+						display: flex;
+						// flex-wrap: wrap;
+
+						.comment_list_img {
+							padding-left: 20px;
+							width: 130px;
+
+
+							image {
+								width: 100%;
+								// height: auto;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.gooddetail {
+			background-color: #fafcfd;
+			margin-bottom: 52px;
+
+			.c-good {
+				padding: 24px 0;
+				text-align: center;
+				font-size: 13px;
+				color: #999999;
+			}
+
+			.goodimg {
+				padding: 0 16px;
+
+				image {
+					width: 100%;
+				}
+			}
+
+			.retroactive {
+				margin: 0 16px;
+				background-color: #fff;
+
+				.c-txt {
+					padding: 10px 10px;
+					font-size: 11px;
+				}
+			}
+
+
+		}
+
+		.bottom_nav {
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+
+			/deep/.uni-tab__cart-box {
+				padding: 20rpx 0;
+
+				.uni-tab__cart-button-right {
+					margin-right: 10rpx;
+					border-radius: 100px;
+				}
+			}
+
 		}
 
 	}
