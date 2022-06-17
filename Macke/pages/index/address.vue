@@ -12,12 +12,12 @@
 			</view>
 			<view class="input-text">
 				<text class="iconfont icon-sousuoxiao"></text>
-				<input type="search"  placeholder="请输入收货地址">
+				<input :value="inputV" type="search"  placeholder="请输入收货地址">
 			</view>
 			
 		</view>
-		<view class="map_address">
-			<text>请选择收获地址</text>
+		<view class="map_address" @click="getGPS">
+			<text>{{myAddress.address||'请选择收获地址'}}</text>
 			<text class="iconfont icon-dangqian">重新定位</text>
 		</view>
 		<view class="FJ_address">
@@ -46,10 +46,14 @@
 			return {
 				addressDatas:[],
 				city:'',
+				inputV:'',
+				myAddress:'',
 			};
 		},
 		created(){
 			this.getAddress();
+		},
+		computed(){
 		},
 		methods: {
 			async getAddress(){
@@ -57,11 +61,31 @@
 				result.msg === 'Success'? this.addressDatas = result.data : '';
 				console.log(result);
 			},
+			backTo(){
+				uni.navigateBack();
+			},
 			changeAddress(){
 				this.$refs.popup.open();
 			},
 			close(){
 				this.$refs.popup.close();
+			},
+			getGPS(){
+				uni.getLocation({
+					type:'wgs84',
+					success:(res)=>{
+						var getAddressUrl = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + res.latitude + "," + res.longitude + "&key=U5SBZ-5RA3Q-4LK5M-GKWJY-ULARS-6HFIH&get_poi:1";
+						console.log(res,getAddressUrl);
+						uni.request({
+							url:getAddressUrl,
+							method:'GET',
+							success:(res)=>{
+								this.myAddress = res.data.result;
+								console.log(res);
+							}
+						});
+					}
+				})
 			}
 		}
 	}

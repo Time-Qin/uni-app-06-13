@@ -39,6 +39,11 @@ const _sfc_main = {
     change(e) {
       this.current = e.detail.current;
     },
+    goAddress() {
+      common_vendor.index.navigateTo({
+        url: "./address"
+      });
+    },
     gosku(sku) {
       let sku1 = sku;
       common_vendor.index.navigateTo({
@@ -85,48 +90,49 @@ if (!Math) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: $data.backgroundCr1,
-    b: $data.backgroundCr,
-    c: $data.toOpacity,
-    d: $data.clors,
-    e: common_vendor.f($data.fullAdvPlay, (item, k0, i0) => {
+    b: common_vendor.o((...args) => $options.goAddress && $options.goAddress(...args)),
+    c: $data.backgroundCr,
+    d: $data.toOpacity,
+    e: $data.clors,
+    f: common_vendor.f($data.fullAdvPlay, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.o(($event) => $options.gourl(item.url)),
         c: item.img
       };
     }),
-    f: common_vendor.o((...args) => $options.change && $options.change(...args)),
-    g: common_vendor.p({
+    g: common_vendor.o((...args) => $options.change && $options.change(...args)),
+    h: common_vendor.p({
       info: $data.fullAdvPlay,
       current: $data.current,
       field: "content",
       mode: "dot"
     }),
-    h: common_vendor.f($data.brandkeys, (item, k0, i0) => {
+    i: common_vendor.f($data.brandkeys, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.t(item.title),
         c: item.title
       };
     }),
-    i: common_vendor.f($data.imgtextnav, (item, k0, i0) => {
+    j: common_vendor.f($data.imgtextnav, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.t(item.title),
         c: item.title
       };
     }),
-    j: common_vendor.t($data.recommendedseason.title),
-    k: common_vendor.t($data.recommendedseason.subtitle),
-    l: common_vendor.t($data.recommendedseason.more),
-    m: common_vendor.f($data.recommendedseason.adv, (item, k0, i0) => {
+    k: common_vendor.t($data.recommendedseason.title),
+    l: common_vendor.t($data.recommendedseason.subtitle),
+    m: common_vendor.t($data.recommendedseason.more),
+    n: common_vendor.f($data.recommendedseason.adv, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.o(($event) => $options.gourl(item.url)),
         c: item.img
       };
     }),
-    n: common_vendor.f($data.recommendedscene, (item, k0, i0) => {
+    o: common_vendor.f($data.recommendedscene, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.data.content.subtitle),
@@ -151,7 +157,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         g: item.data.content.more
       };
     }),
-    o: common_vendor.p({
+    p: common_vendor.p({
       contentDatas: $data.contentDatas
     })
   };

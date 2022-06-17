@@ -63,6 +63,7 @@
         }
     ],
 	"globalStyle": {
+		"navigationBarTextStyle": "black",
 		"navigationStyle": "custom",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {

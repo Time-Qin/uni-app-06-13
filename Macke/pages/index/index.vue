@@ -3,7 +3,7 @@
 		<!-- 自定义导航条 -->
 		<view class="header_title" :style="{background: backgroundCr,opacity:toOpacity,color:clors}">
 			<view class="header_content">
-				<view class="content" :style="{background: backgroundCr1}">
+				<view class="content" :style="{background: backgroundCr1}" @click="goAddress">
 					<text class="iconfont icon-shouhuodizhi"></text>
 					<text>请选择收货地址</text>
 				</view>
@@ -138,6 +138,11 @@
 			},
 			change(e) {
 				this.current = e.detail.current;
+			},
+			goAddress(){
+				uni.navigateTo({
+					url:'./address'
+				})
 			},
 			gosku(sku){
 				let sku1 = sku
