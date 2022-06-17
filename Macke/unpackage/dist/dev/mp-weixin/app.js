@@ -4,6 +4,9 @@ exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
 require("./store/index.js");
 if (!Math) {
+  "./pages/guowen/login.js";
+  "./pages/guowen/shop.js";
+  "./pages/guowen/eat-bread-well.js";
   "./pages/index/index.js";
   "./pages/chenrenjun/index.js";
   "./pages/guowen/index.js";
@@ -23,7 +26,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2022_03file/hx/Project/Macke/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/GW/Desktop/\u7EC3\u4E60/6.13\u9879\u76EE/mca/uni-app-06-13/Macke/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   return {

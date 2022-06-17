@@ -1,0 +1,40 @@
+.list.data-v-75f3a8ff {
+  background-color: antiquewhite;
+  width: 100%;
+}
+.list .item.data-v-75f3a8ff {
+  background-color: white;
+  width: 100%;
+  height: 300rpx;
+  padding: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+.list .item .name.data-v-75f3a8ff {
+  width: 170px;
+}
+.list .item .name .name1.data-v-75f3a8ff {
+  font-size: 11px;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+.list .item .name .french.data-v-75f3a8ff {
+  padding-left: 5px;
+  padding-top: 10px;
+  font-size: 10px;
+  opacity: 0.4;
+}
+.list .item .name .price.data-v-75f3a8ff {
+  padding-left: 5px;
+  font-size: 11px;
+  padding-top: 30px;
+}
+.list .item .che.data-v-75f3a8ff {
+  padding-top: 80px;
+  padding-right: 5px;
+}
+.list .item image.data-v-75f3a8ff {
+  height: 250rpx !important;
+  width: 250rpx;
+}

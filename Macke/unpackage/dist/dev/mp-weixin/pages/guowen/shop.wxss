@@ -1,0 +1,91 @@
+.goods .tit.data-v-7d1b899d {
+  background-color: while;
+}
+.goods .list.data-v-7d1b899d {
+  background-color: while;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.goods button.data-v-7d1b899d {
+  width: 100px;
+  height: 20px;
+  line-height: 15px;
+  background: skyblue;
+  color: black;
+  font-size: 13px;
+  border-radius: 27px;
+  animation: zoomIn 1.5s infinite;
+  margin: 0 auto;
+}
+.goods .nav.data-v-7d1b899d {
+  background-color: white;
+  height: 150px;
+}
+.goods .nav .imge.data-v-7d1b899d {
+  width: 50px;
+  height: 50px;
+  align: "center";
+  padding-left: 135px;
+  padding-top: 10px;
+}
+.goods .item.data-v-7d1b899d {
+  background-color: white;
+  width: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.goods .item .itemcontent.data-v-7d1b899d {
+  padding-left: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.goods .item image.data-v-7d1b899d {
+  width: 130px;
+  height: 130px;
+}
+.goods .item .nam.data-v-7d1b899d {
+  opacity: 0.4;
+  font-size: 10px;
+}
+.goods .item .price.data-v-7d1b899d {
+  font-size: 9px;
+  padding: 8px 0;
+}
+.goods .item .price .che.data-v-7d1b899d {
+  padding-left: 100px;
+  padding-bottom: 10px;
+}
+.goods .item .price text.data-v-7d1b899d:nth-child(2) {
+  color: #ccc;
+  text-decoration: line-through;
+  margin-left: 10px;
+  font-size: 13px;
+}
+.goods .item .name.data-v-7d1b899d {
+  font-size: 10px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.goods .ico.data-v-7d1b899d {
+  height: 100rpx;
+  width: 100rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shandow: 0 0 30rpx 4rpx rgba(0, 0, 0, 0.4);
+  position: fixed;
+  bottom: 40rpx;
+  right: 20rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.scr.data-v-7d1b899d {
+  height: 100vh;
+}
