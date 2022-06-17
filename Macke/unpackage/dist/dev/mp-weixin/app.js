@@ -6,11 +6,13 @@ require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/index/good_details.js";
+  "./pages/index/talke.js";
   "./pages/chenrenjun/index.js";
   "./pages/guowen/index.js";
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
+  "./pages/index/address.js";
 }
 const _sfc_main = {
   onLaunch: function() {

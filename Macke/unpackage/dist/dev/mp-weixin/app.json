@@ -2,11 +2,13 @@
     "pages": [
         "pages/index/index",
         "pages/index/good_details",
+        "pages/index/talke",
         "pages/chenrenjun/index",
         "pages/guowen/index",
         "pages/lanmin/index",
         "pages/liuchenchen/index",
-        "pages/zhaojing/index"
+        "pages/zhaojing/index",
+        "pages/index/address"
     ],
     "window": {
         "navigationStyle": "custom",

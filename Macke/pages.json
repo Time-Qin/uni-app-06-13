@@ -12,6 +12,12 @@
 			}
 		},
 		{
+			"path": "pages/index/talke",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/chenrenjun/index",
 			"style": {
 				"enablePullDownRefresh": true,
@@ -46,7 +52,16 @@
 				"onReachBottomDistance": 20
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/index/address",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationStyle": "custom",
 		"backgroundColor": "#F8F8F8",

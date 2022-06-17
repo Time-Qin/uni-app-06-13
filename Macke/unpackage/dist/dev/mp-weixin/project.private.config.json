@@ -1,5 +1,4 @@
 {
-    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -13,14 +12,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "pages/index/good_details",
-                    "pathName": "pages/index/good_details",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/index/index",
-                    "pathName": "pages/index/index",
+                    "name": "pages/index/address",
+                    "pathName": "pages/index/address",
                     "query": "",
                     "scene": null
                 }

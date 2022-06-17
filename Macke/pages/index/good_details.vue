@@ -83,7 +83,7 @@
 					<text class="iconfont icon-yunshupeisong content_wei"> 请选择收货地址</text><br/>
 					<text class="iconfont icon-shijian content_wei"> 最早{{dateDatas.date}} {{dateDatas.time}}配送</text>
 				</view>
-				<view class="dotsList dot">
+				<view class="dotsList dot" @click="goAddress">
 					<view class="dots"></view>
 					<view class="dots"></view>
 					<view class="dots"></view>
@@ -100,12 +100,41 @@
 			</view>
 		</view>
 		<!-- 评论 -->
-		<view   class="content_talke">
+		<view v-if="hasMore==true" class="content_talke">
 			<view class="talke_header">
 				<text class="title">评价 </text>
 				<text class="num">({{talkeDatas.total}})</text>
-				<text class="num2">查看全部 </text><uni-icons  type="right" size="16"></uni-icons>
+				<text class="num2" @click="lookAll">查看全部 </text><uni-icons  type="right" size="16"></uni-icons>
 			</view>
+					<!-- 评论响应式点击 -->
+				<!-- <view class="talke_main">
+					<view class="main_Mar">
+						<view :class="['talke_title_list',{active:changeIndex === idx}]" v-for="(item,idx) in titleDatas.list" :key="item.title" @click="changeIndex=idx">
+							<view class="item" @click="changeTitle(item.type,idx)">{{item.title}}({{item.total}})</view>
+						</view>
+					</view>
+				</view>
+				<view class="talke_main_text">
+					<view class="text_list" v-for="item in (newData.length==0?talkeDatas.data:newData)" :key="item.cid">
+						<view class="text_list_header">
+							<view class="head_img">
+								<image :src="item.uhead" mode="widthFix"></image>
+							</view>
+							<text class="lphone">{{item.uname}}</text>
+							<text class="ltime">{{item.ctime}}</text>
+						</view>
+						<view class="text_list_main">
+							{{item.content}}
+						</view>
+						<view v-if="item.img != ''" class="text_list_img" v-for="i in item.img" :key="i">
+							<image :src="i.src" mode="widthFix"></image>
+						</view>
+						<view class="text_list_footer">
+							规格:{{item.spec}}
+						</view>
+					</view>
+				</view> -->
+
 			<view class="talke_main">
 				<view class="talke_title_list" v-for="item in titleDatas.list" :key="item.title">
 					<view class="item">{{item.title}}({{item.total}})</view>
@@ -165,6 +194,8 @@
 				sku: 'n0301',
 				current: 0,
 				changeIndex:0,
+				twoId:0,
+				hasMore:true,
 				 options: [ {
 							icon: 'home',
 							text: '首页',
@@ -206,17 +237,29 @@
 			async getDatas(id) {
 				let result = await GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku}`);
 				result.msg === "Success" ? this.contentDatas = result.data : '';
-				console.log(result, this.contentDatas);
-				let twoId =this.contentDatas.twoId;
-				console.log(twoId,`/api/goods/detail?${id.sku}`);
+				// console.log(result, this.contentDatas);
+				this.twoId =this.contentDatas.twoId;
+				// console.log(this.twoId,`/api/goods/detail?${id.sku}`);
 				let result2 = await GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.sku}&cityId=110&lng=31.23037&lat=121.4737`);
 				result2.msg === "Success" ? this.dateDatas = result2.data : '';
-				let result3 = await GetRequest(`/api/comment/load?twoId=${twoId}&type=0&page=1&count=3`);
+				let result3 = await GetRequest(`/api/comment/load?twoId=${this.twoId}&type=0&page=1&count=3`);
 				result3.msg === "Success" ? this.talkeDatas = result3.data : '';
-				console.log(result3);
-				let result4 = await GetRequest(`/api/comment/total?twoId=${twoId}`);
+				console.log(this.talkeDatas,'11111111111111')
+				result3.data.total === 0 ?this.hasMore=false : this.hasMore=true;
+				// console.log(result3);
+				let result4 = await GetRequest(`/api/comment/total?twoId=${this.twoId}`);
 				result4.msg === "Success" ? this.titleDatas = result4.data : '';
-				console.log(this.titleDatas)
+				// console.log(this.titleDatas)
+			},
+			lookAll(){
+				uni.navigateTo({
+					url:`./talke?twoId=${this.twoId}`
+				});
+			},
+			goAddress(){
+				uni.navigateTo({
+					url:`./address`
+				});
 			},
 			shopContent(){
 				console.log(this.$refs.popup4)

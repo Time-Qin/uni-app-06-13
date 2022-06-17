@@ -3,11 +3,16 @@
 		<view class="header_title"
 			:style="{background: backgdata.backgroundCr,opacity:backgdata.toOpacity,color:backgdata.clors}">
 			<view class="header_content">
-				<view class="content" @click.prevent="openPopup" :style="{background: backgdata.backgroundCr1}">
-					<view class="dots" :style="{background:backgdata.clors}"></view>
-					<view class="dots" :style="{background:backgdata.clors}"></view>
-					<view class="dots" :style="{background:backgdata.clors}"></view>
-				</view>
+				<view class="content_left">
+					<view class="content" :style="{background: backgdata.backgroundCr1 ,color:backgdata.clors}" @click="backTo" >
+						<text class="iconfont icon-xiangzuo1"></text>
+					</view>
+					<view class="content" @click.prevent="openPopup" :style="{background: backgdata.backgroundCr1}">
+						<view class="dots" :style="{background:backgdata.clors}"></view>
+						<view class="dots" :style="{background:backgdata.clors}"></view>
+						<view class="dots" :style="{background:backgdata.clors}"></view>
+					</view>
+				</view>				
 				<uni-popup ref="popup" type="top">
 					<view class="topview">
 						<view class="view_mar">
@@ -79,6 +84,9 @@
 		},
 		created() {},
 		methods: {
+			backTo(){
+				uni.navigateBack({});
+			},
 			shareImg(){
 				
 			},
@@ -129,33 +137,36 @@
 	.header_title {
 		position: fixed;
 		z-index: 1;
+		height: 10vh;
 
 		.header_content {
-			margin-top: 20rpx;
 			height: 6vh;
 			width: 100vw;
-
-			.content {
-				width: 8vw;
-				height: 8vw;
-				margin: 4vh 36rpx;
-				border-radius: 50%;
+			.content_left{
 				display: flex;
-				background-color: #999;
-				justify-content: center;
-				align-items: center;
-
-				.dots {
-					width: 10rpx;
-					height: 10rpx;
+				.content {
+					width: 8vw;
+					height: 8vw;
+					margin: 4vh 14rpx;
 					border-radius: 50%;
-					background-color: #fff;
-					margin-right: 10rpx;
+					display: flex;
+					background-color: #999;
+					justify-content: center;
+					align-items: center;
+				
+					.dots {
+						width: 10rpx;
+						height: 10rpx;
+						border-radius: 50%;
+						background-color: #fff;
+						margin-right: 10rpx;
+					}
+				
+					.dots:first-child {
+						margin-left: 8rpx;
+					}
 				}
-
-				.dots:first-child {
-					margin-left: 8rpx;
-				}
+				
 			}
 
 			.topview {

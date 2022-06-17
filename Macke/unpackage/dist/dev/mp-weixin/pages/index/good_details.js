@@ -15,6 +15,8 @@ const _sfc_main = {
       sku: "n0301",
       current: 0,
       changeIndex: 0,
+      twoId: 0,
+      hasMore: true,
       options: [{
         icon: "home",
         text: "\u9996\u9875"
@@ -54,17 +56,25 @@ const _sfc_main = {
     async getDatas(id) {
       let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku}`);
       result.msg === "Success" ? this.contentDatas = result.data : "";
-      console.log(result, this.contentDatas);
-      let twoId = this.contentDatas.twoId;
-      console.log(twoId, `/api/goods/detail?${id.sku}`);
+      this.twoId = this.contentDatas.twoId;
       let result2 = await common_js_requestHttp.GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.sku}&cityId=110&lng=31.23037&lat=121.4737`);
       result2.msg === "Success" ? this.dateDatas = result2.data : "";
-      let result3 = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${twoId}&type=0&page=1&count=3`);
+      let result3 = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${this.twoId}&type=0&page=1&count=3`);
       result3.msg === "Success" ? this.talkeDatas = result3.data : "";
-      console.log(result3);
-      let result4 = await common_js_requestHttp.GetRequest(`/api/comment/total?twoId=${twoId}`);
+      console.log(this.talkeDatas, "11111111111111");
+      result3.data.total === 0 ? this.hasMore = false : this.hasMore = true;
+      let result4 = await common_js_requestHttp.GetRequest(`/api/comment/total?twoId=${this.twoId}`);
       result4.msg === "Success" ? this.titleDatas = result4.data : "";
-      console.log(this.titleDatas);
+    },
+    lookAll() {
+      common_vendor.index.navigateTo({
+        url: `./talke?twoId=${this.twoId}`
+      });
+    },
+    goAddress() {
+      common_vendor.index.navigateTo({
+        url: `./address`
+      });
     },
     shopContent() {
       console.log(this.$refs.popup4);
@@ -195,19 +205,23 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     x: common_vendor.o((...args) => $options.shopContent && $options.shopContent(...args)),
     y: common_vendor.t($data.dateDatas.date),
     z: common_vendor.t($data.dateDatas.time),
-    A: common_vendor.t($data.talkeDatas.total),
-    B: common_vendor.p({
+    A: common_vendor.o((...args) => $options.goAddress && $options.goAddress(...args)),
+    B: $data.hasMore == true
+  }, $data.hasMore == true ? {
+    C: common_vendor.t($data.talkeDatas.total),
+    D: common_vendor.o((...args) => $options.lookAll && $options.lookAll(...args)),
+    E: common_vendor.p({
       type: "right",
       size: "16"
     }),
-    C: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
+    F: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.total),
         c: item.title
       };
     }),
-    D: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
+    G: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
       return {
         a: "b72866d4-3-" + i0,
         b: common_vendor.t(item.uname),
@@ -217,20 +231,21 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         f: item.cid
       };
     }),
-    E: common_vendor.p({
+    H: common_vendor.p({
       type: "contact",
       size: "30"
-    }),
-    F: $data.contentDatas.wapDesc,
-    G: common_vendor.o($options.onClick),
-    H: common_vendor.o($options.buttonClick),
-    I: common_vendor.p({
+    })
+  } : {}, {
+    I: $data.contentDatas.wapDesc,
+    J: common_vendor.o($options.onClick),
+    K: common_vendor.o($options.buttonClick),
+    L: common_vendor.p({
       fill: true,
       options: $data.options,
       buttonGroup: $data.buttonGroup
     }),
-    J: common_vendor.sr("popup4", "b72866d4-5"),
-    K: common_vendor.p({
+    M: common_vendor.sr("popup4", "b72866d4-5"),
+    N: common_vendor.p({
       contentDatas: $data.contentDatas
     })
   });

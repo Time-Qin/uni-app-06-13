@@ -41,6 +41,9 @@ const _sfc_main = {
   created() {
   },
   methods: {
+    backTo() {
+      common_vendor.index.navigateBack({});
+    },
     shareImg() {
     },
     openPopup() {
@@ -94,12 +97,15 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: $props.backgdata.clors,
+    a: $props.backgdata.backgroundCr1,
     b: $props.backgdata.clors,
-    c: $props.backgdata.clors,
-    d: common_vendor.o((...args) => $options.openPopup && $options.openPopup(...args)),
-    e: $props.backgdata.backgroundCr1,
-    f: common_vendor.f($data.topdata, (item, k0, i0) => {
+    c: common_vendor.o((...args) => $options.backTo && $options.backTo(...args)),
+    d: $props.backgdata.clors,
+    e: $props.backgdata.clors,
+    f: $props.backgdata.clors,
+    g: common_vendor.o((...args) => $options.openPopup && $options.openPopup(...args)),
+    h: $props.backgdata.backgroundCr1,
+    i: common_vendor.f($data.topdata, (item, k0, i0) => {
       return {
         a: common_vendor.n(item.icon),
         b: common_vendor.t(item.name),
@@ -107,16 +113,16 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.o(($event) => $options.gopage(item.name), item.name)
       };
     }),
-    g: common_vendor.sr("popup", "16389484-0"),
-    h: common_vendor.p({
+    j: common_vendor.sr("popup", "16389484-0"),
+    k: common_vendor.p({
       type: "top"
     }),
-    i: $props.backgdata.backgroundCr,
-    j: $props.backgdata.toOpacity,
-    k: $props.backgdata.clors,
-    l: common_vendor.o((...args) => $options.shareImg && $options.shareImg(...args)),
-    m: common_vendor.sr("popup2", "16389484-1"),
-    n: common_vendor.p({
+    l: $props.backgdata.backgroundCr,
+    m: $props.backgdata.toOpacity,
+    n: $props.backgdata.clors,
+    o: common_vendor.o((...args) => $options.shareImg && $options.shareImg(...args)),
+    p: common_vendor.sr("popup2", "16389484-1"),
+    q: common_vendor.p({
       type: "bottom"
     })
   };

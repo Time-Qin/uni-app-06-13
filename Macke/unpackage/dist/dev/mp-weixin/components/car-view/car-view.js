@@ -5,6 +5,7 @@ const _sfc_main = {
   props: ["contentDatas"],
   data() {
     return {
+      nowPrice: 0,
       changeIndex: 0
     };
   },
@@ -30,14 +31,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: $props.contentDatas.img,
     b: common_vendor.t($props.contentDatas.name),
     c: common_vendor.t($props.contentDatas.french),
-    d: common_vendor.t($props.contentDatas.price),
+    d: common_vendor.t($data.nowPrice || $props.contentDatas.price),
     e: common_vendor.t($props.contentDatas.saleTotal),
     f: common_vendor.f($props.contentDatas.list, (item, idx, i0) => {
       return {
         a: common_vendor.t(item.spec),
         b: common_vendor.t(item.weight),
         c: item.id,
-        d: common_vendor.o(($event) => $data.changeIndex = idx, item.id)
+        d: common_vendor.o(($event) => ($data.changeIndex = idx, $data.nowPrice = item.price), item.id)
       };
     }),
     g: common_vendor.f($props.contentDatas.list, (item, idx, i0) => {

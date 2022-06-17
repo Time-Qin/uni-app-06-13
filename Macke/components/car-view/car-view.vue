@@ -9,14 +9,14 @@
 					<view class="one_title">
 						<text class="nameC">{{contentDatas.name}}</text>
 						<text class="nameF">{{contentDatas.french}}</text>
-						<text class="price">￥ <text class="price2">{{contentDatas.price}}</text></text>
+						<text class="price">￥ <text class="price2">{{nowPrice||contentDatas.price}}</text></text>
 						<text class="sale">已售 {{contentDatas.saleTotal}}</text>
 					</view>
 				</view>
 				<view class="two">
 					<text class="text2">规格</text>
 					<view class="two_content" >
-						<view class="two_title" v-for="(item,idx) in contentDatas.list" :key="item.id" @click="changeIndex=idx">
+						<view class="two_title" v-for="(item,idx) in contentDatas.list" :key="item.id" @click="changeIndex=idx,nowPrice=item.price">
 							{{item.spec}}({{item.weight}})
 						</view>
 						<view class="content_view">
@@ -50,7 +50,7 @@
 		props: ['contentDatas'],
 		data() {
 			return {
-				
+				nowPrice:0,
 				changeIndex:0,
 			};
 		},

@@ -48,7 +48,23 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
-
+	
+	.icon-dangqian:before {
+	  content: "\e64a";
+	}
+	
+	.icon-xiangxia1:before {
+	  content: "\e771";
+	}
+	
+	.icon-xiangzuo1:before {
+	  content: "\e779";
+	}
+	
+	.icon-bangbangtang:before {
+	  content: "\e656";
+	}
+	
 	.icon-fenxiang1:before {
 	  content: "\e6d7";
 	}
@@ -99,10 +115,6 @@
 	
 	.icon-dangao:before {
 	  content: "\e60d";
-	}
-	
-	.icon-bangbangtang:before {
-	  content: "\e656";
 	}
 	
 	.icon-lazhu:before {
@@ -172,6 +184,7 @@
 	.icon-sousuoxiao:before {
 	  content: "\e8d6";
 	}
+
 
 
 
