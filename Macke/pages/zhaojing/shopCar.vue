@@ -2,9 +2,22 @@
 	<view class="container">
 		<view class="empty">
 			<image src="/static/images/shop.png" mode="widthFix" style="width: 400rpx;"></image>
-			<view class="empty-text">空空如也的购物</view>
+			<view class="empty-text">购物车空空如也</view>
 			<view class="empty-button" @click="goshopping">去选购</view>
 		</view>
+		<!-- 		<view class="carDetail">
+			<uni-icons type="circle" size="30" class="icon"></uni-icons>
+			<image class="poster" src="" mode=""></image>
+			<view class="detail">
+				<text>草莓蛋糕</text>
+				<view class="">CaoMei</view>
+				<view>一磅</view>
+				<view style="display: flex;">
+					<text>139</text>
+					<uni-number-box :min="1" class="step" ></uni-number-box>
+				</view>
+			</view>
+		</view> -->
 		<view class="title-split">
 			<view class="line"></view>
 			<text>推荐商品</text>
@@ -20,8 +33,9 @@
 					<view class="french">{{item.french}}</view>
 					<view class="buy">
 						<view class="price">¥&nbsp;{{item.price}}</view>
-						<uni-icons type="cart" size="30" @click=""></uni-icons>
+						<uni-icons type="cart" size="30" @click="getDatasCar(item.id)"></uni-icons>
 					</view>
+					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
 				</view>
 			</view>
 			<uni-load-more v-if="hasMore" status="loading"></uni-load-more>
@@ -44,35 +58,7 @@
 				goods: [],
 				pageIndex: 1,
 				hasMore: true,
-				// carList: [{
-				// 		"number": 1,
-				// 		"state": 0,
-				// 		"id": "17892",
-				// 		"twoId": "17889",
-				// 		"name": "巴斯克，椰！",
-				// 		"french": "Basque, noix de coco!",
-				// 		"amount": "298.00",
-				// 		"price": "298.00",
-				// 		"tag": "",
-				// 		"tagName": "新品",
-				// 		"saleTotal": "11",
-				// 		"img": "https://static.mcake.com/new_goods/basikeye/C4002/list/1.jpg"
-				// 	},
-				// 	{
-				// 		"number": 1,
-				// 		"state": 1,
-				// 		"id": "17877",
-				// 		"twoId": "17874",
-				// 		"name": "契尔斯花园",
-				// 		"french": "Jardin de Cheers",
-				// 		"amount": "298.00",
-				// 		"price": "298.00",
-				// 		"tag": "",
-				// 		"tagName": "新品",
-				// 		"saleTotal": "270",
-				// 		"img": "https://static.mcake.com/new_goods/qieersihuayuan/C4001/list/1.jpg"
-				// 	}
-				// ]
+				contentDatas: [],
 			}
 		},
 		created() {
@@ -93,6 +79,11 @@
 				console.log(result, this.pageIndex)
 				result.code === 0 ? this.goods = [...this.goods, ...result.data.data] : ''
 			},
+			async getDatasCar(sku) {
+				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
+				result.msg === "Success" ? this.contentDatas = result.data : '';
+				this.$refs.Car[0].shopContent2();
+			},
 			//回到顶部
 			goTop() {
 				uni.pageScrollTo({
@@ -102,7 +93,6 @@
 			}
 		},
 		onPageScroll(scroll) {
-			// console.log(scroll, '111111');
 			if (scroll.scrollTop > 400) { //当距离大于400时显示回到顶部按钮
 				this.flag = true
 			} else { //当距离小于400时隐藏回到顶部按钮
@@ -259,9 +249,26 @@
 			right: 45rpx;
 			text-align: center;
 			line-height: 60rpx;
-			z-index: 999;
 			display: none;
 			/* 先将元素隐藏 */
 		}
+
+		// .carDetail {
+		// 	width: 100%;
+		// 	padding: 0 40rpx;
+		// 	background-color: white;
+		// 	display: flex;
+
+		// 	.icon {
+		// 		display: flex;
+		// 		align-items: center;
+		// 	}
+		// }
+
+		// .poster {
+		// 	width: 180rpx;
+		// 	height: 180rpx;
+		// 	background-color: #30a8ff;
+		// }
 	}
 </style>

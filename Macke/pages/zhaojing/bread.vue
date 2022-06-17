@@ -11,10 +11,11 @@
 					<view class="item-desc">{{item.french}}</view>
 					<view class="item-footer">
 						<view class="item-price">¥&nbsp;{{item.price}}</view>
-						<view class="item-shop">
+						<view class="item-shop" @click="getDatasCar(item.id)">
 							<text class="iconfont icon-gouwuche"></text>
 						</view>
 					</view>
+					<car-view ref="Car" :contentDatas="contentDatas" ></car-view>
 				</view>
 			</view>
 
@@ -31,6 +32,7 @@
 				goodlist: [],
 				page: 1,
 				canLoad: true,
+				contentDatas:[],
 			}
 		},
 		created() {
@@ -52,6 +54,11 @@
 					that.canLoad = false;
 				}
 
+			},
+			async getDatasCar(sku) {
+				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
+				result.msg === "Success" ? this.contentDatas = result.data : '';
+				this.$refs.Car[0].shopContent2();
 			},
 		},
 		//上拉加载
