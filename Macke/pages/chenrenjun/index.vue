@@ -3,8 +3,8 @@
 		<!-- tapbar切换 -->
 		<view class="c-tapbar">
 			<scroll-view class="tap-list" scroll-x="true" v-if=flag enable-flex="true">
-				<view :class="['content',{active:activeKey === item.tid}]" v-for="(item,index) in mcakeScene" :key="item.tid"
-					@click="getMcakeGroup(item.tid)">{{item.tname}}</view>
+				<view :class="['content',{active:activeKey == item.tid}]" v-for="(item,index) in mcakeScene"
+					:key="item.tid" @click="getMcakeGroup(item.tid)">{{item.tname}}</view>
 			</scroll-view>
 		</view>
 		<!-- 商品列表 -->
@@ -46,64 +46,48 @@
 			return {
 				datalist: [],
 				mcakeScene: {},
-				goods: {},
-				list: {},
 				flag: true,
 				activeKey: 0,
-				active: 0,
 				hasMore: true,
-				page:1,
-				fid:192
+				page: 1,
+				fid: 0
 
 			}
 		},
 		created() {
-			// this.getMcakes()
 			this.initMcake()
-			this.getMcakeGroup()
 		},
 		methods: {
 			async initMcake() {
 				let result = await GetRequest("/api/goods/category");
 				result.code === 0 ? this.mcakeScene = result.data[0].scene : '';
-				// console.log(this.mcakeScene);
 				this.mcakeScene.unshift({
 					"bid": "1",
 					"tgid": "3",
-					"tid": "192",
+					"tid": "0",
 					"tname": "全部"
 				})
-
-				this.getMcakes(this.mcakeScene.bid,this.mcakeScene.tid)
-				// this.getMcakeGroup()
-				// console.log(this.mcakeScene,"1111111111111111111");
+				this.getMcakes()
 			},
-			async getMcakes(bid,tid) {
-				let result = await GetRequest(`/api/goods/load?bid=${bid}&page=${this.page}&tid=${tid}&count=10`);
-				// console.log(result,tid,"22222222222");
+			async getMcakes(fid) {
+				let result = await GetRequest(`/api/goods/load?bid=1&tid=0&fid=${this.fid}&page=${this.page}&count=10`)
 				if (result.data.data.length < 10) {
 					this.hasMore = false
 				}
-				result.code == 0 ? this.datalist = [...this.datalist,...result.data.data] : '';
-				console.log(this.datalist,this.page,tid,"333333333");
+				result.code == 0 ? this.datalist = [...this.datalist, ...result.data.data] : '';
 			},
 			async getMcakeGroup(fid) {
 				this.activeKey = fid;
-				if (fid == 192) {
-					this.getMcakes();
-				} else {
-					let result = await GetRequest(`/api/goods/load?bid=1&fid=${fid}&page=${this.page}&count=10`);
-					console.log(result, this.page,fid,"4444444");
-					result.code === 0 ? this.datalist = result.data.data : ''
-					// console.log(this.datalist);
-
-				}
+				this.fid = fid
+				this.hasMore = true
+				this.page = 1
+				let result = await GetRequest(`/api/goods/load?bid=1&tid=0&fid=${fid}&page=${this.page}&count=10`);
+				result.code === 0 ? this.datalist = result.data.data : ''
 			},
 			goDetail(id) {
 				uni.navigateTo({
 					url: `/pages/chenrenjun/mcakedetails/mcakedetails?id=${id}`
 				})
-				// console.log(id);
 			},
 		},
 		// 上拉加载

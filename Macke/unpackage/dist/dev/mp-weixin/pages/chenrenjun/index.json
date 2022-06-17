@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": "chenrenjun",
+  "navigationBarTitleText": "美味蛋糕",
+  "navigationBarBackgroundColor": "#ffaaae",
+  "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
   "usingComponents": {

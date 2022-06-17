@@ -2,13 +2,12 @@
 	<view class="container">
 		<view class="c-label">
 			<view class="[c-list" v-for="item in total.list" :key="item.type"
-				@click="getComment(twoId,item.type)">
+				@click="goTotal(item.type)">
 				<view :class="['c-tit',{active:activeKey === item.type }]">{{item.title}}({{item.total}})</view>
 			</view>
 		</view>
-
 		<view class="commentinfo">
-			<view class="comment_list" v-for="item in comment.data" :key="item.cid">
+			<view class="comment_list" v-for="item in comment" :key="item.cid">
 				<view class="comment_list_header">
 					<image :src="item.uhead" mode="widthFix"></image>
 					<text class="c-phone">{{item.uname}}</text>
@@ -18,7 +17,7 @@
 					<view class="list-main">{{item.content}}</view>
 				</view>
 				<view class="comment_img">
-					<view class="comment_list_img" v-for="i in item.img" :key="i">
+					<view class="comment_list_img" v-for="i in item.img" :key="i.src">
 						<image :src="i.src" mode="widthFix"></image>
 					</view>
 				</view>
@@ -41,46 +40,40 @@
 			return {
 				total: {},
 				comment: [],
-				twoId:"",
+				twoId: "",
 				activeKey: 0,
-				active: 0,
 				page: 1,
-				type:0,
+				type: 0,
 				hasMore: true
 			}
 		},
 		onLoad(options) {
-			console.log(options);
 			this.getTotal(options.twoId)
-			this.getComment(options.twoId)
+			this.getComment(options.twoId,this.type)
+			
 		},
 		methods: {
 			async getTotal(twoId) {
 				let result = await GetRequest(`/api/comment/total?twoId=${twoId}`);
-				// console.log(result.data.list[0]);
 				result.code == 0 ? this.total = result.data : '';
-				// console.log(this.total);
 				this.twoId = twoId
-				// console.log(this.twoId);
 			},
 			async getComment(twoId,type) {
-				console.log(this.type);
-				this.activeKey = type;
+				this.activeKey = this.type;
 				let result = await GetRequest(`/api/comment/load?twoId=${this.twoId||twoId}&type=${this.type}&page=${this.page}&count=10`);
-				console.log(result,this.page,type);
-				if (result.data.length < 10) {
+				if (result.data.data.length < 10) {
 					this.hasMore = false
 				}
-				result.code == 0 ? this.comment = result.data : '';
-				console.log(this.comment);
+				result.code == 0 ? this.comment = [...this.comment,...result.data.data] : '';
 			},
-			// async goTotal(twoId, type) {
-			// 	// console.log(twoId,type);
-			// 	this.activeKey = type;
-			// 	let result = await GetRequest(`/api/comment/load?twoId=${twoId}&type=${type}&page=1&count=10`);
-			// 	// console.log(result, type, twoId, "11111111");
-			// 	result.code == 0 ? this.comment = result.data : '';
-			// },
+			async goTotal(type) {
+				this.activeKey = type;
+				this.type = type;
+				this.page=1;
+				let result = await GetRequest(`/api/comment/load?twoId=${this.twoId}&type=${type}&page=${this.page}&count=10`);
+				result.code == 0 ? this.comment = result.data.data : '';
+				
+			},
 		},
 		// 上拉加载
 		onReachBottom() {
@@ -104,6 +97,7 @@
 <style lang="less" scoped>
 	.container {
 		background-color: #fafcfd;
+
 		.c-label {
 			display: flex;
 			flex-wrap: wrap;
@@ -128,6 +122,7 @@
 
 		.commentinfo {
 			padding: 0 20px;
+
 			.comment_list {
 				margin: 20px 0;
 				padding-bottom: 16px;

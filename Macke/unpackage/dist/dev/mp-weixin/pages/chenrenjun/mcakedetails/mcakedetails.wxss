@@ -179,6 +179,72 @@
   background-color: #000;
   margin-right: 10rpx;
 }
+.container .peisong .c-pop.data-v-6191eb62 {
+  background-color: #fff;
+}
+.container .peisong .c-pop .c-header.data-v-6191eb62 {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid #f9f9f9;
+}
+.container .peisong .c-pop .c-header image.data-v-6191eb62 {
+  width: 120px;
+  height: 120px;
+  margin-right: 8px;
+}
+.container .peisong .c-pop .c-header .c-header-main.data-v-6191eb62 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-right: 70px;
+}
+.container .peisong .c-pop .c-header .c-header-main .slot-title.data-v-6191eb62 {
+  font-size: 16px;
+}
+.container .peisong .c-pop .c-header .c-header-main .slot-french.data-v-6191eb62 {
+  font-size: 10px;
+  color: #c0c0c0;
+}
+.container .peisong .c-pop .c-header .c-header-main .slot-price.data-v-6191eb62 {
+  margin: 8px 0 10px 0;
+  font-size: 16px;
+}
+.container .peisong .c-pop .c-header .c-header-main .slot-price .slot-price-icon.data-v-6191eb62 {
+  font-size: 12px;
+}
+.container .peisong .c-pop .c-header .c-header-main .slot-saleTotal.data-v-6191eb62 {
+  font-size: 12px;
+  color: #999999;
+}
+.container .peisong .c-pop .c-header .c-header-main .uni-icons.data-v-6191eb62 {
+  margin-left: 80px;
+}
+.container .peisong .c-pop .c-body.data-v-6191eb62 {
+  padding: 16px;
+}
+.container .peisong .c-pop .c-body .c-txt.data-v-6191eb62 {
+  font-size: 16px;
+}
+.container .peisong .c-pop .c-body .c-label.data-v-6191eb62 {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 15px;
+}
+.container .peisong .c-pop .c-body .c-label .c-list.data-v-6191eb62 {
+  margin: 0 10px 10px 0;
+}
+.container .peisong .c-pop .c-body .c-label .c-list .c-tit.data-v-6191eb62 {
+  border-radius: 8px;
+  width: 100px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  background-color: #e6f7ff;
+  font-size: 12px;
+}
+.container .peisong .c-pop .c-body .c-label .c-list .c-tit.active.data-v-6191eb62 {
+  background-color: #bae7ff;
+}
 .container .c-comment.data-v-6191eb62 {
   margin: 14px 10px;
 }
@@ -305,4 +371,20 @@
 .container .bottom_nav.data-v-6191eb62 .uni-tab__cart-box .uni-tab__cart-button-right {
   margin-right: 10rpx;
   border-radius: 100px;
+}
+.container .gotop.data-v-6191eb62 {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f6fa;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  color: #999;
+}
+.container .gotop .c-icon.data-v-6191eb62 {
+  font-size: 22px;
+  color: #999999;
 }

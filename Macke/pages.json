@@ -1,8 +1,20 @@
 {
-	"pages": [{
+	"pages": [
+		{
+		    "path" : "pages/chenrenjun/placeorder/placeorder",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "提交订单",
+		        "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "black"
+		    }
+		    
+		},{
 			"path": "pages/chenrenjun/index",
 			"style": {
-				"navigationBarTitleText": "chenrenjun",
+				"navigationBarTitleText": "美味蛋糕",
+				"navigationBarBackgroundColor": "#ffaaae",
+				"navigationBarTextStyle": "black",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 20
 			}
@@ -10,9 +22,9 @@
 		{
 			"path": "pages/chenrenjun/mcakedetails/mcakedetails",
 			"style": {
-				"navigationBarTitleText": "chenrenjun",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
@@ -57,13 +69,15 @@
 		}, {
 			"path": "pages/chenrenjun/alltotal/alltotal",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "商品评价",
 				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
+				"onReachBottomDistance": 20,
+				"navigationBarTextStyle": "black"
+				
 			}
 
 		}
-	],
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "Mcake",

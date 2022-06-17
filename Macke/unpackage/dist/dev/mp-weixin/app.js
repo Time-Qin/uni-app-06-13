@@ -4,6 +4,7 @@ exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
 require("./store/index.js");
 if (!Math) {
+  "./pages/chenrenjun/placeorder/placeorder.js";
   "./pages/chenrenjun/index.js";
   "./pages/chenrenjun/mcakedetails/mcakedetails.js";
   "./pages/index/index.js";

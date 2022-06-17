@@ -3,7 +3,7 @@
 		<swiper class="swiper" indicator-dots circular autoplay>
 			<swiper-item v-for="(item ,index) in banner" :key="item.mainId">
 				<view class="swiper-item">
-					<image :src="item" mode="widthFix"></image>
+					<image @click="previewImg(item)" :src="item" mode="widthFix"></image>
 				</view>
 			</swiper-item>
 		</swiper>
@@ -70,11 +70,51 @@
 						</text>
 					</view>
 				</view>
-				<view class="dotsList dot">
+
+				<view class="dotsList dot" @click="open">
 					<view class="dots"></view>
 					<view class="dots"></view>
 					<view class="dots"></view>
 				</view>
+				<uni-popup ref="popup" type="bottom">
+					<!-- <view class="c-pop">
+						<view class="c-header">
+							<image :src="datalist.img" mode="widthFix"></image>
+							<view class="c-header-main">
+								<view class="slot-title">{{datalist.name}}</view>
+								<view class="slot-french">{{datalist.french}}</view>
+								<view class="slot-price"> <text class="slot-price-icon">￥</text> {{datalist.price}}
+								</view>
+								<view class="slot-saleTotal">已售{{datalist.saleTotal}}</view>
+							</view>
+							<uni-icons type="closeempty" size="20" color="#909399" @click="close"></uni-icons>
+						</view>
+						<view class="c-body">
+							<view class="c-txt">规格</view>
+							<view class="c-label">
+								<view class="[c-list" v-for="item in list" :key="item.id" @click="gospec(item.id)">
+									<view :class="['c-tit',{active:activeKey === item.id }]">
+										{{item.spec}}({{item.weight}})
+									</view>
+								</view>
+							</view>
+							<view class="yixuan-title" v-for="item in list" :key="item.id">
+								<text class="iconfont icon-canju1 item">&nbsp;
+									<text class="item-title">{{item.tableware}}</text>
+								</text>
+								<text class="iconfont icon-lazhu item">&nbsp;
+									<text class="item-title">{{item.candle}}</text>
+								</text>
+								<text class="iconfont icon-canju2 item">&nbsp;
+									<text class="item-title">{{item.edible}}</text>
+								</text>
+								<text class="iconfont icon-dangao item">&nbsp;
+									<text class="item-title">{{item.size}}</text>
+								</text>
+							</view>
+						</view>
+					</view> -->
+				</uni-popup>
 			</view>
 
 			<view class="songzhi">
@@ -155,6 +195,9 @@
 		</view>
 		<car-view ref="popup4" :contentDatas="contentDatas"></car-view>
 
+		<view v-if="goTop" class="gotop" @click="toTop">
+			<text class="iconfont icon-shang c-icon"></text>
+		</view>
 	</view>
 </template>
 
@@ -169,8 +212,10 @@
 				banner: {},
 				comment: {},
 				total: {},
+				list: {},
 				activeKey: 0,
 				active: 0,
+				goTop: false,
 				options: [{
 					icon: 'home',
 					text: '首页',
@@ -195,47 +240,68 @@
 
 		},
 		onLoad(options) {
-			// console.log(options);
 			this.getDetails(options.id)
 		},
 		methods: {
 			async getDetails(id) {
 				let result = await GetRequest("/api/goods/detail?id=" + id);
-				// console.log(result);
 				result.code == 0 ? this.datalist = result.data : '';
 				this.banner = this.datalist.banner
-				// console.log(this.banner);
-				// console.log(this.datalist);
+				this.list = this.datalist.list
 				this.getComment(this.datalist.twoId)
 				this.getTotal(this.datalist.twoId)
-				// this.goTotal(this.datalist.twoId)
 			},
 			async getTotal(twoId) {
 				let result = await GetRequest(`/api/comment/total?twoId=${twoId}`);
-				// console.log(result.data.list[0]);
 				result.code == 0 ? this.total = result.data : '';
-				// console.log(this.total);
 			},
 			async getComment(twoId) {
 				let result = await GetRequest(`/api/comment/load?twoId=${twoId}&type=0&page=1&count=3`);
-				// console.log(result);
 				result.code == 0 ? this.comment = result.data : '';
-				// console.log(this.comment);
 			},
 			async goTotal(twoId, type) {
-				// console.log(type);
 				this.activeKey = type;
 				let result = await GetRequest(`/api/comment/load?twoId=${twoId}&type=${type}&page=1&count=3`);
-				// console.log(result, type, twoId, "11111111");
 				result.code == 0 ? this.comment = result.data : '';
 			},
 			goAllTotal(twoId) {
 				uni.navigateTo({
 					url: `/pages/chenrenjun/alltotal/alltotal?twoId=${twoId}`
 				})
-				// console.log(id);
 			},
-		}
+			previewImg(current) {
+				var urls = this.banner.map(item => item)
+				uni.previewImage({
+					current,
+					urls
+				})
+			},
+			open() {
+				this.$refs.popup.open('tottom')
+			},
+			close() {
+				this.$refs.popup.close()
+			},
+			toTop() {
+				uni.pageScrollTo({
+					scrollTop: 0,
+					duration: 300
+				});
+			},
+		},
+		onPageScroll(e) {
+			var that = this;
+			uni.getSystemInfo({
+				success: function(res) {
+					if (e.scrollTop > res.windowHeight) {
+						that.goTop = true;
+					} else {
+						that.goTop = false;
+					}
+					return res.windowHeight;
+				}
+			});
+		},
 	}
 </script>
 
@@ -354,7 +420,6 @@
 
 				.basic-value {
 					flex: 1;
-					// text-align: left;
 				}
 			}
 		}
@@ -463,6 +528,89 @@
 					background-color: #000;
 					margin-right: 10rpx;
 				}
+			}
+
+			.c-pop {
+				background-color: #fff;
+
+				.c-header {
+					display: flex;
+					padding: 16px;
+					border-bottom: 1px solid #f9f9f9;
+
+					image {
+						width: 120px;
+						height: 120px;
+						margin-right: 8px;
+					}
+
+					.c-header-main {
+						display: flex;
+						flex-wrap: wrap;
+						flex-direction: column;
+						margin-right: 70px;
+
+						.slot-title {
+							font-size: 16px;
+						}
+
+						.slot-french {
+							font-size: 10px;
+							color: #c0c0c0;
+						}
+
+						.slot-price {
+							margin: 8px 0 10px 0;
+							font-size: 16px;
+
+							.slot-price-icon {
+								font-size: 12px;
+							}
+						}
+
+						.slot-saleTotal {
+							font-size: 12px;
+							color: #999999;
+						}
+
+						.uni-icons {
+							margin-left: 80px;
+						}
+					}
+				}
+
+				.c-body {
+					padding: 16px;
+
+					.c-txt {
+						font-size: 16px;
+					}
+
+					.c-label {
+						display: flex;
+						flex-wrap: wrap;
+						padding-top: 15px;
+
+						.c-list {
+							margin: 0 10px 10px 0;
+
+							.c-tit {
+								border-radius: 8px;
+								width: 100px;
+								height: 26px;
+								text-align: center;
+								line-height: 26px;
+								background-color: #e6f7ff;
+								font-size: 12px;
+
+								&.active {
+									background-color: #bae7ff;
+								}
+							}
+						}
+					}
+				}
+
 			}
 		}
 
@@ -631,5 +779,21 @@
 
 		}
 
+		.gotop {
+			position: fixed;
+			right: 20px;
+			bottom: 80px;
+			width: 40px;
+			height: 40px;
+			background-color: #f0f6fa;
+			border-radius: 20px;
+			text-align: center;
+			line-height: 40px;
+			color: #999;
+			.c-icon{
+				font-size: 22px;
+				color: #999999;
+			}
+		}
 	}
 </style>

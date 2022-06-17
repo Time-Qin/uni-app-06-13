@@ -8,8 +8,10 @@ const _sfc_main = {
       banner: {},
       comment: {},
       total: {},
+      list: {},
       activeKey: 0,
       active: 0,
+      goTop: false,
       options: [{
         icon: "home",
         text: "\u9996\u9875"
@@ -41,6 +43,7 @@ const _sfc_main = {
       let result = await common_js_requestHttp.GetRequest("/api/goods/detail?id=" + id);
       result.code == 0 ? this.datalist = result.data : "";
       this.banner = this.datalist.banner;
+      this.list = this.datalist.list;
       this.getComment(this.datalist.twoId);
       this.getTotal(this.datalist.twoId);
     },
@@ -61,26 +64,61 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: `/pages/chenrenjun/alltotal/alltotal?twoId=${twoId}`
       });
+    },
+    previewImg(current) {
+      var urls = this.banner.map((item) => item);
+      common_vendor.index.previewImage({
+        current,
+        urls
+      });
+    },
+    open() {
+      this.$refs.popup.open("tottom");
+    },
+    close() {
+      this.$refs.popup.close();
+    },
+    toTop() {
+      common_vendor.index.pageScrollTo({
+        scrollTop: 0,
+        duration: 300
+      });
     }
+  },
+  onPageScroll(e) {
+    var that = this;
+    common_vendor.index.getSystemInfo({
+      success: function(res) {
+        if (e.scrollTop > res.windowHeight) {
+          that.goTop = true;
+        } else {
+          that.goTop = false;
+        }
+        return res.windowHeight;
+      }
+    });
   }
 };
 if (!Array) {
+  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
   const _component_car_view = common_vendor.resolveComponent("car-view");
-  (_easycom_uni_icons2 + _easycom_uni_goods_nav2 + _component_car_view)();
+  (_easycom_uni_popup2 + _easycom_uni_icons2 + _easycom_uni_goods_nav2 + _component_car_view)();
 }
+const _easycom_uni_popup = () => "../../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 const _easycom_uni_icons = () => "../../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_uni_goods_nav = () => "../../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
 if (!Math) {
-  (_easycom_uni_icons + _easycom_uni_goods_nav)();
+  (_easycom_uni_popup + _easycom_uni_icons + _easycom_uni_goods_nav)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
     a: common_vendor.f($data.banner, (item, index, i0) => {
       return {
-        a: item,
-        b: item.mainId
+        a: common_vendor.o(($event) => $options.previewImg(item)),
+        b: item,
+        c: item.mainId
       };
     }),
     b: common_vendor.t($data.datalist.name),
@@ -119,18 +157,23 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     n: common_vendor.t($data.datalist.candle),
     o: common_vendor.t($data.datalist.edible),
     p: common_vendor.t($data.datalist.size),
-    q: common_vendor.t($data.datalist.sendStartDate),
-    r: common_vendor.t($data.datalist.sendStartTime),
-    s: $data.total.total != 0
+    q: common_vendor.o((...args) => $options.open && $options.open(...args)),
+    r: common_vendor.sr("popup", "6191eb62-0"),
+    s: common_vendor.p({
+      type: "bottom"
+    }),
+    t: common_vendor.t($data.datalist.sendStartDate),
+    v: common_vendor.t($data.datalist.sendStartTime),
+    w: $data.total.total != 0
   }, $data.total.total != 0 ? {
-    t: common_vendor.t($data.total.total),
-    v: common_vendor.o(($event) => $options.goAllTotal($data.datalist.twoId)),
-    w: common_vendor.p({
+    x: common_vendor.t($data.total.total),
+    y: common_vendor.o(($event) => $options.goAllTotal($data.datalist.twoId)),
+    z: common_vendor.p({
       type: "forward",
       size: "16",
       color: "#888"
     }),
-    x: common_vendor.f($data.total.list, (item, k0, i0) => {
+    A: common_vendor.f($data.total.list, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.total),
@@ -141,7 +184,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         e: common_vendor.o(($event) => $options.goTotal($data.datalist.twoId, item.type), item.type)
       };
     }),
-    y: common_vendor.f($data.comment.data, (item, k0, i0) => {
+    B: common_vendor.f($data.comment.data, (item, k0, i0) => {
       return {
         a: item.uhead,
         b: common_vendor.t(item.uname),
@@ -158,19 +201,23 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       };
     })
   } : {}, {
-    z: $data.datalist.wapDesc,
-    A: common_vendor.o(_ctx.onClick),
-    B: common_vendor.o(_ctx.buttonClick),
-    C: common_vendor.p({
+    C: $data.datalist.wapDesc,
+    D: common_vendor.o(_ctx.onClick),
+    E: common_vendor.o(_ctx.buttonClick),
+    F: common_vendor.p({
       fill: true,
       options: $data.options,
       buttonGroup: $data.buttonGroup
     }),
-    D: common_vendor.sr("popup4", "6191eb62-2"),
-    E: common_vendor.p({
+    G: common_vendor.sr("popup4", "6191eb62-3"),
+    H: common_vendor.p({
       contentDatas: _ctx.contentDatas
-    })
-  });
+    }),
+    I: $data.goTop
+  }, $data.goTop ? {
+    J: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
+  } : {});
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-6191eb62"], ["__file", "E:/vscode/\u524D\u7AEF/uni-app-06-13/Macke/pages/chenrenjun/mcakedetails/mcakedetails.vue"]]);
+_sfc_main.__runtimeHooks = 1;
 wx.createPage(MiniProgramPage);

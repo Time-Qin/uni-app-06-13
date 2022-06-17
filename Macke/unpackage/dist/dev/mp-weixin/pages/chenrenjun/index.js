@@ -6,19 +6,15 @@ const _sfc_main = {
     return {
       datalist: [],
       mcakeScene: {},
-      goods: {},
-      list: {},
       flag: true,
       activeKey: 0,
-      active: 0,
       hasMore: true,
       page: 1,
-      fid: 192
+      fid: 0
     };
   },
   created() {
     this.initMcake();
-    this.getMcakeGroup();
   },
   methods: {
     async initMcake() {
@@ -27,28 +23,25 @@ const _sfc_main = {
       this.mcakeScene.unshift({
         "bid": "1",
         "tgid": "3",
-        "tid": "192",
+        "tid": "0",
         "tname": "\u5168\u90E8"
       });
-      this.getMcakes(this.mcakeScene.bid, this.mcakeScene.tid);
+      this.getMcakes();
     },
-    async getMcakes(bid, tid) {
-      let result = await common_js_requestHttp.GetRequest(`/api/goods/load?bid=${bid}&page=${this.page}&tid=${tid}&count=10`);
+    async getMcakes(fid) {
+      let result = await common_js_requestHttp.GetRequest(`/api/goods/load?bid=1&tid=0&fid=${this.fid}&page=${this.page}&count=10`);
       if (result.data.data.length < 10) {
         this.hasMore = false;
       }
       result.code == 0 ? this.datalist = [...this.datalist, ...result.data.data] : "";
-      console.log(this.datalist, this.page, tid, "333333333");
     },
     async getMcakeGroup(fid) {
       this.activeKey = fid;
-      if (fid == 192) {
-        this.getMcakes();
-      } else {
-        let result = await common_js_requestHttp.GetRequest(`/api/goods/load?bid=1&fid=${fid}&page=${this.page}&count=10`);
-        console.log(result, this.page, fid, "4444444");
-        result.code === 0 ? this.datalist = result.data.data : "";
-      }
+      this.fid = fid;
+      this.hasMore = true;
+      this.page = 1;
+      let result = await common_js_requestHttp.GetRequest(`/api/goods/load?bid=1&tid=0&fid=${fid}&page=${this.page}&count=10`);
+      result.code === 0 ? this.datalist = result.data.data : "";
     },
     goDetail(id) {
       common_vendor.index.navigateTo({
@@ -89,7 +82,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       return {
         a: common_vendor.t(item.tname),
         b: common_vendor.n({
-          active: $data.activeKey === item.tid
+          active: $data.activeKey == item.tid
         }),
         c: item.tid,
         d: common_vendor.o(($event) => $options.getMcakeGroup(item.tid), item.tid)

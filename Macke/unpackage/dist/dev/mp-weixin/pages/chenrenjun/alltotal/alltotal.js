@@ -8,16 +8,14 @@ const _sfc_main = {
       comment: [],
       twoId: "",
       activeKey: 0,
-      active: 0,
       page: 1,
       type: 0,
       hasMore: true
     };
   },
   onLoad(options) {
-    console.log(options);
     this.getTotal(options.twoId);
-    this.getComment(options.twoId);
+    this.getComment(options.twoId, this.type);
   },
   methods: {
     async getTotal(twoId) {
@@ -26,15 +24,19 @@ const _sfc_main = {
       this.twoId = twoId;
     },
     async getComment(twoId, type) {
-      console.log(this.type);
-      this.activeKey = type;
+      this.activeKey = this.type;
       let result = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${this.twoId || twoId}&type=${this.type}&page=${this.page}&count=10`);
-      console.log(result, this.page, type);
-      if (result.data.length < 10) {
+      if (result.data.data.length < 10) {
         this.hasMore = false;
       }
-      result.code == 0 ? this.comment = result.data : "";
-      console.log(this.comment);
+      result.code == 0 ? this.comment = [...this.comment, ...result.data.data] : "";
+    },
+    async goTotal(type) {
+      this.activeKey = type;
+      this.type = type;
+      this.page = 1;
+      let result = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${this.twoId}&type=${type}&page=${this.page}&count=10`);
+      result.code == 0 ? this.comment = result.data.data : "";
     }
   },
   onReachBottom() {
@@ -70,10 +72,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
           active: $data.activeKey === item.type
         }),
         d: item.type,
-        e: common_vendor.o(($event) => $options.getComment($data.twoId, item.type), item.type)
+        e: common_vendor.o(($event) => $options.goTotal(item.type), item.type)
       };
     }),
-    b: common_vendor.f($data.comment.data, (item, k0, i0) => {
+    b: common_vendor.f($data.comment, (item, k0, i0) => {
       return {
         a: item.uhead,
         b: common_vendor.t(item.uname),
@@ -82,7 +84,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         e: common_vendor.f(item.img, (i, k1, i1) => {
           return {
             a: i.src,
-            b: i
+            b: i.src
           };
         }),
         f: common_vendor.t(item.spec),
