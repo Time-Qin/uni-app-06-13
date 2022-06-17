@@ -57,16 +57,24 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
+	.icon-gengduomore12:before {
+		content: "\e60a";
+	}
+
+	.icon-fanhui-1:before {
+		content: "\e660";
+	}
+
+	.icon-lajixiang:before {
+		content: "\e666";
+	}
+
 	.icon-fenxiang:before {
 		content: "\e60d";
 	}
 
 	.icon-bangbangtang:before {
 		content: "\e656";
-	}
-
-	.icon-lajixiang:before {
-		content: "\e666";
 	}
 
 	.iconfont {

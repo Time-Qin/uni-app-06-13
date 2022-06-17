@@ -2,6 +2,46 @@
   background-color: white;
   padding-bottom: 80rpx;
 }
+.container .topBar.data-v-33747cf6 {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  padding-top: 40rpx;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+.container .topBar .stausBar.data-v-33747cf6 {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  padding-top: 40rpx;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  z-index: 11;
+  opacity: var(--stausBar-opacity);
+  text-align: center;
+}
+.container .topBar .back.data-v-33747cf6,
+.container .topBar .more.data-v-33747cf6 {
+  z-index: 12;
+  margin: 0 20rpx;
+}
+.container .topBar .icon-fanhui-1.data-v-33747cf6 {
+  font-size: 28px;
+  opacity: 0.5;
+  z-index: 12;
+  padding-left: 10rpx;
+  margin: 0 10rpx;
+}
+.container .topBar .icon-gengduomore12.data-v-33747cf6 {
+  font-size: 20px;
+  opacity: 0.5;
+  z-index: 12;
+}
 .container .share.data-v-33747cf6 {
   width: 100%;
   height: 300rpx;
@@ -171,7 +211,7 @@
 }
 .container .buyDetail.data-v-33747cf6 {
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -255,7 +295,7 @@
 }
 .container .comments.data-v-33747cf6 {
   width: 100%;
-  padding: 0 20rpx;
+  padding: 20rpx;
   box-sizing: border-box;
 }
 .container .comments .top.data-v-33747cf6 {
@@ -297,15 +337,17 @@
 }
 .container .goTop.data-v-33747cf6 {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  z-index: 1000;
+  right: 20rpx;
+  bottom: 120rpx;
   width: 30px;
   height: 30px;
-  background-color: #eef;
+  background-color: lightblue;
   border-radius: 15px;
   text-align: center;
   line-height: 30px;
   color: #999;
+  opacity: 0.7;
 }
 .container.data-v-33747cf6 .uni-goods-nav {
   position: fixed;

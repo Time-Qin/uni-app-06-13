@@ -20,7 +20,7 @@ const _sfc_main = {
       let result = await common_js_requestHttp.GetRequest("/api/goods/detail?id=" + item.id);
       result.code === 0 ? this.goodsDetail = result.data : "";
       this.itemList = this.goodsDetail.list[0];
-      this.$refs.popup1.change();
+      this.$refs.popup1.change("bottom");
     }
   }
 };

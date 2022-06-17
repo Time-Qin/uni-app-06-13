@@ -15,7 +15,7 @@ export default createStore({
 				state.carts.push(payload);
 			}
 			uni.setStorageSync('carts', state.carts);
-			// console.log(state.carts)
+			console.log(state.carts)
 		},
 		addHistory(state, payload) {
 			state.history.push(payload.history);

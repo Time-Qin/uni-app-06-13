@@ -7,7 +7,7 @@
 				<view class="french">{{item.french}}</view>
 				<view class="buy">
 					<view class="price">¥{{item.price}}</view>
-					<uni-icons type="cart" @click="addItem(item)" size="24"></uni-icons>
+					<uni-icons type="cart" @click="addItem(item)" size="24" class="uni-icons"></uni-icons>
 				</view>
 			</view>
 		</view>
@@ -38,7 +38,7 @@
 				let result = await GetRequest("/api/goods/detail?id=" + item.id);
 				result.code === 0 ? this.goodsDetail = result.data : ''
 				this.itemList = this.goodsDetail.list[0];
-				this.$refs.popup1.change();
+				this.$refs.popup1.change("bottom");
 			},
 		},
 	}
@@ -86,7 +86,7 @@
 						font-size: 12px;
 					}
 
-					uni-icons {
+					.uni-icons {
 						text-align: right;
 						background-color: lightcyan;
 						border-radius: 2px;

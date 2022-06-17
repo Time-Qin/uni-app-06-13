@@ -85,30 +85,29 @@ if (!Math) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
     a: common_vendor.o($options.search),
-    b: common_vendor.o(_ctx.change),
-    c: common_vendor.o(($event) => $data.keywords = $event),
-    d: common_vendor.p({
+    b: common_vendor.o(($event) => $data.keywords = $event),
+    c: common_vendor.p({
       focus: true,
       placeholder: "\u8BF7\u8F93\u5165\u5546\u54C1\u540D\u79F0",
       cancelButton: "none",
       modelValue: $data.keywords
     }),
-    e: common_vendor.o((...args) => $options.search && $options.search(...args)),
-    f: $data.keywords
+    d: common_vendor.o((...args) => $options.search && $options.search(...args)),
+    e: $data.keywords
   }, $data.keywords ? {
-    g: common_vendor.t($data.keywords)
+    f: common_vendor.t($data.keywords)
   } : {}, {
-    h: common_vendor.f($data.hot, (item, k0, i0) => {
+    g: common_vendor.f($data.hot, (item, k0, i0) => {
       return {
         a: common_vendor.t(item),
         b: item,
         c: common_vendor.o(($event) => $options.chooseHot(item))
       };
     }),
-    i: _ctx.history && _ctx.history.length > 0
+    h: _ctx.history && _ctx.history.length > 0
   }, _ctx.history && _ctx.history.length > 0 ? {
-    j: common_vendor.o(($event) => $options.toggle("center")),
-    k: common_vendor.f(_ctx.history, (item, k0, i0) => {
+    i: common_vendor.o(($event) => $options.toggle("center")),
+    j: common_vendor.f(_ctx.history, (item, k0, i0) => {
       return {
         a: common_vendor.t(item),
         b: item,
@@ -116,29 +115,29 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       };
     })
   } : {}, {
-    l: !$data.show,
-    m: common_vendor.o($options.search),
-    n: common_vendor.o(_ctx.change),
-    o: common_vendor.o(($event) => $data.keywords = $event),
-    p: common_vendor.p({
+    k: !$data.show,
+    l: common_vendor.o($options.search),
+    m: common_vendor.o(_ctx.change),
+    n: common_vendor.o(($event) => $data.keywords = $event),
+    o: common_vendor.p({
       focus: true,
       placeholder: "\u8BF7\u8F93\u5165\u5546\u54C1\u540D\u79F0",
       cancelButton: "none",
       modelValue: $data.keywords
     }),
-    q: common_vendor.o((...args) => $options.onClick && $options.onClick(...args)),
-    r: common_vendor.p({
+    p: common_vendor.o((...args) => $options.onClick && $options.onClick(...args)),
+    q: common_vendor.p({
       goods: $data.goods
     }),
-    s: $data.show,
-    t: common_vendor.o($options.dialogConfirm),
-    v: common_vendor.p({
+    r: $data.show,
+    s: common_vendor.o($options.dialogConfirm),
+    t: common_vendor.p({
       cancelText: "\u53D6\u6D88",
       confirmText: "\u786E\u8BA4",
       title: "\u6E29\u99A8\u63D0\u793A",
       content: "\u786E\u8BA4\u6E05\u7A7A\u641C\u7D22\u5386\u53F2\u5417"
     }),
-    w: common_vendor.sr("alertDialog", "4cedc0c6-3")
+    v: common_vendor.sr("alertDialog", "4cedc0c6-3")
   });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-4cedc0c6"], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/pages/search/search.vue"]]);

@@ -11,9 +11,12 @@
     "pages/search/search"
   ],
   "window": {
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#F8F8F8",
+    "options": {
+      "styleIsolation": "apply-shared"
+    }
   },
   "tabBar": {
     "list": [

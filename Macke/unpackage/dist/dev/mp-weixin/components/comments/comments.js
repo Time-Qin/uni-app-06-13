@@ -52,18 +52,19 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     b: common_vendor.f($props.comments, (item, k0, i0) => {
       return common_vendor.e({
         a: common_vendor.t(item.content),
-        b: item.img && item.img.length > 0
+        b: common_vendor.t(item.spec),
+        c: item.img && item.img.length > 0
       }, item.img && item.img.length > 0 ? {
-        c: common_vendor.f(item.img, (img, k1, i1) => {
+        d: common_vendor.f(item.img, (img, k1, i1) => {
           return {
             a: img.src,
             b: img.src
           };
         })
       } : {}, {
-        d: item.cid,
-        e: "ee51f260-0-" + i0,
-        f: common_vendor.p({
+        e: item.cid,
+        f: "10c9fc84-0-" + i0,
+        g: common_vendor.p({
           isFull: true,
           title: item.uname,
           ["sub-title"]: "",
@@ -74,5 +75,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   };
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/components/comments/comments.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-10c9fc84"], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/components/comments/comments.vue"]]);
 wx.createComponent(Component);

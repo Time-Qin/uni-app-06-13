@@ -24,31 +24,34 @@ const _sfc_main = {
   props: ["goodsDetail", "list"],
   data() {
     return {
-      carts: {}
+      value: 1,
+      buynum: 1
     };
   },
   methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addCarts"])), {
-    change() {
-      this.$refs.popup.open("bottom");
+    change(type) {
+      this.value = 1;
+      this.$refs.popup.open(type);
     },
     moveHandle() {
       return false;
     },
     addMoreCarts() {
-      this.addCarts(this.carts);
+      var obj = {
+        id: this.goodsDetail.id,
+        price: this.goodsDetail.price,
+        buynum: this.buynum,
+        name: this.goodsDetail.name
+      };
+      this.addCarts(obj);
       this.$refs.popup.close();
       common_vendor.index.showToast({
         title: `\u6DFB\u52A0\u8D2D\u7269\u8F66\u6210\u529F`,
         mask: true
       });
     },
-    changeValue(value) {
-      this.carts = {
-        id: this.goodsDetail.id,
-        price: this.goodsDetail.price,
-        buynum: value,
-        name: this.goodsDetail.name
-      };
+    changeValue() {
+      this.buynum = this.value;
     }
   })
 };
@@ -88,11 +91,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     o: common_vendor.t($props.list.size)
   } : {}, {
     p: common_vendor.o($options.changeValue),
-    q: common_vendor.o((...args) => $options.addMoreCarts && $options.addMoreCarts(...args)),
-    r: common_vendor.sr("popup", "77d757a8-0"),
-    s: common_vendor.o($options.change),
-    t: common_vendor.o($options.moveHandle),
-    v: common_vendor.p({
+    q: common_vendor.o(($event) => $data.value = $event),
+    r: common_vendor.p({
+      modelValue: $data.value
+    }),
+    s: common_vendor.o((...args) => $options.addMoreCarts && $options.addMoreCarts(...args)),
+    t: common_vendor.sr("popup", "77d757a8-0"),
+    v: common_vendor.o($options.moveHandle),
+    w: common_vendor.p({
       ["background-color"]: "#fff"
     })
   });

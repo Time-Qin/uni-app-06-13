@@ -1,5 +1,23 @@
 <template>
 	<view class="container">
+		<!-- 顶部弹窗 --功能直达 -->
+		<uni-popup ref="popup_top" background-color="#777" @touchmove.stop.prevent="moveHandle">
+			<view class="popup_top">
+				<view class="tit">功能直达</view>
+			</view>
+		</uni-popup>
+		<!-- 自定义导航条 -->
+		<view class="topBar">
+			<view class="stausBar" :style="[stausBarStyle]">商品详情</view>
+			<template v-if="goTop">
+				<uni-icons class="back" @click="goBack" type="back" size="18"></uni-icons>
+				<uni-icons class="more" @click="goMore" type="more-filled" size="18"></uni-icons>
+			</template>
+			<template v-else>
+				<text class="iconfont1 icon-fanhui-1 back" @click="goBack"></text>
+				<text class="iconfont1 icon-gengduomore12 more" @click="goMore"></text>
+			</template>
+		</view>
 		<!-- 轮播图 -->
 		<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			:duration="duration">
@@ -125,7 +143,7 @@
 		<!-- 底部弹出购物车 -->
 		<carts :goodsDetail="goodsDetail" :list="list" ref="popup1"></carts>
 		<!-- 底部弹窗  分享-->
-		<uni-popup ref="popup" background-color="#fff" @change="change" @touchmove.stop.prevent="moveHandle">
+		<uni-popup ref="popup" background-color="#fff" @touchmove.stop.prevent="moveHandle">
 			<view class="share">
 				<view class="tit">分享</view>
 				<view class="shareBtn">
@@ -163,7 +181,7 @@
 				list: [],
 				carts: {},
 				comments: [],
-				hascomments:false,
+				hascomments: false,
 				options: [{
 					icon: 'home',
 					text: '首页',
@@ -182,6 +200,7 @@
 				}],
 				time: '',
 				twoId: '',
+				opacity: 0,
 				indicatorDots: true,
 				showDetail: false,
 				goTop: false,
@@ -194,7 +213,7 @@
 		methods: {
 			...mapMutations(['addCarts']),
 			async getDetail(id) {
-				let result = await GetRequest("/api/goods/detail?id=" + id);
+				let result = await GetRequest(`/api/goods/detail?id=${id}`);
 				result.code === 0 ? this.goodsDetail = result.data : ''
 				this.banner = this.goodsDetail.banner;
 				this.mater = this.goodsDetail.mater;
@@ -206,8 +225,8 @@
 				let result = await GetRequest("/api/comment/load?twoId=" + twoId + '&type=' + type +
 				'&page=1&count=3');
 				result.code === 0 ? this.comments = result.data : '';
-				if(this.comments.data &&this.comments.data.length>0){
-					this.hascomments=true;
+				if (this.comments.data && this.comments.data.length > 0) {
+					this.hascomments = true;
 				}
 			},
 			changeIndicatorDots(e) {
@@ -258,13 +277,13 @@
 				} else {}
 			},
 			toggle() {
-				this.$refs.popup1.change()
-			},
-			change() {
-				this.$refs.popup.open('bottom');
+				this.$refs.popup1.change("bottom")
 			},
 			moveHandle() {
 				return false
+			},
+			goMore() {
+				this.$refs.popup_top.open("top")
 			},
 			open() {
 				// 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
@@ -276,8 +295,13 @@
 				})
 			},
 			goType(data) {
-				this.comments.data=[];
+				this.comments.data = [];
 				this.getComments(this.twoId, data);
+			},
+			goBack() {
+				uni.navigateBack({
+					delta: 1
+				})
 			}
 		},
 		onLoad(options) {
@@ -292,7 +316,9 @@
 					// console.log(res.windowHeight,"xxxx",e.scrollTop)
 					if (e.scrollTop > res.windowHeight) {
 						that.goTop = true;
+						that.opacity = 1;
 					} else {
+						that.opacity = e.scrollTop / res.windowHeight;
 						that.goTop = false;
 					}
 					return res.windowHeight;
@@ -304,13 +330,65 @@
 				title: 'Mcake蛋糕',
 				path: '/pages/lanmin_detail/lanmin_detail'
 			}
-		}
+		},
+		computed: {
+			stausBarStyle() {
+				return {
+					'--stausBar-opacity': this.opacity
+				}
+			}
+		},
 	}
 </script>
 <style scoped lang="less">
 	.container {
 		background-color: white;
 		padding-bottom: 80rpx;
+
+		.topBar {
+			height: 80rpx;
+			line-height: 80rpx;
+			width: 100%;
+			padding-top: 40rpx;
+			position: fixed;
+			top: 0;
+			display: flex;
+			align-items: center;
+			z-index: 10;
+
+			.stausBar {
+				height: 80rpx;
+				line-height: 80rpx;
+				width: 100%;
+				padding-top: 40rpx;
+				background-color: white;
+				position: absolute;
+				top: 0;
+				z-index: 11;
+				opacity: var(--stausBar-opacity);
+				text-align: center;
+			}
+
+			.back,
+			.more {
+				z-index: 12;
+				margin: 0 20rpx;
+			}
+
+			.icon-fanhui-1 {
+				font-size: 28px;
+				opacity: 0.5;
+				z-index: 12;
+				padding-left: 10rpx;
+				margin: 0 10rpx;
+			}
+
+			.icon-gengduomore12 {
+				font-size: 20px;
+				opacity: 0.5;
+				z-index: 12;
+			}
+		}
 
 		.share {
 			width: 100%;
@@ -516,7 +594,7 @@
 
 		.buyDetail {
 			width: 100%;
-			padding: 20px;
+			padding: 0 20px;
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
@@ -600,7 +678,7 @@
 
 		.comments {
 			width: 100%;
-			padding: 0 20rpx;
+			padding: 20rpx;
 			box-sizing: border-box;
 
 			.top {
@@ -652,15 +730,17 @@
 
 		.goTop {
 			position: fixed;
-			right: 20px;
-			bottom: 20px;
+			z-index: 1000;
+			right: 20rpx;
+			bottom: 120rpx;
 			width: 30px;
 			height: 30px;
-			background-color: #eef;
+			background-color: lightblue;
 			border-radius: 15px;
 			text-align: center;
 			line-height: 30px;
 			color: #999;
+			opacity: 0.7;
 		}
 
 		/deep/.uni-goods-nav {

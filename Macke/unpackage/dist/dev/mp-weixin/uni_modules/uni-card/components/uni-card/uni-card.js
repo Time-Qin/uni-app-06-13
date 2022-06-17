@@ -42,7 +42,7 @@ const _sfc_main = {
     },
     isShadow: {
       type: Boolean,
-      default: true
+      default: false
     },
     shadow: {
       type: String,
@@ -50,7 +50,7 @@ const _sfc_main = {
     },
     border: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   methods: {

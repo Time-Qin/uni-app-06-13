@@ -14,6 +14,7 @@ var store = common_vendor.createStore({
         state.carts.push(payload);
       }
       common_vendor.index.setStorageSync("carts", state.carts);
+      console.log(state.carts);
     },
     addHistory(state, payload) {
       state.history.push(payload.history);

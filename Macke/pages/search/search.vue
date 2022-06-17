@@ -4,7 +4,7 @@
 			<!-- 搜索输入 -->
 			<view class="search">
 				<view class="input">
-					<uni-search-bar @confirm="search" :focus="true" v-model="keywords" @change="change"
+					<uni-search-bar @confirm="search" :focus="true" v-model="keywords"
 						placeholder="请输入商品名称" cancelButton="none">
 					</uni-search-bar>
 				</view>

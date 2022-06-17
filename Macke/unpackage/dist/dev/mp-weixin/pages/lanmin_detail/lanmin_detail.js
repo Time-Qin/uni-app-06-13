@@ -49,6 +49,7 @@ const _sfc_main = {
       }],
       time: "",
       twoId: "",
+      opacity: 0,
       indicatorDots: true,
       showDetail: false,
       goTop: false,
@@ -60,7 +61,7 @@ const _sfc_main = {
   },
   methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addCarts"])), {
     async getDetail(id) {
-      let result = await common_js_requestHttp.GetRequest("/api/goods/detail?id=" + id);
+      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?id=${id}`);
       result.code === 0 ? this.goodsDetail = result.data : "";
       this.banner = this.goodsDetail.banner;
       this.mater = this.goodsDetail.mater;
@@ -123,13 +124,13 @@ const _sfc_main = {
       }
     },
     toggle() {
-      this.$refs.popup1.change();
-    },
-    change() {
-      this.$refs.popup.open("bottom");
+      this.$refs.popup1.change("bottom");
     },
     moveHandle() {
       return false;
+    },
+    goMore() {
+      this.$refs.popup_top.open("top");
     },
     open() {
       this.$refs.popup.open("bottom");
@@ -142,6 +143,11 @@ const _sfc_main = {
     goType(data) {
       this.comments.data = [];
       this.getComments(this.twoId, data);
+    },
+    goBack() {
+      common_vendor.index.navigateBack({
+        delta: 1
+      });
     }
   }),
   onLoad(options) {
@@ -155,7 +161,9 @@ const _sfc_main = {
       success: function(res) {
         if (e.scrollTop > res.windowHeight) {
           that.goTop = true;
+          that.opacity = 1;
         } else {
+          that.opacity = e.scrollTop / res.windowHeight;
           that.goTop = false;
         }
         return res.windowHeight;
@@ -167,51 +175,82 @@ const _sfc_main = {
       title: "Mcake\u86CB\u7CD5",
       path: "/pages/lanmin_detail/lanmin_detail"
     };
+  },
+  computed: {
+    stausBarStyle() {
+      return {
+        "--stausBar-opacity": this.opacity
+      };
+    }
   }
 };
 if (!Array) {
+  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
+  const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   const _easycom_comments2 = common_vendor.resolveComponent("comments");
   const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
   const _easycom_carts2 = common_vendor.resolveComponent("carts");
-  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
-  (_easycom_comments2 + _easycom_uni_goods_nav2 + _easycom_carts2 + _easycom_uni_popup2)();
+  (_easycom_uni_popup2 + _easycom_uni_icons2 + _easycom_comments2 + _easycom_uni_goods_nav2 + _easycom_carts2)();
 }
+const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
+const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_comments = () => "../../components/comments/comments.js";
 const _easycom_uni_goods_nav = () => "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
 const _easycom_carts = () => "../../components/carts/carts.js";
-const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 if (!Math) {
-  (_easycom_comments + _easycom_uni_goods_nav + _easycom_carts + _easycom_uni_popup)();
+  (_easycom_uni_popup + _easycom_uni_icons + _easycom_comments + _easycom_uni_goods_nav + _easycom_carts)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: common_vendor.f($data.banner, (item, index, i0) => {
+    a: common_vendor.sr("popup_top", "33747cf6-0"),
+    b: common_vendor.o($options.moveHandle),
+    c: common_vendor.p({
+      ["background-color"]: "#777"
+    }),
+    d: common_vendor.s($options.stausBarStyle),
+    e: $data.goTop
+  }, $data.goTop ? {
+    f: common_vendor.o($options.goBack),
+    g: common_vendor.p({
+      type: "back",
+      size: "18"
+    }),
+    h: common_vendor.o($options.goMore),
+    i: common_vendor.p({
+      type: "more-filled",
+      size: "18"
+    })
+  } : {
+    j: common_vendor.o((...args) => $options.goBack && $options.goBack(...args)),
+    k: common_vendor.o((...args) => $options.goMore && $options.goMore(...args))
+  }, {
+    l: common_vendor.f($data.banner, (item, index, i0) => {
       return {
         a: common_vendor.o(($event) => $options.previewImg(item)),
         b: item,
         c: index
       };
     }),
-    b: $data.indicatorDots,
-    c: $data.autoplay,
-    d: $data.interval,
-    e: $data.duration,
-    f: common_vendor.t($data.goodsDetail.name),
-    g: common_vendor.t($data.goodsDetail.french),
-    h: common_vendor.o((...args) => $options.open && $options.open(...args)),
-    i: common_vendor.t($data.goodsDetail.price),
-    j: common_vendor.t($data.goodsDetail.spec),
-    k: common_vendor.t($data.goodsDetail.weight),
-    l: common_vendor.t($data.goodsDetail.brief),
-    m: common_vendor.t($data.goodsDetail.frenchBrief),
-    n: common_vendor.f($data.mater, (item, k0, i0) => {
+    m: $data.indicatorDots,
+    n: $data.autoplay,
+    o: $data.interval,
+    p: $data.duration,
+    q: common_vendor.t($data.goodsDetail.name),
+    r: common_vendor.t($data.goodsDetail.french),
+    s: common_vendor.o((...args) => $options.open && $options.open(...args)),
+    t: common_vendor.t($data.goodsDetail.price),
+    v: common_vendor.t($data.goodsDetail.spec),
+    w: common_vendor.t($data.goodsDetail.weight),
+    x: common_vendor.t($data.goodsDetail.brief),
+    y: common_vendor.t($data.goodsDetail.frenchBrief),
+    z: common_vendor.f($data.mater, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.t(item.name),
         c: item.id
       };
     }),
-    o: common_vendor.f($data.basic, (item, index, i0) => {
+    A: common_vendor.f($data.basic, (item, index, i0) => {
       return common_vendor.e({
         a: common_vendor.t(item.title),
         b: index === 3
@@ -226,60 +265,59 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         f: item.id
       });
     }),
-    p: common_vendor.t($data.list.spec),
-    q: common_vendor.t($data.list.weight),
-    r: common_vendor.o(($event) => $options.toggle()),
-    s: $data.list.tableware
+    B: common_vendor.t($data.list.spec),
+    C: common_vendor.t($data.list.weight),
+    D: common_vendor.o(($event) => $options.toggle()),
+    E: $data.list.tableware
   }, $data.list.tableware ? {
-    t: common_vendor.t($data.list.tableware)
+    F: common_vendor.t($data.list.tableware)
   } : {}, {
-    v: $data.list.candle
+    G: $data.list.candle
   }, $data.list.candle ? {
-    w: common_vendor.t($data.list.candle)
+    H: common_vendor.t($data.list.candle)
   } : {}, {
-    x: $data.list.edible
+    I: $data.list.edible
   }, $data.list.edible ? {
-    y: common_vendor.t($data.list.edible)
+    J: common_vendor.t($data.list.edible)
   } : {}, {
-    z: $data.list.size
+    K: $data.list.size
   }, $data.list.size ? {
-    A: common_vendor.t($data.list.size)
+    L: common_vendor.t($data.list.size)
   } : {}, {
-    B: common_vendor.t($data.time),
-    C: $data.hascomments
+    M: common_vendor.t($data.time),
+    N: $data.hascomments
   }, $data.hascomments ? {
-    D: common_vendor.t($data.comments.total),
-    E: common_vendor.o(($event) => $options.toAllComment($data.twoId)),
-    F: common_vendor.o($options.goType),
-    G: common_vendor.p({
+    O: common_vendor.t($data.comments.total),
+    P: common_vendor.o(($event) => $options.toAllComment($data.twoId)),
+    Q: common_vendor.o($options.goType),
+    R: common_vendor.p({
       twoId: $data.twoId,
       comments: $data.comments.data
     })
   } : {}, {
-    H: $data.goodsDetail.shopDesc
+    S: $data.goodsDetail.shopDesc
   }, $data.goodsDetail.shopDesc ? {
-    I: $data.goodsDetail.shopDesc
+    T: $data.goodsDetail.shopDesc
   } : {}, {
-    J: $data.goTop
+    U: $data.goTop
   }, $data.goTop ? {
-    K: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
+    V: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
   } : {}, {
-    L: common_vendor.o($options.onOptionsClick),
-    M: common_vendor.o($options.onbuttonClick),
-    N: common_vendor.p({
+    W: common_vendor.o($options.onOptionsClick),
+    X: common_vendor.o($options.onbuttonClick),
+    Y: common_vendor.p({
       fill: true,
       options: $data.options,
       buttonGroup: $data.buttonGroup
     }),
-    O: common_vendor.sr("popup1", "33747cf6-2"),
-    P: common_vendor.p({
+    Z: common_vendor.sr("popup1", "33747cf6-5"),
+    aa: common_vendor.p({
       goodsDetail: $data.goodsDetail,
       list: $data.list
     }),
-    Q: common_vendor.sr("popup", "33747cf6-3"),
-    R: common_vendor.o($options.change),
-    S: common_vendor.o($options.moveHandle),
-    T: common_vendor.p({
+    ab: common_vendor.sr("popup", "33747cf6-6"),
+    ac: common_vendor.o($options.moveHandle),
+    ad: common_vendor.p({
       ["background-color"]: "#fff"
     })
   });

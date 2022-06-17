@@ -1,6 +1,6 @@
 <template>
 	<!-- 底部弹出购物车 -->
-	<uni-popup ref="popup" background-color="#fff" @change="change" @touchmove.stop.prevent="moveHandle">
+	<uni-popup ref="popup" background-color="#fff" @touchmove.stop.prevent="moveHandle">
 		<view class="showDetail">
 			<view class="title">
 				<image class="left" :src="goodsDetail.img" mode="widthFix"></image>
@@ -33,7 +33,7 @@
 			</view>
 			<view class="quantity">
 				<view class="num">购买数量</view>
-				<uni-number-box @change="changeValue" class="step" />
+				<uni-number-box @change="changeValue" v-model="value" class="step" />
 			</view>
 			<view class="buttonGroup">
 				<view class="carts" @click="addMoreCarts">加入购物车</view>
@@ -51,34 +51,37 @@
 		props: ['goodsDetail', 'list'],
 		data() {
 			return {
-				carts: {},
+				value: 1,
+				buynum: 1,
 			};
 		},
 		methods: {
 			...mapMutations(['addCarts']),
-			change() {
-				this.$refs.popup.open('bottom');
+			change(type) {
+				this.value=1;
+				this.$refs.popup.open(type);
 			},
 			moveHandle() {
-				return false
+				return false;
 			},
 			addMoreCarts() {
-				this.addCarts(this.carts);
+				var obj = {
+					id: this.goodsDetail.id,
+					price: this.goodsDetail.price,
+					buynum: this.buynum,
+					name: this.goodsDetail.name
+				};
+				this.addCarts(obj);
 				this.$refs.popup.close();
 				uni.showToast({
 					title: `添加购物车成功`,
 					mask: true
 				})
 			},
-			changeValue(value) {
-				this.carts = {
-					id: this.goodsDetail.id,
-					price: this.goodsDetail.price,
-					buynum: value,
-					name: this.goodsDetail.name
-				}
+			changeValue() {
+				this.buynum = this.value;
 			},
-		}
+		},
 	}
 </script>
 <style lang="less" scoped>

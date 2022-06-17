@@ -36,11 +36,11 @@
 .box .good .content .buy .price.data-v-f73ce21c {
   font-size: 12px;
 }
-.box .good .content .buy uni-icons.data-v-f73ce21c {
+.box .good .content .buy .uni-icons.data-v-f73ce21c {
   text-align: right;
   background-color: lightcyan;
   border-radius: 2px;
 }
-.box .good .content .buy uni-icons.data-v-f73ce21c .uni-icons {
+.box .good .content .buy .uni-icons.data-v-f73ce21c .uni-icons {
   color: #888 !important;
 }
