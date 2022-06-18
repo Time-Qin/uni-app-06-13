@@ -1,29 +1,43 @@
 <template>
 	<view class="container">
+		<!-- 购物车没商品出现的页面 -->
 		<view class="empty">
 			<image src="/static/images/shop.png" mode="widthFix" style="width: 400rpx;"></image>
 			<view class="empty-text">购物车空空如也</view>
 			<view class="empty-button" @click="goshopping">去选购</view>
 		</view>
-		<!-- 		<view class="carDetail">
-			<uni-icons type="circle" size="30" class="icon"></uni-icons>
-			<image class="poster" src="" mode=""></image>
-			<view class="detail">
-				<text>草莓蛋糕</text>
-				<view class="">CaoMei</view>
-				<view>一磅</view>
-				<view style="display: flex;">
-					<text>139</text>
-					<uni-number-box :min="1" class="step" ></uni-number-box>
+		<!-- 购物车加购商品的东西 -->
+		<view class="goodAll">
+			<view class="goods-detail">
+				<view class="detail-left">
+					<view class="goods-left">
+						<!-- 商品的选择框 -->
+						<checkbox-group>
+							<label>
+								<checkbox class="selected" color="#555555" />
+							</label>
+						</checkbox-group>
+						<image mode="widthFix"></image>
+					</view>
+					<view class="goodsName">
+						<text>商品名</text>
+						<text class="french">content</text>
+						<text class="goods-price">¥价钱</text>
+					</view>
+				</view>
+				<view class="detail-right">
+					<uni-number-box :min="1" class="step"></uni-number-box>
 				</view>
 			</view>
-		</view> -->
+		</view>
+
+		<!-- 精选推荐 -->
 		<view class="title-split">
 			<view class="line"></view>
 			<text>推荐商品</text>
 			<view class="line"></view>
 		</view>
-		<view class="goods">
+		<view class="goods-d">
 			<view class="good" v-for="item in goods" :key="item.title">
 				<view class="good_img">
 					<image class="img" :src="item.img" mode="widthFix"></image>
@@ -42,6 +56,23 @@
 		</view>
 		<view class="back-top" @click="goTop" :style="{'display':(flag===true? 'block':'none')}">
 			<uni-icons type="arrow-up" size="30"></uni-icons>
+		</view>
+		
+		<!-- //全选总计 -->
+		<view class="end">
+			<view class="end-left">
+				<checkbox-group>
+					<label>
+						<checkbox/>全选
+					</label>
+				</checkbox-group>
+				<view>
+					总计：<text style="font-weight: bold;">￥</text>
+				</view>
+			</view>
+			<view class="end-right">
+				去结算
+			</view>
 		</view>
 	</view>
 </template>
@@ -175,7 +206,7 @@
 			}
 		}
 
-		.goods {
+		.goods-d {
 			display: flex;
 			flex-wrap: wrap;
 			box-sizing: border-box;
@@ -252,23 +283,96 @@
 			display: none;
 			/* 先将元素隐藏 */
 		}
+		.goodAll {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 20rpx;
 
-		// .carDetail {
-		// 	width: 100%;
-		// 	padding: 0 40rpx;
-		// 	background-color: white;
-		// 	display: flex;
+			.goods-detail {
+				// width: 100%;
+				height: 200rpx;
+				padding: 10rpx;
+			}
+		}
 
-		// 	.icon {
-		// 		display: flex;
-		// 		align-items: center;
-		// 	}
-		// }
 
-		// .poster {
-		// 	width: 180rpx;
-		// 	height: 180rpx;
-		// 	background-color: #30a8ff;
-		// }
+		.goods {
+			line-height: 80rpx;
+			background-color: #FFFFFF;
+
+			&-detail {
+				display: flex;
+				padding: 30rpx 15rpx 30rpx 30rpx;
+				background-color: #fff;
+				justify-content: space-between;
+				border-bottom: 5rpx solid #F1F1F1;
+				align-items: center;
+
+				.detail-left {
+					display: flex;
+
+					.goods-left {
+						display: flex;
+						align-items: center;
+
+						image {
+							width: 180rpx;
+							height: 180rpx;
+							background-color: red
+						}
+
+						;
+					}
+				}.detail-right{
+					margin-top: 120rpx;
+				}
+
+				.goodsName {
+					display: flex;
+					justify-content: space-around;
+					flex-direction: column;
+					margin-left: 30rpx;
+
+					.goods-price {
+						font-size: 25rpx;
+						color: #F44545;
+
+					}
+				}
+			}
+		}
+
+		.end {
+			width: 100%;
+			height: 90rpx;
+			background-color: #fff;
+			position: fixed;
+			bottom: 0rpx;
+			left: 0;
+			display: flex;
+			align-items: center;
+
+			&-left {
+				width: 70%;
+				display: flex;
+				justify-content: space-between;
+				padding: 0 30rpx;
+
+				.end-flex {
+					display: flex;
+					align-items: center;
+				}
+			}
+
+			&-right {
+				width: 25%;
+				line-height: 60rpx;
+				background-color: lightblue;
+				text-align: center;
+				border-radius: 40rpx;
+				color: #fff;
+				
+			}
+		}
 	}
 </style>
