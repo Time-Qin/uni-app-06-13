@@ -74,7 +74,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($props.options, (item, index, i0) => {
       return common_vendor.e({
-        a: "7d819432-0-" + i0,
+        a: "5400998e-0-" + i0,
         b: common_vendor.p({
           type: item.icon,
           size: "20",
@@ -105,5 +105,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     c: $props.fill ? 1 : ""
   };
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/2022_03file/hx/Project/Macke/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue"]]);
 wx.createComponent(Component);

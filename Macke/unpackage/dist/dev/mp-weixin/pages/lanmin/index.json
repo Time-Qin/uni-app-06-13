@@ -5,7 +5,6 @@
   "navigationBarTitleText": "lanmin",
   "navigationBarBackgroundColor": "#8fbcff",
   "usingComponents": {
-    "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
-    "goods": "../../components/goods/goods"
+    "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar"
   }
 }

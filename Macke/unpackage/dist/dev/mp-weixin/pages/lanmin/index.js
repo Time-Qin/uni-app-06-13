@@ -79,13 +79,12 @@ const _sfc_main = {
 };
 if (!Array) {
   const _easycom_uni_search_bar2 = common_vendor.resolveComponent("uni-search-bar");
-  const _easycom_goods2 = common_vendor.resolveComponent("goods");
-  (_easycom_uni_search_bar2 + _easycom_goods2)();
+  const _component_goods = common_vendor.resolveComponent("goods");
+  (_easycom_uni_search_bar2 + _component_goods)();
 }
 const _easycom_uni_search_bar = () => "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.js";
-const _easycom_goods = () => "../../components/goods/goods.js";
 if (!Math) {
-  (_easycom_uni_search_bar + _easycom_goods)();
+  _easycom_uni_search_bar();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
@@ -124,5 +123,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   });
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-768f9f56"], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/pages/lanmin/index.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-768f9f56"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/lanmin/index.vue"]]);
 wx.createPage(MiniProgramPage);

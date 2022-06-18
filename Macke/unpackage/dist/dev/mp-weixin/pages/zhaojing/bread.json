@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "好好吃面包",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "navigationBarBackgroundColor": "#5c382c",
+  "usingComponents": {
+    "header-nav": "../../components/header-nav/header-nav",
+    "car-view": "../../components/car-view/car-view"
+  }
+}
