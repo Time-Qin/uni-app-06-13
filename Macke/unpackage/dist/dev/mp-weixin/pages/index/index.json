@@ -1,5 +1,6 @@
 {
-  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20,
   "usingComponents": {
     "uni-swiper-dot": "../../uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot",
     "car-view": "../../components/car-view/car-view"

@@ -5,9 +5,11 @@ var common_vendor = require("./common/vendor.js");
 var store_index = require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
+  "./pages/chenrenjun/placeorder/placeorder.js";
+  "./pages/chenrenjun/index.js";
   "./pages/index/good_details.js";
   "./pages/index/talke.js";
-  "./pages/chenrenjun/index.js";
+  "./pages/chenrenjun/mcakedetails/mcakedetails.js";
   "./pages/guowen/index.js";
   "./pages/lanmin/index.js";
   "./pages/lanmin_detail/lanmin_detail.js";
@@ -19,6 +21,7 @@ if (!Math) {
   "./pages/zhaojing/my.js";
   "./pages/zhaojing/question.js";
   "./pages/index/address.js";
+  "./pages/chenrenjun/alltotal/alltotal.js";
 }
 const _sfc_main = {
   onLaunch: function() {

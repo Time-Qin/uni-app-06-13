@@ -54,10 +54,39 @@ const _sfc_main = {
       let res = "";
       res = url.lastIndexOf("?");
       res = url.slice(res + 1);
-      console.log(res, "111111111111");
       common_vendor.index.navigateTo({
         url: `./good_details?${res}`
       });
+    },
+    gowhere(where) {
+      console.log(where, "111111111111");
+      switch (where.title) {
+        case "\u7F8E\u5473\u86CB\u7CD5":
+          common_vendor.index.navigateTo({
+            url: "/pages/chenrenjun/index"
+          });
+          return;
+        case "\u597D\u597D\u5403\u9762\u5305":
+          common_vendor.index.navigateTo({
+            url: "/pages/zhaojing/bread"
+          });
+          return;
+        case "\u997C\u5E72\u5C0F\u98DF":
+          common_vendor.index.navigateTo({
+            url: "#"
+          });
+          return;
+        case "\u914D\u9001\u8303\u56F4":
+          common_vendor.index.navigateTo({
+            phoneNumber: "#"
+          });
+          return;
+        case "\u7B7E\u5230\u6709\u793C":
+          common_vendor.index.navigateTo({
+            url: "#"
+          });
+          return;
+      }
     }
   },
   onPageScroll(scrollTop) {
@@ -119,7 +148,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       return {
         a: item.img,
         b: common_vendor.t(item.title),
-        c: item.title
+        c: item.title,
+        d: common_vendor.o(($event) => $options.gowhere(item), item.title)
       };
     }),
     k: common_vendor.t($data.recommendedseason.title),

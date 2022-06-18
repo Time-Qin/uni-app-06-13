@@ -1,0 +1,59 @@
+.container.data-v-730ad8d2 {
+  background-color: pink;
+}
+.container .c-tapbar .tap-list.data-v-730ad8d2 {
+  display: flex;
+  white-space: nowrap;
+  height: 64rpx;
+  background-color: pink;
+  padding-bottom: 10px;
+}
+.container .c-tapbar .tap-list .content.data-v-730ad8d2 {
+  font-size: 14px;
+  height: 40rpx;
+  color: white;
+  margin: 10px 10px;
+  padding: 2rpx 10rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 8px;
+}
+.container .c-tapbar .tap-list .active.data-v-730ad8d2 {
+  font-size: 18px;
+}
+.c-list.data-v-730ad8d2 {
+  margin-bottom: 14px;
+  padding: 0 10px;
+}
+.c-list .c-header .slot-image.data-v-730ad8d2 {
+  width: 110px;
+  height: 110px;
+  margin-right: 10px;
+}
+.c-list .slot-body.data-v-730ad8d2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 6px 0;
+}
+.c-list .slot-body .slot-title.data-v-730ad8d2 {
+  font-size: 16px;
+}
+.c-list .slot-body .slot-french.data-v-730ad8d2 {
+  flex: 1;
+  font-size: 12px;
+  line-height: 60px;
+}
+.c-list .slot-body .slot-price.data-v-730ad8d2 {
+  font-size: 14px;
+}
+.c-list .c-footer.data-v-730ad8d2 {
+  position: absolute;
+}
+.c-list .c-footer .slot-cart.data-v-730ad8d2 {
+  position: relative;
+  right: -310px;
+  top: 96px;
+  font-size: 20px;
+  background-color: #f0f0f0;
+}

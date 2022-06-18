@@ -32,7 +32,7 @@
 		</view>
 		<!-- 图文导航 -->
 		<view class="imgTextNav">
-			<view class="imgTextNavView" v-for="item in imgtextnav" :key="item.title">
+			<view class="imgTextNavView" v-for="item in imgtextnav" :key="item.title" @click="gowhere(item)">
 				<image class="iconImg" :src="item.img" mode="widthFix"></image>
 				<view class="title">
 					{{item.title}}
@@ -154,10 +154,40 @@
 				let res = '';
 				res = url.lastIndexOf('?');
 				res=url.slice(res+1);
-				console.log(res,'111111111111');
+				// console.log(res,'111111111111');
 				uni.navigateTo({
 					url:`./good_details?${res}`
 				});
+			},
+			gowhere(where){
+				console.log(where,'111111111111');
+				switch (where.title) {
+					case '美味蛋糕':
+						uni.navigateTo({
+							url: '/pages/chenrenjun/index'
+						});
+						return;
+					case '好好吃面包':
+						uni.navigateTo({
+							url: '/pages/zhaojing/bread'
+						});
+						return;
+					case '饼干小食':
+						uni.navigateTo({
+							url: '#'
+						});
+						return;
+					case '配送范围':
+						uni.navigateTo({
+							phoneNumber: '#'
+						});
+						return;
+					case '签到有礼':
+						uni.navigateTo({
+							url: '#'
+						});
+						return;
+				}
 			}
 		},
 		onPageScroll(scrollTop){

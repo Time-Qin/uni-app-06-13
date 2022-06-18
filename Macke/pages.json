@@ -1,8 +1,27 @@
 {
-	"pages": [{
+	"pages": [
+		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationStyle": "custom"
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+		    "path" : "pages/chenrenjun/placeorder/placeorder",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "提交订单",
+		        "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "black"
+		    }
+		    
+		},{
+			"path": "pages/chenrenjun/index",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20
 			}
 		},
 		{
@@ -18,10 +37,11 @@
 			}
 		},
 		{
-			"path": "pages/chenrenjun/index",
+			"path": "pages/chenrenjun/mcakedetails/mcakedetails",
 			"style": {
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
@@ -111,6 +131,16 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
+		}, {
+			"path": "pages/chenrenjun/alltotal/alltotal",
+			"style": {
+				"navigationBarTitleText": "商品评价",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarTextStyle": "black"
+				
+			}
+
 		}
 	],
 	"globalStyle": {
@@ -140,12 +170,15 @@
 			},
 			{
 				"pagePath": "pages/zhaojing/shopCar",
+
 				"text": "购物车",
 				"iconPath": "./static/icons/j2.png",
 				"selectedIconPath": "./static/icons/j1.png"
 			},
 			{
+
 				"pagePath": "pages/zhaojing/my",
+
 				"text": "我的",
 				"iconPath": "./static/icons/d2.png",
 				"selectedIconPath": "./static/icons/d1.png"

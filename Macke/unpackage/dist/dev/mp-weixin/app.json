@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/chenrenjun/placeorder/placeorder",
+    "pages/chenrenjun/index",
     "pages/index/good_details",
     "pages/index/talke",
-    "pages/chenrenjun/index",
+    "pages/chenrenjun/mcakedetails/mcakedetails",
     "pages/guowen/index",
     "pages/lanmin/index",
     "pages/lanmin_detail/lanmin_detail",
@@ -14,7 +16,8 @@
     "pages/zhaojing/shopCar",
     "pages/zhaojing/my",
     "pages/zhaojing/question",
-    "pages/index/address"
+    "pages/index/address",
+    "pages/chenrenjun/alltotal/alltotal"
   ],
   "window": {
     "navigationBarTextStyle": "black",
