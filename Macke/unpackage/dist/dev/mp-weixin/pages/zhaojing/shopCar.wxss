@@ -24,6 +24,9 @@
   line-height: 90rpx;
   border-radius: 48rpx;
 }
+.container .empty-mar.data-v-99da2408 {
+  margin-top: 120rpx;
+}
 .container.data-v-99da2408 .van-empty {
   padding: 0;
 }
@@ -50,55 +53,55 @@
 .container .title-split .line.data-v-99da2408:last-of-type {
   background: linear-gradient(90deg, #30a8ff 0%, rgba(98, 98, 98, 0) 100%);
 }
-.container .goods.data-v-99da2408 {
+.container .goods-d.data-v-99da2408 {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
   width: 100%;
   padding: 0 10px 10px;
 }
-.container .goods .good.data-v-99da2408 {
+.container .goods-d .good.data-v-99da2408 {
   width: 50%;
   background-color: white;
   box-sizing: border-box;
   padding: 10rpx;
 }
-.container .goods .good .good_img.data-v-99da2408 {
+.container .goods-d .good .good_img.data-v-99da2408 {
   border-radius: 8px 8px 0 0;
   overflow: hidden;
 }
-.container .goods .good .good_img .img.data-v-99da2408 {
+.container .goods-d .good .good_img .img.data-v-99da2408 {
   width: 100%;
 }
-.container .goods .content.data-v-99da2408 {
+.container .goods-d .content.data-v-99da2408 {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
 }
-.container .goods .content .name.data-v-99da2408 {
+.container .goods-d .content .name.data-v-99da2408 {
   font-size: 14px;
   letter-spacing: 1px;
 }
-.container .goods .content .french.data-v-99da2408 {
+.container .goods-d .content .french.data-v-99da2408 {
   color: #999;
   font-size: 12px;
 }
-.container .goods .content .buy.data-v-99da2408 {
+.container .goods-d .content .buy.data-v-99da2408 {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
   margin-top: 10px;
 }
-.container .goods .content .buy .price.data-v-99da2408 {
+.container .goods-d .content .buy .price.data-v-99da2408 {
   font-size: 12px;
 }
-.container .goods .content .buy uni-icons.data-v-99da2408 {
+.container .goods-d .content .buy uni-icons.data-v-99da2408 {
   text-align: right;
   background-color: lightcyan;
   border-radius: 2px;
 }
-.container .goods .content .buy uni-icons.data-v-99da2408 .uni-icons {
+.container .goods-d .content .buy uni-icons.data-v-99da2408 .uni-icons {
   color: #888 !important;
   font-size: 24px !important;
 }
@@ -115,4 +118,78 @@
   line-height: 60rpx;
   display: none;
   /* 先将元素隐藏 */
+}
+.container .goodAll.data-v-99da2408 {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20rpx;
+}
+.container .goodAll .goods-detail.data-v-99da2408 {
+  height: 200rpx;
+  padding: 10rpx;
+}
+.container .goods.data-v-99da2408 {
+  line-height: 80rpx;
+  background-color: #ffffff;
+}
+.container .goods-detail.data-v-99da2408 {
+  display: flex;
+  padding: 30rpx 15rpx 30rpx 30rpx;
+  background-color: #fff;
+  justify-content: space-between;
+  border-bottom: 5rpx solid #f1f1f1;
+  align-items: center;
+}
+.container .goods-detail .detail-left.data-v-99da2408 {
+  display: flex;
+}
+.container .goods-detail .detail-left .goods-left.data-v-99da2408 {
+  display: flex;
+  align-items: center;
+}
+.container .goods-detail .detail-left .goods-left image.data-v-99da2408 {
+  width: 180rpx;
+  height: 180rpx;
+  background-color: red;
+}
+.container .goods-detail .detail-right.data-v-99da2408 {
+  margin-top: 120rpx;
+}
+.container .goods-detail .goodsName.data-v-99da2408 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-left: 30rpx;
+}
+.container .goods-detail .goodsName .goods-price.data-v-99da2408 {
+  font-size: 25rpx;
+  color: #f44545;
+}
+.container .end.data-v-99da2408 {
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+.container .end-left.data-v-99da2408 {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+.container .end-left .end-flex.data-v-99da2408 {
+  display: flex;
+  align-items: center;
+}
+.container .end-right.data-v-99da2408 {
+  width: 25%;
+  line-height: 60rpx;
+  background-color: lightblue;
+  text-align: center;
+  border-radius: 40rpx;
+  color: #fff;
 }

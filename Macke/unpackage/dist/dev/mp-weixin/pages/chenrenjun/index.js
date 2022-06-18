@@ -80,17 +80,18 @@ const _sfc_main = {
   }
 };
 if (!Array) {
-  const _component_header_nav = common_vendor.resolveComponent("header-nav");
+  const _easycom_header_nav2 = common_vendor.resolveComponent("header-nav");
   const _easycom_uni_list_item2 = common_vendor.resolveComponent("uni-list-item");
   const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
   const _easycom_uni_load_more2 = common_vendor.resolveComponent("uni-load-more");
-  (_component_header_nav + _easycom_uni_list_item2 + _easycom_car_view2 + _easycom_uni_load_more2)();
+  (_easycom_header_nav2 + _easycom_uni_list_item2 + _easycom_car_view2 + _easycom_uni_load_more2)();
 }
+const _easycom_header_nav = () => "../../components/header-nav/header-nav.js";
 const _easycom_uni_list_item = () => "../../uni_modules/uni-list/components/uni-list-item/uni-list-item.js";
 const _easycom_car_view = () => "../../components/car-view/car-view.js";
 const _easycom_uni_load_more = () => "../../uni_modules/uni-load-more/components/uni-load-more/uni-load-more.js";
 if (!Math) {
-  (_easycom_uni_list_item + _easycom_car_view + _easycom_uni_load_more)();
+  (_easycom_header_nav + _easycom_uni_list_item + _easycom_car_view + _easycom_uni_load_more)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({

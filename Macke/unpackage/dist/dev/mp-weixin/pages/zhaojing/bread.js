@@ -62,13 +62,14 @@ const _sfc_main = {
   }
 };
 if (!Array) {
-  const _component_header_nav = common_vendor.resolveComponent("header-nav");
+  const _easycom_header_nav2 = common_vendor.resolveComponent("header-nav");
   const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
-  (_component_header_nav + _easycom_car_view2)();
+  (_easycom_header_nav2 + _easycom_car_view2)();
 }
+const _easycom_header_nav = () => "../../components/header-nav/header-nav.js";
 const _easycom_car_view = () => "../../components/car-view/car-view.js";
 if (!Math) {
-  _easycom_car_view();
+  (_easycom_header_nav + _easycom_car_view)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {

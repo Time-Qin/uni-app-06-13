@@ -125,19 +125,20 @@ const _sfc_main = {
   }
 };
 if (!Array) {
-  const _component_header_title = common_vendor.resolveComponent("header-title");
+  const _easycom_header_title2 = common_vendor.resolveComponent("header-title");
   const _easycom_uni_swiper_dot2 = common_vendor.resolveComponent("uni-swiper-dot");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   const _easycom_uni_goods_nav2 = common_vendor.resolveComponent("uni-goods-nav");
   const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
-  (_component_header_title + _easycom_uni_swiper_dot2 + _easycom_uni_icons2 + _easycom_uni_goods_nav2 + _easycom_car_view2)();
+  (_easycom_header_title2 + _easycom_uni_swiper_dot2 + _easycom_uni_icons2 + _easycom_uni_goods_nav2 + _easycom_car_view2)();
 }
+const _easycom_header_title = () => "../../components/header-title/header-title.js";
 const _easycom_uni_swiper_dot = () => "../../uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.js";
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_uni_goods_nav = () => "../../uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.js";
 const _easycom_car_view = () => "../../components/car-view/car-view.js";
 if (!Math) {
-  (_easycom_uni_swiper_dot + _easycom_uni_icons + _easycom_uni_goods_nav + _easycom_car_view)();
+  (_easycom_header_title + _easycom_uni_swiper_dot + _easycom_uni_icons + _easycom_uni_goods_nav + _easycom_car_view)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({

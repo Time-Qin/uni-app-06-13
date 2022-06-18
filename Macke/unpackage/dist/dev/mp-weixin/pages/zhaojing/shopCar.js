@@ -21,15 +21,14 @@ const _sfc_main = {
   methods: {
     goshopping() {
       common_vendor.index.navigateTo({
-        url: "./bread"
+        url: "/pages/index/index"
       });
     },
     async getShopList() {
       let result1 = await common_js_requestHttp.GetRequest("/api/cart/load");
       result1.msg === "Success" ? this.goodDatas = result1.data : "";
-      if (result1.data.goods.length != 0) {
-        this.goodcart = false;
-      }
+      if (result1.data.goods.length != 0)
+        ;
       console.log(this.goodDatas, result1, this.goodcart);
       let result = await common_js_requestHttp.GetRequest(`/api/goods/load?cityId=110&bid=1&fid=0&page=${this.pageIndex}&count=20&search=&total=34`);
       if (result.data.data.length < 10) {
@@ -80,19 +79,18 @@ const _sfc_main = {
   }
 };
 if (!Array) {
-  const _component_header_nav = common_vendor.resolveComponent("header-nav");
+  const _easycom_header_nav2 = common_vendor.resolveComponent("header-nav");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  const _easycom_uni_number_box2 = common_vendor.resolveComponent("uni-number-box");
   const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
   const _easycom_uni_load_more2 = common_vendor.resolveComponent("uni-load-more");
-  (_component_header_nav + _easycom_uni_icons2 + _easycom_uni_number_box2 + _easycom_car_view2 + _easycom_uni_load_more2)();
+  (_easycom_header_nav2 + _easycom_uni_icons2 + _easycom_car_view2 + _easycom_uni_load_more2)();
 }
+const _easycom_header_nav = () => "../../components/header-nav/header-nav.js";
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
-const _easycom_uni_number_box = () => "../../uni_modules/uni-number-box/components/uni-number-box/uni-number-box.js";
 const _easycom_car_view = () => "../../components/car-view/car-view.js";
 const _easycom_uni_load_more = () => "../../uni_modules/uni-load-more/components/uni-load-more/uni-load-more.js";
 if (!Math) {
-  (_easycom_uni_icons + _easycom_uni_number_box + _easycom_car_view + _easycom_uni_load_more)();
+  (_easycom_header_nav + _easycom_uni_icons + _easycom_car_view + _easycom_uni_load_more)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
@@ -103,16 +101,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     b: $data.goodcart === true
   }, $data.goodcart === true ? {
     c: common_vendor.o((...args) => $options.goshopping && $options.goshopping(...args))
-  } : {
-    d: common_vendor.p({
-      type: "circle",
-      size: "30"
-    }),
-    e: common_vendor.p({
-      min: 1
-    })
-  }, {
-    f: common_vendor.f($data.goods, (item, k0, i0) => {
+  } : {}, {
+    d: common_vendor.f($data.goods, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.o(($event) => $options.gosku(item.id)),
@@ -120,33 +110,33 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.t(item.french),
         e: common_vendor.t(item.price),
         f: common_vendor.o(($event) => $options.getDatasCar(item.id)),
-        g: "99da2408-3-" + i0,
-        h: common_vendor.sr("Car", "99da2408-4-" + i0, {
+        g: "99da2408-1-" + i0,
+        h: common_vendor.sr("Car", "99da2408-2-" + i0, {
           "f": 1
         }),
-        i: "99da2408-4-" + i0,
+        i: "99da2408-2-" + i0,
         j: item.title
       };
     }),
-    g: common_vendor.p({
+    e: common_vendor.p({
       type: "cart",
       size: "30"
     }),
-    h: common_vendor.p({
+    f: common_vendor.p({
       contentDatas: $data.contentDatas
     }),
-    i: $data.hasMore
+    g: $data.hasMore
   }, $data.hasMore ? {
-    j: common_vendor.p({
+    h: common_vendor.p({
       status: "loading"
     })
   } : {}, {
-    k: common_vendor.p({
+    i: common_vendor.p({
       type: "arrow-up",
       size: "30"
     }),
-    l: common_vendor.o((...args) => $options.goTop && $options.goTop(...args)),
-    m: $data.flag === true ? "block" : "none"
+    j: common_vendor.o((...args) => $options.goTop && $options.goTop(...args)),
+    k: $data.flag === true ? "block" : "none"
   });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-99da2408"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/zhaojing/shopCar.vue"]]);

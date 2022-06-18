@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/guowen/login",
     "pages/guowen/shop",
     "pages/guowen/eat-bread-well",
-    "pages/index/index",
     "pages/chenrenjun/placeorder/placeorder",
     "pages/chenrenjun/index",
     "pages/index/good_details",
@@ -57,6 +57,11 @@
         "selectedIconPath": "./static/icons/d1.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置"
+    }
   },
   "usingComponents": {}
 }
