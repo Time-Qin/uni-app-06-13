@@ -2,7 +2,6 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
   "usingComponents": {
-    "header-nav": "../../components/header-nav/header-nav",
     "car-view": "../../components/car-view/car-view"
   }
 }
