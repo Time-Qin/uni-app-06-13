@@ -255,5 +255,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     e: common_vendor.o((...args) => $options.onClick && $options.onClick(...args))
   } : {});
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/vscode/\u524D\u7AEF/uni-app-06-13/Macke/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/2022_03file/hx/Project/Macke/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
 wx.createComponent(Component);

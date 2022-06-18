@@ -218,6 +218,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     J: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
   } : {});
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-6191eb62"], ["__file", "E:/vscode/\u524D\u7AEF/uni-app-06-13/Macke/pages/chenrenjun/mcakedetails/mcakedetails.vue"]]);
-_sfc_main.__runtimeHooks = 1;
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-6191eb62"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/chenrenjun/mcakedetails/mcakedetails.vue"]]);
 wx.createPage(MiniProgramPage);
