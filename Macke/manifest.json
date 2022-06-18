@@ -33,6 +33,7 @@
                 ]
             },
 
+
             "ios": {},
             "sdkConfigs": {
                 "share": {
@@ -41,6 +42,7 @@
                         "UniversalLinks": ""
                     }
                 }
+
 
             }
         }

@@ -4,13 +4,15 @@ exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
 var store_index = require("./store/index.js");
 if (!Math) {
+  "./pages/guowen/login.js";
+  "./pages/guowen/shop.js";
+  "./pages/guowen/eat-bread-well.js";
   "./pages/index/index.js";
   "./pages/chenrenjun/placeorder/placeorder.js";
   "./pages/chenrenjun/index.js";
   "./pages/index/good_details.js";
   "./pages/index/talke.js";
   "./pages/chenrenjun/mcakedetails/mcakedetails.js";
-  "./pages/guowen/index.js";
   "./pages/lanmin/index.js";
   "./pages/lanmin_detail/lanmin_detail.js";
   "./pages/comments/comments.js";

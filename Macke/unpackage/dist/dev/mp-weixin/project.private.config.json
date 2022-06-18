@@ -1,0 +1,23 @@
+{
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/guowen/shop",
+                    "pathName": "pages/guowen/shop",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

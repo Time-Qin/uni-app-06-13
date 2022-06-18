@@ -1,12 +1,14 @@
 {
   "pages": [
+    "pages/guowen/login",
+    "pages/guowen/shop",
+    "pages/guowen/eat-bread-well",
     "pages/index/index",
     "pages/chenrenjun/placeorder/placeorder",
     "pages/chenrenjun/index",
     "pages/index/good_details",
     "pages/index/talke",
     "pages/chenrenjun/mcakedetails/mcakedetails",
-    "pages/guowen/index",
     "pages/lanmin/index",
     "pages/lanmin_detail/lanmin_detail",
     "pages/comments/comments",
