@@ -6,7 +6,7 @@
 		<!-- 用户信息 -->
 		<view class="user-info">
 			<image class="avatar" src="../../static/images/user.png" mode=""></image>
-			<view class="info">
+			<view class="info" @click="login">
 				<text class="name">授权登录&nbsp;&gt;</text>
 			</view>
 		</view>
@@ -181,6 +181,11 @@
 				uni.navigateTo({
 					url:`/pages/index/good_details?sku=${sku1}`
 				});
+			},
+			login(){
+				uni.navigateTo({
+					url:'/pages/guowen/login'
+				})
 			}
 		},
 		onPageScroll(Top) {

@@ -61,7 +61,6 @@ const _sfc_main = {
       result2.msg === "Success" ? this.dateDatas = result2.data : "";
       let result3 = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${this.twoId}&type=0&page=1&count=3`);
       result3.msg === "Success" ? this.talkeDatas = result3.data : "";
-      console.log(this.talkeDatas, "11111111111111");
       result3.data.total === 0 ? this.hasMore = false : this.hasMore = true;
       let result4 = await common_js_requestHttp.GetRequest(`/api/comment/total?twoId=${this.twoId}`);
       result4.msg === "Success" ? this.titleDatas = result4.data : "";
@@ -77,7 +76,6 @@ const _sfc_main = {
       });
     },
     shopContent() {
-      console.log(this.$refs.popup4);
       this.$refs.popup4.shopContent2();
     },
     changeLunBo(e) {
@@ -110,7 +108,6 @@ const _sfc_main = {
     }
   },
   onPageScroll(scrollTop) {
-    console.log("111");
     let toOpacity = scrollTop.scrollTop * 5e-3;
     if (scrollTop.scrollTop >= 200) {
       this.backgroundCr = "#fff";

@@ -61,6 +61,7 @@
 			overflow: hidden;
 			position: fixed;
 			background-color: white;
+			z-index: 999999999;
 
 			.statusBar {
 				height: var(--status-height);

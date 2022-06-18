@@ -15,7 +15,7 @@
 				<swiper class="swiper-box" @change="change" circular autoplay="true">
 					<swiper-item v-for="item in fullAdvPlay" :key="item.img">
 						<view class="swiper-item">
-							<image class="lunboimg" :src="item.img" mode="widthFix" @click="gourl(item.url)" ></image>
+							<image class="lunboimg" :src="item.img" mode="widthFix" @click="gourl(item)" ></image>
 						</view>
 					</swiper-item>
 				</swiper>
@@ -150,14 +150,39 @@
 					url:`./good_details?sku=${sku1}`
 				});
 			},
-			gourl(url){
-				let res = '';
-				res = url.lastIndexOf('?');
-				res=url.slice(res+1);
-				// console.log(res,'111111111111');
-				uni.navigateTo({
-					url:`./good_details?${res}`
-				});
+			gourl(res){
+				switch (res.title) {
+					case '2022年父亲节':
+						uni.navigateTo({
+							url: '#'
+						});
+						return;
+					case '超值拼购':
+						uni.navigateTo({
+							url: '/pages/liuchenchen/pintuan'
+						});
+						return;
+					case '柠漾':{
+						let res1 = '';
+						res1 = res.url.lastIndexOf('?');
+						res1=res.url.slice(res1+1);
+						uni.navigateTo({
+							url: `./good_details?${res1}`
+						});
+						return;}
+					case '2022年新人活动':
+						uni.navigateTo({
+							url: '#'
+						});
+						return;
+				}
+				// let res = '';
+				// res = url.lastIndexOf('?');
+				// res=url.slice(res+1);
+				// // console.log(res,'111111111111');
+				// uni.navigateTo({
+				// 	url:`./good_details?${res}`
+				// });
 			},
 			gowhere(where){
 				console.log(where,'111111111111');
@@ -174,7 +199,7 @@
 						return;
 					case '饼干小食':
 						uni.navigateTo({
-							url: '#'
+							url: '/pages/liuchenchen/index'
 						});
 						return;
 					case '配送范围':
@@ -184,7 +209,7 @@
 						return;
 					case '签到有礼':
 						uni.navigateTo({
-							url: '#'
+							url: '/pages/liuchenchen/qiaodao'
 						});
 						return;
 				}

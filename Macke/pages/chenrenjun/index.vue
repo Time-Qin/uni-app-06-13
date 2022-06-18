@@ -1,37 +1,49 @@
 <template>
 	<view class="container">
+		<header-nav :scrollTop="scrollTop" :one="one">
+			<view class="slot-left">
+				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
+				好好吃面包
+			</view>
+		</header-nav>
 		<!-- tapbar切换 -->
 		<view class="c-tapbar">
 			<scroll-view class="tap-list" scroll-x="true" v-if=flag enable-flex="true">
 				<view :class="['content',{active:activeKey == item.tid}]" v-for="(item,index) in mcakeScene"
-					:key="item.tid" @click="getMcakeGroup(item.tid)">{{item.tname}}</view>
+					:key="item.tname" @click="getMcakeGroup(item.tid)">{{item.tname}}</view>
 			</scroll-view>
 		</view>
 		<!-- 商品列表 -->
-		<view class="c-list" v-for="item in datalist" :key="item.id" @click="goDetail(item.id)">
-			<view>
-				<uni-list-item>
-					<template v-slot:header>
-						<view class="c-header">
-							<image class="slot-image" :src="item.img" mode="widthFix"></image>
-						</view>
-					</template>
-					<template v-slot:body>
-						<view class="slot-body">
-							<view class="slot-title">{{item.name}}</view>
-							<view class="slot-french">{{item.french}}</view>
-							<view class="slot-price">￥{{item.price}}</view>
-						</view>
-					</template>
-					<template v-slot:footer>
-						<view class="c-footer">
-							<view class="slot-cart iconfont icon-gouwuche"></view>
-						</view>
-					</template>
-				</uni-list-item>
+		<view class="" style="margin-top: 100rpx;">
+			<view class="c-list" v-for="item in datalist" :key="item.id" >
+				<view v-if="item">
+					<uni-list-item>
+						<template v-slot:header>
+							<view class="c-header" @click="goDetail(item.id)">
+								<image class="slot-image" :src="item.img" mode="widthFix"></image>
+							</view>
+						</template>
+						<template v-slot:body>
+							<view class="slot-body">
+								<view class="slot-title">{{item.name}}</view>
+								<view class="slot-french">{{item.french}}</view>
+								<view class="slot-price">￥{{item.price}}</view>
+							</view>
+						</template>
+						<template v-slot:footer>
+							<view class="c-footer">
+								<view class="slot-cart iconfont icon-gouwuche" @click="getDatasCar(item.id)"></view>
+							</view>
+							
+						</template>
+					</uni-list-item>
+					<!-- 购物车组件 -->
+					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
+				</view>
+			
 			</view>
-
 		</view>
+		
 		<uni-load-more v-if="hasMore" status="loading"></uni-load-more>
 		<uni-load-more v-else status="noMore"></uni-load-more>
 	</view>
@@ -50,12 +62,15 @@
 				activeKey: 0,
 				hasMore: true,
 				page: 1,
-				fid: 0
-
+				fid: 0,
+				one:1,
+				scrollTop:0,
+				contentDatas:[],
 			}
 		},
 		created() {
-			this.initMcake()
+			this.initMcake();
+			this.getMcakes();
 		},
 		methods: {
 			async initMcake() {
@@ -86,8 +101,20 @@
 			},
 			goDetail(id) {
 				uni.navigateTo({
-					url: `/pages/chenrenjun/mcakedetails/mcakedetails?id=${id}`
+					url: `/pages/index/good_details?id=${id}`
 				})
+			},
+			backTo(){
+				uni.navigateBack({});
+			},
+			onPageScroll(Top) {
+				this.scrollTop = 200;
+			},
+			// 购物车组件方法
+			async getDatasCar(sku) {
+				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
+				result.msg === "Success" ? this.contentDatas = result.data : '';
+				this.$refs.Car[0].shopContent2();
 			},
 		},
 		// 上拉加载
@@ -112,8 +139,30 @@
 <style lang="less" scoped>
 	.container {
 		background-color: pink;
+		
+		/deep/header-nav {
+			display: flex;
+		
+			.slot-left {
+				margin-left: 20rpx;
+				flex: 1;
+				color: white;
+		
+				.icon-xiangzuo1 {
+					font-size: 40rpx;
+					margin-right: 20rpx;
+				}
+			}
+		
+			.navBarBox {
+				background-color: pink;
+			}
+		}
+		
 
 		.c-tapbar {
+			position: fixed;
+			z-index: 999999999;
 			.tap-list {
 				display: flex;
 				white-space: nowrap;

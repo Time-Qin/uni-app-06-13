@@ -1,0 +1,166 @@
+.container {
+  background-color: ghostwhite;
+}
+.container .user {
+  height: 140px;
+  background-color: #9cf;
+  display: flex;
+  width: 350px;
+  margin: 0 10px 10px 10px;
+  border-radius: 0 0 165px 165px;
+}
+.container .user .user-img {
+  margin: 20px;
+}
+.container .user .login {
+  line-height: 140px;
+}
+.container .user .login-txt {
+  font-size: 12px;
+}
+.container .count {
+  background-color: #fff;
+  height: 57px;
+  width: 350px;
+  margin: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.container .count .cell {
+  width: 50px;
+}
+.container .count .cell .num {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  font-size: 700;
+}
+.container .count .cell .desc {
+  font-size: 12px;
+  text-align: center;
+}
+.container .orders {
+  background-color: #fff;
+  height: 90px;
+  width: 350px;
+  margin: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.container .orders .order-h {
+  display: flex;
+  justify-content: space-between;
+}
+.container .orders .order-h .more {
+  font-size: 12px;
+  color: #a9a9a9;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.container .orders .o-title {
+  margin: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.container .orders .sorts {
+  display: flex;
+}
+.container .order-item {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.container .order-item .i {
+  text-align: center;
+  width: 70px;
+}
+.container .o-name {
+  font-size: 12px;
+  text-align: center;
+}
+.container .function {
+  background-color: #fff;
+  height: 90px;
+  width: 350px;
+  margin: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.container .function .f-title {
+  margin: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.container .function .fun-sorts {
+  display: flex;
+}
+.container .f-item {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.container .f-item .i {
+  text-align: center;
+  width: 70px;
+}
+.container .f-name {
+  font-size: 12px;
+  text-align: center;
+}
+.recommand {
+  background-color: #fff;
+  height: 40px;
+  width: 350px;
+  margin: 0 auto;
+  line-height: 40px;
+  text-align: center;
+}
+.goods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
+.cont {
+  width: 170px;
+  padding: 5px;
+}
+.cake-item {
+  width: 170px;
+  margin: 0px 5px;
+  height: 270px;
+}
+.cake-item .poster {
+  height: 150px;
+}
+.cake-item .title {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.cake-item .french {
+  margin: 12px 0;
+  font-size: 10px;
+  color: #a9a9a9;
+}
+.cake-item .price {
+  margin-bottom: 22px;
+  font-size: 12px;
+}
+.cake-item .info-cont {
+  background-color: #fff;
+}
+.cake-item .car {
+  display: flex;
+  justify-content: space-between;
+}
+.cake-item .shop {
+  width: 16px;
+  height: 18px;
+  background-color: aliceblue;
+  margin-right: 7px;
+}

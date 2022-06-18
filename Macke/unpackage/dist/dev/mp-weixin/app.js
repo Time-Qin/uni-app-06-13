@@ -24,6 +24,10 @@ if (!Math) {
   "./pages/zhaojing/question.js";
   "./pages/index/address.js";
   "./pages/chenrenjun/alltotal/alltotal.js";
+  "./pages/liuchenchen/bread.js";
+  "./pages/liuchenchen/user.js";
+  "./pages/liuchenchen/qiaodao.js";
+  "./pages/liuchenchen/pintuan.js";
 }
 const _sfc_main = {
   onLaunch: function() {

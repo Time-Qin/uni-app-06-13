@@ -1,6 +1,25 @@
 .container.data-v-730ad8d2 {
   background-color: pink;
 }
+.container.data-v-730ad8d2 header-nav {
+  display: flex;
+}
+.container.data-v-730ad8d2 header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: white;
+}
+.container.data-v-730ad8d2 header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.container.data-v-730ad8d2 header-nav .navBarBox {
+  background-color: pink;
+}
+.container .c-tapbar.data-v-730ad8d2 {
+  position: fixed;
+  z-index: 999999999;
+}
 .container .c-tapbar .tap-list.data-v-730ad8d2 {
   display: flex;
   white-space: nowrap;

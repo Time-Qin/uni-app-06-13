@@ -249,7 +249,7 @@
 				result2.msg === "Success" ? this.dateDatas = result2.data : '';
 				let result3 = await GetRequest(`/api/comment/load?twoId=${this.twoId}&type=0&page=1&count=3`);
 				result3.msg === "Success" ? this.talkeDatas = result3.data : '';
-				console.log(this.talkeDatas,'11111111111111')
+				// console.log(this.talkeDatas,'11111111111111')
 				result3.data.total === 0 ?this.hasMore=false : this.hasMore=true;
 				// console.log(result3);
 				let result4 = await GetRequest(`/api/comment/total?twoId=${this.twoId}`);
@@ -267,7 +267,7 @@
 				});
 			},
 			shopContent(){
-				console.log(this.$refs.popup4)
+				// console.log(this.$refs.popup4)
 				this.$refs.popup4.shopContent2();
 			},
 			changeLunBo(e) {
@@ -302,7 +302,7 @@
 				  }
 		},
 		onPageScroll(scrollTop) {
-			console.log('111')
+			// console.log('111')
 			let toOpacity = scrollTop.scrollTop * 0.005;
 			if (scrollTop.scrollTop >= 200) {
 				this.backgroundCr = "#fff";

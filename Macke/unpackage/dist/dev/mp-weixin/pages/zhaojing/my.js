@@ -28,6 +28,11 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: `/pages/index/good_details?sku=${sku1}`
       });
+    },
+    login() {
+      common_vendor.index.navigateTo({
+        url: "/pages/guowen/login"
+      });
     }
   },
   onPageScroll(Top) {
@@ -51,7 +56,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: common_vendor.p({
       scrollTop: $data.scrollTop
     }),
-    b: common_vendor.f($data.goodlist, (item, k0, i0) => {
+    b: common_vendor.o((...args) => $options.login && $options.login(...args)),
+    c: common_vendor.f($data.goodlist, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.o(($event) => $options.gosku(item.sku)),
@@ -67,11 +73,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         j: item.title
       };
     }),
-    c: common_vendor.p({
+    d: common_vendor.p({
       type: "cart",
       size: "30"
     }),
-    d: common_vendor.p({
+    e: common_vendor.p({
       contentDatas: $data.contentDatas
     })
   };

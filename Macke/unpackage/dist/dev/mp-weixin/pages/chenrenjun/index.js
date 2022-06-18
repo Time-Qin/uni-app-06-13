@@ -10,11 +10,15 @@ const _sfc_main = {
       activeKey: 0,
       hasMore: true,
       page: 1,
-      fid: 0
+      fid: 0,
+      one: 1,
+      scrollTop: 0,
+      contentDatas: []
     };
   },
   created() {
     this.initMcake();
+    this.getMcakes();
   },
   methods: {
     async initMcake() {
@@ -45,8 +49,19 @@ const _sfc_main = {
     },
     goDetail(id) {
       common_vendor.index.navigateTo({
-        url: `/pages/chenrenjun/mcakedetails/mcakedetails?id=${id}`
+        url: `/pages/index/good_details?id=${id}`
       });
+    },
+    backTo() {
+      common_vendor.index.navigateBack({});
+    },
+    onPageScroll(Top) {
+      this.scrollTop = 200;
+    },
+    async getDatasCar(sku) {
+      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
+      result.msg === "Success" ? this.contentDatas = result.data : "";
+      this.$refs.Car[0].shopContent2();
     }
   },
   onReachBottom() {
@@ -65,51 +80,72 @@ const _sfc_main = {
   }
 };
 if (!Array) {
+  const _easycom_header_nav2 = common_vendor.resolveComponent("header-nav");
   const _easycom_uni_list_item2 = common_vendor.resolveComponent("uni-list-item");
+  const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
   const _easycom_uni_load_more2 = common_vendor.resolveComponent("uni-load-more");
-  (_easycom_uni_list_item2 + _easycom_uni_load_more2)();
+  (_easycom_header_nav2 + _easycom_uni_list_item2 + _easycom_car_view2 + _easycom_uni_load_more2)();
 }
+const _easycom_header_nav = () => "../../components/header-nav/header-nav.js";
 const _easycom_uni_list_item = () => "../../uni_modules/uni-list/components/uni-list-item/uni-list-item.js";
+const _easycom_car_view = () => "../../components/car-view/car-view.js";
 const _easycom_uni_load_more = () => "../../uni_modules/uni-load-more/components/uni-load-more/uni-load-more.js";
 if (!Math) {
-  (_easycom_uni_list_item + _easycom_uni_load_more)();
+  (_easycom_header_nav + _easycom_uni_list_item + _easycom_car_view + _easycom_uni_load_more)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: $data.flag
+    a: common_vendor.o((...args) => $options.backTo && $options.backTo(...args)),
+    b: common_vendor.p({
+      scrollTop: $data.scrollTop,
+      one: $data.one
+    }),
+    c: $data.flag
   }, $data.flag ? {
-    b: common_vendor.f($data.mcakeScene, (item, index, i0) => {
+    d: common_vendor.f($data.mcakeScene, (item, index, i0) => {
       return {
         a: common_vendor.t(item.tname),
         b: common_vendor.n({
           active: $data.activeKey == item.tid
         }),
-        c: item.tid,
-        d: common_vendor.o(($event) => $options.getMcakeGroup(item.tid), item.tid)
+        c: item.tname,
+        d: common_vendor.o(($event) => $options.getMcakeGroup(item.tid), item.tname)
       };
     })
   } : {}, {
-    c: common_vendor.f($data.datalist, (item, k0, i0) => {
-      return {
-        a: item.img,
-        b: common_vendor.t(item.name),
-        c: common_vendor.t(item.french),
-        d: common_vendor.t(item.price),
-        e: "730ad8d2-0-" + i0,
-        f: item.id,
-        g: common_vendor.o(($event) => $options.goDetail(item.id), item.id)
-      };
+    e: common_vendor.f($data.datalist, (item, k0, i0) => {
+      return common_vendor.e({
+        a: item
+      }, item ? {
+        b: item.img,
+        c: common_vendor.o(($event) => $options.goDetail(item.id)),
+        d: common_vendor.t(item.name),
+        e: common_vendor.t(item.french),
+        f: common_vendor.t(item.price),
+        g: common_vendor.o(($event) => $options.getDatasCar(item.id)),
+        h: "730ad8d2-1-" + i0,
+        i: common_vendor.sr("Car", "730ad8d2-2-" + i0, {
+          "f": 1
+        }),
+        j: "730ad8d2-2-" + i0,
+        k: common_vendor.p({
+          contentDatas: $data.contentDatas
+        })
+      } : {}, {
+        l: item.id
+      });
     }),
-    d: $data.hasMore
+    f: $data.hasMore
   }, $data.hasMore ? {
-    e: common_vendor.p({
+    g: common_vendor.p({
       status: "loading"
     })
   } : {
-    f: common_vendor.p({
+    h: common_vendor.p({
       status: "noMore"
     })
   });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-730ad8d2"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/chenrenjun/index.vue"]]);
+_sfc_main.__runtimeHooks = 1;
 wx.createPage(MiniProgramPage);

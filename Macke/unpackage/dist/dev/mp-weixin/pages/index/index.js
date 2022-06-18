@@ -50,13 +50,33 @@ const _sfc_main = {
         url: `./good_details?sku=${sku1}`
       });
     },
-    gourl(url) {
-      let res = "";
-      res = url.lastIndexOf("?");
-      res = url.slice(res + 1);
-      common_vendor.index.navigateTo({
-        url: `./good_details?${res}`
-      });
+    gourl(res) {
+      switch (res.title) {
+        case "2022\u5E74\u7236\u4EB2\u8282":
+          common_vendor.index.navigateTo({
+            url: "#"
+          });
+          return;
+        case "\u8D85\u503C\u62FC\u8D2D":
+          common_vendor.index.navigateTo({
+            url: "/pages/liuchenchen/pintuan"
+          });
+          return;
+        case "\u67E0\u6F3E": {
+          let res1 = "";
+          res1 = res.url.lastIndexOf("?");
+          res1 = res.url.slice(res1 + 1);
+          common_vendor.index.navigateTo({
+            url: `./good_details?${res1}`
+          });
+          return;
+        }
+        case "2022\u5E74\u65B0\u4EBA\u6D3B\u52A8":
+          common_vendor.index.navigateTo({
+            url: "#"
+          });
+          return;
+      }
     },
     gowhere(where) {
       console.log(where, "111111111111");
@@ -73,7 +93,7 @@ const _sfc_main = {
           return;
         case "\u997C\u5E72\u5C0F\u98DF":
           common_vendor.index.navigateTo({
-            url: "#"
+            url: "/pages/liuchenchen/index"
           });
           return;
         case "\u914D\u9001\u8303\u56F4":
@@ -83,7 +103,7 @@ const _sfc_main = {
           return;
         case "\u7B7E\u5230\u6709\u793C":
           common_vendor.index.navigateTo({
-            url: "#"
+            url: "/pages/liuchenchen/qiaodao"
           });
           return;
       }
@@ -126,7 +146,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     f: common_vendor.f($data.fullAdvPlay, (item, k0, i0) => {
       return {
         a: item.img,
-        b: common_vendor.o(($event) => $options.gourl(item.url)),
+        b: common_vendor.o(($event) => $options.gourl(item)),
         c: item.img
       };
     }),

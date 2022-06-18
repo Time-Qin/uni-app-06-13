@@ -1,9 +1,7 @@
 {
 	"pages": [
 		{
-
 			"path": "pages/guowen/login",
-			
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": true,
@@ -18,7 +16,6 @@
 				"onReachBottomDistance": 20
 			}
 		},
-		
 		{
 			"path": "pages/guowen/eat-bread-well",
 			"style": {
@@ -28,7 +25,6 @@
 			}
 		},
 		{
-
 			"path": "pages/index/index",
 			"style": {
 				"enablePullDownRefresh": true,
@@ -36,15 +32,14 @@
 			}
 		},
 		{
-		    "path" : "pages/chenrenjun/placeorder/placeorder",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "提交订单",
-		        "enablePullDownRefresh": false,
+			"path": "pages/chenrenjun/placeorder/placeorder",
+			"style": {
+				"navigationBarTitleText": "提交订单",
+				"enablePullDownRefresh": false,
 				"navigationBarTextStyle": "black"
-		    }
-		    
-		},{
+			}
+		},
+		{
 			"path": "pages/chenrenjun/index",
 			"style": {
 				"navigationStyle": "custom",
@@ -152,16 +147,52 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-		}, {
+		},
+		{
 			"path": "pages/chenrenjun/alltotal/alltotal",
 			"style": {
 				"navigationBarTitleText": "商品评价",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 20,
 				"navigationBarTextStyle": "black"
-				
 			}
-
+		},
+		{
+			"path": "pages/liuchenchen/bread",
+			"style": {
+				"navigationBarTitleText": "好好吃面包",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#A0522D"
+			}
+		},
+		{
+			"path": "pages/liuchenchen/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 20,
+				"navigationBarBackgroundColor": "#0000"
+			}
+		},
+		{
+			"path": "pages/liuchenchen/qiaodao",
+			"style": {
+				"navigationBarTitleText": "签到有礼",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f93",
+				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/liuchenchen/pintuan",
+			"style": {
+				"navigationBarTitleText": "拼团",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff",
+				"onReachBottomDistance": 20,
+				"navigationBarTextStyle": "black"
+			}
 		}
 	],
 	"globalStyle": {
@@ -170,14 +201,11 @@
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
-		},
-		"options": {
-			"styleIsolation": "apply-shared"
 		}
-
 	},
 	"tabBar": {
-		"list": [{
+		"list": [
+			{
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "./static/icons/a2.png",
@@ -191,15 +219,12 @@
 			},
 			{
 				"pagePath": "pages/zhaojing/shopCar",
-
 				"text": "购物车",
 				"iconPath": "./static/icons/j2.png",
 				"selectedIconPath": "./static/icons/j1.png"
 			},
 			{
-
 				"pagePath": "pages/zhaojing/my",
-
 				"text": "我的",
 				"iconPath": "./static/icons/d2.png",
 				"selectedIconPath": "./static/icons/d1.png"

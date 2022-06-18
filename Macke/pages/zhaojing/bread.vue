@@ -21,7 +21,7 @@
 							<text class="iconfont icon-gouwuche"></text>
 						</view>
 					</view>
-					<car-view ref="Car" :contentDatas="contentDatas" ></car-view>
+					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
 				</view>
 			</view>
 
@@ -35,12 +35,12 @@
 	export default {
 		data() {
 			return {
-				one:1,
+				one: 1,
 				goodlist: [],
 				page: 1,
 				canLoad: true,
-				contentDatas:[],
-				scrollTop:0,
+				contentDatas: [],
+				scrollTop: 0,
 			}
 		},
 		created() {
@@ -63,7 +63,7 @@
 				}
 
 			},
-			backTo(){
+			backTo() {
 				uni.navigateBack({});
 			},
 			async getDatasCar(sku) {
@@ -71,10 +71,10 @@
 				result.msg === "Success" ? this.contentDatas = result.data : '';
 				this.$refs.Car[0].shopContent2();
 			},
-			gosku(sku){
+			gosku(sku) {
 				let sku1 = sku
 				uni.navigateTo({
-					url:`../index/good_details?sku=${sku1}`
+					url: `../index/good_details?sku=${sku1}`
 				});
 			},
 		},
@@ -100,23 +100,28 @@
 <style lang="less" scoped>
 	.container {
 		background-color: #cccccc;
-		/deep/header-nav{
+
+		/deep/header-nav {
 			display: flex;
-			.slot-left{
+
+			.slot-left {
 				margin-left: 20rpx;
 				flex: 1;
 				color: white;
-				.icon-xiangzuo1{
+
+				.icon-xiangzuo1 {
 					font-size: 40rpx;
 					margin-right: 20rpx;
 				}
 			}
-			.backC{
-			background: #5c382c;
-		}
-		.navBarBox{
-			background-color: #5c382c;
-		}
+
+			.backC {
+				background: #5c382c;
+			}
+
+			.navBarBox {
+				background-color: #5c382c;
+			}
 		}
 
 		.item {

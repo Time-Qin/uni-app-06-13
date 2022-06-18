@@ -1,4 +1,5 @@
 {
+    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -12,8 +13,38 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "pages/guowen/shop",
-                    "pathName": "pages/guowen/shop",
+                    "name": "pages/liuchenchen/index",
+                    "pathName": "pages/liuchenchen/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/liuchenchen/bread",
+                    "pathName": "pages/liuchenchen/bread",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/liuchenchen/user",
+                    "pathName": "pages/liuchenchen/user",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/liuchenchen/qiaodao",
+                    "pathName": "pages/liuchenchen/qiaodao",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/liuchenchen/pintuan",
+                    "pathName": "pages/liuchenchen/pintuan",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
                     "query": "",
                     "scene": null
                 }

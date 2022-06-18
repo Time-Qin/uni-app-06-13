@@ -19,15 +19,16 @@
     "pages/zhaojing/my",
     "pages/zhaojing/question",
     "pages/index/address",
-    "pages/chenrenjun/alltotal/alltotal"
+    "pages/chenrenjun/alltotal/alltotal",
+    "pages/liuchenchen/bread",
+    "pages/liuchenchen/user",
+    "pages/liuchenchen/qiaodao",
+    "pages/liuchenchen/pintuan"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "backgroundColor": "#F8F8F8",
-    "options": {
-      "styleIsolation": "apply-shared"
-    }
+    "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
     "list": [
@@ -56,11 +57,6 @@
         "selectedIconPath": "./static/icons/d1.png"
       }
     ]
-  },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "获取位置"
-    }
   },
   "usingComponents": {}
 }
