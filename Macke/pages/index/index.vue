@@ -85,7 +85,7 @@
 									<text class=" gouwuche iconfont icon-gouwuche" @click="getDatasCar(i.sku)">
 										
 									</text>
-									<car-view ref="Car" :contentDatas="contentDatas" ></car-view>
+										<car-view ref="Car" :contentDatas="contentDatas" ></car-view>
 								</view>
 							</view>
 						</view>

@@ -1,11 +1,16 @@
 <template>
 	<view class="container">
-		<view class="empty">
+		<header-nav :scrollTop="scrollTop" :one="one">
+			<view class="cart-title">
+				购物车
+			</view>
+		</header-nav>
+		<view v-if="goodcart===true" class="empty">
 			<image src="/static/images/shop.png" mode="widthFix" style="width: 400rpx;"></image>
 			<view class="empty-text">购物车空空如也</view>
 			<view class="empty-button" @click="goshopping">去选购</view>
 		</view>
-		<!-- 		<view class="carDetail">
+		<view v-else class="carDetail">
 			<uni-icons type="circle" size="30" class="icon"></uni-icons>
 			<image class="poster" src="" mode=""></image>
 			<view class="detail">
@@ -14,10 +19,10 @@
 				<view>一磅</view>
 				<view style="display: flex;">
 					<text>139</text>
-					<uni-number-box :min="1" class="step" ></uni-number-box>
+					<uni-number-box :min="1" class="step"></uni-number-box>
 				</view>
 			</view>
-		</view> -->
+		</view>
 		<view class="title-split">
 			<view class="line"></view>
 			<text>推荐商品</text>
@@ -53,12 +58,15 @@
 	export default {
 		data() {
 			return {
+				one: 1,
 				flag: false,
-				scrollTop: 0,
+				scrollTop: 200,
 				goods: [],
 				pageIndex: 1,
 				hasMore: true,
 				contentDatas: [],
+				goodDatas:[],
+				goodcart:true
 			}
 		},
 		created() {
@@ -71,6 +79,14 @@
 				})
 			},
 			async getShopList() {
+				//购物车数据
+				let result1 =await GetRequest('/api/cart/load');
+				result1.msg ==='Success'?this.goodDatas=result1.data:''
+				if(result1.data.goods.length!=0){
+					this.goodcart=false;
+				}
+				console.log(this.goodDatas,result1,this.goodcart);
+				//推荐商品
 				let result = await GetRequest(
 					`/api/goods/load?cityId=110&bid=1&fid=0&page=${this.pageIndex}&count=20&search=&total=34`);
 				if (result.data.data.length < 10) {
@@ -91,14 +107,15 @@
 					duration: 300
 				});
 			},
-			gosku(sku){
+			gosku(sku) {
 				let sku1 = sku
 				uni.navigateTo({
-					url:`../index/good_details?sku=${sku1}`
+					url: `../index/good_details?sku=${sku1}`
 				});
 			},
 		},
 		onPageScroll(scroll) {
+			this.scrollTop = scroll.scrollTop;
 			if (scroll.scrollTop > 400) { //当距离大于400时显示回到顶部按钮
 				this.flag = true
 			} else { //当距离小于400时隐藏回到顶部按钮
@@ -127,6 +144,15 @@
 
 <style lang="less" scoped>
 	.container {
+		/deep/header-nav {
+			display: flex;
+
+			.cart-title {
+				flex: 1;
+				margin-left: 30rpx;
+			}
+		}
+
 		.empty {
 			text-align: center;
 			display: flex;

@@ -1,5 +1,8 @@
 <template>
 	<view class="main">
+		<header-nav :scrollTop="scrollTop">
+			我的
+		</header-nav>
 		<!-- 用户信息 -->
 		<view class="user-info">
 			<image class="avatar" src="../../static/images/user.png" mode=""></image>
@@ -152,6 +155,7 @@
 		data() {
 			return {
 				goodlist: [],
+				scrollTop:0,
 			}
 		},
 		created() {
@@ -163,13 +167,21 @@
 				this.goodlist = result.data.list[1].data.content.list;
 				console.log(this.goodlist)
 			}
+		},
+		onPageScroll(Top) {
+			this.scrollTop = Top.scrollTop;
 		}
 	}
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 	.main {
 		width: 100%;
+		/deep/header-nav{
+			.backC{
+			background: #9bd1ff;
+		}
+		}
 
 		.list {
 			height: 120rpx;

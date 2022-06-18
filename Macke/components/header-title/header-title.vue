@@ -121,7 +121,7 @@
 						return;
 					case '我要反馈':
 						uni.navigateTo({
-							url: '#'
+							url: '../../pages/zhaojing/question'
 						});
 						return;
 					case '分享':

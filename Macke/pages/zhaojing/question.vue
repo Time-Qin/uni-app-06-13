@@ -1,20 +1,28 @@
 <template>
 	<view class="container">
-		<uni-forms ref="form" :modelValue="formData" :rules="rules">
-			<uni-forms-item label="问题描述" name="msg">
-				<uni-easyinput type="textarea" v-model="formData.msg" placeholder="我希望加入XXXX功能,因为XX情况下,会出现XX异常"
-					maxlength="200" @input="sumfontnum" />
-				<view class="total"><text>{{fontNum}}</text>/200</view>
-			</uni-forms-item>
-			<uni-forms-item label="联系人" name="name">
-				<uni-easyinput type="text" v-model="formData.name" placeholder="请输入联系人" />
-			</uni-forms-item>
-			<uni-forms-item label="联系电话" name="tel">
-				<uni-easyinput class="input" v-model="formData.tel" type="text" placeholder="请输入联系电话" />
-			</uni-forms-item>
-
-		</uni-forms>
-		<button class="btn" @click="submit">提交反馈</button>
+		<header-nav :one="one">
+			<view class="slot-left">
+				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
+				问题反馈
+			</view>
+		</header-nav>
+		<view class="main">
+			<uni-forms ref="form" :modelValue="formData" :rules="rules">
+				<uni-forms-item label="问题描述" name="msg">
+					<uni-easyinput type="textarea" v-model="formData.msg" placeholder="我希望加入XXXX功能,因为XX情况下,会出现XX异常"
+						maxlength="200" @input="sumfontnum" />
+					<view class="total"><text>{{fontNum}}</text>/200</view>
+				</uni-forms-item>
+				<uni-forms-item label="联系人" name="name">
+					<uni-easyinput type="text" v-model="formData.name" placeholder="请输入联系人" />
+				</uni-forms-item>
+				<uni-forms-item label="联系电话" name="tel">
+					<uni-easyinput class="input" v-model="formData.tel" type="text" placeholder="请输入联系电话" />
+				</uni-forms-item>
+			
+			</uni-forms>
+			<button class="btn" @click="submit">提交反馈</button>
+		</view>
 	</view>
 </template>
 
@@ -22,6 +30,7 @@
 	export default {
 		data() {
 			return {
+				one:1,
 				fontNum: 0,
 				// 表单数据
 				formData: {
@@ -72,7 +81,10 @@
 			sumfontnum(e) {
 				console.log(e.length)
 				this.fontNum = e.length
-			}
+			},
+			backTo(){
+				uni.navigateBack({});
+			},
 		}
 	}
 </script>
@@ -80,13 +92,28 @@
 <style lang="less" scoped>
 	.container{
 		height: 100vh;
-		padding: 80rpx 40rpx;
-		.btn{
-			background: lightblue;
-			border-radius: 60rpx;
+		/deep/header-nav {
+			display: flex;
+		
+			.slot-left{
+				margin-left: 20rpx;
+				flex: 1;
+				color: black;
+				.icon-xiangzuo1{
+					font-size: 40rpx;
+					margin-right: 20rpx;
+				}
+			}
 		}
-		.total{
-			float: right;
+		.main{
+		padding: 80rpx 40rpx;
+			.btn{
+				background: lightblue;
+				border-radius: 60rpx;
+			}
+			.total{
+				float: right;
+			}
 		}
 	}
 </style>

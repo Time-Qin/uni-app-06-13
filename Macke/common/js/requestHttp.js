@@ -11,6 +11,9 @@ export function GetRequest(url, data) {
 			url: url,
 			method: 'GET',
 			data: data,
+			header: {
+				'token':'425be1495b7ea54fc4c8622be19413a1',
+			},
 			success: res => {
 				uni.hideLoading()
 				resolve(res.data);

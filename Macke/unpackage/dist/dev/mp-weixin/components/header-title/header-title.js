@@ -77,7 +77,7 @@ const _sfc_main = {
           return;
         case "\u6211\u8981\u53CD\u9988":
           common_vendor.index.navigateTo({
-            url: "#"
+            url: "../../pages/zhaojing/question"
           });
           return;
         case "\u5206\u4EAB":

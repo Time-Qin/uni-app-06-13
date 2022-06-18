@@ -1,5 +1,11 @@
 <template>
 	<view class="container">
+		<header-nav :scrollTop="scrollTop" :one="one">
+			<view class="slot-left">
+				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
+				好好吃面包
+			</view>
+		</header-nav>
 		<view class="header" />
 		<view style="margin-top: -200rpx;" class="goods">
 			<view class="item" v-for="item in goodlist" :key="item.src">
@@ -29,10 +35,12 @@
 	export default {
 		data() {
 			return {
+				one:1,
 				goodlist: [],
 				page: 1,
 				canLoad: true,
 				contentDatas:[],
+				scrollTop:0,
 			}
 		},
 		created() {
@@ -54,6 +62,9 @@
 					that.canLoad = false;
 				}
 
+			},
+			backTo(){
+				uni.navigateBack({});
 			},
 			async getDatasCar(sku) {
 				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
@@ -79,6 +90,9 @@
 			this.page = 1;
 			this.canLoad = true;
 			this.getGoodsPage1()
+		},
+		onPageScroll(Top) {
+			this.scrollTop = 200;
 		}
 	}
 </script>
@@ -86,6 +100,24 @@
 <style lang="less" scoped>
 	.container {
 		background-color: #cccccc;
+		/deep/header-nav{
+			display: flex;
+			.slot-left{
+				margin-left: 20rpx;
+				flex: 1;
+				color: white;
+				.icon-xiangzuo1{
+					font-size: 40rpx;
+					margin-right: 20rpx;
+				}
+			}
+			.backC{
+			background: #5c382c;
+		}
+		.navBarBox{
+			background-color: #5c382c;
+		}
+		}
 
 		.item {
 			background-color: #fff;
