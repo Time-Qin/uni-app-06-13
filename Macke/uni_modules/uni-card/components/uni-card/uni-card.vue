@@ -34,7 +34,6 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	/**
 	 * Card 卡片
@@ -98,7 +97,7 @@
 			isShadow: {
 				// 是否开启阴影
 				type: Boolean,
-				default: true
+				default: false
 			},
 			shadow: {
 				type: String,
@@ -106,7 +105,7 @@
 			},
 			border: {
 				type: Boolean,
-				default: true
+				default: false
 			}
 		},
 		methods: {
@@ -116,7 +115,6 @@
 		}
 	}
 </script>
-
 <style lang="scss">
 	$uni-border-3: #EBEEF5 !default;
 	$uni-shadow-base:0 0px 6px 1px rgba($color: #a5a5a5, $alpha: 0.2) !default;
@@ -126,7 +124,7 @@
 	$uni-spacing-sm: 8px !default;
 	$uni-border-color:$uni-border-3;
 	$uni-shadow: $uni-shadow-base;
-	$uni-card-title: 15px;
+	$uni-card-title: 12px;
 	$uni-cart-title-color:$uni-main-color;
 	$uni-card-subtitle: 12px;
 	$uni-cart-subtitle-color:$uni-secondary-color;
@@ -135,8 +133,8 @@
 
 	.uni-card {
 		margin: $uni-card-spacing;
-		padding: 0 $uni-spacing-sm;
-		border-radius: 4px;
+		// padding: 0 $uni-spacing-sm;
+		// border-radius: 4px;
 		overflow: hidden;
 		font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
 		background-color: #fff;
@@ -147,7 +145,9 @@
 			margin-top: $uni-card-spacing;
 			flex-direction: row;
 			overflow: hidden;
-			border-radius: 4px;
+
+			// border-radius: 4px;
+
 			.uni-card__cover-image {
 				flex: 1;
 				// width: 100%;
@@ -159,9 +159,8 @@
 
 		.uni-card__header {
 			display: flex;
-			border-bottom: 1px $uni-border-color solid;
 			flex-direction: row;
-			align-items: center;
+			align-items: flex-start;
 			padding: $uni-card-spacing;
 			overflow: hidden;
 
@@ -176,15 +175,16 @@
 			}
 
 			.uni-card__header-avatar {
-				width: 40px;
-				height: 40px;
+				width: 20px;
+				height: 20px;
 				overflow: hidden;
 				border-radius: 5px;
 				margin-right: $uni-card-spacing;
+
 				.uni-card__header-avatar-image {
 					flex: 1;
-					width: 40px;
-					height: 40px;
+					width: 20px;
+					height: 20px;
 				}
 			}
 
@@ -226,6 +226,7 @@
 			font-size: 14px;
 			color: $uni-card-content-color;
 			line-height: 22px;
+			border-bottom: 1px $uni-border-color solid;
 		}
 
 		.uni-card__actions {
@@ -234,7 +235,7 @@
 	}
 
 	.uni-card--border {
-		border: 1px solid $uni-border-color;
+		// border: 1px solid $uni-border-color;
 	}
 
 	.uni-card--shadow {

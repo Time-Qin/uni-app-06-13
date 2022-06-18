@@ -26,7 +26,7 @@ const _sfc_main = {
         }]
       };
       let result = await common_js_requestHttp.PostRequest("/api/cart/add", obj);
-      console.log("3333333333", obj, this.contentDatas, result);
+      console.log("3333333333", obj, this.contentDatas.list, result);
       if (result.code === 0) {
         common_vendor.index.showModal({
           content: "\u52A0\u5165\u8D2D\u7269\u8F66\u6210\u529F"

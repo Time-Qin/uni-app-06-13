@@ -131,7 +131,7 @@
 		</view>
 		<view class="goods">
 			<view class="good" v-for="item in goodlist" :key="item.title">
-				<view class="good_img">
+				<view class="good_img" @click="gosku(item.sku)">
 					<image class="img" :src="item.img" mode="widthFix"></image>
 				</view>
 				<view class="content">
@@ -139,8 +139,9 @@
 					<view class="french">{{item.french}}</view>
 					<view class="buy">
 						<view class="price">¥&nbsp;{{item.price}}</view>
-						<uni-icons type="cart" size="30"></uni-icons>
+						<uni-icons type="cart" size="30" @click="getDatasCar(item.sku)"></uni-icons>
 					</view>
+					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
 				</view>
 			</view>
 		</view>
@@ -156,6 +157,7 @@
 			return {
 				goodlist: [],
 				scrollTop:0,
+				contentDatas:[],
 			}
 		},
 		created() {
@@ -166,6 +168,19 @@
 				let result = await GetRequest("/api/page/load?cityId=110&route=pages%2Fuser%2Findex");
 				this.goodlist = result.data.list[1].data.content.list;
 				console.log(this.goodlist)
+			},
+			// 购物车组件方法
+			async getDatasCar(sku) {
+				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
+				result.msg === "Success" ? this.contentDatas = result.data : '';
+				this.$refs.Car[0].shopContent2();
+			},
+			//跳转商品详情页面
+			gosku(sku){
+				let sku1 = sku
+				uni.navigateTo({
+					url:`/pages/index/good_details?sku=${sku1}`
+				});
 			}
 		},
 		onPageScroll(Top) {

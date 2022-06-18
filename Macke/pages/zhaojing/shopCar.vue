@@ -38,8 +38,10 @@
 					<view class="french">{{item.french}}</view>
 					<view class="buy">
 						<view class="price">¥&nbsp;{{item.price}}</view>
+						<!-- 点击弹出购物车 -->
 						<uni-icons type="cart" size="30" @click="getDatasCar(item.id)"></uni-icons>
 					</view>
+					<!-- 购物车组件 -->
 					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
 				</view>
 			</view>
@@ -95,6 +97,7 @@
 				console.log(result, this.pageIndex)
 				result.code === 0 ? this.goods = [...this.goods, ...result.data.data] : ''
 			},
+			// 购物车组件方法
 			async getDatasCar(sku) {
 				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
 				result.msg === "Success" ? this.contentDatas = result.data : '';

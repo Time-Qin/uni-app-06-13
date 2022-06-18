@@ -245,7 +245,7 @@
 				// console.log(result, this.contentDatas);
 				this.twoId =this.contentDatas.twoId;
 				// console.log(this.twoId,`/api/goods/detail?${id.sku}`);
-				let result2 = await GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.sku}&cityId=110&lng=31.23037&lat=121.4737`);
+				let result2 = await GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.id}&cityId=110&lng=31.23037&lat=121.4737`);
 				result2.msg === "Success" ? this.dateDatas = result2.data : '';
 				let result3 = await GetRequest(`/api/comment/load?twoId=${this.twoId}&type=0&page=1&count=3`);
 				result3.msg === "Success" ? this.talkeDatas = result3.data : '';

@@ -1,4 +1,3 @@
-
 {
 	"pages": [{
 			"path": "pages/index/index",
@@ -35,8 +34,34 @@
 		{
 			"path": "pages/lanmin/index",
 			"style": {
-				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false,
+				"onReachBottomDistance": 20,
+				"navigationBarTitleText": "lanmin",
+				"navigationBarBackgroundColor": "#8fbcff"
+			}
+		},
+		{
+			"path": "pages/lanmin_detail/lanmin_detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
 				"onReachBottomDistance": 20
+			}
+		},
+		{
+			"path": "pages/comments/comments",
+			"style": {
+				"navigationBarTitleText": "商品评论",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索商品",
+				"enablePullDownRefresh": false
 			}
 		},
 		{
@@ -61,10 +86,9 @@
 				"navigationBarTitleText": "购物车",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
-
 			}
-
-		}, {
+		},
+		{
 			"path": "pages/zhaojing/my",
 			"style": {
 				"navigationBarTitleText": "",
@@ -72,7 +96,6 @@
 				"onReachBottomDistance": 50,
 				"navigationBarBackgroundColor": "#9bd1ff"
 			}
-
 		},
 		{
 			"path": "pages/zhaojing/question",
@@ -80,27 +103,27 @@
 				"navigationBarTitleText": "问题反馈",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
-
 			}
-
+		},
+		{
+			"path": "pages/index/address",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 		}
-	    ,{
-            "path" : "pages/index/address",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationStyle": "custom",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
+		},
+		"options": {
+			"styleIsolation": "apply-shared"
 		}
+
 	},
 	"tabBar": {
 		"list": [{
@@ -129,5 +152,4 @@
 			}
 		]
 	}
-
 }

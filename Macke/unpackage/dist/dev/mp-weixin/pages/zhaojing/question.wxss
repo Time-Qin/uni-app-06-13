@@ -1,0 +1,25 @@
+.container.data-v-2df4e250 {
+  height: 100vh;
+}
+.container.data-v-2df4e250 header-nav {
+  display: flex;
+}
+.container.data-v-2df4e250 header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+.container.data-v-2df4e250 header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.container .main.data-v-2df4e250 {
+  padding: 80rpx 40rpx;
+}
+.container .main .btn.data-v-2df4e250 {
+  background: lightblue;
+  border-radius: 60rpx;
+}
+.container .main .total.data-v-2df4e250 {
+  float: right;
+}

@@ -82,7 +82,7 @@
 					}, ]
 				};
 				let result = await PostRequest('/api/cart/add',obj);
-				console.log("3333333333",obj, this.contentDatas,result);
+				console.log("3333333333",obj, this.contentDatas.list,result);
 				if(result.code===0){
 					uni.showModal({
 						content:"加入购物车成功"

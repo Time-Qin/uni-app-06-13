@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品评论",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "comments": "../../components/comments/comments"
+  }
+}

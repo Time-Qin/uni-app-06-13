@@ -6772,6 +6772,87 @@ Store.prototype._withCommit = function _withCommit(fn) {
   this._committing = committing;
 };
 Object.defineProperties(Store.prototype, prototypeAccessors);
+var mapState = normalizeNamespace(function(namespace, states) {
+  var res = {};
+  if (!isValidMap(states)) {
+    console.error("[vuex] mapState: mapper parameter must be either an Array or an Object");
+  }
+  normalizeMap(states).forEach(function(ref2) {
+    var key = ref2.key;
+    var val = ref2.val;
+    res[key] = function mappedState() {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, "mapState", namespace);
+        if (!module) {
+          return;
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === "function" ? val.call(this, state, getters) : state[val];
+    };
+    res[key].vuex = true;
+  });
+  return res;
+});
+var mapMutations = normalizeNamespace(function(namespace, mutations) {
+  var res = {};
+  if (!isValidMap(mutations)) {
+    console.error("[vuex] mapMutations: mapper parameter must be either an Array or an Object");
+  }
+  normalizeMap(mutations).forEach(function(ref2) {
+    var key = ref2.key;
+    var val = ref2.val;
+    res[key] = function mappedMutation() {
+      var args = [], len = arguments.length;
+      while (len--)
+        args[len] = arguments[len];
+      var commit2 = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, "mapMutations", namespace);
+        if (!module) {
+          return;
+        }
+        commit2 = module.context.commit;
+      }
+      return typeof val === "function" ? val.apply(this, [commit2].concat(args)) : commit2.apply(this.$store, [val].concat(args));
+    };
+  });
+  return res;
+});
+function normalizeMap(map) {
+  if (!isValidMap(map)) {
+    return [];
+  }
+  return Array.isArray(map) ? map.map(function(key) {
+    return { key, val: key };
+  }) : Object.keys(map).map(function(key) {
+    return { key, val: map[key] };
+  });
+}
+function isValidMap(map) {
+  return Array.isArray(map) || isObject(map);
+}
+function normalizeNamespace(fn) {
+  return function(namespace, map) {
+    if (typeof namespace !== "string") {
+      map = namespace;
+      namespace = "";
+    } else if (namespace.charAt(namespace.length - 1) !== "/") {
+      namespace += "/";
+    }
+    return fn(namespace, map);
+  };
+}
+function getModuleByNamespace(store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if (!module) {
+    console.error("[vuex] module namespace not found in " + helper + "(): " + namespace);
+  }
+  return module;
+}
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
 exports.createStore = createStore;
@@ -6779,6 +6860,8 @@ exports.e = e;
 exports.f = f;
 exports.index = index;
 exports.initVueI18n = initVueI18n;
+exports.mapMutations = mapMutations;
+exports.mapState = mapState;
 exports.n = n;
 exports.o = o;
 exports.p = p;

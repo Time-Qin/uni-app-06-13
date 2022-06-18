@@ -6,6 +6,9 @@
     "pages/chenrenjun/index",
     "pages/guowen/index",
     "pages/lanmin/index",
+    "pages/lanmin_detail/lanmin_detail",
+    "pages/comments/comments",
+    "pages/search/search",
     "pages/liuchenchen/index",
     "pages/zhaojing/bread",
     "pages/zhaojing/shopCar",
@@ -16,7 +19,10 @@
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#F8F8F8",
+    "options": {
+      "styleIsolation": "apply-shared"
+    }
   },
   "tabBar": {
     "list": [

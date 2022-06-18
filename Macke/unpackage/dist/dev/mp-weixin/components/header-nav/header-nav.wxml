@@ -1,0 +1,1 @@
+<view class="{{['data-v-53883038', 'header', 'backC']}}" style="{{c}}"><view class="navBarBox data-v-53883038" style="{{'opacity:' + b}}"><view class="statusBar data-v-53883038" style="{{a}}"></view><navbar u-s="{{['d']}}" class="navBar data-v-53883038" u-i="53883038-0" bind:__l="__l"><slot></slot></navbar></view></view>
