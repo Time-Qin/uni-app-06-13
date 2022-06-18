@@ -790,7 +790,8 @@
 			text-align: center;
 			line-height: 40px;
 			color: #999;
-			.c-icon{
+
+			.c-icon {
 				font-size: 22px;
 				color: #999999;
 			}

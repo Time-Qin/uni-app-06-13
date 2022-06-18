@@ -1,3 +1,6 @@
+.container.data-v-1ea3ec8f {
+  background-color: #fafcfd;
+}
 .container .notice-bar.data-v-1ea3ec8f {
   padding: 12px 14px 12px 14px;
 }
@@ -27,4 +30,235 @@
 }
 .container .c-addr.data-v-1ea3ec8f {
   padding: 0 14px;
+}
+.container .c-addr.data-v-1ea3ec8f .uni-list-item__container {
+  padding: 24px 0 24px 15px;
+}
+.container .c-addr .slot-addr.data-v-1ea3ec8f {
+  margin-right: 4px;
+  font-weight: 700;
+}
+.container .c-addr .slot-title.data-v-1ea3ec8f {
+  font-weight: 700;
+}
+.container .c-goods.data-v-1ea3ec8f {
+  margin: 10px 14px 0 14px;
+  background-color: #ffffff;
+}
+.container .c-goods .c-title.data-v-1ea3ec8f {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333333;
+}
+.container .c-goods .c-list .c-header .slot-image.data-v-1ea3ec8f {
+  width: 110px;
+  height: 110px;
+  margin-right: 10px;
+}
+.container .c-goods .c-list .slot-body.data-v-1ea3ec8f {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 6px 0;
+  width: 56vw;
+}
+.container .c-goods .c-list .slot-body .slot-title.data-v-1ea3ec8f {
+  font-size: 15px;
+  font-weight: 400;
+}
+.container .c-goods .c-list .slot-body .slot-spec.data-v-1ea3ec8f {
+  font-size: 12px;
+  font-weight: 200;
+  padding-top: 3px;
+  color: #999999;
+}
+.container .c-goods .c-list .slot-body .slot-canju .item.data-v-1ea3ec8f {
+  font-size: 16px;
+  color: #999999;
+  margin-right: 10px;
+}
+.container .c-goods .c-list .slot-body .slot-canju .item-title.data-v-1ea3ec8f {
+  margin-left: 3px;
+  font-size: 12px;
+  color: #999999;
+}
+.container .c-goods .c-list .slot-body .slot-price.data-v-1ea3ec8f {
+  font-size: 14px;
+  padding-top: 18px;
+}
+.container .c-goods .c-list .slot-body .slot-price .price-icon.data-v-1ea3ec8f {
+  font-size: 10px;
+}
+.container .c-goods .c-list .c-footer.data-v-1ea3ec8f {
+  position: relative;
+}
+.container .c-goods .c-list .c-footer .slot-num.data-v-1ea3ec8f {
+  position: absolute;
+  right: -16px;
+  top: 80px;
+  font-size: 14px;
+  color: #a9a9a9;
+}
+.container .c-goods .c-list .c-blessing.data-v-1ea3ec8f {
+  display: flex;
+}
+.container .c-goods .c-list .c-blessing.data-v-1ea3ec8f .uni-list--border:after {
+  height: 0;
+}
+.container .c-goods .c-list .c-blessing .blessing-title.data-v-1ea3ec8f {
+  padding: 0 16px;
+  margin-right: 54px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 45px;
+}
+.container .c-goods .c-list .c-blessing .slot-title.data-v-1ea3ec8f {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.container .c-goods .c-amount.data-v-1ea3ec8f {
+  padding: 0 14px;
+  border-top: 1px solid #f3f3f3;
+}
+.container .c-goods .c-amount .amount.data-v-1ea3ec8f {
+  padding: 13px 0;
+}
+.container .c-goods .c-amount .amount .c-txt.data-v-1ea3ec8f {
+  font-size: 14px;
+}
+.container .c-goods .c-amount .amount .point.data-v-1ea3ec8f {
+  font-size: 13px;
+  margin-left: 150px;
+}
+.container .c-goods .c-amount .amount .c-num.data-v-1ea3ec8f {
+  float: right;
+  font-size: 14px;
+}
+.container .c-goods .c-amount .amount .monery.data-v-1ea3ec8f {
+  color: #d2d2d2;
+}
+.container .c-goods .c-amount .total.data-v-1ea3ec8f {
+  text-align: right;
+  font-size: 14px;
+  padding: 12px 0;
+  border-top: 1px solid #f3f3f3;
+}
+.container .c-pay.data-v-1ea3ec8f {
+  padding: 0 14px;
+  margin-top: 8px;
+  margin-bottom: 90px;
+  position: relative;
+}
+.container .c-pay .pay-title.data-v-1ea3ec8f {
+  font-size: 13px;
+}
+.container .c-pay .pay-detail.data-v-1ea3ec8f {
+  font-size: 13px;
+  position: absolute;
+  right: 0;
+}
+.container .bottom_nav.data-v-1ea3ec8f {
+  background-color: #ffffff;
+  padding: 14px 14px;
+  display: flex;
+  border-top: 1px solid #eaeced;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: -28px;
+}
+.container .bottom_nav .receivable.data-v-1ea3ec8f {
+  margin-left: auto;
+  margin-right: 8px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 14px;
+}
+.container .bottom_nav .btn.data-v-1ea3ec8f {
+  background-color: #bae7ff;
+  border-radius: 20px;
+  margin: 0;
+  font-size: 15px;
+  padding: 0 26px;
+}
+.container .c-popup.data-v-1ea3ec8f .uni-popup__wrapper {
+  border-radius: 14px;
+}
+.container .c-popup .popup-content.data-v-1ea3ec8f {
+  padding: 20px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+.container .c-popup .popup-content .popup-title.data-v-1ea3ec8f {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.container .c-popup .popup-content .text.data-v-1ea3ec8f {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.container .c-popup .popup-content .btn1.data-v-1ea3ec8f {
+  padding: 2px 60px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #bae7ff;
+}
+.container .c-tips.data-v-1ea3ec8f .uni-popup__wrapper {
+  border-radius: 14px;
+}
+.container .c-tips .popup-content.data-v-1ea3ec8f {
+  width: 344px;
+  height: 200px;
+  overflow: hidden;
+}
+.container .c-tips .popup-content .popup-title.data-v-1ea3ec8f {
+  margin-top: 20px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.container .c-tips .popup-content .text.data-v-1ea3ec8f {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 26px;
+  color: #434343;
+}
+.container .c-tips .popup-content .btn1.data-v-1ea3ec8f {
+  padding: 2px 60px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #bae7ff;
+  margin-left: 91px;
+  margin-top: 14px;
+}
+.container .c-points.data-v-1ea3ec8f .uni-popup__wrapper {
+  border-radius: 14px;
+}
+.container .c-points .popup-content.data-v-1ea3ec8f {
+  width: 344px;
+  height: 180px;
+  overflow: hidden;
+}
+.container .c-points .popup-content .popup-title.data-v-1ea3ec8f {
+  margin-top: 20px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.container .c-points .popup-content .text.data-v-1ea3ec8f {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 26px;
+  color: #434343;
+}
+.container .c-points .popup-content .btn1.data-v-1ea3ec8f {
+  padding: 2px 60px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #bae7ff;
+  margin-left: 91px;
+  margin-top: 14px;
 }
