@@ -17,10 +17,12 @@ import {
 	createSSRApp
 } from 'vue';
 import App from './App.vue';
+import uView from './uni_modules/vk-uview-ui';
 import store from './store/index';
 export function createApp() {
 	const app = createSSRApp(App);
 	// app.use(store);
+	app.use(uView);
 	return {
 		app
 	}

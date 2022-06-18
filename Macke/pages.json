@@ -76,8 +76,18 @@
 
 			}
 
+		},
+		{
+			"path": "pages/zhaojing/myOrder",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
+		
+			}
+		
 		}
-	],
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "Mcake",

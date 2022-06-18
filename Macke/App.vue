@@ -17,6 +17,7 @@
 	/*每个页面公共css */
 	// @import "/wxcomponents/vant/dist/common/index.wxss";
 	@import '@/uni_modules/uni-scss/index.scss';
+	@import "@/uni_modules/vk-uview-ui/index.scss";
 	/* #ifndef APP-NVUE */
 	@import '@/static/customicons.css';
 
