@@ -97,8 +97,8 @@
 		position: fixed;
 		z-index: 1;
 		background-color: #fff;
-		height: 6vh;
-		padding: 2vh 14rpx;
+		height: 9vh;
+		padding: 4vh 14rpx;
 		display: flex;
 		justify-content: left;
 		align-items: center;

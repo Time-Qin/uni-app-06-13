@@ -106,12 +106,12 @@
 						return;
 					case '我的':
 						uni.switchTab({
-							url: '/pages/index/index'
+							url: '/pages/zhaojing/my'
 						});
 						return;
 					case '购物车':
 						uni.switchTab({
-							url: '/pages/index/index'
+							url: '/pages/zhaojing/shopCar'
 						});
 						return;
 					case '客服小蜜':

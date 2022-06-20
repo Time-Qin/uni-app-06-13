@@ -131,7 +131,7 @@
 		}
 	}
 </script>
-<style scoped lang="less">
+<style lang="less" scoped >
 	.search-result {
 		padding: 0 20px;
 		font-size: 12px;
@@ -221,6 +221,7 @@
 				padding: 8px;
 				border-radius: 5px;
 				font-size: 12px;
+				margin-bottom: 10rpx;
 			}
 		}
 	}

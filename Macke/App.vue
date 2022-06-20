@@ -26,7 +26,11 @@ export default {
 // 设置整个项目的背景色
 page {
   background-color: #f5f5f5;
+
 }
+  text,view{
+	box-sizing: content-box; 
+  }
 
 
 /* #endif */

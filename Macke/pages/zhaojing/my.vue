@@ -56,7 +56,7 @@
 			<view class="order-header">
 				<text class="txt">我的订单</text>
 				<view class="right">
-					<text class="all">查看全部&gt;</text>
+					<text class="all" @click="goOrder">查看全部&gt;</text>
 				</view>
 			</view>
 			<!-- 订单tab -->
@@ -193,6 +193,11 @@
 				uni.navigateTo({
 					url: '/pages/guowen/login'
 				})
+			},
+			goOrder(){
+				uni.navigateTo({
+					url: './myOrder'
+				})
 			}
 		},
 		onPageScroll(Top) {
@@ -245,6 +250,7 @@
 				width: 140rpx;
 				height: 140rpx;
 				margin-bottom: 40rpx;
+				border-radius: 50%;
 			}
 
 			.info {

@@ -1,75 +1,76 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/index/mapView",
-    "pages/guowen/login",
-    "pages/guowen/shop",
-    "pages/guowen/eat-bread-well",
-    "pages/chenrenjun/placeorder/placeorder",
-    "pages/chenrenjun/index",
-    "pages/index/good_details",
-    "pages/index/talke",
-    "pages/chenrenjun/mcakedetails/mcakedetails",
-    "pages/lanmin/index",
-    "pages/lanmin_detail/lanmin_detail",
-    "pages/comments/comments",
-    "pages/search/search",
-    "pages/liuchenchen/index",
-    "pages/zhaojing/bread",
-    "pages/zhaojing/shopCar",
-    "pages/zhaojing/my",
-    "pages/zhaojing/question",
-    "pages/index/address",
-    "pages/chenrenjun/alltotal/alltotal",
-    "pages/liuchenchen/bread",
-    "pages/liuchenchen/user",
-    "pages/liuchenchen/qiaodao",
-    "pages/liuchenchen/pintuan",
-    "pages/zhaojing/myOrder",
-    "invoicing/invoicing",
-    "pages/chenrenjun/invoicing/invoicing"
-  ],
-  "usingComponents": {
-    "van-stepper": "/wxcomponents/vant/dist/stepper/index",
-    "van-tab": "/wxcomponents/vant/dist/tab/index",
-    "van-tabs": "/wxcomponents/vant/dist/tabs/index",
-    "van-button": "/wxcomponents/vant/dist/button/index"
-  },
-  "window": {
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#F8F8F8"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "./static/icons/a2.png",
-        "selectedIconPath": "./static/icons/a1.png"
-      },
-      {
-        "pagePath": "pages/lanmin/index",
-        "text": "分类",
-        "iconPath": "./static/icons/b2.png",
-        "selectedIconPath": "./static/icons/b1.png"
-      },
-      {
-        "pagePath": "pages/zhaojing/shopCar",
-        "text": "购物车",
-        "iconPath": "./static/icons/j2.png",
-        "selectedIconPath": "./static/icons/j1.png"
-      },
-      {
-        "pagePath": "pages/zhaojing/my",
-        "text": "我的",
-        "iconPath": "./static/icons/d2.png",
-        "selectedIconPath": "./static/icons/d1.png"
-      }
-    ]
-  },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "获取位置"
-    }
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/index/mapView",
+        "pages/guowen/login",
+        "pages/guowen/shop",
+        "pages/guowen/eat-bread-well",
+        "pages/chenrenjun/placeorder/placeorder",
+        "pages/chenrenjun/index",
+        "pages/index/good_details",
+        "pages/index/talke",
+        "pages/chenrenjun/mcakedetails/mcakedetails",
+        "pages/lanmin/index",
+        "pages/lanmin_detail/lanmin_detail",
+        "pages/comments/comments",
+        "pages/search/search",
+        "pages/liuchenchen/index",
+        "pages/zhaojing/bread",
+        "pages/zhaojing/shopCar",
+        "pages/zhaojing/my",
+        "pages/zhaojing/question",
+        "pages/index/address",
+        "pages/chenrenjun/alltotal/alltotal",
+        "pages/liuchenchen/bread",
+        "pages/liuchenchen/user",
+        "pages/liuchenchen/qiaodao",
+        "pages/liuchenchen/pintuan",
+        "pages/zhaojing/myOrder",
+        "invoicing/invoicing",
+        "pages/chenrenjun/invoicing/invoicing"
+    ],
+    "usingComponents": {
+        "van-stepper": "/wxcomponents/vant/dist/stepper/index",
+        "van-tab": "/wxcomponents/vant/dist/tab/index",
+        "van-tabs": "/wxcomponents/vant/dist/tabs/index",
+        "van-button": "/wxcomponents/vant/dist/button/index"
+    },
+    "window": {
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#F8F8F8"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "./static/icons/a2.png",
+                "selectedIconPath": "./static/icons/a1.png"
+            },
+            {
+                "pagePath": "pages/lanmin/index",
+                "text": "分类",
+                "iconPath": "./static/icons/b2.png",
+                "selectedIconPath": "./static/icons/b1.png"
+            },
+            {
+                "pagePath": "pages/zhaojing/shopCar",
+                "text": "购物车",
+                "iconPath": "./static/icons/j2.png",
+                "selectedIconPath": "./static/icons/j1.png"
+            },
+            {
+                "pagePath": "pages/zhaojing/my",
+                "text": "我的",
+                "iconPath": "./static/icons/d2.png",
+                "selectedIconPath": "./static/icons/d1.png"
+            }
+        ]
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "获取位置"
+        }
+    },
+    "sitemapLocation": "sitemap.json"
 }

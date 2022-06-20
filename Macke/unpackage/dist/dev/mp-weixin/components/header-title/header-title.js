@@ -62,12 +62,12 @@ const _sfc_main = {
           return;
         case "\u6211\u7684":
           common_vendor.index.switchTab({
-            url: "/pages/index/index"
+            url: "/pages/zhaojing/my"
           });
           return;
         case "\u8D2D\u7269\u8F66":
           common_vendor.index.switchTab({
-            url: "/pages/index/index"
+            url: "/pages/zhaojing/shopCar"
           });
           return;
         case "\u5BA2\u670D\u5C0F\u871C":
