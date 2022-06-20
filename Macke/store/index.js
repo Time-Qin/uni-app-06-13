@@ -1,20 +1,30 @@
-import {createStore} from 'vuex';
+import {
+	createStore
+} from 'vuex';
 export default createStore({
-		state:{
-			datas:[]
+	state: {
+		carts: uni.getStorageSync('carts') || [],
+		history: uni.getStorageSync('history') || [],
+	},
+	mutations: {
+		addCarts(state, payload) {
+			let find = state.carts.find(item => item.id === payload.id);
+			if (find) {
+				find.buynum += payload.buynum;
+			} else {
+				state.carts.push(payload);
+			}
+			uni.setStorageSync('carts', state.carts);
+			console.log(state.carts)
 		},
-		mutations:{
-			// addCarts(state,payload){
-			// 	let find = state.carts.find(item=>item.id===payload.id);
-			// 	if(find){
-			// 		find.buynum+=1;
-			// 	}else{
-			// 		state.carts.push(payload);
-			// 	}
-			// 	uni.setStorageSync('carts',state.carts);
-			// }
+		addHistory(state, payload) {
+			state.history.push(payload.history);
+			uni.setStorageSync('history', state.history);
 		},
-		getters:{
-			
+		clearHistry(state){
+			state.history=[];
+			uni.setStorageSync('history', state.history);
 		}
+	},
+	getters: {}
 });

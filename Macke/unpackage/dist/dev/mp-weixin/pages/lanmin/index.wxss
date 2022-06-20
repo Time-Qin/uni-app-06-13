@@ -1,0 +1,69 @@
+.container.data-v-768f9f56 {
+  background-color: white;
+}
+.container .large-pad.data-v-768f9f56 {
+  height: 142px;
+}
+.container .small-pad.data-v-768f9f56 {
+  height: 110px;
+}
+.container .tabBar.data-v-768f9f56 {
+  position: fixed;
+  width: 100%;
+}
+.container .tabBar .search.data-v-768f9f56 {
+  width: 100%;
+  height: 120rpx;
+  background: #eee;
+  padding-top: 30rpx;
+}
+.container .tabBar .search.data-v-768f9f56 .uni-searchbar .uni-searchbar__box {
+  height: 32px !important;
+  flex: 0 0 500rpx !important;
+  border-radius: 20rpx !important;
+}
+.container .tabBar .group.data-v-768f9f56 {
+  height: 80rpx;
+  background-color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.container .tabBar .group .item.data-v-768f9f56 {
+  flex: 1;
+  color: #888;
+  border-right: 1px solid #eee;
+}
+.container .tabBar .group .active.data-v-768f9f56 {
+  font-weight: 700;
+  color: cornflowerblue;
+}
+.container .tabBar .group.data-v-768f9f56:last-child {
+  border: none;
+}
+.container .tabBar .list.data-v-768f9f56 {
+  display: flex;
+  white-space: nowrap;
+  height: 64rpx;
+  background-color: white;
+  padding-bottom: 10px;
+}
+.container .tabBar .list .content.data-v-768f9f56 {
+  height: 40rpx;
+  margin: 10px 5px;
+  padding: 2rpx 10rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: lightcyan;
+}
+.container .tabBar .list .active.data-v-768f9f56 {
+  background-color: lightblue;
+}
+.container .bottom.data-v-768f9f56 {
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  padding-bottom: 20px;
+}

@@ -12,6 +12,18 @@
     "navigationBarTitleText": "Mcake",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+    "pages/zhaojing/index",
+    "pages/lanmin_detail/lanmin_detail",
+    "pages/comments/comments",
+    "pages/search/search"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "options": {
+      "styleIsolation": "apply-shared"
+    }
   },
   "tabBar": {
     "list": [

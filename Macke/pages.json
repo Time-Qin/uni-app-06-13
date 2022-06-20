@@ -1,87 +1,102 @@
 {
 	"pages": [{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/chenrenjun/index",
-			"style": {
-				"navigationBarTitleText": "chenrenjun",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/guowen/index",
-			"style": {
-				"navigationBarTitleText": "guowen",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/lanmin/index",
-			"style": {
-				"navigationBarTitleText": "lanmin",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/liuchenchen/index",
-			"style": {
-				"navigationBarTitleText": "liuchenchen",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/zhaojing/index",
-			"style": {
-				"navigationBarTitleText": "zhaojing",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "uni-app",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20
 		}
-	],
-"globalStyle": {
-	"navigationBarTextStyle": "white",
-	"navigationBarTitleText": "Mcake",
-	"navigationBarBackgroundColor": "#F8F8F8",
-	"backgroundColor": "#F8F8F8",
-	"app-plus": {
-		"background": "#efeff4"
-	}
-},
-"tabBar": {
-	"list": [{
+	}, {
+		"path": "pages/chenrenjun/index",
+		"style": {
+			"navigationBarTitleText": "chenrenjun",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20
+		}
+	}, {
+		"path": "pages/guowen/index",
+		"style": {
+			"navigationBarTitleText": "guowen",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20
+		}
+	}, {
+		"path": "pages/lanmin/index",
+		"style": {
+			"navigationStyle": "custom",
+			"enablePullDownRefresh": false,
+			"onReachBottomDistance": 20,
+			"navigationBarTitleText": "lanmin",
+			"navigationBarBackgroundColor": "#8fbcff"
+		}
+	}, {
+		"path": "pages/liuchenchen/index",
+		"style": {
+			"navigationBarTitleText": "liuchenchen",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20
+		}
+	}, {
+		"path": "pages/zhaojing/index",
+		"style": {
+			"navigationBarTitleText": "zhaojing",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20
+		}
+	}, {
+		"path": "pages/lanmin_detail/lanmin_detail",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom",
+			"onReachBottomDistance": 20
+		}
+	}, {
+		"path": "pages/comments/comments",
+		"style": {
+			"navigationBarTitleText": "商品评论",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/search/search",
+		"style": {
+			"navigationBarTitleText": "搜索商品",
+			"enablePullDownRefresh": false
+		}
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		// "navigationBarTitleText": "Mcake",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		},
+		"options": {
+			"styleIsolation": "apply-shared"
+		}
+	},
+	"tabBar": {
+		"list": [{
 			"pagePath": "pages/index/index",
 			"text": "首页",
 			"iconPath": "./static/icons/a2.png",
 			"selectedIconPath": "./static/icons/a1.png"
-		},
-		{
+		}, {
 			"pagePath": "pages/lanmin/index",
 			"text": "分类",
 			"iconPath": "./static/icons/b2.png",
 			"selectedIconPath": "./static/icons/b1.png"
-		},
-		{
+		}, {
 			"pagePath": "pages/guowen/index",
 			"text": "购物车",
 			"iconPath": "./static/icons/j2.png",
 			"selectedIconPath": "./static/icons/j1.png"
-		},
-		{
+		}, {
 			"pagePath": "pages/liuchenchen/index",
 			"text": "我的",
 			"iconPath": "./static/icons/d2.png",
 			"selectedIconPath": "./static/icons/d1.png"
-		}
-	]
-}
+		}]
+	}
 }

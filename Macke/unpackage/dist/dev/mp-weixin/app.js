@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
-require("./store/index.js");
+var store_index = require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/chenrenjun/index.js";
@@ -10,6 +10,9 @@ if (!Math) {
   "./pages/lanmin/index.js";
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
+  "./pages/lanmin_detail/lanmin_detail.js";
+  "./pages/comments/comments.js";
+  "./pages/search/search.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -23,9 +26,18 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2022_03file/hx/Project/Macke/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
+  app.use(store_index.store);
+  app.config.globalProperties.$filters = {
+    formatDate: function() {
+      const date = new Date();
+      const month = date.getMonth() + 1;
+      const day = date.getDate() + 1;
+      return date.getFullYear() + "-" + month.toString().padStart(2, "0") + "-" + day.toString().padStart(2, "0");
+    }
+  };
   return {
     app
   };
