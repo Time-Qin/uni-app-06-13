@@ -170,6 +170,7 @@
 					<button class="btn1" size="mini" @click="close">知道了</button>
 				</view>
 			</uni-popup>
+
 		</view>
 	</view>
 </template>

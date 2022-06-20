@@ -34,6 +34,7 @@ const _sfc_main = {
   },
   created() {
     this.initGoods();
+    this.getGoods(0, 1);
   },
   methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations(["addCarts"])), {
     async initGoods() {
@@ -46,7 +47,6 @@ const _sfc_main = {
         "tname": "\u5168\u90E8"
       });
       this.list = this.currentGoods[0].list;
-      this.getGoods(0, 1);
     },
     async getGoods(idx, bid) {
       this.active = idx;

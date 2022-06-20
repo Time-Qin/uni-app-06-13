@@ -126,7 +126,6 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-
 	.uni-grid--border {
 		position: relative;
 		/* #ifdef APP-NVUE */

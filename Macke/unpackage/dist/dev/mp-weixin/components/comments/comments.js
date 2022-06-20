@@ -1,31 +1,19 @@
 "use strict";
-var common_js_requestHttp = require("../../common/js/requestHttp.js");
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   name: "comments",
-  props: ["twoId", "comments"],
+  props: ["twoId", "comments", "commentTag"],
   emits: ["goType"],
   data() {
     return {
-      commentTag: [],
       activeKey: 0
     };
   },
   methods: {
-    async getCommentTag(twoId) {
-      let result = await common_js_requestHttp.GetRequest("/api/comment/total?twoId=" + twoId);
-      result.code === 0 ? this.commentTag = result.data.list : "";
-    },
     goType(type, idx) {
       this.$emit("goType", type);
       this.activeKey = idx;
     }
-  },
-  created() {
-    this.getCommentTag(this.twoId);
-  },
-  updated() {
-    this.getCommentTag(this.twoId);
   }
 };
 if (!Array) {
@@ -38,7 +26,7 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.f($data.commentTag, (item, index, i0) => {
+    a: common_vendor.f($props.commentTag, (item, index, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.total),

@@ -68,35 +68,35 @@
 				<view class="tit">已选</view>
 				<view class="desc">
 					<view class="icon"><text class="iconfont icon-gouwuche"></text></view>
-					<view class="text">{{list.spec}}({{list.weight}})</view>
+					<view class="text">{{itemList.spec}}({{itemList.weight}})</view>
 				</view>
 				<view class="btn" @click="toggle()">...</view>
 			</view>
 			<view class="iconGroup">
-				<view class="item" v-if="list.tableware">
+				<view class="item" v-if="itemList.tableware">
 					<view class="icon"><text class="iconfont icon-canju1"></text></view>
-					<view class="text">{{list.tableware}}</view>
+					<view class="text">{{itemList.tableware}}</view>
 				</view>
-				<view class="item" v-if="list.candle">
+				<view class="item" v-if="itemList.candle">
 					<view class="icon"><text class="iconfont icon-lazhu"></text></view>
-					<view class="text">{{list.candle}}</view>
+					<view class="text">{{itemList.candle}}</view>
 				</view>
-				<view class="item" v-if="list.edible">
+				<view class="item" v-if="itemList.edible">
 					<view class="icon"><text class="iconfont icon-canju2"></text></view>
-					<view class="text">{{list.edible}}</view>
+					<view class="text">{{itemList.edible}}</view>
 				</view>
-				<view class="item" v-if="list.size">
+				<view class="item" v-if="itemList.size">
 					<view class="icon"><text class="iconfont icon-dangao"></text></view>
-					<view class="text">{{list.size}}</view>
+					<view class="text">{{itemList.size}}</view>
 				</view>
 			</view>
 			<view class="two">
 				<view class="tit">送至</view>
 				<view class="desc">
 					<view class="icon"><text class="iconfont icon-yunshupeisong" style="font-size: 14px;"></text></view>
-					<view class="text"></view>
+					<view class="text">请选择地址</view>
 				</view>
-				<view class="btn">...</view>
+				<view class="btn" @click="selectAdd">...</view>
 			</view>
 			<view class="iconGroup">
 				<view class="item">
@@ -122,7 +122,7 @@
 				<view class="right" @click="toAllComment(twoId)">查看全部 ></view>
 			</view>
 			<view class="content">
-				<comments :twoId='twoId' :comments='comments.data' @goType='goType'></comments>
+				<comments :twoId='twoId' :comments='comments.data' @goType='goType' :commentTag='commentTag'></comments>
 			</view>
 		</view>
 		<view class="divide">——商品详情——</view>
@@ -141,7 +141,7 @@
 		<uni-goods-nav :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onOptionsClick"
 			@buttonClick="onbuttonClick" />
 		<!-- 底部弹出购物车 -->
-		<carts :goodsDetail="goodsDetail" :list="list" ref="popup1"></carts>
+		<carts :goodsDetail="goodsDetail" :list="list" :itemList="itemList" ref="popup1" @changItem='changItem'></carts>
 		<!-- 底部弹窗  分享-->
 		<uni-popup ref="popup" background-color="#fff" @touchmove.stop.prevent="moveHandle">
 			<view class="share">
@@ -179,8 +179,10 @@
 				mater: [],
 				basic: [],
 				list: [],
+				itemList: {},
 				carts: {},
 				comments: [],
+				commentTag: [],
 				hascomments: false,
 				options: [{
 					icon: 'home',
@@ -218,7 +220,8 @@
 				this.banner = this.goodsDetail.banner;
 				this.mater = this.goodsDetail.mater;
 				this.basic = this.goodsDetail.basic;
-				this.list = this.goodsDetail.list[0];
+				this.list = this.goodsDetail.list;
+				this.itemList = this.list[0]
 				this.time = this.$filters.formatDate()
 			},
 			async getComments(twoId, type) {
@@ -228,6 +231,10 @@
 				if (this.comments.data && this.comments.data.length > 0) {
 					this.hascomments = true;
 				}
+			},
+			async getCommentTag(twoId) {
+				let result = await GetRequest("/api/comment/total?twoId=" + twoId);
+				result.code === 0 ? this.commentTag = result.data.list : '';
 			},
 			changeIndicatorDots(e) {
 				this.indicatorDots = !this.indicatorDots
@@ -302,12 +309,21 @@
 				uni.navigateBack({
 					delta: 1
 				})
+			},
+			selectAdd() {
+				uni.navigateTo({
+					url: '/pages/index/address',
+				})
+			},
+			changItem(idx) {
+				this.itemList = this.list[idx];
 			}
 		},
 		onLoad(options) {
 			this.twoId = options.twoId;
 			this.getDetail(options.id);
 			this.getComments(options.twoId);
+			this.getCommentTag(options.twoId);
 		},
 		onPageScroll(e) {
 			var that = this;

@@ -6,7 +6,8 @@ const _sfc_main = {
     return {
       goodlist: [],
       scrollTop: 0,
-      contentDatas: []
+      contentDatas: [],
+      user: {}
     };
   },
   created() {
@@ -33,15 +34,13 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: "/pages/guowen/login"
       });
-    },
-    goAll() {
-      common_vendor.index.navigateTo({
-        url: "./myOrder"
-      });
     }
   },
   onPageScroll(Top) {
     this.scrollTop = Top.scrollTop;
+  },
+  onShow() {
+    this.user = common_vendor.index.getStorageSync("user");
   }
 };
 if (!Array) {
@@ -57,13 +56,18 @@ if (!Math) {
   (_easycom_header_nav + _easycom_uni_icons + _easycom_car_view)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return {
+  return common_vendor.e({
     a: common_vendor.p({
       scrollTop: $data.scrollTop
     }),
-    b: common_vendor.o((...args) => $options.login && $options.login(...args)),
-    c: common_vendor.o((...args) => $options.goAll && $options.goAll(...args)),
-    d: common_vendor.f($data.goodlist, (item, k0, i0) => {
+    b: $data.user
+  }, $data.user ? {
+    c: $data.user.img,
+    d: common_vendor.t($data.user.nickName)
+  } : {
+    e: common_vendor.o((...args) => $options.login && $options.login(...args))
+  }, {
+    f: common_vendor.f($data.goodlist, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.o(($event) => $options.gosku(item.sku)),
@@ -79,14 +83,14 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         j: item.title
       };
     }),
-    e: common_vendor.p({
+    g: common_vendor.p({
       type: "cart",
       size: "30"
     }),
-    f: common_vendor.p({
+    h: common_vendor.p({
       contentDatas: $data.contentDatas
     })
-  };
+  });
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-5e8d191e"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/zhaojing/my.vue"]]);
 _sfc_main.__runtimeHooks = 1;

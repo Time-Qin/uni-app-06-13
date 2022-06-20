@@ -1,15 +1,23 @@
 <template>
 	<view class="main">
-		<header-nav :scrollTop="scrollTop">
-			我的
-		</header-nav>
+		<header-nav :scrollTop="scrollTop"> 我的 </header-nav>
 		<!-- 用户信息 -->
-		<view class="user-info">
-			<image class="avatar" src="../../static/images/user.png" mode=""></image>
-			<view class="info" @click="login">
-				<text class="name">授权登录&nbsp;&gt;</text>
+		<template v-if="user">
+			<view class="user-info">
+				<image class="avatar" :src="user.img" mode=""></image>
+				<view class="info">
+					<text class="name">{{user.nickName}}</text>
+				</view>
 			</view>
-		</view>
+		</template>
+		<template v-else>
+			<view class="user-info">
+				<image class="avatar" src="../../static/images/user.png" mode=""></image>
+				<view class="info" @click="login">
+					<text class="name">授权登录&nbsp;&gt;</text>
+				</view>
+			</view>
+		</template>
 		<!-- 用户积分等详情 -->
 		<view class="list">
 			<view class="list-tab">
@@ -48,7 +56,7 @@
 			<view class="order-header">
 				<text class="txt">我的订单</text>
 				<view class="right">
-					<text class="all" @click="goAll">查看全部&gt;</text>
+					<text class="all">查看全部&gt;</text>
 				</view>
 			</view>
 			<!-- 订单tab -->
@@ -85,7 +93,6 @@
 				</view>
 			</view>
 		</view>
-
 		<!--常用功能-->
 		<view class="order">
 			<view class="order-header">
@@ -147,7 +154,6 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	import {
 		GetRequest
@@ -156,8 +162,9 @@
 		data() {
 			return {
 				goodlist: [],
-				scrollTop:0,
-				contentDatas:[],
+				scrollTop: 0,
+				contentDatas: [],
+				user: {},
 			}
 		},
 		created() {
@@ -176,36 +183,34 @@
 				this.$refs.Car[0].shopContent2();
 			},
 			//跳转商品详情页面
-			gosku(sku){
+			gosku(sku) {
 				let sku1 = sku
 				uni.navigateTo({
-					url:`/pages/index/good_details?sku=${sku1}`
+					url: `/pages/index/good_details?sku=${sku1}`
 				});
 			},
-			login(){
+			login() {
 				uni.navigateTo({
-					url:'/pages/guowen/login'
-				})
-			},
-			goAll(){
-				uni.navigateTo({
-					url:'./myOrder'
+					url: '/pages/guowen/login'
 				})
 			}
 		},
 		onPageScroll(Top) {
 			this.scrollTop = Top.scrollTop;
+		},
+		onShow() {
+			this.user = uni.getStorageSync('user');
 		}
 	}
 </script>
-
 <style lang="less" scoped>
 	.main {
 		width: 100%;
-		/deep/header-nav{
-			.backC{
-			background: #9bd1ff;
-		}
+
+		/deep/header-nav {
+			.backC {
+				background: #9bd1ff;
+			}
 		}
 
 		.list {
@@ -299,7 +304,6 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-
 
 				.icons {
 					width: 60rpx;

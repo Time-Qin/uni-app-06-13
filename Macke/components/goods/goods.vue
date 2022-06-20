@@ -1,7 +1,7 @@
 <template>
 	<view class="box">
 		<view class="good" v-for="item in goods" :key="item.title">
-			<image class="image" :src="item.img" mode="widthFix" @click="goDetail(item.id,item.twoId)"></image>
+			<image v-if="item" class="image" :src="item.img" mode="widthFix" @click="goDetail(item.id,item.twoId)"></image>
 			<view class="content">
 				<view class="name">{{item.name}}</view>
 				<view class="french">{{item.french}}</view>
@@ -10,12 +10,12 @@
 					<!-- <uni-icons type="cart" @click="addItem(item)" size="24" class="uni-icons" @click="getDatasCar(item.id)"></uni-icons> -->
 					<uni-icons type="cart" size="24" class="uni-icons" @click="getDatasCar(item.id)"></uni-icons>
 				</view>
-				<car-view ref="Car" :contentDatas="contentDatas"></car-view>
+				<!-- <car-view ref="Car" :contentDatas="contentDatas"></car-view> -->
 			</view>
 		</view>
+		<carts :goodsDetail="goodsDetail" :list="list" :itemList="itemList" ref="popup1" @changItem='changItem'></carts>
 	</view>
 	<!-- 底部弹出购物车 -->
-	
 	<!-- <carts :goodsDetail="goodsDetail" :list="itemList" ref="popup1"></carts> -->
 </template>
 <script>
@@ -28,28 +28,30 @@
 		data() {
 			return {
 				goodsDetail: [],
-				itemList: [],
-				contentDatas:[],
+				list: [],
+				itemList:{}
 			}
 		},
 		methods: {
 			goDetail(id, twoid) {
+				// uni.navigateTo({
+				// 	url: '/pages/index/good_details?id=' + id + '&twoId=' + twoid
+				// })
 				uni.navigateTo({
 					url: '/pages/index/good_details?id=' + id + '&twoId=' + twoid
 				})
 			},
-			// async addItem(item) {
-			// 	let result = await GetRequest("/api/goods/detail?id=" + item.id);
-			// 	result.code === 0 ? this.goodsDetail = result.data : ''
-			// 	this.itemList = this.goodsDetail.list[0];
-			// 	this.$refs.popup1.change("bottom");
-			// },
-			// 购物车组件方法
-			async getDatasCar(sku) {
-				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
-				result.msg === "Success" ? this.contentDatas = result.data : '';
-				this.$refs.Car[0].shopContent2();
+			async addItem(item) {
+				let result = await GetRequest("/api/goods/detail?id=" + item.id);
+				result.code === 0 ? this.goodsDetail = result.data : ''
+				this.list = this.goodsDetail.list;
+				this.itemList=this.list[0];
+				this.$refs.popup1.change("bottom");
+				// console.log(this.itemList);
 			},
+			changItem(idx){
+				this.itemList=this.list[idx];
+			}
 		},
 	}
 </script>

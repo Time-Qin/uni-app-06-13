@@ -19,9 +19,11 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var common_vendor = require("../../common/vendor.js");
+var common_js_requestHttp = require("../../common/js/requestHttp.js");
 const _sfc_main = {
   name: "carts",
-  props: ["goodsDetail", "list"],
+  props: ["goodsDetail", "list", "itemList"],
+  emits: ["changItem"],
   data() {
     return {
       value: 1,
@@ -36,15 +38,24 @@ const _sfc_main = {
     moveHandle() {
       return false;
     },
-    addMoreCarts() {
+    async addMoreCarts() {
       var obj = {
         id: this.goodsDetail.id,
-        price: this.goodsDetail.price,
+        price: this.itemList.price,
         buynum: this.buynum,
         name: this.goodsDetail.name
       };
+      let carts = {
+        "cityId": "110",
+        "goods": [{
+          "id": `${this.goodsDetail.id}`,
+          "num": `${this.buynum}`,
+          "blessing": ""
+        }]
+      };
       this.addCarts(obj);
       this.$refs.popup.close();
+      await common_js_requestHttp.PostRequest("/api/cart/add", carts);
       common_vendor.index.showToast({
         title: `\u6DFB\u52A0\u8D2D\u7269\u8F66\u6210\u529F`,
         mask: true
@@ -52,6 +63,9 @@ const _sfc_main = {
     },
     changeValue() {
       this.buynum = this.value;
+    },
+    itemClick(idx) {
+      this.$emit("changItem", idx);
     }
   })
 };
@@ -70,35 +84,41 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: $props.goodsDetail.img,
     b: common_vendor.t($props.goodsDetail.name),
     c: common_vendor.t($props.goodsDetail.french),
-    d: common_vendor.t($props.goodsDetail.price),
+    d: common_vendor.t($props.itemList.price),
     e: common_vendor.t($props.goodsDetail.saleTotal),
-    f: common_vendor.t($props.goodsDetail.spec),
-    g: common_vendor.t($props.goodsDetail.weight),
-    h: $props.list.tableware
-  }, $props.list.tableware ? {
-    i: common_vendor.t($props.list.tableware)
+    f: common_vendor.f($props.list, (item, index, i0) => {
+      return {
+        a: common_vendor.t(item.spec),
+        b: common_vendor.t(item.weight),
+        c: item.id,
+        d: common_vendor.o(($event) => $options.itemClick(index), item.id)
+      };
+    }),
+    g: $props.itemList.tableware
+  }, $props.itemList.tableware ? {
+    h: common_vendor.t($props.itemList.tableware)
   } : {}, {
-    j: $props.list.candle
-  }, $props.list.candle ? {
-    k: common_vendor.t($props.list.candle)
+    i: $props.itemList.candle
+  }, $props.itemList.candle ? {
+    j: common_vendor.t($props.itemList.candle)
   } : {}, {
-    l: $props.list.edible
-  }, $props.list.edible ? {
-    m: common_vendor.t($props.list.edible)
+    k: $props.itemList.edible
+  }, $props.itemList.edible ? {
+    l: common_vendor.t($props.itemList.edible)
   } : {}, {
-    n: $props.list.size
-  }, $props.list.size ? {
-    o: common_vendor.t($props.list.size)
+    m: $props.itemList.size
+  }, $props.itemList.size ? {
+    n: common_vendor.t($props.itemList.size)
   } : {}, {
-    p: common_vendor.o($options.changeValue),
-    q: common_vendor.o(($event) => $data.value = $event),
-    r: common_vendor.p({
+    o: common_vendor.o($options.changeValue),
+    p: common_vendor.o(($event) => $data.value = $event),
+    q: common_vendor.p({
       modelValue: $data.value
     }),
-    s: common_vendor.o((...args) => $options.addMoreCarts && $options.addMoreCarts(...args)),
-    t: common_vendor.sr("popup", "77d757a8-0"),
-    v: common_vendor.o($options.moveHandle),
-    w: common_vendor.p({
+    r: common_vendor.o((...args) => $options.addMoreCarts && $options.addMoreCarts(...args)),
+    s: common_vendor.sr("popup", "77d757a8-0"),
+    t: common_vendor.o($options.moveHandle),
+    v: common_vendor.p({
       ["background-color"]: "#fff"
     })
   });

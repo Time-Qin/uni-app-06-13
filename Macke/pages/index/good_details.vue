@@ -226,7 +226,6 @@
 
 				let result4 = await GetRequest(`/api/comment/total?twoId=${this.twoId}`);
 				result4.msg === "Success" ? this.titleDatas = result4.data : '';
-
 			},
 			//评论标签的响应式点击
 			async changeTitle(typeId, idx) {

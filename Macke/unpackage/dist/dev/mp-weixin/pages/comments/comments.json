@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "商品评论",
   "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#8fbcff",
   "usingComponents": {
     "comments": "../../components/comments/comments"
   }

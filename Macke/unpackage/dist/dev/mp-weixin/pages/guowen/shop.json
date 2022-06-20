@@ -2,6 +2,7 @@
   "navigationBarTitleText": "购物车",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
+  "navigationStyle": "custom",
   "usingComponents": {
     "uni-title": "../../uni_modules/uni-title/components/uni-title/uni-title"
   }

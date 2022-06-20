@@ -7,8 +7,8 @@ const _sfc_main = {
   data() {
     return {
       goodsDetail: [],
-      itemList: [],
-      contentDatas: []
+      list: [],
+      itemList: {}
     };
   },
   methods: {
@@ -17,47 +17,55 @@ const _sfc_main = {
         url: "/pages/index/good_details?id=" + id + "&twoId=" + twoid
       });
     },
-    async getDatasCar(sku) {
-      let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
-      result.msg === "Success" ? this.contentDatas = result.data : "";
-      this.$refs.Car[0].shopContent2();
+    async addItem(item) {
+      let result = await common_js_requestHttp.GetRequest("/api/goods/detail?id=" + item.id);
+      result.code === 0 ? this.goodsDetail = result.data : "";
+      this.list = this.goodsDetail.list;
+      this.itemList = this.list[0];
+      this.$refs.popup1.change("bottom");
+    },
+    changItem(idx) {
+      this.itemList = this.list[idx];
     }
   }
 };
 if (!Array) {
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
-  const _easycom_car_view2 = common_vendor.resolveComponent("car-view");
-  (_easycom_uni_icons2 + _easycom_car_view2)();
+  const _easycom_carts2 = common_vendor.resolveComponent("carts");
+  (_easycom_uni_icons2 + _easycom_carts2)();
 }
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
-const _easycom_car_view = () => "../car-view/car-view.js";
+const _easycom_carts = () => "../carts/carts.js";
 if (!Math) {
-  (_easycom_uni_icons + _easycom_car_view)();
+  (_easycom_uni_icons + _easycom_carts)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($props.goods, (item, k0, i0) => {
-      return {
-        a: item.img,
-        b: common_vendor.o(($event) => $options.goDetail(item.id, item.twoId)),
-        c: common_vendor.t(item.name),
-        d: common_vendor.t(item.french),
-        e: common_vendor.t(item.price),
-        f: common_vendor.o(($event) => $options.getDatasCar(item.id)),
-        g: "f73ce21c-0-" + i0,
-        h: common_vendor.sr("Car", "f73ce21c-1-" + i0, {
-          "f": 1
-        }),
-        i: "f73ce21c-1-" + i0,
-        j: item.title
-      };
+      return common_vendor.e({
+        a: item
+      }, item ? {
+        b: item.img,
+        c: common_vendor.o(($event) => $options.goDetail(item.id, item.twoId))
+      } : {}, {
+        d: common_vendor.t(item.name),
+        e: common_vendor.t(item.french),
+        f: common_vendor.t(item.price),
+        g: common_vendor.o(($event) => _ctx.getDatasCar(item.id)),
+        h: "f73ce21c-0-" + i0,
+        i: item.title
+      });
     }),
     b: common_vendor.p({
       type: "cart",
       size: "24"
     }),
-    c: common_vendor.p({
-      contentDatas: $data.contentDatas
+    c: common_vendor.sr("popup1", "f73ce21c-1"),
+    d: common_vendor.o($options.changItem),
+    e: common_vendor.p({
+      goodsDetail: $data.goodsDetail,
+      list: $data.list,
+      itemList: $data.itemList
     })
   };
 }

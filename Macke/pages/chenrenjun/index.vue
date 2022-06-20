@@ -157,6 +157,7 @@
 			}
 		}
 		
+
 		.c-tapbar {
 			width: 100%;
 			position: fixed;
@@ -189,7 +190,6 @@
 	.c-list {
 		margin-bottom: 14px;
 		padding: 0 10px;
-	
 		.c-header {
 			.slot-image {
 				width: 110px;

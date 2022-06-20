@@ -17,7 +17,7 @@
 					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
 						<view v-if="orderList.length>0">
 						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList" :key="res.id">
+							<view class="order" v-for="res, in orderList" :key="res.id">
 								<view class="top">
 									<view class="left">
 										<!-- <u-icon name="home" :size="30" color="rgb(94,94,94)"></u-icon> -->

@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "navigationBarBackgroundColor": "#9bd1ff",
+  "navigationStyle": "custom",
   "usingComponents": {
     "header-nav": "../../components/header-nav/header-nav",
     "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",

@@ -43,6 +43,7 @@
 		},
 		created() {
 			this.initGoods();
+			this.getGoods(0, 1);
 		},
 		methods: {
 			...mapMutations(['addCarts']),
@@ -56,7 +57,6 @@
 					"tname": "全部"
 				})
 				this.list = this.currentGoods[0].list;
-				this.getGoods(0, 1);
 			},
 			async getGoods(idx, bid) {
 				this.active = idx;

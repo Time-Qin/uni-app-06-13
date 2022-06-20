@@ -28,8 +28,10 @@ const _sfc_main = {
       mater: [],
       basic: [],
       list: [],
+      itemList: {},
       carts: {},
       comments: [],
+      commentTag: [],
       hascomments: false,
       options: [{
         icon: "home",
@@ -66,7 +68,8 @@ const _sfc_main = {
       this.banner = this.goodsDetail.banner;
       this.mater = this.goodsDetail.mater;
       this.basic = this.goodsDetail.basic;
-      this.list = this.goodsDetail.list[0];
+      this.list = this.goodsDetail.list;
+      this.itemList = this.list[0];
       this.time = this.$filters.formatDate();
     },
     async getComments(twoId, type) {
@@ -75,6 +78,10 @@ const _sfc_main = {
       if (this.comments.data && this.comments.data.length > 0) {
         this.hascomments = true;
       }
+    },
+    async getCommentTag(twoId) {
+      let result = await common_js_requestHttp.GetRequest("/api/comment/total?twoId=" + twoId);
+      result.code === 0 ? this.commentTag = result.data.list : "";
     },
     changeIndicatorDots(e) {
       this.indicatorDots = !this.indicatorDots;
@@ -148,12 +155,21 @@ const _sfc_main = {
       common_vendor.index.navigateBack({
         delta: 1
       });
+    },
+    selectAdd() {
+      common_vendor.index.navigateTo({
+        url: "/pages/index/address"
+      });
+    },
+    changItem(idx) {
+      this.itemList = this.list[idx];
     }
   }),
   onLoad(options) {
     this.twoId = options.twoId;
     this.getDetail(options.id);
     this.getComments(options.twoId);
+    this.getCommentTag(options.twoId);
   },
   onPageScroll(e) {
     var that = this;
@@ -265,59 +281,63 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         f: item.id
       });
     }),
-    B: common_vendor.t($data.list.spec),
-    C: common_vendor.t($data.list.weight),
+    B: common_vendor.t($data.itemList.spec),
+    C: common_vendor.t($data.itemList.weight),
     D: common_vendor.o(($event) => $options.toggle()),
-    E: $data.list.tableware
-  }, $data.list.tableware ? {
-    F: common_vendor.t($data.list.tableware)
+    E: $data.itemList.tableware
+  }, $data.itemList.tableware ? {
+    F: common_vendor.t($data.itemList.tableware)
   } : {}, {
-    G: $data.list.candle
-  }, $data.list.candle ? {
-    H: common_vendor.t($data.list.candle)
+    G: $data.itemList.candle
+  }, $data.itemList.candle ? {
+    H: common_vendor.t($data.itemList.candle)
   } : {}, {
-    I: $data.list.edible
-  }, $data.list.edible ? {
-    J: common_vendor.t($data.list.edible)
+    I: $data.itemList.edible
+  }, $data.itemList.edible ? {
+    J: common_vendor.t($data.itemList.edible)
   } : {}, {
-    K: $data.list.size
-  }, $data.list.size ? {
-    L: common_vendor.t($data.list.size)
+    K: $data.itemList.size
+  }, $data.itemList.size ? {
+    L: common_vendor.t($data.itemList.size)
   } : {}, {
-    M: common_vendor.t($data.time),
-    N: $data.hascomments
+    M: common_vendor.o((...args) => $options.selectAdd && $options.selectAdd(...args)),
+    N: common_vendor.t($data.time),
+    O: $data.hascomments
   }, $data.hascomments ? {
-    O: common_vendor.t($data.comments.total),
-    P: common_vendor.o(($event) => $options.toAllComment($data.twoId)),
-    Q: common_vendor.o($options.goType),
-    R: common_vendor.p({
+    P: common_vendor.t($data.comments.total),
+    Q: common_vendor.o(($event) => $options.toAllComment($data.twoId)),
+    R: common_vendor.o($options.goType),
+    S: common_vendor.p({
       twoId: $data.twoId,
-      comments: $data.comments.data
+      comments: $data.comments.data,
+      commentTag: $data.commentTag
     })
   } : {}, {
-    S: $data.goodsDetail.shopDesc
-  }, $data.goodsDetail.shopDesc ? {
     T: $data.goodsDetail.shopDesc
+  }, $data.goodsDetail.shopDesc ? {
+    U: $data.goodsDetail.shopDesc
   } : {}, {
-    U: $data.goTop
+    V: $data.goTop
   }, $data.goTop ? {
-    V: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
+    W: common_vendor.o((...args) => $options.toTop && $options.toTop(...args))
   } : {}, {
-    W: common_vendor.o($options.onOptionsClick),
-    X: common_vendor.o($options.onbuttonClick),
-    Y: common_vendor.p({
+    X: common_vendor.o($options.onOptionsClick),
+    Y: common_vendor.o($options.onbuttonClick),
+    Z: common_vendor.p({
       fill: true,
       options: $data.options,
       buttonGroup: $data.buttonGroup
     }),
-    Z: common_vendor.sr("popup1", "33747cf6-5"),
-    aa: common_vendor.p({
+    aa: common_vendor.sr("popup1", "33747cf6-5"),
+    ab: common_vendor.o($options.changItem),
+    ac: common_vendor.p({
       goodsDetail: $data.goodsDetail,
-      list: $data.list
+      list: $data.list,
+      itemList: $data.itemList
     }),
-    ab: common_vendor.sr("popup", "33747cf6-6"),
-    ac: common_vendor.o($options.moveHandle),
-    ad: common_vendor.p({
+    ad: common_vendor.sr("popup", "33747cf6-6"),
+    ae: common_vendor.o($options.moveHandle),
+    af: common_vendor.p({
       ["background-color"]: "#fff"
     })
   });

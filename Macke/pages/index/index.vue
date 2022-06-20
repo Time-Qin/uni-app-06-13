@@ -155,6 +155,7 @@
 					case '2022年父亲节':
 						uni.navigateTo({
 							url: '/pages/liuchenchen/pintuan'
+
 						});
 						return;
 					case '超值拼购':

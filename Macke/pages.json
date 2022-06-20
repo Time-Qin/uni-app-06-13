@@ -3,211 +3,208 @@
 			"path": "pages/index/index",
 			"style": {
 				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
+				"onReachBottomDistance": 20,
+				"navigationStyle": "custom"
 			}
 		},
 		{
 				"path": "pages/index/mapView",
 				"style": {
 					"enablePullDownRefresh": true,
-					"onReachBottomDistance": 20
+					"onReachBottomDistance": 20,
+					"navigationStyle": "custom"
 				}
 			},
-		{
-			"path": "pages/guowen/login",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/guowen/shop",
-			"style": {
-				"navigationBarTitleText": "购物车",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/guowen/eat-bread-well",
-			"style": {
-				"navigationBarTitleText": "好好吃面包",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-
-		{
-			"path": "pages/chenrenjun/placeorder/placeorder",
-			"style": {
-				"navigationBarTitleText": "提交订单",
-				"enablePullDownRefresh": false,
-				"navigationBarTextStyle": "black"
-			}
-		},
-		{
-			"path": "pages/chenrenjun/index",
-			"style": {
-				"navigationStyle": "custom",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/index/good_details",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/index/talke",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/chenrenjun/mcakedetails/mcakedetails",
-			"style": {
-				"navigationBarTitleText": "商品详情",
-				"enablePullDownRefresh": false,
-				"navigationBarTextStyle": "black"
-			}
-		},
-		{
-			"path": "pages/lanmin/index",
-			"style": {
-				"navigationStyle": "custom",
-				"enablePullDownRefresh": false,
-				"onReachBottomDistance": 20,
-				"navigationBarTitleText": "lanmin",
-				"navigationBarBackgroundColor": "#8fbcff"
-			}
-		},
-		{
-			"path": "pages/lanmin_detail/lanmin_detail",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom",
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/comments/comments",
-			"style": {
-				"navigationBarTitleText": "商品评论",
-				"enablePullDownRefresh": true
-			}
-		},
-		{
-			"path": "pages/search/search",
-			"style": {
-				"navigationBarTitleText": "搜索商品",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/liuchenchen/index",
-			"style": {
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/zhaojing/bread",
-			"style": {
-				"navigationBarTitleText": "好好吃面包",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 50,
-				"navigationBarBackgroundColor": "#5c382c"
-			}
-		},
-		{
-			"path": "pages/zhaojing/shopCar",
-			"style": {
-				"navigationBarTitleText": "购物车",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 50
-			}
-		},
-		{
-			"path": "pages/zhaojing/my",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 50,
-				"navigationBarBackgroundColor": "#9bd1ff"
-			}
-		},
-		{
-			"path": "pages/zhaojing/question",
-			"style": {
-				"navigationBarTitleText": "问题反馈",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 50
-			}
-		},
-		{
-			"path": "pages/index/address",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/chenrenjun/alltotal/alltotal",
-			"style": {
-				"navigationBarTitleText": "商品评价",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20,
-				"navigationBarTextStyle": "black"
-			}
-		},
-		{
-			"path": "pages/liuchenchen/bread",
-			"style": {
-				"navigationBarTitleText": "好好吃面包",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20,
-				"navigationBarBackgroundColor": "#A0522D"
-			}
-		},
-		{
-			"path": "pages/liuchenchen/user",
-			"style": {
-				"navigationBarTitleText": "我的",
-				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 20,
-				"navigationBarBackgroundColor": "#0000"
-			}
-		},
-		{
-			"path": "pages/liuchenchen/qiaodao",
-			"style": {
-				"navigationBarTitleText": "签到有礼",
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#f93",
-				"onReachBottomDistance": 20
-			}
-		},
-		{
-			"path": "pages/liuchenchen/pintuan",
-			"style": {
-				"navigationBarTitleText": "拼团",
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#fff",
-				"onReachBottomDistance": 20,
-				"navigationBarTextStyle": "black"
-			}
-		},
+			{
+				"path": "pages/guowen/login",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/guowen/shop",
+				"style": {
+					"navigationBarTitleText": "购物车",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/guowen/eat-bread-well",
+				"style": {
+					"navigationBarTitleText": "好好吃面包",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/chenrenjun/placeorder/placeorder",
+				"style": {
+					"navigationBarTitleText": "提交订单",
+					"enablePullDownRefresh": false,
+					"navigationBarTextStyle": "black",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/chenrenjun/index",
+				"style": {
+					"navigationStyle": "custom",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20
+				}
+			}, {
+				"path": "pages/index/good_details",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/index/talke",
+				"style": {
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/chenrenjun/mcakedetails/mcakedetails",
+				"style": {
+					"navigationBarTitleText": "商品详情",
+					"enablePullDownRefresh": false,
+					"navigationBarTextStyle": "black",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/lanmin/index",
+				"style": {
+					"navigationStyle": "custom",
+					"enablePullDownRefresh": false,
+					"onReachBottomDistance": 20,
+					"navigationBarTitleText": "lanmin",
+					"navigationBarBackgroundColor": "#8fbcff"
+				}
+			}, {
+				"path": "pages/lanmin_detail/lanmin_detail",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom",
+					"onReachBottomDistance": 20
+				}
+			}, {
+				"path": "pages/comments/comments",
+				"style": {
+					"navigationBarTitleText": "商品评论",
+					"enablePullDownRefresh": true,
+					"navigationBarBackgroundColor": "#8fbcff"
+				}
+			}, {
+				"path": "pages/search/search",
+				"style": {
+					"navigationBarTitleText": "搜索商品",
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/liuchenchen/index",
+				"style": {
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/zhaojing/bread",
+				"style": {
+					"navigationBarTitleText": "好好吃面包",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50,
+					"navigationBarBackgroundColor": "#5c382c",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/zhaojing/shopCar",
+				"style": {
+					"navigationBarTitleText": "购物车",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/zhaojing/my",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50,
+					"navigationBarBackgroundColor": "#9bd1ff",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/zhaojing/question",
+				"style": {
+					"navigationBarTitleText": "问题反馈",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 50,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/index/address",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/chenrenjun/alltotal/alltotal",
+				"style": {
+					"navigationBarTitleText": "商品评价",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationBarTextStyle": "black",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/liuchenchen/bread",
+				"style": {
+					"navigationBarTitleText": "好好吃面包",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationBarBackgroundColor": "#A0522D",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/liuchenchen/user",
+				"style": {
+					"navigationBarTitleText": "我的",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20,
+					"navigationBarBackgroundColor": "#0000",
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/liuchenchen/qiaodao",
+				"style": {
+					"navigationBarTitleText": "签到有礼",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#f93",
+					"onReachBottomDistance": 20,
+					"navigationStyle": "custom"
+				}
+			}, {
+				"path": "pages/liuchenchen/pintuan",
+				"style": {
+					"navigationBarTitleText": "拼团",
+					"enablePullDownRefresh": false,
+					"navigationBarBackgroundColor": "#fff",
+					"onReachBottomDistance": 20,
+					"navigationBarTextStyle": "black",
+					"navigationStyle": "custom"
+				}
+			},
 		{
 			"path": "pages/zhaojing/myOrder",
 			"style": {
 				"navigationBarTitleText": "我的订单",
 				"enablePullDownRefresh": true,
-				"onReachBottomDistance": 50
-		
+				"onReachBottomDistance": 50,
+				"navigationStyle": "custom"
 			}
 		
 		},{
@@ -215,7 +212,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "开具发票",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -224,7 +222,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -233,7 +232,6 @@
 
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationStyle": "custom",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"

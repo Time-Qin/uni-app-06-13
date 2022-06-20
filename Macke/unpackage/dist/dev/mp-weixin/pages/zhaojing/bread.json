@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "navigationBarBackgroundColor": "#5c382c",
+  "navigationStyle": "custom",
   "usingComponents": {
     "header-nav": "../../components/header-nav/header-nav",
     "car-view": "../../components/car-view/car-view"

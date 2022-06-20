@@ -2,5 +2,6 @@
   "navigationBarTitleText": "好好吃面包",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

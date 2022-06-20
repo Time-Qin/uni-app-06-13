@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<comments :twoId='twoId' :comments='comments' @goType='goType'></comments>
+		<comments :twoId='twoId' :comments='comments' :commentTag='commentTag' @goType='goType'></comments>
 	</view>
 </template>
 <script>
@@ -11,6 +11,7 @@
 		data() {
 			return {
 				comments: [],
+				commentTag: [],
 				twoId: '',
 				type: 0,
 				page: 1,
@@ -22,7 +23,10 @@
 				let result = await GetRequest("/api/comment/load?twoId=" + twoId + '&type=' + type + '&page=' + page +
 					'&count=10');
 				result.code === 0 ? this.comments = [...this.comments, ...result.data.data] : '';
-				console.log(this.comments)
+			},
+			async getCommentTag(twoId) {
+				let result = await GetRequest("/api/comment/total?twoId=" + twoId);
+				result.code === 0 ? this.commentTag = result.data.list : '';
 			},
 			goType(data) {
 				this.type = data;
@@ -33,6 +37,7 @@
 		onLoad(options) {
 			this.twoId = options.twoId;
 			this.getComments(this.twoId, this.type, this.page);
+			this.getCommentTag(this.twoId);
 		},
 		onReachBottom() {
 			this.page++;

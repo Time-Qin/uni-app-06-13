@@ -76,5 +76,3 @@ export function GetRequestToken(url,data){
 		});
 	})
 }
-
-

@@ -3,5 +3,6 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
   "navigationBarBackgroundColor": "#A0522D",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

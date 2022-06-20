@@ -156,12 +156,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     f: common_vendor.f($data.list, (item, index, i0) => {
       return common_vendor.e($data.orderList.length > 0 ? {
-        a: common_vendor.f($data.orderList, (res, index2, i1) => {
+        a: common_vendor.f($data.orderList, (res, k1, i1) => {
           return {
             a: common_vendor.t(res.id),
             b: "e3668000-2-" + i0 + "-" + i1,
             c: common_vendor.t(res.deal),
-            d: common_vendor.f(res.goodsList, (item2, index3, i2) => {
+            d: common_vendor.f(res.goodsList, (item2, index2, i2) => {
               return {
                 a: item2.goodsUrl,
                 b: common_vendor.t(item2.title),
@@ -169,7 +169,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 d: common_vendor.t(item2.deliveryTime),
                 e: common_vendor.t($options.priceInt(item2.price)),
                 f: common_vendor.t(item2.number),
-                g: index3
+                g: index2
               };
             }),
             e: common_vendor.t($options.totalNum(res.goodsList)),
