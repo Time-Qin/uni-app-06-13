@@ -5,6 +5,7 @@ export default createStore({
 	state: {
 		carts: uni.getStorageSync('carts') || [],
 		history: uni.getStorageSync('history') || [],
+		goodsDatas:{},
 	},
 	mutations: {
 		addCarts(state, payload) {
@@ -16,6 +17,10 @@ export default createStore({
 			}
 			uni.setStorageSync('carts', state.carts);
 			console.log(state.carts)
+		},
+		updateCart(state,payload){
+			// state.goodsDatas=payload;
+			console.log(state.goodsDatas);
 		},
 		addHistory(state, payload) {
 			state.history.push(payload.history);

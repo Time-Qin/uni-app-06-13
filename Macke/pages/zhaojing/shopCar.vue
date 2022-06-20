@@ -1,6 +1,5 @@
 <template>
 	<view class="container">
-
 		<header-nav :scrollTop="scrollTop" :one="one">
 			<view class="cart-title">
 				购物车
@@ -8,31 +7,57 @@
 		</header-nav>
 		<!-- 购物车没商品出现的页面 -->
 		<view v-if="goodcart===true" class="empty">
-
 			<image src="/static/images/shop.png" mode="widthFix" style="width: 400rpx;"></image>
 			<view class="empty-text">购物车空空如也</view>
 			<view class="empty-button" @click="goshopping">去选购</view>
 		</view>
 		<!-- 购物车加购商品的东西 -->
 		<view v-else class="empty-mar">
-			<view class="goodAll">
+			<view class="update-cart">
+				<view class="cart-num">
+					全部 {{goodDatas.goods.length}}
+				</view>
+				<view v-if="update===false" class="do-btn" @click="update=true">
+					编辑
+				</view>
+				<view v-else class="do-btn" @click="update=false">
+					完成
+				</view>
+			</view>
+			<view class="goodAll" v-for="(item,idx) in goodDatas.goods" :key="item.id">
 				<view class="goods-detail">
 					<view class="detail-left">
 						<view class="goods-left">
 							<!-- 商品的选择框 -->
 							<checkbox-group>
 								<label>
-									<checkbox class="selected" color="#555555" />
+									<checkbox @click="changeThis(item.id,idx,item.buy)" :checked="item.buy===1"
+										class="selected" color="#555555" />
 								</label>
 							</checkbox-group>
-							<image mode="widthFix"></image>
+							<image :src="item.img" mode="widthFix"></image>
 						</view>
 						<view class="goodsName">
-							<text>商品名</text>
-							<text class="french">content</text>
-							<text class="goods-price">¥价钱</text>
+							<text>{{item.name}}</text>
+							<text class="french">{{item.french}}</text>
+							<view class="goods-change">
+								<view class="change-click">{{item.spec}}({{item.weight}})</view>
+								<view class="change-content">
+									<text class="iconfont icon-canju1 ">{{item.tableware}}&nbsp;</text>
+									<text class="iconfont icon-lazhu"> {{item.candle}}</text>
+								</view>
+							</view>
+							<view class="goods-footer">
+								<text class="goods-price">¥{{item.price}}</text>
+								<van-stepper :value=" item.num " @minus="minus(item.num,idx,item.buy,item.id)" @plus="plus(item.num,idx,item.buy,item.id)" />
+								<!-- <uni-number-box :min="1" :max="99"  :value="item.num" @change="updateNum(idx,item.buy,item.num,item.id)"></uni-number-box> -->
+							</view>
 						</view>
 					</view>
+				</view>
+				<view class="birthday-text">
+					<text class="text-content">祝福语</text>
+					<input type="text" placeholder="请填写祝福语">
 				</view>
 			</view>
 		</view>
@@ -56,7 +81,7 @@
 						<uni-icons type="cart" size="30" @click="getDatasCar(item.id)"></uni-icons>
 					</view>
 					<!-- 购物车组件 -->
-					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
+					<car-view ref="Car" :contentDatas="contentDatas" :getShopList="getShopList" ></car-view>
 				</view>
 			</view>
 			<uni-load-more v-if="hasMore" status="loading"></uni-load-more>
@@ -68,17 +93,22 @@
 		<!-- //全选总计 -->
 		<view class="end">
 			<view class="end-left">
-				<checkbox-group>
+				<checkbox-group v-if="goodDatas.master">
 					<label>
-						<checkbox />全选
+						<checkbox :checked="goodDatas.master.checkAll===true" @click="Allchecked" />全选
 					</label>
 				</checkbox-group>
+			</view>
+			<view v-if="update===false" class="end-right-all">
 				<view>
-					总计：<text style="font-weight: bold;">￥</text>
+					总计：<text v-if="goodDatas.master" style="font-weight: bold;">￥{{goodDatas.master.total}}</text>
+				</view>
+				<view v-if="goodDatas.master" class="end-right">
+					去结算({{goodDatas.master.buy||0}})
 				</view>
 			</view>
-			<view class="end-right">
-				去结算
+			<view v-else class="del-btn" @click="delGoods">
+				删除
 			</view>
 		</view>
 	</view>
@@ -86,7 +116,8 @@
 
 <script>
 	import {
-		GetRequest
+		GetRequest,
+		PostRequest
 	} from "@/common/js/requestHttp.js";
 	export default {
 		data() {
@@ -100,14 +131,22 @@
 				contentDatas: [],
 				goodDatas: [],
 				goodcart: true,
+				mynum: 1,
+				update:false,
 			};
+		},
+		computed:{
+			
 		},
 		created() {
 			this.getShopList();
 		},
+		onShow() {
+			this.getShopList();
+		},
 		methods: {
 			goshopping() {
-				uni.navigateTo({
+				uni.switchTab({
 					url: "/pages/index/index",
 				});
 			},
@@ -116,9 +155,9 @@
 				let result1 = await GetRequest("/api/cart/load");
 				result1.msg === "Success" ? (this.goodDatas = result1.data) : "";
 				if (result1.data.goods.length != 0) {
-					// this.goodcart = false;
+					this.goodcart = false;
 				}
-				console.log(this.goodDatas, result1, this.goodcart);
+				// console.log(this.goodDatas.goods, result1, this.goodcart, '11111111111111');
 				//推荐商品
 				let result = await GetRequest(
 					`/api/goods/load?cityId=110&bid=1&fid=0&page=${this.pageIndex}&count=20&search=&total=34`
@@ -126,7 +165,7 @@
 				if (result.data.data.length < 10) {
 					this.hasMore = false;
 				}
-				console.log(result, this.pageIndex);
+				// console.log(result, this.pageIndex);
 				result.code === 0 ?
 					(this.goods = [...this.goods, ...result.data.data]) :
 					"";
@@ -136,6 +175,16 @@
 				let result = await GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
 				result.msg === "Success" ? (this.contentDatas = result.data) : "";
 				this.$refs.Car[0].shopContent2();
+			}, //更改购物车数据发送的请求
+			async postDatasCar(obj) {
+				let result = await PostRequest('/api/cart/update ', obj);
+				result.msg === "Success" ? this.goodDatas = result.data : "";
+			},
+			//删除购物车中的商品
+			async postDatasCarDel(obj) {
+				let result = await PostRequest('/api/cart/del ', obj);
+				result.msg === "Success" ? (this.goodDatas = result.data) : "";
+				// console.log(this.goodDatas);
 			},
 			//回到顶部
 			goTop() {
@@ -144,12 +193,97 @@
 					duration: 300,
 				});
 			},
+			plus(value,idx,buy,id){
+				let obj = {
+					"cityId": 110,
+					"goods": [{
+						"key": idx,
+						"id": id,
+						"newId": id,
+						"num": ++value,
+						"buy": buy,
+						"blessing": ""
+					}]
+				}
+				this.postDatasCar(obj);
+			},
+			minus(value,idx,buy,id){
+				let obj = {
+					"cityId": 110,
+					"goods": [{
+						"key": idx,
+						"id": id,
+						"newId": id,
+						"num": --value,
+						"buy": buy,
+						"blessing": ""
+					}]
+				}
+				this.postDatasCar(obj);
+			},
 			gosku(sku) {
 				let sku1 = sku;
 				uni.navigateTo({
 					url: `../index/good_details?sku=${sku1}`,
 				});
 			},
+			changeThis(goods, index, buy) {
+				buy === 1 ? buy = 0 : buy = 1;
+				let obj = {
+					"cityId": 110,
+					"goods": [{
+						"key": index,
+						"id": goods,
+						"newId": goods,
+						"num": this.mynum,
+						"buy": buy,
+						"blessing": ""
+					}]
+				}
+				// console.log(obj)
+				this.postDatasCar(obj);
+			},
+			Allchecked() {
+				if (this.goodDatas.master.checkAll) {
+					let list = this.newDatas(0);
+					this.postDatasCar(list);
+					// console.log(list);
+				} else {
+					let list = this.newDatas(1);
+					this.postDatasCar(list);
+					// console.log(list);
+				}
+			},
+			delGoods(){
+				let obj = {
+					"cityId": 110,
+					'goods': []
+				};
+				for (var i = 0,j=0; i < this.goodDatas.goods.length; i++) {
+					if(this.goodDatas.goods[i].buy === 1){
+						obj.goods[j++] = i;
+					}
+				};
+				this.postDatasCarDel(obj);
+				// console.log(obj);
+			},
+			newDatas(num) {
+				let obj = {
+					"cityId": 110,
+					'goods': []
+				};
+				for (let i = 0; i < this.goodDatas.goods.length; i++) {
+					obj.goods[i] = {};
+					obj.goods[i].key = i;
+					obj.goods[i].id = this.goodDatas.goods[i].id;
+					obj.goods[i].newId = this.goodDatas.goods[i].id;
+					obj.goods[i].num = this.goodDatas.goods[i].num;
+					obj.goods[i].buy = num;
+					obj.goods[i].blessing = '';
+					console.log(this.goodDatas.goods[i].id,'3333333333333')
+				};
+				return obj
+			}
 		},
 		onPageScroll(scroll) {
 			this.scrollTop = scroll.scrollTop;
@@ -212,8 +346,29 @@
 				border-radius: 48rpx;
 			}
 		}
-		.empty-mar{
-			margin-top: 120rpx;
+
+		.empty-mar {
+			margin-top: 30rpx;
+
+			.update-cart {
+				margin: 0 20rpx;
+				display: flex;
+				padding: 40rpx 0;
+
+				.cart-num {
+					padding: 12rpx 0;
+					font-weight: 300;
+				}
+
+				.do-btn {
+					margin-left: auto;
+					color: #999;
+					font-weight: 300;
+					padding: 12rpx 54rpx;
+					border: 2rpx solid #999;
+					border-radius: 40rpx;
+				}
+			}
 		}
 
 		/deep/.van-empty {
@@ -331,15 +486,25 @@
 		}
 
 		.goodAll {
-			
+			margin-bottom: 20rpx;
 			box-sizing: border-box;
 			width: 100%;
 			padding: 0 20rpx;
+			overflow: hidden;
 
 			.goods-detail {
 				// width: 100%;
-				height: 200rpx;
 				padding: 10rpx;
+			}
+
+			.birthday-text {
+				display: flex;
+				background-color: #fff;
+				align-items: center;
+
+				.text-content {
+					padding: 20rpx 60rpx;
+				}
 			}
 		}
 
@@ -365,7 +530,6 @@
 						image {
 							width: 180rpx;
 							height: 180rpx;
-							background-color: red;
 						}
 					}
 				}
@@ -380,10 +544,46 @@
 					flex-direction: column;
 					margin-left: 30rpx;
 
-					.goods-price {
-						font-size: 25rpx;
-						color: #f44545;
+					.french {
+						font-size: 20rpx;
+						color: #999;
 					}
+
+					.goods-change {
+						margin: 10rpx 0;
+						font-size: 24rpx;
+						color: #999;
+
+						.change-click {
+							display: inline-block;
+							padding: 6rpx 10rpx;
+							background-color: #ebf8ff;
+							border-radius: 10rpx;
+						}
+
+						.change-content {
+							.iconfont {
+								font-size: 24rpx;
+							}
+						}
+					}
+
+					.goods-footer {
+						display: flex;
+
+						.goods-price {
+							align-self: center;
+							margin-right: 14vw;
+							font-size: 30rpx;
+							color: #333;
+						}
+
+						/deep/.uni-numbox__value {
+							width: 60rpx;
+							background-color: #d8f0ff !important;
+						}
+					}
+
 				}
 			}
 		}
@@ -397,9 +597,10 @@
 			left: 0;
 			display: flex;
 			align-items: center;
+			z-index: 10;
 
 			&-left {
-				width: 70%;
+				width: 30%;
 				display: flex;
 				justify-content: space-between;
 				padding: 0 30rpx;
@@ -409,14 +610,27 @@
 					align-items: center;
 				}
 			}
-
-			&-right {
-				width: 25%;
+			&-right-all{
+				width: 70%;
+				display: flex;
 				line-height: 60rpx;
-				background-color: lightblue;
-				text-align: center;
-				border-radius: 40rpx;
-				color: #fff;
+				margin-right: 20rpx;
+				.end-right {
+					width: 40%;
+					margin-left: auto;
+					background-color: lightblue;
+					text-align: center;
+					border-radius: 40rpx;
+					color: #000;
+				}
+			}
+			.del-btn{
+				margin-left: auto;
+				margin-right: 20rpx;
+				padding: 10rpx 50rpx;
+				border: 2rpx solid #30a8ff;
+				color: #30a8ff;
+				border-radius: 50rpx;
 			}
 		}
 	}

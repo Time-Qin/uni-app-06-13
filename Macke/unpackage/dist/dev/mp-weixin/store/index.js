@@ -3,7 +3,8 @@ var common_vendor = require("../common/vendor.js");
 var store = common_vendor.createStore({
   state: {
     carts: common_vendor.index.getStorageSync("carts") || [],
-    history: common_vendor.index.getStorageSync("history") || []
+    history: common_vendor.index.getStorageSync("history") || [],
+    goodsDatas: {}
   },
   mutations: {
     addCarts(state, payload) {
@@ -15,6 +16,9 @@ var store = common_vendor.createStore({
       }
       common_vendor.index.setStorageSync("carts", state.carts);
       console.log(state.carts);
+    },
+    updateCart(state, payload) {
+      console.log(state.goodsDatas);
     },
     addHistory(state, payload) {
       state.history.push(payload.history);

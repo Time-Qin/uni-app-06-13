@@ -25,6 +25,9 @@
     "pages/liuchenchen/qiaodao",
     "pages/liuchenchen/pintuan"
   ],
+  "usingComponents": {
+    "van-stepper": "/wxcomponents/vant/dist/stepper/index"
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
@@ -62,6 +65,5 @@
     "scope.userLocation": {
       "desc": "获取位置"
     }
-  },
-  "usingComponents": {}
+  }
 }

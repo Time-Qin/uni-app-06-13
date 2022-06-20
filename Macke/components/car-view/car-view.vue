@@ -59,7 +59,7 @@
 	import {PostRequest} from '@/common/js/requestHttp.js';
 	export default {
 		name: "car-view",
-		props: ["contentDatas"],
+		props: ["contentDatas","getShopList"],
 		data() {
 			return {
 				nowPrice: 0,
@@ -83,6 +83,10 @@
 				};
 				let result = await PostRequest('/api/cart/add',obj);
 				console.log("3333333333",obj, this.contentDatas.list,result);
+				let page = getCurrentPages();
+				if(page[0].route==='pages/zhaojing/shopCar'){
+					this.getShopList();
+				};
 				if(result.code===0){
 					uni.showModal({
 						content:"加入购物车成功"

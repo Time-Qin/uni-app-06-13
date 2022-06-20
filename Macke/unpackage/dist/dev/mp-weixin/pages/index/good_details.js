@@ -89,6 +89,10 @@ const _sfc_main = {
         common_vendor.index.switchTab({
           url: "./index"
         });
+      } else if (e.content.text == "\u8D2D\u7269\u8F66") {
+        common_vendor.index.switchTab({
+          url: "/pages/zhaojing/shopCar"
+        });
       } else {
         common_vendor.index.showToast({
           title: `\u70B9\u51FB${e.content.text}`,

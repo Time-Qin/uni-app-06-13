@@ -3,7 +3,7 @@ var common_vendor = require("../../common/vendor.js");
 var common_js_requestHttp = require("../../common/js/requestHttp.js");
 const _sfc_main = {
   name: "car-view",
-  props: ["contentDatas"],
+  props: ["contentDatas", "getShopList"],
   data() {
     return {
       nowPrice: 0,
@@ -27,6 +27,10 @@ const _sfc_main = {
       };
       let result = await common_js_requestHttp.PostRequest("/api/cart/add", obj);
       console.log("3333333333", obj, this.contentDatas.list, result);
+      let page = getCurrentPages();
+      if (page[0].route === "pages/zhaojing/shopCar") {
+        this.getShopList();
+      }
       if (result.code === 0) {
         common_vendor.index.showModal({
           content: "\u52A0\u5165\u8D2D\u7269\u8F66\u6210\u529F"

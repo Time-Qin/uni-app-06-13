@@ -281,6 +281,10 @@
 						  uni.switchTab({
 						  	url:'./index'
 						  })
+					  }else if(e.content.text=='购物车'){
+						  uni.switchTab({
+						  	url:'/pages/zhaojing/shopCar'
+						  })
 					  }else{
 						   uni.showToast({
 				      title: `点击${e.content.text}`,
