@@ -3,6 +3,8 @@ var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
+      scrollTop: 0,
+      one: 1,
       orderList: [{
         id: 1829986124192875e4,
         store: "\u590F\u65E5\u6D41\u661F\u9650\u5B9A\u8D29\u5356",
@@ -113,38 +115,51 @@ const _sfc_main = {
       this.$refs.tabs.setFinishCurrent(current);
       this.swiperCurrent = current;
       this.current = current;
+    },
+    backTo() {
+      common_vendor.index.navigateBack({});
     }
+  },
+  onPageScroll() {
+    this.scrollTop = 200;
   }
 };
 if (!Array) {
+  const _easycom_header_nav2 = common_vendor.resolveComponent("header-nav");
   const _easycom_u_tabs_swiper2 = common_vendor.resolveComponent("u-tabs-swiper");
   const _easycom_u_icon2 = common_vendor.resolveComponent("u-icon");
   const _easycom_u_loadmore2 = common_vendor.resolveComponent("u-loadmore");
-  (_easycom_u_tabs_swiper2 + _easycom_u_icon2 + _easycom_u_loadmore2)();
+  (_easycom_header_nav2 + _easycom_u_tabs_swiper2 + _easycom_u_icon2 + _easycom_u_loadmore2)();
 }
+const _easycom_header_nav = () => "../../components/header-nav/header-nav.js";
 const _easycom_u_tabs_swiper = () => "../../uni_modules/vk-uview-ui/components/u-tabs-swiper/u-tabs-swiper.js";
 const _easycom_u_icon = () => "../../uni_modules/vk-uview-ui/components/u-icon/u-icon.js";
 const _easycom_u_loadmore = () => "../../uni_modules/vk-uview-ui/components/u-loadmore/u-loadmore.js";
 if (!Math) {
-  (_easycom_u_tabs_swiper + _easycom_u_icon + _easycom_u_loadmore)();
+  (_easycom_header_nav + _easycom_u_tabs_swiper + _easycom_u_icon + _easycom_u_loadmore)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.sr("tabs", "e3668000-0"),
-    b: common_vendor.o($options.change),
-    c: common_vendor.p({
+    a: common_vendor.o((...args) => $options.backTo && $options.backTo(...args)),
+    b: common_vendor.p({
+      scrollTop: $data.scrollTop,
+      one: $data.one
+    }),
+    c: common_vendor.sr("tabs", "e3668000-1"),
+    d: common_vendor.o($options.change),
+    e: common_vendor.p({
       activeColor: "#78b4e3",
       list: $data.list,
       current: $data.current,
       ["is-scroll"]: false,
       swiperWidth: "750"
     }),
-    d: common_vendor.f($data.list, (item, index, i0) => {
+    f: common_vendor.f($data.list, (item, index, i0) => {
       return common_vendor.e($data.orderList.length > 0 ? {
         a: common_vendor.f($data.orderList, (res, index2, i1) => {
           return {
             a: common_vendor.t(res.id),
-            b: "e3668000-1-" + i0 + "-" + i1,
+            b: "e3668000-2-" + i0 + "-" + i1,
             c: common_vendor.t(res.deal),
             d: common_vendor.f(res.goodsList, (item2, index3, i2) => {
               return {
@@ -167,7 +182,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
           color: "#cbcbcb",
           size: 26
         }),
-        c: "e3668000-2-" + i0,
+        c: "e3668000-3-" + i0,
         d: common_vendor.p({
           status: $data.loadStatus[0],
           bgColor: "#f2f2f2"
@@ -176,12 +191,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         e: index
       });
     }),
-    e: $data.orderList.length > 0,
-    f: common_vendor.o((...args) => $options.reachBottom && $options.reachBottom(...args)),
-    g: $data.swiperCurrent,
-    h: common_vendor.o((...args) => $options.transition && $options.transition(...args)),
-    i: common_vendor.o((...args) => $options.animationfinish && $options.animationfinish(...args))
+    g: $data.orderList.length > 0,
+    h: common_vendor.o((...args) => $options.reachBottom && $options.reachBottom(...args)),
+    i: $data.swiperCurrent,
+    j: common_vendor.o((...args) => $options.transition && $options.transition(...args)),
+    k: common_vendor.o((...args) => $options.animationfinish && $options.animationfinish(...args))
   };
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-e3668000"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/zhaojing/myOrder.vue"]]);
+_sfc_main.__runtimeHooks = 1;
 wx.createPage(MiniProgramPage);

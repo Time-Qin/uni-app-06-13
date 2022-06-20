@@ -48,7 +48,7 @@
 			<view class="order-header">
 				<text class="txt">我的订单</text>
 				<view class="right">
-					<text class="all">查看全部&gt;</text>
+					<text class="all" @click="goAll">查看全部&gt;</text>
 				</view>
 			</view>
 			<!-- 订单tab -->
@@ -185,6 +185,11 @@
 			login(){
 				uni.navigateTo({
 					url:'/pages/guowen/login'
+				})
+			},
+			goAll(){
+				uni.navigateTo({
+					url:'./myOrder'
 				})
 			}
 		},

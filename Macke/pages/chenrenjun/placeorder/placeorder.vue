@@ -1,5 +1,11 @@
 <template>
 	<view class="container">
+		<header-nav :scrollTop="scrollTop" :one="one">
+			<view class="slot-left">
+				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
+				全部订单
+			</view>
+		</header-nav>
 		<view class="order">
 			<!-- 提示 -->
 			<view class="notice-bar">
@@ -170,7 +176,7 @@
 
 <script>
 	import {
-		GetRequestToken
+		GetRequestToken,PostRequest
 	} from '@/common/js/requestHttp.js';
 	export default {
 		data() {
@@ -179,15 +185,18 @@
 				goods: {},
 				master: {},
 				member: {},
-				checked: false
+				checked: false,
+				scrollTop: 0,
+				one: 1,
 			}
 		},
-		created() {
-			this.getOrder()
+		onLoad(options) {
+			console.log(options);
+			this.getOrder(options);
 		},
 		methods: {
-			async getOrder() {
-				let result = await GetRequestToken("/api/checkout/load")
+			async getOrder(city) {
+				let result = await PostRequest("/api/checkout/init",{cityId:110})
 				console.log(result);
 				result.code == 0 ? this.orders = result.data : '';
 				// console.log(this.orders);
@@ -218,7 +227,13 @@
 			},
 			onClick(e,value){
 				
-			}
+			},
+			backTo() {
+				uni.navigateBack({});
+			},
+		},
+		onPageScroll() {
+			this.scrollTop = 200;
 		}
 	}
 </script>
@@ -227,6 +242,25 @@
 	.container {
 		background-color: #fafcfd;
 		// background-color: #bae7ff;
+		
+		/deep/header-nav {
+			display: flex;
+		
+			.slot-left {
+				margin-left: 20rpx;
+				flex: 1;
+				color: black;
+		
+				.icon-xiangzuo1 {
+					font-size: 40rpx;
+					margin-right: 20rpx;
+				}
+			}
+		
+			.navBarBox {
+				background-color: #fff;
+			}
+		}
 
 		.notice-bar {
 			padding: 12px 14px 12px 14px;
@@ -420,7 +454,7 @@
 		.c-pay {
 			padding: 0 14px;
 			margin-top: 8px;
-			margin-bottom: 90px;
+			padding-bottom: 90px;
 			position: relative;
 
 			.pay-title {
@@ -440,9 +474,8 @@
 			display: flex;
 			border-top: 1px solid #eaeced;
 			position: fixed;
-			width: 100%;
+			width: 100vw;
 			bottom: 0;
-			left: -28px;
 
 			.receivable {
 				margin-left: auto;

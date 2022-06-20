@@ -124,6 +124,21 @@ page {
 .swiper-box.data-v-e3668000 {
   flex: 1;
 }
+header-nav.data-v-e3668000 {
+  display: flex;
+}
+header-nav .slot-left.data-v-e3668000 {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+header-nav .slot-left .icon-xiangzuo1.data-v-e3668000 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+header-nav .navBarBox.data-v-e3668000 {
+  background-color: #fff;
+}
 .swiper-item.data-v-e3668000 {
   height: 100%;
 }

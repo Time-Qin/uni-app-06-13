@@ -103,7 +103,7 @@
 				<view>
 					总计：<text v-if="goodDatas.master" style="font-weight: bold;">￥{{goodDatas.master.total}}</text>
 				</view>
-				<view v-if="goodDatas.master" class="end-right">
+				<view v-if="goodDatas.master" class="end-right" @click="goOrder">
 					去结算({{goodDatas.master.buy||0}})
 				</view>
 			</view>
@@ -295,6 +295,11 @@
 					console.log(this.goodDatas.goods[i].id,'3333333333333')
 				};
 				return obj
+			},
+			goOrder(){
+				uni.navigateTo({
+					url:'/pages/chenrenjun/placeorder/placeorder?'+'cityId=' + '10'
+				});
 			}
 		},
 		onPageScroll(scroll) {

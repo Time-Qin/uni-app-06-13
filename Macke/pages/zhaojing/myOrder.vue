@@ -1,6 +1,12 @@
 <template>
 	<view>
 		<view class="wrap">
+			<header-nav :scrollTop="scrollTop" :one="one">
+				<view class="slot-left">
+					<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
+					全部订单
+				</view>
+			</header-nav>
 			<view class="u-tabs-box">
 				<u-tabs-swiper activeColor="#78b4e3" ref="tabs" :list="list" :current="current" @change="change"
 					:is-scroll="false" swiperWidth="750"></u-tabs-swiper>
@@ -74,6 +80,8 @@
 	export default {
 		data() {
 			return {
+				scrollTop: 0,
+				one: 1,
 				orderList: [{
 					id: 18299861241928748971,
 					store: '夏日流星限定贩卖',
@@ -193,7 +201,13 @@
 				this.$refs.tabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
-			}
+			},
+			backTo() {
+				uni.navigateBack({});
+			},
+		},
+		onPageScroll() {
+			this.scrollTop = 200;
 		}
 	};
 </script>
@@ -344,12 +358,31 @@
 		flex-direction: column;
 		height: calc(100vh - var(--window-top));
 		width: 100%;
+		
+		
 	}
 
 	.swiper-box {
 		flex: 1;
 	}
-
+		 header-nav {
+			display: flex;
+		
+			.slot-left {
+				margin-left: 20rpx;
+				flex: 1;
+				color: black;
+		
+				.icon-xiangzuo1 {
+					font-size: 40rpx;
+					margin-right: 20rpx;
+				}
+			}
+		
+			.navBarBox {
+				background-color: #fff;
+			}
+		}
 	.swiper-item {
 		height: 100%;
 	}

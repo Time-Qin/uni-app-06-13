@@ -1,6 +1,21 @@
 .container.data-v-1ea3ec8f {
   background-color: #fafcfd;
 }
+.container.data-v-1ea3ec8f header-nav {
+  display: flex;
+}
+.container.data-v-1ea3ec8f header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+.container.data-v-1ea3ec8f header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.container.data-v-1ea3ec8f header-nav .navBarBox {
+  background-color: #fff;
+}
 .container .notice-bar.data-v-1ea3ec8f {
   padding: 12px 14px 12px 14px;
 }
@@ -146,7 +161,7 @@
 .container .c-pay.data-v-1ea3ec8f {
   padding: 0 14px;
   margin-top: 8px;
-  margin-bottom: 90px;
+  padding-bottom: 90px;
   position: relative;
 }
 .container .c-pay .pay-title.data-v-1ea3ec8f {
@@ -163,9 +178,8 @@
   display: flex;
   border-top: 1px solid #eaeced;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   bottom: 0;
-  left: -28px;
 }
 .container .bottom_nav .receivable.data-v-1ea3ec8f {
   margin-left: auto;

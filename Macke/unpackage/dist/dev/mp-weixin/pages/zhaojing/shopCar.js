@@ -159,6 +159,11 @@ const _sfc_main = {
         console.log(this.goodDatas.goods[i].id, "3333333333333");
       }
       return obj;
+    },
+    goOrder() {
+      common_vendor.index.navigateTo({
+        url: "/pages/chenrenjun/placeorder/placeorder?cityId=10"
+      });
     }
   },
   onPageScroll(scroll) {
@@ -289,9 +294,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   } : {}, {
     y: $data.goodDatas.master
   }, $data.goodDatas.master ? {
-    z: common_vendor.t($data.goodDatas.master.buy || 0)
+    z: common_vendor.t($data.goodDatas.master.buy || 0),
+    A: common_vendor.o((...args) => $options.goOrder && $options.goOrder(...args))
   } : {}) : {
-    A: common_vendor.o((...args) => $options.delGoods && $options.delGoods(...args))
+    B: common_vendor.o((...args) => $options.delGoods && $options.delGoods(...args))
   }) : {});
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-99da2408"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/zhaojing/shopCar.vue"]]);
