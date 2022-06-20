@@ -56,6 +56,7 @@ if (!Math) {
   "./pages/liuchenchen/qiaodao.js";
   "./pages/liuchenchen/pintuan.js";
   "./pages/zhaojing/myOrder.js";
+  "./pages/chenrenjun/invoicing/invoicing.js";
 }
 const _sfc_main = {
   onLaunch: function() {

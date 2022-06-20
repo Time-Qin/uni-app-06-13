@@ -101,7 +101,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     c: $data.flag
   }, $data.flag ? {
-    d: common_vendor.f($data.mcakeScene, (item, index, i0) => {
+    d: common_vendor.f($data.mcakeScene, (item, k0, i0) => {
       return {
         a: common_vendor.t(item.tname),
         b: common_vendor.n({

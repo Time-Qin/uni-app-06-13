@@ -1,4 +1,5 @@
 {
+    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -12,8 +13,14 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "pages/zhaojing/myOrder",
-                    "pathName": "pages/zhaojing/myOrder",
+                    "name": "pages/chenrenjun/placeorder/placeorder",
+                    "pathName": "pages/chenrenjun/placeorder/placeorder",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
                     "query": "",
                     "scene": null
                 }

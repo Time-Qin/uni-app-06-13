@@ -210,8 +210,27 @@
 		
 			}
 		
-		}
+		},{
+            "path" : "invoicing/invoicing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "开具发票",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/chenrenjun/invoicing/invoicing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+
 	],
+
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationStyle": "custom",
@@ -220,7 +239,10 @@
 			"background": "#efeff4"
 		},
 		"usingComponents": {
-		  "van-stepper": "/wxcomponents/vant/dist/stepper/index"
+		  "van-stepper": "/wxcomponents/vant/dist/stepper/index",
+		  "van-tab": "/wxcomponents/vant/dist/tab/index",
+		  "van-tabs": "/wxcomponents/vant/dist/tabs/index",
+		  "van-button": "/wxcomponents/vant/dist/button/index"
 		}
 	},
 	"tabBar": {

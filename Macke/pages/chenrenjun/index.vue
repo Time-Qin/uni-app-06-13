@@ -9,7 +9,7 @@
 		<!-- tapbar切换 -->
 		<view class="c-tapbar">
 			<scroll-view class="tap-list" scroll-x="true" v-if=flag enable-flex="true">
-				<view :class="['content',{active:activeKey == item.tid}]" v-for="(item,index) in mcakeScene"
+				<view :class="['content',{active:activeKey == item.tid}]" v-for="item in mcakeScene"
 					:key="item.tname" @click="getMcakeGroup(item.tid)">{{item.tname}}</view>
 			</scroll-view>
 		</view>
@@ -40,7 +40,6 @@
 					<!-- 购物车组件 -->
 					<car-view ref="Car" :contentDatas="contentDatas"></car-view>
 				</view>
-			
 			</view>
 		</view>
 		
@@ -158,7 +157,6 @@
 			}
 		}
 		
-
 		.c-tapbar {
 			width: 100%;
 			position: fixed;
@@ -167,7 +165,7 @@
 				display: flex;
 				white-space: nowrap;
 				height: 64rpx;
-				background-color: pink;
+				background-color: #ffaaae;
 				padding-bottom: 10px;
 
 				.content {
@@ -191,7 +189,7 @@
 	.c-list {
 		margin-bottom: 14px;
 		padding: 0 10px;
-
+	
 		.c-header {
 			.slot-image {
 				width: 110px;

@@ -25,7 +25,7 @@
   display: flex;
   white-space: nowrap;
   height: 64rpx;
-  background-color: pink;
+  background-color: #ffaaae;
   padding-bottom: 10px;
 }
 .container .c-tapbar .tap-list .content.data-v-730ad8d2 {
