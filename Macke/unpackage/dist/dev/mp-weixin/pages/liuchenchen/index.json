@@ -1,6 +1,9 @@
 {
-  "navigationBarTitleText": "liuchenchen",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "header-nav": "../../components/header-nav/header-nav",
+    "car-view": "../../components/car-view/car-view"
+  }
 }

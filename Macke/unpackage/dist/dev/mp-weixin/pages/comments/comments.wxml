@@ -1,1 +1,1 @@
-<view class="container"><comments wx:if="{{b}}" bindgoType="{{a}}" u-i="5909bf3a-0" bind:__l="__l" u-p="{{b}}"></comments></view>
+<view class="container"><comments wx:if="{{b}}" bindgoType="{{a}}" u-i="36c2edc2-0" bind:__l="__l" u-p="{{b}}"></comments></view>

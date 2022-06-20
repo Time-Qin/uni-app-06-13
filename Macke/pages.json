@@ -2,23 +2,66 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "uni-app",
 			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 20
+			"onReachBottomDistance": 20,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/guowen/login",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/guowen/shop",
+		"style": {
+			"navigationBarTitleText": "购物车",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/guowen/eat-bread-well",
+		"style": {
+			"navigationBarTitleText": "好好吃面包",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/chenrenjun/placeorder/placeorder",
+		"style": {
+			"navigationBarTitleText": "提交订单",
+			"enablePullDownRefresh": false,
+			"navigationBarTextStyle": "black",
+			"navigationStyle": "custom"
 		}
 	}, {
 		"path": "pages/chenrenjun/index",
 		"style": {
-			"navigationBarTitleText": "chenrenjun",
+			"navigationStyle": "custom",
 			"enablePullDownRefresh": true,
 			"onReachBottomDistance": 20
 		}
 	}, {
-		"path": "pages/guowen/index",
+		"path": "pages/index/good_details",
 		"style": {
-			"navigationBarTitleText": "guowen",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 20
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/index/talke",
+		"style": {
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/chenrenjun/mcakedetails/mcakedetails",
+		"style": {
+			"navigationBarTitleText": "商品详情",
+			"enablePullDownRefresh": false,
+			"navigationBarTextStyle": "black",
+			"navigationStyle": "custom"
 		}
 	}, {
 		"path": "pages/lanmin/index",
@@ -28,20 +71,6 @@
 			"onReachBottomDistance": 20,
 			"navigationBarTitleText": "lanmin",
 			"navigationBarBackgroundColor": "#8fbcff"
-		}
-	}, {
-		"path": "pages/liuchenchen/index",
-		"style": {
-			"navigationBarTitleText": "liuchenchen",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 20
-		}
-	}, {
-		"path": "pages/zhaojing/index",
-		"style": {
-			"navigationBarTitleText": "zhaojing",
-			"enablePullDownRefresh": true,
-			"onReachBottomDistance": 20
 		}
 	}, {
 		"path": "pages/lanmin_detail/lanmin_detail",
@@ -55,25 +84,120 @@
 		"path": "pages/comments/comments",
 		"style": {
 			"navigationBarTitleText": "商品评论",
-			"enablePullDownRefresh": true
+			"enablePullDownRefresh": true,
+			"navigationBarBackgroundColor": "#8fbcff"
 		}
 	}, {
 		"path": "pages/search/search",
 		"style": {
 			"navigationBarTitleText": "搜索商品",
-			"enablePullDownRefresh": false
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/liuchenchen/index",
+		"style": {
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/zhaojing/bread",
+		"style": {
+			"navigationBarTitleText": "好好吃面包",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50,
+			"navigationBarBackgroundColor": "#5c382c",
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/zhaojing/shopCar",
+		"style": {
+			"navigationBarTitleText": "购物车",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/zhaojing/my",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50,
+			"navigationBarBackgroundColor": "#9bd1ff",
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/zhaojing/question",
+		"style": {
+			"navigationBarTitleText": "问题反馈",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 50,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/index/address",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/chenrenjun/alltotal/alltotal",
+		"style": {
+			"navigationBarTitleText": "商品评价",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationBarTextStyle": "black",
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/liuchenchen/bread",
+		"style": {
+			"navigationBarTitleText": "好好吃面包",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationBarBackgroundColor": "#A0522D",
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/liuchenchen/user",
+		"style": {
+			"navigationBarTitleText": "我的",
+			"enablePullDownRefresh": true,
+			"onReachBottomDistance": 20,
+			"navigationBarBackgroundColor": "#0000",
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/liuchenchen/qiaodao",
+		"style": {
+			"navigationBarTitleText": "签到有礼",
+			"enablePullDownRefresh": false,
+			"navigationBarBackgroundColor": "#f93",
+			"onReachBottomDistance": 20,
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/liuchenchen/pintuan",
+		"style": {
+			"navigationBarTitleText": "拼团",
+			"enablePullDownRefresh": false,
+			"navigationBarBackgroundColor": "#fff",
+			"onReachBottomDistance": 20,
+			"navigationBarTextStyle": "black",
+			"navigationStyle": "custom"
 		}
 	}],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		// "navigationBarTitleText": "Mcake",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		// "navigationBarTextStyle": "black",
+		// "navigationStyle": "custom",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
 		},
-		"options": {
-			"styleIsolation": "apply-shared"
+		"usingComponents": {
+			"van-stepper": "/wxcomponents/vant/dist/stepper/index"
 		}
 	},
 	"tabBar": {
@@ -88,12 +212,12 @@
 			"iconPath": "./static/icons/b2.png",
 			"selectedIconPath": "./static/icons/b1.png"
 		}, {
-			"pagePath": "pages/guowen/index",
+			"pagePath": "pages/zhaojing/shopCar",
 			"text": "购物车",
 			"iconPath": "./static/icons/j2.png",
 			"selectedIconPath": "./static/icons/j1.png"
 		}, {
-			"pagePath": "pages/liuchenchen/index",
+			"pagePath": "pages/zhaojing/my",
 			"text": "我的",
 			"iconPath": "./static/icons/d2.png",
 			"selectedIconPath": "./static/icons/d1.png"

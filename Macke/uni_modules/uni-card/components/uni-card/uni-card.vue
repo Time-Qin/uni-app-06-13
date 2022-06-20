@@ -147,6 +147,7 @@
 			overflow: hidden;
 
 			// border-radius: 4px;
+
 			.uni-card__cover-image {
 				flex: 1;
 				// width: 100%;

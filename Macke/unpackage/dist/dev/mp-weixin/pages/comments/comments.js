@@ -5,6 +5,7 @@ const _sfc_main = {
   data() {
     return {
       comments: [],
+      commentTag: [],
       twoId: "",
       type: 0,
       page: 1
@@ -14,7 +15,10 @@ const _sfc_main = {
     async getComments(twoId, type, page) {
       let result = await common_js_requestHttp.GetRequest("/api/comment/load?twoId=" + twoId + "&type=" + type + "&page=" + page + "&count=10");
       result.code === 0 ? this.comments = [...this.comments, ...result.data.data] : "";
-      console.log(this.comments);
+    },
+    async getCommentTag(twoId) {
+      let result = await common_js_requestHttp.GetRequest("/api/comment/total?twoId=" + twoId);
+      result.code === 0 ? this.commentTag = result.data.list : "";
     },
     goType(data) {
       this.type = data;
@@ -25,6 +29,7 @@ const _sfc_main = {
   onLoad(options) {
     this.twoId = options.twoId;
     this.getComments(this.twoId, this.type, this.page);
+    this.getCommentTag(this.twoId);
   },
   onReachBottom() {
     this.page++;
@@ -52,9 +57,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: common_vendor.o($options.goType),
     b: common_vendor.p({
       twoId: $data.twoId,
-      comments: $data.comments
+      comments: $data.comments,
+      commentTag: $data.commentTag
     })
   };
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/MCAKE/Macke/pages/comments/comments.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/98443/Desktop/Macke/pages/comments/comments.vue"]]);
 wx.createPage(MiniProgramPage);
