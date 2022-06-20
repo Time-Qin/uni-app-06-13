@@ -1,0 +1,30 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/chenrenjun/invoicing/invoicing",
+                    "pathName": "pages/chenrenjun/invoicing/invoicing",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/index",
+                    "pathName": "pages/chenrenjun/index",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,182 @@
+.container.data-v-66a85bf6 {
+  height: 100vh;
+  background-color: #fafcfd;
+}
+.container .c-invoicing.data-v-66a85bf6 {
+  padding: 0 16px;
+}
+.container .c-invoicing .invoice-type.data-v-66a85bf6 {
+  padding: 10px 16px;
+  background-color: #fff;
+}
+.container .c-invoicing .invoice-type .c-header.data-v-66a85bf6 {
+  margin-bottom: 14px;
+}
+.container .c-invoicing .invoice-type .c-header .c-type.data-v-66a85bf6 {
+  color: #333333;
+  font-weight: 600;
+  font-size: 14px;
+}
+.container .c-invoicing .invoice-type .c-header .instructions.data-v-66a85bf6 {
+  margin-left: 186px;
+  font-size: 13px;
+  color: #999999;
+}
+.container .c-invoicing .invoice-type .btn-type .electronic.data-v-66a85bf6 {
+  border-radius: 30px;
+  margin-right: 20px;
+  background-color: #f7f7f7;
+  font-size: 14px;
+}
+.container .c-invoicing .invoice-type .btn-type .noinvoi.data-v-66a85bf6 {
+  border-radius: 30px;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  border: 1px solid #f7f7f7;
+}
+.container .c-invoicing .invoice-type .c-tips.data-v-66a85bf6 {
+  margin-top: 12px;
+  font-size: 12px;
+  padding-bottom: 14px;
+  color: #999999;
+  border-bottom: 1px solid #f7f9fa;
+}
+.container .c-invoicing .invoice-type .invoice-title.data-v-66a85bf6 {
+  margin-top: 14px;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-title.data-v-66a85bf6 {
+  color: #333333;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.container .c-invoicing .invoice-type .invoice-title .btn-type.data-v-66a85bf6 {
+  margin-bottom: 14px;
+}
+.container .c-invoicing .invoice-type .invoice-title .btn-type .btn-personal.data-v-66a85bf6 {
+  border-radius: 30px;
+  margin-right: 20px;
+  padding: 2px 38px;
+  font-size: 14px;
+}
+.container .c-invoicing .invoice-type .invoice-title .btn-type .btn-company.data-v-66a85bf6 {
+  border-radius: 30px;
+  padding: 2px 38px;
+  font-size: 14px;
+}
+.container .c-invoicing .invoice-type .invoice-title .personal.data-v-66a85bf6 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  border-bottom: 1px solid #f7f9fa;
+}
+.container .c-invoicing .invoice-type .invoice-title .personal .personal-title.data-v-66a85bf6 {
+  font-size: 14px;
+  margin-right: 60px;
+}
+.container .c-invoicing .invoice-type .invoice-title .personal .uni-input.data-v-66a85bf6 {
+  font-size: 14px;
+}
+.container .c-invoicing .invoice-type .invoice-title .company.data-v-66a85bf6 {
+  border-bottom: 1px solid #f7f9fa;
+}
+.container .c-invoicing .invoice-type .invoice-title .company .uni-input.data-v-66a85bf6 {
+  font-size: 14px;
+  overflow: ;
+}
+.container .c-invoicing .invoice-type .invoice-title .company .c-name.data-v-66a85bf6 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+.container .c-invoicing .invoice-type .invoice-title .company .c-name .name-title.data-v-66a85bf6 {
+  font-size: 14px;
+  margin-right: 60px;
+}
+.container .c-invoicing .invoice-type .invoice-title .company .c-taxpayer.data-v-66a85bf6 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+.container .c-invoicing .invoice-type .invoice-title .company .c-taxpayer .taxpayer-title.data-v-66a85bf6 {
+  font-size: 14px;
+  margin-right: 30px;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-header.data-v-66a85bf6 {
+  padding: 10px 0;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-header .content-title.data-v-66a85bf6 {
+  color: #333333;
+  font-weight: 600;
+  font-size: 14px;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-header .explanation.data-v-66a85bf6 {
+  font-size: 11px;
+  color: #999999;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-btn .cake-btn.data-v-66a85bf6 {
+  border-radius: 30px;
+  margin-right: 20px;
+  padding: 2px 38px;
+  font-size: 14px;
+  border: 1px solid #f8f8f8;
+  box-sizing: border-box;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-btn .cake-btn.data-v-66a85bf6:hover {
+  color: #64b6e8;
+  border: 1px solid #64b6e8;
+  font-weight: 600;
+  background-color: #fff;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-btn .food-btn.data-v-66a85bf6 {
+  border-radius: 30px;
+  padding: 2px 38px;
+  font-size: 14px;
+  border: 1px solid #f8f8f8;
+  box-sizing: border-box;
+}
+.container .c-invoicing .invoice-type .invoice-title .c-content .content-btn .food-btn.data-v-66a85bf6:hover {
+  color: #64b6e8;
+  border: 1px solid #64b6e8;
+  font-weight: 600;
+  background-color: #fff;
+}
+.container .c-invoicing .determine.data-v-66a85bf6 {
+  padding: 0 16px;
+}
+.container .c-invoicing .determine .determine-btn.data-v-66a85bf6 {
+  margin-top: 30px;
+  border-radius: 30px;
+  background-color: #bae7ff;
+  font-size: 17px;
+}
+.container .c-tips.data-v-66a85bf6 .uni-popup__wrapper {
+  border-radius: 14px;
+}
+.container .c-tips .popup-content.data-v-66a85bf6 {
+  width: 344px;
+  height: 320px;
+  overflow: hidden;
+}
+.container .c-tips .popup-content .popup-title.data-v-66a85bf6 {
+  margin-top: 20px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.container .c-tips .popup-content .text.data-v-66a85bf6 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 22px;
+  padding-right: 10px;
+  color: #888888;
+}
+.container .c-tips .popup-content .btn1.data-v-66a85bf6 {
+  padding: 2px 60px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #bae7ff;
+  margin-left: 91px;
+  margin-top: 20px;
+}

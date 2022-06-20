@@ -108,7 +108,7 @@
 
 			<!-- 支付方式 -->
 			<view class="c-pay">
-				<uni-list-item link="reLaunch" to="/pages/vue/index/index" @click="onClick($event,1)">
+				<uni-list-item link="reLaunch" to="/pages/chenrenjun/invoicing/invoicing" @click="onClick($event,1)">
 					<template v-slot:header>
 						<text class="pay-title">发票</text>
 						<text class="pay-detail">不开发票</text>
@@ -216,6 +216,9 @@
 				this.$refs.popup1.close()
 				this.$refs.popup2.close()
 			},
+			onClick(e,value){
+				
+			}
 		}
 	}
 </script>

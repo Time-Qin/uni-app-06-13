@@ -41,6 +41,8 @@ const _sfc_main = {
       this.$refs.popup.close();
       this.$refs.popup1.close();
       this.$refs.popup2.close();
+    },
+    onClick(e, value) {
     }
   }
 };
@@ -69,7 +71,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         b: item.id
       };
     }),
-    c: common_vendor.o(($event) => _ctx.onClick($event, 1)),
+    c: common_vendor.o(($event) => $options.onClick($event, 1)),
     d: common_vendor.p({
       link: "reLaunch",
       to: "/pages/vue/index/index"
@@ -97,7 +99,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         o: item.id
       });
     }),
-    f: common_vendor.o(($event) => _ctx.onClick($event, 1)),
+    f: common_vendor.o(($event) => $options.onClick($event, 1)),
     g: common_vendor.p({
       to: "/pages/vue/index/index"
     }),
@@ -139,12 +141,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   } : {
     C: common_vendor.t($data.master.goodsAmount)
   }, {
-    D: common_vendor.o(($event) => _ctx.onClick($event, 1)),
+    D: common_vendor.o(($event) => $options.onClick($event, 1)),
     E: common_vendor.p({
       link: "reLaunch",
-      to: "/pages/vue/index/index"
+      to: "/pages/chenrenjun/invoicing/invoicing"
     }),
-    F: common_vendor.o(($event) => _ctx.onClick($event, 1)),
+    F: common_vendor.o(($event) => $options.onClick($event, 1)),
     G: common_vendor.p({
       link: "reLaunch"
     }),
