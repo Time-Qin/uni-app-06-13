@@ -9,6 +9,7 @@
 		</view>
 		<!-- 商品列表 -->
 		<view class="c-list" v-for="item in datalist" :key="item.id" @click="goDetail(item.id)">
+			
 			<view>
 				<uni-list-item>
 					<template v-slot:header>
@@ -111,14 +112,14 @@
 
 <style lang="less" scoped>
 	.container {
-		background-color: pink;
+		background-color: #fff5f5;
 
 		.c-tapbar {
 			.tap-list {
 				display: flex;
 				white-space: nowrap;
 				height: 64rpx;
-				background-color: pink;
+				background-color: #ffaaae;
 				padding-bottom: 10px;
 
 				.content {
@@ -142,7 +143,7 @@
 	.c-list {
 		margin-bottom: 14px;
 		padding: 0 10px;
-
+	
 		.c-header {
 			.slot-image {
 				width: 110px;

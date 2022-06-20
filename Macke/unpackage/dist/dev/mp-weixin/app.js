@@ -13,6 +13,7 @@ if (!Math) {
   "./pages/liuchenchen/index.js";
   "./pages/zhaojing/index.js";
   "./pages/chenrenjun/alltotal/alltotal.js";
+  "./pages/chenrenjun/invoicing/invoicing.js";
 }
 const _sfc_main = {
   onLaunch: function() {

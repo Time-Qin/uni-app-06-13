@@ -77,6 +77,24 @@
 			}
 
 		}
+        ,{
+            "path" : "invoicing/invoicing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "开具发票",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/chenrenjun/invoicing/invoicing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -85,6 +103,11 @@
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
+		},
+		"usingComponents": {
+		  "van-tab": "/wxcomponents/vant/dist/tab/index",
+		  "van-tabs": "/wxcomponents/vant/dist/tabs/index",
+		  "van-button": "/wxcomponents/vant/dist/button/index"
 		}
 	},
 	"tabBar": {

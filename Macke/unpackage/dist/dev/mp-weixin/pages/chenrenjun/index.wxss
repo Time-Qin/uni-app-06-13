@@ -1,11 +1,11 @@
 .container.data-v-730ad8d2 {
-  background-color: pink;
+  background-color: #fff5f5;
 }
 .container .c-tapbar .tap-list.data-v-730ad8d2 {
   display: flex;
   white-space: nowrap;
   height: 64rpx;
-  background-color: pink;
+  background-color: #ffaaae;
   padding-bottom: 10px;
 }
 .container .c-tapbar .tap-list .content.data-v-730ad8d2 {

@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+=======
+    "setting": {},
+>>>>>>> 22a133b1c40a350c650a11401f1ed9ba81e05747
     "condition": {
         "plugin": {
             "list": []
@@ -12,8 +16,19 @@
         "miniprogram": {
             "list": [
                 {
+<<<<<<< HEAD
                     "name": "pages/zhaojing/myOrder",
                     "pathName": "pages/zhaojing/myOrder",
+=======
+                    "name": "pages/chenrenjun/invoicing/invoicing",
+                    "pathName": "pages/chenrenjun/invoicing/invoicing",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/chenrenjun/index",
+                    "pathName": "pages/chenrenjun/index",
+>>>>>>> 22a133b1c40a350c650a11401f1ed9ba81e05747
                     "query": "",
                     "scene": null
                 }
