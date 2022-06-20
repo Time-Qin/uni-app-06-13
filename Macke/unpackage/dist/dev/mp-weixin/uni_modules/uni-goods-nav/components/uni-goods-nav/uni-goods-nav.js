@@ -74,7 +74,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($props.options, (item, index, i0) => {
       return common_vendor.e({
+<<<<<<< HEAD
         a: "5400998e-0-" + i0,
+=======
+        a: "233b2de7-0-" + i0,
+>>>>>>> 6141187cdc15906371bfaf5b0eec784498497fa6
         b: common_vendor.p({
           type: item.icon,
           size: "20",
@@ -105,5 +109,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     c: $props.fill ? 1 : ""
   };
 }
+<<<<<<< HEAD
 var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/2022_03file/hx/Project/Macke/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue"]]);
+=======
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/98443/\u5170\u654F\u5B66\u4E60/Mcake/Macke/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue"]]);
+>>>>>>> 6141187cdc15906371bfaf5b0eec784498497fa6
 wx.createComponent(Component);

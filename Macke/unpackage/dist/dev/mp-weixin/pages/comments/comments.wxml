@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <view class="container"><comments wx:if="{{b}}" bindgoType="{{a}}" u-i="76ad77b3-0" bind:__l="__l" u-p="{{b}}"></comments></view>
+=======
+<view class="container"><comments wx:if="{{b}}" bindgoType="{{a}}" u-i="5b56c73a-0" bind:__l="__l" u-p="{{b}}"></comments></view>
+>>>>>>> 6141187cdc15906371bfaf5b0eec784498497fa6

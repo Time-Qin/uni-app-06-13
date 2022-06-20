@@ -1,5 +1,11 @@
 <template>
 	<view class="container">
+		<header-nav :scrollTop="scrollTop" :one="one">
+			<view class="slot-left">
+				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
+				搜索商品
+			</view>
+		</header-nav>
 		<view v-show="!show">
 			<!-- 搜索输入 -->
 			<view class="search">
@@ -71,7 +77,9 @@
 				keywords: '',
 				hot: [],
 				goods: [],
-				show: false
+				show: false,
+				one:1,
+				scrollTop:0,
 			}
 		},
 		methods: {
@@ -91,6 +99,9 @@
 				this.addHistory({
 					history: this.keywords
 				});
+			},
+			backTo(){
+				uni.navigateBack({});
 			},
 			search() {
 				this.getGoods(this.keywords);
@@ -114,6 +125,9 @@
 		},
 		computed: {
 			...mapState(['history'])
+		},
+		onPageScroll() {
+			this.scrollTop = 200;
 		}
 	}
 </script>
@@ -121,6 +135,18 @@
 	.search-result {
 		padding: 0 20px;
 		font-size: 12px;
+	}
+	/deep/header-nav{
+		display: flex;
+		.slot-left{
+			margin-left: 20rpx;
+			flex: 1;
+			color: black;
+			.icon-xiangzuo1{
+				font-size: 40rpx;
+				margin-right: 20rpx;
+			}
+		}
 	}
 
 	.search {

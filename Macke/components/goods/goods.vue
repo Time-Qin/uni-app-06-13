@@ -11,9 +11,8 @@
 				</view>
 			</view>
 		</view>
+		<carts :goodsDetail="goodsDetail" :list="list" :itemList="itemList" ref="popup1" @changItem='changItem'></carts>
 	</view>
-	<!-- 底部弹出购物车 -->
-	<carts :goodsDetail="goodsDetail" :list="itemList" ref="popup1"></carts>
 </template>
 <script>
 	import {
@@ -25,11 +24,16 @@
 		data() {
 			return {
 				goodsDetail: [],
-				itemList: [],
+				list: [],
+				itemList:{}
+				// contentDatas:[],
 			}
 		},
 		methods: {
 			goDetail(id, twoid) {
+				// uni.navigateTo({
+				// 	url: '/pages/index/good_details?id=' + id + '&twoId=' + twoid
+				// })
 				uni.navigateTo({
 					url: '/pages/lanmin_detail/lanmin_detail?id=' + id + '&twoId=' + twoid
 				})
@@ -37,9 +41,14 @@
 			async addItem(item) {
 				let result = await GetRequest("/api/goods/detail?id=" + item.id);
 				result.code === 0 ? this.goodsDetail = result.data : ''
-				this.itemList = this.goodsDetail.list[0];
+				this.list = this.goodsDetail.list;
+				this.itemList=this.list[0];
 				this.$refs.popup1.change("bottom");
+				// console.log(this.itemList);
 			},
+			changItem(idx){
+				this.itemList=this.list[idx];
+			}
 		},
 	}
 </script>

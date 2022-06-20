@@ -2,6 +2,18 @@
   padding: 0 20px;
   font-size: 12px;
 }
+.data-v-4cedc0c6 header-nav {
+  display: flex;
+}
+.data-v-4cedc0c6 header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+.data-v-4cedc0c6 header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
 .search.data-v-4cedc0c6 {
   width: 100%;
   display: flex;

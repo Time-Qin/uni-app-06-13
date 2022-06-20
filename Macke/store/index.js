@@ -5,11 +5,13 @@ export default createStore({
 	state: {
 		carts: uni.getStorageSync('carts') || [],
 		history: uni.getStorageSync('history') || [],
+		goodsDatas:{},
+		user:{},
 	},
 	mutations: {
 		addCarts(state, payload) {
 			let find = state.carts.find(item => item.id === payload.id);
-			if (find) {
+			if (find && find.price===payload.price) {
 				find.buynum += payload.buynum;
 			} else {
 				state.carts.push(payload);
@@ -17,13 +19,22 @@ export default createStore({
 			uni.setStorageSync('carts', state.carts);
 			console.log(state.carts)
 		},
+		updateCart(state,payload){
+			// state.goodsDatas=payload;
+			console.log(state.goodsDatas);
+		},
 		addHistory(state, payload) {
 			state.history.push(payload.history);
 			uni.setStorageSync('history', state.history);
 		},
-		clearHistry(state){
-			state.history=[];
+		clearHistry(state) {
+			state.history = [];
 			uni.setStorageSync('history', state.history);
+		},
+		addUser(state,payload){
+			state.user=payload;
+			uni.setStorageSync('user', state.user)
+			console.log(state.user)
 		}
 	},
 	getters: {}

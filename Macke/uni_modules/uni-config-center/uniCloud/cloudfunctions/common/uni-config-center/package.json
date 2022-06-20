@@ -1,0 +1,6 @@
+{
+	"name": "univerify",
+	"extensions": {
+		"uni-cloud-verify": {} // 启用uni-cloud-jql扩展，值为空对象即可
+	}
+}

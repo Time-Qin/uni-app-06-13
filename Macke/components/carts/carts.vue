@@ -7,28 +7,29 @@
 				<view class="right">
 					<view class="name">{{goodsDetail.name}}</view>
 					<view class="fr">{{goodsDetail.french}}</view>
-					<view class="price">¥{{goodsDetail.price}}</view>
+					<view class="price">¥{{itemList.price}}</view>
 					<view class="sale">已售{{goodsDetail.saleTotal}}</view>
 				</view>
 			</view>
 			<view class="guige">规格</view>
-			<text class="weight">{{goodsDetail.spec}}({{goodsDetail.weight}})</text>
+			<text class="weight" v-for="(item,index) in list" :key="item.id"
+				@click="itemClick(index)">{{item.spec}}({{item.weight}})</text>
 			<view class="iconGroup">
-				<view class="item" v-if="list.tableware">
+				<view class="item" v-if="itemList.tableware">
 					<view class="icon"><text class="iconfont icon-canju1"></text></view>
-					<view class="text">{{list.tableware}}</view>
+					<view class="text">{{itemList.tableware}}</view>
 				</view>
-				<view class="item" v-if="list.candle">
+				<view class="item" v-if="itemList.candle">
 					<view class="icon"><text class="iconfont icon-lazhu"></text></view>
-					<view class="text">{{list.candle}}</view>
+					<view class="text">{{itemList.candle}}</view>
 				</view>
-				<view class="item" v-if="list.edible">
+				<view class="item" v-if="itemList.edible">
 					<view class="icon"><text class="iconfont icon-canju2"></text></view>
-					<view class="text">{{list.edible}}</view>
+					<view class="text">{{itemList.edible}}</view>
 				</view>
-				<view class="item" v-if="list.size">
+				<view class="item" v-if="itemList.size">
 					<view class="icon"><text class="iconfont icon-dangao"></text></view>
-					<view class="text">{{list.size}}</view>
+					<view class="text">{{itemList.size}}</view>
 				</view>
 			</view>
 			<view class="quantity">
@@ -44,11 +45,15 @@
 </template>
 <script>
 	import {
+		PostRequest
+	} from '@/common/js/requestHttp.js'
+	import {
 		mapMutations
 	} from "vuex"
 	export default {
 		name: "carts",
-		props: ['goodsDetail', 'list'],
+		props: ['goodsDetail', 'list', 'itemList'],
+		emits: ['changItem'],
 		data() {
 			return {
 				value: 1,
@@ -58,21 +63,30 @@
 		methods: {
 			...mapMutations(['addCarts']),
 			change(type) {
-				this.value=1;
+				this.value = 1;
 				this.$refs.popup.open(type);
 			},
 			moveHandle() {
 				return false;
 			},
-			addMoreCarts() {
+			async addMoreCarts() {
 				var obj = {
 					id: this.goodsDetail.id,
-					price: this.goodsDetail.price,
+					price: this.itemList.price,
 					buynum: this.buynum,
 					name: this.goodsDetail.name
 				};
+				let carts = {
+					"cityId": "110",
+					"goods": [{
+						"id": `${this.goodsDetail.id}`,
+						"num": `${this.buynum}`,
+						"blessing": "",
+					}, ]
+				};
 				this.addCarts(obj);
 				this.$refs.popup.close();
+				let result = await PostRequest('/api/cart/add', carts);
 				uni.showToast({
 					title: `添加购物车成功`,
 					mask: true
@@ -80,6 +94,9 @@
 			},
 			changeValue() {
 				this.buynum = this.value;
+			},
+			itemClick(idx) {
+				this.$emit('changItem', idx)
 			},
 		},
 	}
@@ -150,6 +167,7 @@
 			border-radius: 5px;
 			background-color: lightcyan;
 			font-size: 12px;
+			margin-right: 10rpx;
 		}
 
 		.iconGroup {

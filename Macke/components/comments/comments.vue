@@ -34,34 +34,24 @@
 	} from "@/common/js/requestHttp.js"
 	export default {
 		name: "comments",
-		props: ['twoId', 'comments'],
+		props: ['twoId', 'comments','commentTag'],
 		emits: ['goType'],
 		data() {
 			return {
-				commentTag: [],
 				activeKey: 0,
 			};
 		},
 		methods: {
-			async getCommentTag(twoId) {
-				let result = await GetRequest("/api/comment/total?twoId=" + twoId);
-				result.code === 0 ? this.commentTag = result.data.list : '';
-			},
 			goType(type, idx) {
 				this.$emit('goType', type);
 				this.activeKey = idx;
 			}
 		},
-		created() {
-			this.getCommentTag(this.twoId);
-		},
-		updated() {
-			this.getCommentTag(this.twoId);
-		}
 	}
 </script>
 <style lang="less" scoped>
 	.box {
+		padding-top: 20rpx;
 		background-color: white;
 
 		.materBox {

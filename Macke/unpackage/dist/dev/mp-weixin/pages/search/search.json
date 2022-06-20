@@ -1,7 +1,9 @@
 {
   "navigationBarTitleText": "搜索商品",
   "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
   "usingComponents": {
+    "header-nav": "../../components/header-nav/header-nav",
     "uni-search-bar": "../../uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
     "goods": "../../components/goods/goods",
     "uni-popup-dialog": "../../uni_modules/uni-popup/components/uni-popup-dialog/uni-popup-dialog",
