@@ -24,7 +24,8 @@
     "pages/liuchenchen/bread",
     "pages/liuchenchen/user",
     "pages/liuchenchen/qiaodao",
-    "pages/liuchenchen/pintuan"
+    "pages/liuchenchen/pintuan",
+    "pages/zhaojing/myOrder"
   ],
   "usingComponents": {
     "van-stepper": "/wxcomponents/vant/dist/stepper/index"
