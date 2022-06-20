@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/mapView",
     "pages/guowen/login",
     "pages/guowen/shop",
     "pages/guowen/eat-bread-well",

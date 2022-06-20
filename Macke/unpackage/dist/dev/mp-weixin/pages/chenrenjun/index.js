@@ -30,9 +30,8 @@ const _sfc_main = {
         "tid": "0",
         "tname": "\u5168\u90E8"
       });
-      this.getMcakes();
     },
-    async getMcakes(fid) {
+    async getMcakes() {
       let result = await common_js_requestHttp.GetRequest(`/api/goods/load?bid=1&tid=0&fid=${this.fid}&page=${this.page}&count=10`);
       if (result.data.data.length < 10) {
         this.hasMore = false;

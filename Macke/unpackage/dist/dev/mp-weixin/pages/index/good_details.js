@@ -17,6 +17,7 @@ const _sfc_main = {
       changeIndex: 0,
       twoId: 0,
       hasMore: true,
+      newData: [],
       options: [{
         icon: "home",
         text: "\u9996\u9875"
@@ -64,6 +65,13 @@ const _sfc_main = {
       result3.data.total === 0 ? this.hasMore = false : this.hasMore = true;
       let result4 = await common_js_requestHttp.GetRequest(`/api/comment/total?twoId=${this.twoId}`);
       result4.msg === "Success" ? this.titleDatas = result4.data : "";
+    },
+    async changeTitle(typeId, idx) {
+      if (this.changeIndex === idx)
+        return false;
+      this.newData = [];
+      let result3 = await common_js_requestHttp.GetRequest(`/api/comment/load?twoId=${this.twoId}&type=${typeId}&page=1&count=3`);
+      result3.msg === "Success" ? this.newData = result3.data.data : "";
     },
     lookAll() {
       common_vendor.index.navigateTo({
@@ -224,14 +232,19 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       type: "right",
       size: "16"
     }),
-    I: common_vendor.f($data.titleDatas.list, (item, k0, i0) => {
+    I: common_vendor.f($data.titleDatas.list, (item, idx, i0) => {
       return {
         a: common_vendor.t(item.title),
         b: common_vendor.t(item.total),
-        c: item.title
+        c: common_vendor.o(($event) => $options.changeTitle(item.type, idx)),
+        d: common_vendor.n({
+          active: $data.changeIndex === idx
+        }),
+        e: item.title,
+        f: common_vendor.o(($event) => $data.changeIndex = idx, item.title)
       };
     }),
-    J: common_vendor.f($data.talkeDatas.data, (item, k0, i0) => {
+    J: common_vendor.f($data.newData.length === 0 ? $data.talkeDatas.data : $data.newData, (item, k0, i0) => {
       return {
         a: "b72866d4-3-" + i0,
         b: common_vendor.t(item.uname),

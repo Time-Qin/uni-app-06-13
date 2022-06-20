@@ -65,9 +65,12 @@
 					<text class="iconfont icon-gouwuche content_wei">{{contentDatas.spec}}
 						({{contentDatas.weight}})</text>
 					<view class="mid_bottom">
-						<text v-if="contentDatas.tableware" class="iconfont icon-canju1 item">-{{contentDatas.tableware}}</text>
-						<text v-if="contentDatas.candle" class="iconfont icon-lazhu item">-{{contentDatas.candle}}</text>
-						<text v-if="contentDatas.edible" class="iconfont icon-canju2 item">-{{contentDatas.edible}}</text>
+						<text v-if="contentDatas.tableware"
+							class="iconfont icon-canju1 item">-{{contentDatas.tableware}}</text>
+						<text v-if="contentDatas.candle"
+							class="iconfont icon-lazhu item">-{{contentDatas.candle}}</text>
+						<text v-if="contentDatas.edible"
+							class="iconfont icon-canju2 item">-{{contentDatas.edible}}</text>
 						<text v-if="contentDatas.size" class="iconfont icon-dangao item">-{{contentDatas.size}}</text>
 					</view>
 				</view>
@@ -80,7 +83,7 @@
 			<view class="changeSel">
 				<text class="title">送至</text>
 				<view class="changeSel_mid">
-					<text class="iconfont icon-yunshupeisong content_wei"> 请选择收货地址</text><br/>
+					<text class="iconfont icon-yunshupeisong content_wei"> 请选择收货地址</text><br />
 					<text class="iconfont icon-shijian content_wei"> 最早{{dateDatas.date}} {{dateDatas.time}}配送</text>
 				</view>
 				<view class="dotsList dot" @click="goAddress">
@@ -104,51 +107,24 @@
 			<view class="talke_header">
 				<text class="title">评价 </text>
 				<text class="num">({{talkeDatas.total}})</text>
-				<text class="num2" @click="lookAll">查看全部 </text><uni-icons  type="right" size="16"></uni-icons>
+				<text class="num2" @click="lookAll">查看全部 </text>
+				<uni-icons type="right" size="16"></uni-icons>
 			</view>
-					<!-- 评论响应式点击 -->
-				<!-- <view class="talke_main">
-					<view class="main_Mar">
-						<view :class="['talke_title_list',{active:changeIndex === idx}]" v-for="(item,idx) in titleDatas.list" :key="item.title" @click="changeIndex=idx">
-							<view class="item" @click="changeTitle(item.type,idx)">{{item.title}}({{item.total}})</view>
-						</view>
-					</view>
-				</view>
-				<view class="talke_main_text">
-					<view class="text_list" v-for="item in (newData.length==0?talkeDatas.data:newData)" :key="item.cid">
-						<view class="text_list_header">
-							<view class="head_img">
-								<image :src="item.uhead" mode="widthFix"></image>
-							</view>
-							<text class="lphone">{{item.uname}}</text>
-							<text class="ltime">{{item.ctime}}</text>
-						</view>
-						<view class="text_list_main">
-							{{item.content}}
-						</view>
-						<view v-if="item.img != ''" class="text_list_img" v-for="i in item.img" :key="i">
-							<image :src="i.src" mode="widthFix"></image>
-						</view>
-						<view class="text_list_footer">
-							规格:{{item.spec}}
-						</view>
-					</view>
-				</view> -->
-
 			<view class="talke_main">
-				<view class="talke_title_list" v-for="item in titleDatas.list" :key="item.title">
-					<view class="item">{{item.title}}({{item.total}})</view>
+				<view :class="['talke_title_list',{active:changeIndex === idx}]" v-for="(item,idx) in titleDatas.list"
+					:key="item.title" @click="changeIndex=idx">
+					<view class="item" @click="changeTitle(item.type,idx)">{{item.title}}({{item.total}})</view>
 				</view>
 			</view>
 			<view class="talke_main_text">
-				<view class="text_list" v-for="item in talkeDatas.data" :key="item.cid">
+				<view class="text_list" v-for="item in (newData.length===0?talkeDatas.data:newData)" :key="item.cid">
 					<view class="text_list_header">
 						<uni-icons type="contact" size="30"></uni-icons>
 						<text class="lphone">{{item.uname}}</text>
 						<text class="ltime">{{item.ctime}}</text>
 					</view>
 					<view class="text_list_main">
-							{{item.content}}
+						{{item.content}}
 					</view>
 					<view class="text_list_footer">
 						规格:{{item.spec}}
@@ -169,7 +145,8 @@
 		</view>
 		<!-- 底部悬浮功能栏 -->
 		<view class="bottom_nav">
-	       <uni-goods-nav :fill="true"  :options="options" :buttonGroup="buttonGroup"  @click="onClick" @buttonClick="buttonClick" />
+			<uni-goods-nav :fill="true" :options="options" :buttonGroup="buttonGroup" @click="onClick"
+				@buttonClick="buttonClick" />
 		</view>
 		<car-view ref="popup4" :contentDatas="contentDatas"></car-view>
 	</view>
@@ -189,31 +166,32 @@
 				clors: 'white',
 				contentDatas: [],
 				dateDatas: [],
-				talkeDatas:[],
-				titleDatas:[],
+				talkeDatas: [],
+				titleDatas: [],
 				sku: 'n0301',
 				current: 0,
-				changeIndex:0,
-				twoId:0,
-				hasMore:true,
-				 options: [ {
-							icon: 'home',
-							text: '首页',
-						}, {
-							icon: 'cart',
-							text: '购物车',
-						}],
-					    buttonGroup: [{
-					      text: '加入购物车',
-					      backgroundColor: 'rgba(250,250,90,1)',
-					      color: '#333'
-					    },
-					    {
-					      text: '立即购买',
-					      backgroundColor: 'rgba(103,200,245,0.5)',
-					      color: '#333'
-					    }
-					    ]
+				changeIndex: 0,
+				twoId: 0,
+				hasMore: true,
+				newData: [],
+				options: [{
+					icon: 'home',
+					text: '首页',
+				}, {
+					icon: 'cart',
+					text: '购物车',
+				}],
+				buttonGroup: [{
+						text: '加入购物车',
+						backgroundColor: 'rgba(250,250,90,1)',
+						color: '#333'
+					},
+					{
+						text: '立即购买',
+						backgroundColor: 'rgba(103,200,245,0.5)',
+						color: '#333'
+					}
+				]
 			}
 		},
 		computed: {
@@ -227,83 +205,85 @@
 				return obj;
 			}
 		},
-		// created() {
-		// 	this.getDatas();
-		// },
-		onLoad(options){
+		onLoad(options) {
 			this.getDatas(options)
 		},
 		methods: {
 			async getDatas(id) {
-				// if(id.id){
-				// 	let result = await GetRequest(`/api/goods/detail?sku=${id.sku||id.id}&id=${id.sku||id.id}`);
-				// }else if(id.sku){
-				// 	let result = await GetRequest(`/api/goods/detail?sku=${id.sku}&id=${id.sku||id.id}`);
-				// }
+
 				let result = await GetRequest(`/api/goods/detail?sku=${id.sku||id.id}&id=${id.sku||id.id}`);
 				result.msg === "Success" ? this.contentDatas = result.data : '';
-				// console.log(result, this.contentDatas);
-				this.twoId =this.contentDatas.twoId;
-				// console.log(this.twoId,`/api/goods/detail?${id.sku}`);
-				let result2 = await GetRequest(`/api/goods/date?sku=${id.sku}&id=${id.id}&cityId=110&lng=31.23037&lat=121.4737`);
+
+				this.twoId = this.contentDatas.twoId;
+
+				let result2 = await GetRequest(
+					`/api/goods/date?sku=${id.sku}&id=${id.id}&cityId=110&lng=31.23037&lat=121.4737`);
 				result2.msg === "Success" ? this.dateDatas = result2.data : '';
 				let result3 = await GetRequest(`/api/comment/load?twoId=${this.twoId}&type=0&page=1&count=3`);
 				result3.msg === "Success" ? this.talkeDatas = result3.data : '';
-				// console.log(this.talkeDatas,'11111111111111')
-				result3.data.total === 0 ?this.hasMore=false : this.hasMore=true;
-				// console.log(result3);
+
+				result3.data.total === 0 ? this.hasMore = false : this.hasMore = true;
+
 				let result4 = await GetRequest(`/api/comment/total?twoId=${this.twoId}`);
 				result4.msg === "Success" ? this.titleDatas = result4.data : '';
-				// console.log(this.titleDatas)
+
 			},
-			lookAll(){
+			//评论标签的响应式点击
+			async changeTitle(typeId, idx) {
+				if (this.changeIndex === idx) return false;
+				this.newData = [];
+				let result3 = await GetRequest(
+					`/api/comment/load?twoId=${this.twoId}&type=${typeId}&page=1&count=3`);
+				result3.msg === "Success" ? this.newData = result3.data.data : '';
+			},
+			lookAll() {
 				uni.navigateTo({
-					url:`./talke?twoId=${this.twoId}`
+					url: `./talke?twoId=${this.twoId}`
 				});
 			},
-			goAddress(){
+			goAddress() {
 				uni.navigateTo({
-					url:`./address`
+					url: `./address`
 				});
 			},
-			shopContent(){
+			shopContent() {
 				// console.log(this.$refs.popup4)
 				this.$refs.popup4.shopContent2();
 			},
 			changeLunBo(e) {
 				this.current = e.detail.current;
 			},
-			shareO(){
+			shareO() {
 				this.$refs.heA.shareOpen();
 			},
-				  onClick (e) {
-					  if(e.content.text=='首页'){
-						  uni.switchTab({
-						  	url:'./index'
-						  })
-					  }else if(e.content.text=='购物车'){
-						  uni.switchTab({
-						  	url:'/pages/zhaojing/shopCar'
-						  })
-					  }else{
-						   uni.showToast({
-				      title: `点击${e.content.text}`,
-				      icon: 'none'
-				    });
-					  }
-				   
-				  },
-				  buttonClick (e) {
-					if(e.index){
-						uni.showToast({
-						  title: `点击${e.content.text}`,
-						  icon: 'none'
-						});
-					}else{
-						this.shopContent();
-					}
-					
-				  }
+			onClick(e) {
+				if (e.content.text == '首页') {
+					uni.switchTab({
+						url: './index'
+					})
+				} else if (e.content.text == '购物车') {
+					uni.switchTab({
+						url: '/pages/zhaojing/shopCar'
+					})
+				} else {
+					uni.showToast({
+						title: `点击${e.content.text}`,
+						icon: 'none'
+					});
+				}
+
+			},
+			buttonClick(e) {
+				if (e.index) {
+					uni.showToast({
+						title: `点击${e.content.text}`,
+						icon: 'none'
+					});
+				} else {
+					this.shopContent();
+				}
+
+			}
 		},
 		onPageScroll(scrollTop) {
 			// console.log('111')
@@ -502,23 +482,28 @@
 					padding-left: 10vw
 				}
 			}
-			.changeSel2{
+
+			.changeSel2 {
 				display: flex;
 				margin-top: 20rpx;
 				margin-bottom: 10rpx;
 				align-items: center;
 				overflow: hidden;
-				.title{
+
+				.title {
 					width: 12vw;
 					font-weight: 600;
 				}
-				.changeSel_mid{
+
+				.changeSel_mid {
 					width: 60vw;
 					display: flex;
-					.icon-duigouzhong{
+
+					.icon-duigouzhong {
 						font-size: 40rpx;
 					}
-					.content_wei{
+
+					.content_wei {
 						font-size: 26rpx;
 						line-height: 44rpx;
 					}
@@ -526,76 +511,96 @@
 			}
 
 		}
-		.content_talke{
+
+		.content_talke {
 			margin: 20rpx 20rpx;
 			padding: 20rpx 20rpx;
 			background-color: #fdfdfd;
 			border-radius: 20rpx 20rpx 0 0;
-			.talke_header{
+
+			.talke_header {
 				display: flex;
 				justify-content: center;
-				padding-bottom: 20rpx ;
+				padding-bottom: 20rpx;
 				border-bottom: 2rpx solid #999;
-				.title{
+
+				.title {
 					width: 12vw;
 					font-weight: 600;
 				}
-				.num{
+
+				.num {
 					width: 54vw;
 					color: #999;
 					font-size: 28rpx;
 				}
-				.num2{
+
+				.num2 {
 					color: #999;
 					font-size: 28rpx;
 					margin-right: 16rpx;
 				}
 			}
-			.talke_main{
+
+			.talke_main {
 				margin: 20rpx 20rpx;
 				padding: 10rpx 0;
 				display: flex;
 				flex-wrap: wrap;
-				.talke_title_list{
+
+				.talke_title_list {
 					background-color: #ecf2fd;
-					padding: 16rpx;
 					margin-right: 24rpx;
 					margin-bottom: 20rpx;
 					border-radius: 10rpx;
-					.item{
+
+					&.active {
+						background-color: #ccf2fd;
+						color: #00d6f9;
+					}
+
+					.item {
 						font-size: 26rpx;
+						padding: 16rpx;
 					}
 				}
 			}
-			.talke_main_text{
-				
-				.text_list{
+
+			.talke_main_text {
+
+				.text_list {
 					display: flex;
 					flex-direction: column;
 					border-bottom: 2rpx solid #ddd;
 					padding: 14rpx;
 					line-height: 60rpx;
-					.text_list_header{
+
+					.text_list_header {
 						display: flex;
-						/deep/.uniui-contact{
+
+						/deep/.uniui-contact {
 							color: #999 !important;
 						}
-						.lphone{
+
+						.lphone {
 							font-size: 26rpx;
 						}
-						.ltime{
+
+						.ltime {
 							margin-left: auto;
 							color: #999;
 							font-size: 24rpx;
 						}
 					}
-					.text_list_main{
+
+					.text_list_main {
 						background-color: rgba(200, 200, 200, 0.2);
 						padding: 10rpx 30rpx;
 						border-radius: 20rpx;
 						font-size: 24rpx;
 					}
-					.text_list_footer{
+
+					.text_list_footer {
 						margin-top: 8rpx;
 						font-size: 22rpx;
 						color: #999;
@@ -603,35 +608,41 @@
 				}
 			}
 		}
-		.title_M{
+
+		.title_M {
 			color: #999;
 			text-align: center;
 			font-size: 22rpx;
 			margin: 40rpx auto;
 		}
-		.foote_img{
+
+		.foote_img {
 			margin: 0 20rpx;
 			border-radius: 10rpx;
 			overflow: hidden;
 			padding: -8rpx;
-			.lang_img{
+
+			.lang_img {
 				width: 100%;
 			}
 		}
-		.bottom_nav{
+
+		.bottom_nav {
 			position: fixed;
 			width: 100%;
 			bottom: 0;
 			left: 0;
-			/deep/.uni-tab__cart-box{
+
+			/deep/.uni-tab__cart-box {
 				padding: 20rpx 0;
-				.uni-tab__cart-button-right{
-				margin-right: 10rpx;
-				border-radius: 100px;
+
+				.uni-tab__cart-button-right {
+					margin-right: 10rpx;
+					border-radius: 100px;
+				}
 			}
-			}
-			
+
 		}
-		
+
 	}
 </style>

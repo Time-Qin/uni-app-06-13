@@ -176,7 +176,7 @@
 .content .content_talke .talke_header.data-v-b72866d4 {
   display: flex;
   justify-content: center;
-  padding-bottom: 20rpx ;
+  padding-bottom: 20rpx;
   border-bottom: 2rpx solid #999;
 }
 .content .content_talke .talke_header .title.data-v-b72866d4 {
@@ -201,13 +201,17 @@
 }
 .content .content_talke .talke_main .talke_title_list.data-v-b72866d4 {
   background-color: #ecf2fd;
-  padding: 16rpx;
   margin-right: 24rpx;
   margin-bottom: 20rpx;
   border-radius: 10rpx;
 }
+.content .content_talke .talke_main .talke_title_list.active.data-v-b72866d4 {
+  background-color: #ccf2fd;
+  color: #00d6f9;
+}
 .content .content_talke .talke_main .talke_title_list .item.data-v-b72866d4 {
   font-size: 26rpx;
+  padding: 16rpx;
 }
 .content .content_talke .talke_main_text .text_list.data-v-b72866d4 {
   display: flex;

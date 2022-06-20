@@ -35,6 +35,8 @@ const _sfc_main = {
       result1.msg === "Success" ? this.goodDatas = result1.data : "";
       if (result1.data.goods.length != 0) {
         this.goodcart = false;
+      } else {
+        this.goodcart = true;
       }
       let result = await common_js_requestHttp.GetRequest(`/api/goods/load?cityId=110&bid=1&fid=0&page=${this.pageIndex}&count=20&search=&total=34`);
       if (result.data.data.length < 10) {
@@ -50,10 +52,20 @@ const _sfc_main = {
     async postDatasCar(obj) {
       let result = await common_js_requestHttp.PostRequest("/api/cart/update ", obj);
       result.msg === "Success" ? this.goodDatas = result.data : "";
+      if (result.data.goods.length != 0) {
+        this.goodcart = false;
+      } else {
+        this.goodcart = true;
+      }
     },
     async postDatasCarDel(obj) {
       let result = await common_js_requestHttp.PostRequest("/api/cart/del ", obj);
       result.msg === "Success" ? this.goodDatas = result.data : "";
+      if (result.data.goods.length != 0) {
+        this.goodcart = false;
+      } else {
+        this.goodcart = true;
+      }
     },
     goTop() {
       common_vendor.index.pageScrollTo({
@@ -262,23 +274,25 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     o: common_vendor.o((...args) => $options.goTop && $options.goTop(...args)),
     p: $data.flag === true ? "block" : "none",
-    q: $data.goodDatas.master
+    q: $data.goodcart === false
+  }, $data.goodcart === false ? common_vendor.e({
+    r: $data.goodDatas.master
   }, $data.goodDatas.master ? {
-    r: $data.goodDatas.master.checkAll === true,
-    s: common_vendor.o((...args) => $options.Allchecked && $options.Allchecked(...args))
+    s: $data.goodDatas.master.checkAll === true,
+    t: common_vendor.o((...args) => $options.Allchecked && $options.Allchecked(...args))
   } : {}, {
-    t: $data.update === false
+    v: $data.update === false
   }, $data.update === false ? common_vendor.e({
-    v: $data.goodDatas.master
+    w: $data.goodDatas.master
   }, $data.goodDatas.master ? {
-    w: common_vendor.t($data.goodDatas.master.total)
+    x: common_vendor.t($data.goodDatas.master.total)
   } : {}, {
-    x: $data.goodDatas.master
+    y: $data.goodDatas.master
   }, $data.goodDatas.master ? {
-    y: common_vendor.t($data.goodDatas.master.buy || 0)
+    z: common_vendor.t($data.goodDatas.master.buy || 0)
   } : {}) : {
-    z: common_vendor.o((...args) => $options.delGoods && $options.delGoods(...args))
-  });
+    A: common_vendor.o((...args) => $options.delGoods && $options.delGoods(...args))
+  }) : {});
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-99da2408"], ["__file", "D:/2022_03file/hx/Project/Macke/pages/zhaojing/shopCar.vue"]]);
 _sfc_main.__runtimeHooks = 1;

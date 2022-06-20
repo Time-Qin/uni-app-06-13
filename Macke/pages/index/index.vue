@@ -154,7 +154,7 @@
 				switch (res.title) {
 					case '2022年父亲节':
 						uni.navigateTo({
-							url: '#'
+							url: '/pages/liuchenchen/pintuan'
 						});
 						return;
 					case '超值拼购':
@@ -163,8 +163,7 @@
 						});
 						return;
 					case '柠漾':{
-						let res1 = '';
-						res1 = res.url.lastIndexOf('?');
+						let res1 = res.url.lastIndexOf('?');
 						res1=res.url.slice(res1+1);
 						uni.navigateTo({
 							url: `./good_details?${res1}`
@@ -172,17 +171,16 @@
 						return;}
 					case '2022年新人活动':
 						uni.navigateTo({
-							url: '#'
+							url: '/pages/liuchenchen/pintuan'
 						});
 						return;
-				}
-				// let res = '';
-				// res = url.lastIndexOf('?');
-				// res=url.slice(res+1);
-				// // console.log(res,'111111111111');
-				// uni.navigateTo({
-				// 	url:`./good_details?${res}`
-				// });
+				};
+				
+				let src = res.lastIndexOf('?');
+				src = res.slice(src+1);
+				uni.navigateTo({
+					url:`./good_details?${src}`
+				});
 			},
 			gowhere(where){
 				console.log(where,'111111111111');
@@ -204,7 +202,7 @@
 						return;
 					case '配送范围':
 						uni.navigateTo({
-							phoneNumber: '#'
+							url: './mapView'
 						});
 						return;
 					case '签到有礼':

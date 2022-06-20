@@ -17,6 +17,7 @@
   background-color: pink;
 }
 .container .c-tapbar.data-v-730ad8d2 {
+  width: 100%;
   position: fixed;
   z-index: 999999999;
 }

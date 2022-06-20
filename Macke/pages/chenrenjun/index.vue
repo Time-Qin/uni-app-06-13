@@ -3,7 +3,7 @@
 		<header-nav :scrollTop="scrollTop" :one="one">
 			<view class="slot-left">
 				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
-				好好吃面包
+				美味蛋糕
 			</view>
 		</header-nav>
 		<!-- tapbar切换 -->
@@ -82,9 +82,8 @@
 					"tid": "0",
 					"tname": "全部"
 				})
-				this.getMcakes()
 			},
-			async getMcakes(fid) {
+			async getMcakes() {
 				let result = await GetRequest(`/api/goods/load?bid=1&tid=0&fid=${this.fid}&page=${this.page}&count=10`)
 				if (result.data.data.length < 10) {
 					this.hasMore = false
@@ -161,6 +160,7 @@
 		
 
 		.c-tapbar {
+			width: 100%;
 			position: fixed;
 			z-index: 999999999;
 			.tap-list {

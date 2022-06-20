@@ -5,6 +5,7 @@ var common_vendor = require("./common/vendor.js");
 var store_index = require("./store/index.js");
 if (!Math) {
   "./pages/index/index.js";
+  "./pages/index/mapView.js";
   "./pages/guowen/login.js";
   "./pages/guowen/shop.js";
   "./pages/guowen/eat-bread-well.js";

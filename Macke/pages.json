@@ -7,6 +7,13 @@
 			}
 		},
 		{
+				"path": "pages/index/mapView",
+				"style": {
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 20
+				}
+			},
+		{
 			"path": "pages/guowen/login",
 			"style": {
 				"navigationBarTitleText": "",

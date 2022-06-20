@@ -91,7 +91,7 @@
 		</view>
 
 		<!-- //全选总计 -->
-		<view class="end">
+		<view class="end" v-if="goodcart===false">
 			<view class="end-left">
 				<checkbox-group v-if="goodDatas.master">
 					<label>
@@ -156,6 +156,8 @@
 				result1.msg === "Success" ? (this.goodDatas = result1.data) : "";
 				if (result1.data.goods.length != 0) {
 					this.goodcart = false;
+				}else{
+					this.goodcart = true;
 				}
 				// console.log(this.goodDatas.goods, result1, this.goodcart, '11111111111111');
 				//推荐商品
@@ -179,11 +181,21 @@
 			async postDatasCar(obj) {
 				let result = await PostRequest('/api/cart/update ', obj);
 				result.msg === "Success" ? this.goodDatas = result.data : "";
+				if (result.data.goods.length != 0) {
+					this.goodcart = false;
+				}else{
+					this.goodcart = true;
+				}
 			},
 			//删除购物车中的商品
 			async postDatasCarDel(obj) {
 				let result = await PostRequest('/api/cart/del ', obj);
 				result.msg === "Success" ? (this.goodDatas = result.data) : "";
+				if (result.data.goods.length != 0) {
+					this.goodcart = false;
+				}else{
+					this.goodcart = true;
+				}
 				// console.log(this.goodDatas);
 			},
 			//回到顶部
