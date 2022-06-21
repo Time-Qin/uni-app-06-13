@@ -132,6 +132,9 @@
 	}
 </script>
 <style lang="less" scoped >
+	text,view{
+		box-sizing: content-box;
+	}
 	.search-result {
 		padding: 0 20px;
 		font-size: 12px;
@@ -210,8 +213,10 @@
 			flex-wrap: wrap;
 			width: 100%;
 			padding: 10px 0;
-			box-sizing: border-box;
 			justify-content: flex-start;
+			text,view{
+				box-sizing: content-box;
+			}
 
 			.mater {
 				background-color: #eee;

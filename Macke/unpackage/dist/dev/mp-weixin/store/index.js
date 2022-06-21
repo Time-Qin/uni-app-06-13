@@ -5,7 +5,8 @@ var store = common_vendor.createStore({
     carts: common_vendor.index.getStorageSync("carts") || [],
     history: common_vendor.index.getStorageSync("history") || [],
     goodsDatas: {},
-    user: {}
+    user: {},
+    address: ""
   },
   mutations: {
     addCarts(state, payload) {
@@ -19,11 +20,17 @@ var store = common_vendor.createStore({
       console.log(state.carts);
     },
     updateCart(state, payload) {
-      console.log(state.goodsDatas);
+      state.address = payload;
+      console.log(payload);
     },
     addHistory(state, payload) {
-      state.history.push(payload.history);
-      common_vendor.index.setStorageSync("history", state.history);
+      let find = state.history.find((item) => item === payload.history);
+      if (!find) {
+        state.history.push(payload.history);
+        common_vendor.index.setStorageSync("history", state.history);
+      } else {
+        return;
+      }
     },
     clearHistry(state) {
       state.history = [];

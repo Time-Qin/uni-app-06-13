@@ -7,8 +7,8 @@
 				<view class="french">{{item.french}}</view>
 				<view class="buy">
 					<view class="price">¥{{item.price}}</view>
-					<!-- <uni-icons type="cart" @click="addItem(item)" size="24" class="uni-icons" @click="getDatasCar(item.id)"></uni-icons> -->
-					<uni-icons type="cart" size="24" class="uni-icons" @click="getDatasCar(item.id)"></uni-icons>
+					<uni-icons type="cart" @click="addItem(item)" size="24" class="uni-icons"></uni-icons>
+					<!-- <uni-icons type="cart" size="24" class="uni-icons" @click="getDatasCar(item.id)"></uni-icons> -->
 				</view>
 				<!-- <car-view ref="Car" :contentDatas="contentDatas"></car-view> -->
 			</view>
@@ -38,7 +38,7 @@
 				// 	url: '/pages/index/good_details?id=' + id + '&twoId=' + twoid
 				// })
 				uni.navigateTo({
-					url: '/pages/index/good_details?id=' + id + '&twoId=' + twoid
+					url: '/pages/lanmin_detail/lanmin_detail?id=' + id + '&twoId=' + twoid
 				})
 			},
 			async addItem(item) {

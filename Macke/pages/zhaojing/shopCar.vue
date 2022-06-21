@@ -159,7 +159,6 @@
 				}else{
 					this.goodcart = true;
 				}
-				// console.log(this.goodDatas.goods, result1, this.goodcart, '11111111111111');
 				//推荐商品
 				let result = await GetRequest(
 					`/api/goods/load?cityId=110&bid=1&fid=0&page=${this.pageIndex}&count=20&search=&total=34`
@@ -167,7 +166,6 @@
 				if (result.data.data.length < 10) {
 					this.hasMore = false;
 				}
-				// console.log(result, this.pageIndex);
 				result.code === 0 ?
 					(this.goods = [...this.goods, ...result.data.data]) :
 					"";
@@ -196,7 +194,6 @@
 				}else{
 					this.goodcart = true;
 				}
-				// console.log(this.goodDatas);
 			},
 			//回到顶部
 			goTop() {
@@ -252,18 +249,15 @@
 						"blessing": ""
 					}]
 				}
-				// console.log(obj)
 				this.postDatasCar(obj);
 			},
 			Allchecked() {
 				if (this.goodDatas.master.checkAll) {
 					let list = this.newDatas(0);
 					this.postDatasCar(list);
-					// console.log(list);
 				} else {
 					let list = this.newDatas(1);
 					this.postDatasCar(list);
-					// console.log(list);
 				}
 			},
 			delGoods(){
@@ -277,7 +271,6 @@
 					}
 				};
 				this.postDatasCarDel(obj);
-				// console.log(obj);
 			},
 			newDatas(num) {
 				let obj = {
@@ -292,7 +285,6 @@
 					obj.goods[i].num = this.goodDatas.goods[i].num;
 					obj.goods[i].buy = num;
 					obj.goods[i].blessing = '';
-					console.log(this.goodDatas.goods[i].id,'3333333333333')
 				};
 				return obj
 			},

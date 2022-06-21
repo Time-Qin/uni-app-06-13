@@ -22,6 +22,7 @@ const _sfc_main = {
       console.log(result);
     },
     backTo() {
+      this.$store.commit("updateCart", this.myAddress.address);
       common_vendor.index.navigateBack();
     },
     changeAddress() {

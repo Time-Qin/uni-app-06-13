@@ -8,7 +8,7 @@
 		</header-nav>
 		<view class="page-body">
 			<view class="page-section page-section-gap">
-				<map style="width: 100%; height: 300px;" scale="10" longitude="120.3597929" latitude="31.5661341" :markers="covers"
+				<map style="width: 100%; height: 100vh;" scale="11" longitude="120.3597929" latitude="31.5661341" :markers="covers"
 				 :polygons="polygon"  >
 				</map>
 			</view>

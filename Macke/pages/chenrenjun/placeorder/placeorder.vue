@@ -3,7 +3,7 @@
 		<header-nav :scrollTop="scrollTop" :one="one">
 			<view class="slot-left">
 				<text class="iconfont icon-xiangzuo1" @click="backTo"></text>
-				全部订单
+				订单详情
 			</view>
 		</header-nav>
 		<view class="order">

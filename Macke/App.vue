@@ -28,9 +28,6 @@ page {
   background-color: #f5f5f5;
 
 }
-  text,view{
-	box-sizing: content-box; 
-  }
 
 
 /* #endif */

@@ -156,7 +156,6 @@ const _sfc_main = {
         obj.goods[i].num = this.goodDatas.goods[i].num;
         obj.goods[i].buy = num;
         obj.goods[i].blessing = "";
-        console.log(this.goodDatas.goods[i].id, "3333333333333");
       }
       return obj;
     },

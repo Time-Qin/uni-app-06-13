@@ -22,7 +22,7 @@
 		<view class="list">
 			<view class="list-tab">
 				<view class="tabs">
-					<text class="num">0</text>
+					<text class="num">{{member.points||0}}</text>
 				</view>
 				<text class="txt">积分</text>
 			</view>
@@ -156,7 +156,7 @@
 </template>
 <script>
 	import {
-		GetRequest
+		GetRequest,PostRequest
 	} from '@/common/js/requestHttp.js';
 	export default {
 		data() {
@@ -165,6 +165,7 @@
 				scrollTop: 0,
 				contentDatas: [],
 				user: {},
+				member:{},
 			}
 		},
 		created() {
@@ -174,7 +175,10 @@
 			async getGoods() {
 				let result = await GetRequest("/api/page/load?cityId=110&route=pages%2Fuser%2Findex");
 				this.goodlist = result.data.list[1].data.content.list;
-				console.log(this.goodlist)
+			},
+			async getself(){
+				let result = await PostRequest('/api/checkout/init');
+				result.msg === "Success" ? this.member = result.data.member : '';
 			},
 			// 购物车组件方法
 			async getDatasCar(sku) {
@@ -192,7 +196,8 @@
 			login() {
 				uni.navigateTo({
 					url: '/pages/guowen/login'
-				})
+				});
+				this.getself();
 			},
 			goOrder(){
 				uni.navigateTo({
@@ -205,6 +210,7 @@
 		},
 		onShow() {
 			this.user = uni.getStorageSync('user');
+			this.getself();
 		}
 	}
 </script>

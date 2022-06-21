@@ -207,16 +207,7 @@
 				"navigationStyle": "custom"
 			}
 		
-		},{
-            "path" : "invoicing/invoicing",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "开具发票",
-                "enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-            }
-            
-        }
+		}
         ,{
             "path" : "pages/chenrenjun/invoicing/invoicing",
             "style" :                                                                                    

@@ -62,6 +62,7 @@
 				console.log(result);
 			},
 			backTo(){
+				this.$store.commit('updateCart',this.myAddress.address);
 				uni.navigateBack();
 			},
 			changeAddress(){
@@ -81,6 +82,7 @@
 							method:'GET',
 							success:(res)=>{
 								this.myAddress = res.data.result;
+								// this.$store.state.commit('updateCart',this.myAddress.address);
 								console.log(res);
 							}
 						});

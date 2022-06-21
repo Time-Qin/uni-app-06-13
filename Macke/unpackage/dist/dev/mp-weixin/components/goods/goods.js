@@ -14,7 +14,7 @@ const _sfc_main = {
   methods: {
     goDetail(id, twoid) {
       common_vendor.index.navigateTo({
-        url: "/pages/index/good_details?id=" + id + "&twoId=" + twoid
+        url: "/pages/lanmin_detail/lanmin_detail?id=" + id + "&twoId=" + twoid
       });
     },
     async addItem(item) {
@@ -51,7 +51,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         d: common_vendor.t(item.name),
         e: common_vendor.t(item.french),
         f: common_vendor.t(item.price),
-        g: common_vendor.o(($event) => _ctx.getDatasCar(item.id)),
+        g: common_vendor.o(($event) => $options.addItem(item)),
         h: "f73ce21c-0-" + i0,
         i: item.title
       });

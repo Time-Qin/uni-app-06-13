@@ -7,7 +7,8 @@ const _sfc_main = {
       goodlist: [],
       scrollTop: 0,
       contentDatas: [],
-      user: {}
+      user: {},
+      member: {}
     };
   },
   created() {
@@ -17,7 +18,10 @@ const _sfc_main = {
     async getGoods() {
       let result = await common_js_requestHttp.GetRequest("/api/page/load?cityId=110&route=pages%2Fuser%2Findex");
       this.goodlist = result.data.list[1].data.content.list;
-      console.log(this.goodlist);
+    },
+    async getself() {
+      let result = await common_js_requestHttp.PostRequest("/api/checkout/init");
+      result.msg === "Success" ? this.member = result.data.member : "";
     },
     async getDatasCar(sku) {
       let result = await common_js_requestHttp.GetRequest(`/api/goods/detail?sku=${sku}&id=${sku}`);
@@ -34,6 +38,7 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: "/pages/guowen/login"
       });
+      this.getself();
     },
     goOrder() {
       common_vendor.index.navigateTo({
@@ -46,6 +51,7 @@ const _sfc_main = {
   },
   onShow() {
     this.user = common_vendor.index.getStorageSync("user");
+    this.getself();
   }
 };
 if (!Array) {
@@ -72,8 +78,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   } : {
     e: common_vendor.o((...args) => $options.login && $options.login(...args))
   }, {
-    f: common_vendor.o((...args) => $options.goOrder && $options.goOrder(...args)),
-    g: common_vendor.f($data.goodlist, (item, k0, i0) => {
+    f: common_vendor.t($data.member.points || 0),
+    g: common_vendor.o((...args) => $options.goOrder && $options.goOrder(...args)),
+    h: common_vendor.f($data.goodlist, (item, k0, i0) => {
       return {
         a: item.img,
         b: common_vendor.o(($event) => $options.gosku(item.sku)),
@@ -89,11 +96,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         j: item.title
       };
     }),
-    h: common_vendor.p({
+    i: common_vendor.p({
       type: "cart",
       size: "30"
     }),
-    i: common_vendor.p({
+    j: common_vendor.p({
       contentDatas: $data.contentDatas
     })
   });

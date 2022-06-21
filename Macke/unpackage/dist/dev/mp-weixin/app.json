@@ -26,7 +26,6 @@
         "pages/liuchenchen/qiaodao",
         "pages/liuchenchen/pintuan",
         "pages/zhaojing/myOrder",
-        "invoicing/invoicing",
         "pages/chenrenjun/invoicing/invoicing"
     ],
     "usingComponents": {
