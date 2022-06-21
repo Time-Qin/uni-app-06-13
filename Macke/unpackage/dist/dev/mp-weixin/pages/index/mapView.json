@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 20,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "header-nav": "../../components/header-nav/header-nav"
+  }
+}

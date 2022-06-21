@@ -1,0 +1,103 @@
+.container.data-v-3f958282 header-nav {
+  display: flex;
+}
+.container.data-v-3f958282 header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+.container.data-v-3f958282 header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.container.data-v-3f958282 header-nav .navBarBox {
+  background-color: #fff;
+}
+.container .item.data-v-3f958282 {
+  background-color: #fff;
+  display: flex;
+  width: 350px;
+  height: 120px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+.container .item .item-img.data-v-3f958282 {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+}
+.container .item .item-r.data-v-3f958282 {
+  background-color: #fff;
+  width: 210px;
+  height: 120px;
+}
+.container .item .item-r .item-header.data-v-3f958282 {
+  display: flex;
+  justify-content: space-between;
+}
+.container .item .item-r .item-title.data-v-3f958282 {
+  width: 100px;
+  height: 20px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.container .item .item-r .item-title2.data-v-3f958282 {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  white-space: nowrap;
+}
+.container .item .item-r .item-desc.data-v-3f958282 {
+  color: #a9a9a9;
+  margin-top: 10px;
+  font-size: 12px;
+  width: 210px;
+  height: 20px;
+}
+.container .item .item-r .item-tuan.data-v-3f958282 {
+  margin-top: 2px;
+}
+.container .item .item-r .item-tuan .tuan-num.data-v-3f958282 {
+  color: #f33;
+  font-size: 12px;
+}
+.container .item .item-r .item-tuan .tuan-txt.data-v-3f958282 {
+  font-size: 12px;
+}
+.container .item .item-r .item-footer.data-v-3f958282 {
+  display: flex;
+  justify-content: space-between;
+}
+.container .item .item-r .item-footer .footer-left.data-v-3f958282 {
+  display: flex;
+}
+.container .item .item-r .item-footer .footer-left .item-price.data-v-3f958282 {
+  color: red;
+  font-weight: 550;
+  font-size: 14px;
+}
+.container .item .item-r .item-footer .footer-left .item-disprice.data-v-3f958282 {
+  color: #a9a9a9;
+  font-size: 10px;
+  text-decoration: line-through;
+}
+.container .guize.data-v-3f958282 {
+  width: 355px;
+  margin: 2px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .guize .guize-c.data-v-3f958282 {
+  width: 335px;
+  margin: 5px 10px 20px 10px;
+}
+.container .guize .guize-c .guize-title.data-v-3f958282 {
+  margin: 8px auto;
+  text-align: center;
+}

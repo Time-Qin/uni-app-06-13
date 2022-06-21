@@ -1,0 +1,150 @@
+.container.data-v-62fe9648 {
+  background-color: #f96;
+  padding-bottom: 10vh;
+}
+.container.data-v-62fe9648 header-nav {
+  display: flex;
+}
+.container.data-v-62fe9648 header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: white;
+}
+.container.data-v-62fe9648 header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.container.data-v-62fe9648 header-nav .navBarBox {
+  background-color: #f96;
+}
+.container .user.data-v-62fe9648 {
+  width: 355px;
+  height: 60px;
+  margin: 0 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.container .user .user-left.data-v-62fe9648 {
+  display: flex;
+}
+.container .user .user-left .info.data-v-62fe9648 {
+  padding-top: 8px;
+}
+.container .user .user-left .tel.data-v-62fe9648 {
+  color: #fff;
+}
+.container .user .user-left .day.data-v-62fe9648 {
+  color: #fff;
+  font-size: 12px;
+}
+.container .user .btn.data-v-62fe9648 {
+  padding-top: 12px;
+  padding-right: 12px;
+}
+.container .getgifts.data-v-62fe9648 {
+  width: 355px;
+  height: 210px;
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.container .getgifts .gift-title.data-v-62fe9648 {
+  margin: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.container .getgifts .gift-bd.data-v-62fe9648 {
+  width: 347px;
+  height: 192px;
+  margin: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.container .getgifts .gift-bd .gift-item.data-v-62fe9648 {
+  width: 80px;
+  height: 80px;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .getgifts .gift-bd .gift-item .nthday.data-v-62fe9648 {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+.container .getgifts .gift-bd .gift-item .gift-img.data-v-62fe9648 {
+  width: 30px;
+  height: 30px;
+  margin: 5px auto;
+}
+.container .getgifts .gift-bd .gift-item .jifen.data-v-62fe9648 {
+  font-size: 12px;
+  text-align: center;
+  color: #a9a9a9;
+}
+.container .getgifts .gift-bd .gift-item7.data-v-62fe9648 {
+  width: 170px;
+  height: 80px;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.container .getgifts .gift-bd .gift-item7 .item7-nthday.data-v-62fe9648 {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+.container .getgifts .gift-bd .gift-item7 .item7-gift-img.data-v-62fe9648 {
+  width: 60px;
+  height: 80px;
+  margin: 5px auto;
+  padding-top: 20px;
+}
+.container .getgifts .gift-bd .gift-item7 .item7-jifen.data-v-62fe9648 {
+  font-size: 12px;
+  text-align: center;
+  color: #a9a9a9;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.container .dotask.data-v-62fe9648 {
+  width: 355px;
+  height: 250px;
+  margin: 0 10px 20px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .dotask .task-hd.data-v-62fe9648 {
+  margin: 8px;
+}
+.container .dotask .task-hd .task-txt.data-v-62fe9648 {
+  font-size: 12px;
+  font-weight: 700;
+}
+.container .dotask .task.data-v-62fe9648 {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 8px;
+}
+.container .dotask .task .task-left.data-v-62fe9648 {
+  display: flex;
+}
+.container .dotask .task .task-left .task-info.data-v-62fe9648 {
+  margin-left: 10px;
+}
+.container .dotask .task .task-left .task-title.data-v-62fe9648 {
+  font-size: 14px;
+  font-weight: 700;
+}
+.container .dotask .task .task-left .task-desc.data-v-62fe9648 {
+  font-size: 10px;
+  color: #a9a9a9;
+}
+.container .dotask .task .task-btn.data-v-62fe9648 {
+  margin-right: 10px;
+}

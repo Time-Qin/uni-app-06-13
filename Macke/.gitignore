@@ -1,4 +1,7 @@
 static/images
-unpackage/dist
+unpackage
+.DS_Store
+wxcomponents
+uni_modules
 
 

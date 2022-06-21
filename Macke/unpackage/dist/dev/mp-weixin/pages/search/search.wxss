@@ -1,0 +1,91 @@
+text.data-v-4cedc0c6,
+view.data-v-4cedc0c6 {
+  box-sizing: content-box;
+}
+.search-result.data-v-4cedc0c6 {
+  padding: 0 20px;
+  font-size: 12px;
+}
+.data-v-4cedc0c6 header-nav {
+  display: flex;
+}
+.data-v-4cedc0c6 header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+.data-v-4cedc0c6 header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.search.data-v-4cedc0c6 {
+  width: 100%;
+  display: flex;
+  padding: 0 10px;
+  overflow: hidden;
+}
+.search .input.data-v-4cedc0c6 {
+  width: 650rpx;
+}
+.search .input.input1.data-v-4cedc0c6 {
+  width: 700rpx;
+}
+.search .input.input1.data-v-4cedc0c6 .uni-searchbar .uni-searchbar__box {
+  flex: 1 !important;
+}
+.search .input.data-v-4cedc0c6 .uni-searchbar .uni-searchbar__box {
+  height: 32px !important;
+  flex: 0 0 600rpx !important;
+  border-radius: 20rpx !important;
+  background: #eee !important;
+}
+.search .btn.data-v-4cedc0c6 {
+  width: 100rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  font-size: 14px;
+  color: #888;
+}
+.hot.data-v-4cedc0c6,
+.history.data-v-4cedc0c6 {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.hot .tit.data-v-4cedc0c6,
+.history .tit.data-v-4cedc0c6 {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px;
+}
+.hot .head.data-v-4cedc0c6,
+.history .head.data-v-4cedc0c6 {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+.hot .content.data-v-4cedc0c6,
+.history .content.data-v-4cedc0c6 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px 0;
+  justify-content: flex-start;
+}
+.hot .content text.data-v-4cedc0c6,
+.history .content text.data-v-4cedc0c6,
+.hot .content view.data-v-4cedc0c6,
+.history .content view.data-v-4cedc0c6 {
+  box-sizing: content-box;
+}
+.hot .content .mater.data-v-4cedc0c6,
+.history .content .mater.data-v-4cedc0c6 {
+  background-color: #eee;
+  height: 16px;
+  line-height: 16px;
+  margin-left: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 10rpx;
+}

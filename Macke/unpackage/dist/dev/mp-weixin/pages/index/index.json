@@ -1,6 +1,9 @@
 {
-  "navigationBarTitleText": "uni-app",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 20,
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-swiper-dot": "../../uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot",
+    "car-view": "../../components/car-view/car-view"
+  }
 }

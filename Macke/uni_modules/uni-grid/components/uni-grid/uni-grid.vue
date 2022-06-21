@@ -106,7 +106,7 @@
 	}
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 	.uni-grid-wrap {
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -126,7 +126,6 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-
 	.uni-grid--border {
 		position: relative;
 		/* #ifdef APP-NVUE */

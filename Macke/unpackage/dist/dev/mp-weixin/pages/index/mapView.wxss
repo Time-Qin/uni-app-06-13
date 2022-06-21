@@ -1,0 +1,15 @@
+.map-view.data-v-768ec43b header-nav {
+  display: flex;
+}
+.map-view.data-v-768ec43b header-nav .slot-left {
+  margin-left: 20rpx;
+  flex: 1;
+  color: black;
+}
+.map-view.data-v-768ec43b header-nav .slot-left .icon-xiangzuo1 {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+.map-view.data-v-768ec43b header-nav .navBarBox {
+  background-color: #fff;
+}
